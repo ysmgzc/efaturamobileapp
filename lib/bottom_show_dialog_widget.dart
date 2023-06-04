@@ -1,0 +1,74 @@
+//ekranın altında açılan showdialog
+import 'package:flutter/material.dart';
+
+class CustomIconButton extends StatelessWidget {
+  final List<SheetOption> options;
+
+  CustomIconButton({required this.options});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.more_vert),
+      onPressed: () {
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          builder: (BuildContext context) {
+            return FractionallySizedBox(
+              child: Wrap(
+                children: <Widget>[
+                  const Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Text(
+                      'Seçenekler',
+                      style: TextStyle(fontSize: 16, color: Colors.blue),
+                    ),
+                  ),
+                  ...options
+                      .map((option) => _buildListTile(context, option))
+                      .toList(),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildListTile(BuildContext context, SheetOption option) {
+    return ListTile(
+      leading: option.icon,
+      title: Text(option.text),
+      onTap: () {
+        if (option.page != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => option.page!,
+            ),
+          );
+        } else if (option.onTap != null) {
+          option.onTap!();
+        }
+      },
+    );
+  }
+}
+
+class SheetOption {
+  final Widget icon;
+  final String text;
+  final Widget? page;
+  final VoidCallback? onTap;
+
+  SheetOption({
+    required this.icon,
+    required this.text,
+    this.page,
+    this.onTap,
+  }) : assert(
+            (page != null && onTap == null) || (onTap != null && page == null),
+            'Either page or onTap should be provided, not both');
+}

@@ -2,6 +2,7 @@
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteri_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/borc_alacak_ekle.dart';
+import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/musteri_duzenle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/musteri_islem_listesi/islem_listesi.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/odeme_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/tahsilat_ekle.dart';
@@ -180,7 +181,11 @@ class CustomWidget extends StatelessWidget {
                                   List<DialogOption> dialogOptions = [
                                     DialogOption(
                                       title: 'Düzenle',
-                                      onPressed: () {},
+                                      onPressed: () {
+                                         Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const MusteriDuzenleScreen(),
+                              ));
+                                      },
                                     ),
                                     DialogOption(
                                       title: "İşlem Listesi",

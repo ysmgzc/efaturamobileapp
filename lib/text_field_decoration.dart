@@ -30,7 +30,7 @@ class TextFieldDecoration extends StatelessWidget {
           ],
         ),
       ),
-      child: Container(
+      child: SizedBox(
         width: screenWidth * widthFactor,
         height: screenHeight * heightFactor,
         child: TextField(

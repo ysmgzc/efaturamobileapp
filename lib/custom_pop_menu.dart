@@ -13,7 +13,8 @@ class CustomPopMenuWidget extends StatefulWidget {
   final double dividerEndIndent;
   final bool showDivider;
 
-  CustomPopMenuWidget({
+ const CustomPopMenuWidget({
+    Key? key,
     required this.width,
     required this.height,
     required this.title,
@@ -24,7 +25,7 @@ class CustomPopMenuWidget extends StatefulWidget {
     this.dividerIndent = 0,
     this.dividerEndIndent = 0,
     this.showDivider = false,
-  });
+  }): super(key: key);
 
   @override
   _CustomPopMenuWidgetState createState() => _CustomPopMenuWidgetState();
@@ -68,7 +69,7 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     width: widget.menuWidth - 40,  // Icon ve padding için ayrılan alan 
                     child: Text(
                       selectedValue ?? "18",
@@ -92,7 +93,7 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
               return widget.items.map((value) {
                 return PopupMenuItem(
                   value: value,
-                  child: Container(
+                  child: SizedBox(
                     width: widget.menuItemsWidth,
                     child: Text(value),
                   ),

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class CustomIconButton extends StatelessWidget {
   final List<SheetOption> options;
 
-  CustomIconButton({required this.options});
+  const CustomIconButton({
+    Key? key,
+    required this.options
+    }): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,5 +73,5 @@ class SheetOption {
     this.onTap,
   }) : assert(
             (page != null && onTap == null) || (onTap != null && page == null),
-            'Either page or onTap should be provided, not both');
+            ' ');
 }

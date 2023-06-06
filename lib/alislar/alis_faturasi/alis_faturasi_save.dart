@@ -238,7 +238,7 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
             IgnorePointer(
               child: Padding(
                 padding: const EdgeInsets.only(top: 20),
-                child: Container(
+                child: SizedBox(
                   height: screenHeight * 0.07,
                     width: screenWidth * 0.94,
                   child:const Align(

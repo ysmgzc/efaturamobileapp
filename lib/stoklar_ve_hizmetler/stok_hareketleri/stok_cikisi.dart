@@ -120,7 +120,7 @@ class _StokCikisiEkleState extends State<StokCikisiEkle> {
                   });
                 }
               },
-              child: Container(
+              child: SizedBox(
                 width: screenWidth * 0.40,
                 height: screenHeight * 0.07,
                 child: Align(

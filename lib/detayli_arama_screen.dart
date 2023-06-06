@@ -70,9 +70,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "İşlem Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Perakede Satış Faturası",
         "Toptan Satış Faturası",
       ],
@@ -333,9 +333,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Alınan Hizmet",
         "Verilen Hizmet",
       ],
@@ -351,9 +351,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
                  showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Muhsasebe Notu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "İşlem bekliyor",
         "Muhasebeleşti",
         "Kaydedilmedi",
@@ -371,9 +371,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
               showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Makbuz Türü",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Kağıt",
         "E-SMM",
       ],
@@ -389,9 +389,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
               showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "E-SMM Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Henüz imzaya\ngönderilmedi",
         "E-makbuz oluşturuldu",
         "E-makbuz paketlendi",
@@ -412,9 +412,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
             showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Kapanmış",
         "Bekleyen",
         "İptal",
@@ -431,9 +431,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "E-SMM Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Ödendi",
         "Ödenecek",
       ],
@@ -448,9 +448,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Aktif",
         "Pasif",
       ],
@@ -465,9 +465,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Bakiye Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Tahsil Edilecek",
         "Ödenecek",
       ],
@@ -482,9 +482,9 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
                  showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Müşteri & Tedarikçi Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Müşteri / Tedarikçi",
         "Müşteri",
         "Tedarikçi",
@@ -554,7 +554,11 @@ class ShowDialogCheckBox extends StatefulWidget {
   final String dialogTitle;
   final List<String> checkboxTexts;
 
-  ShowDialogCheckBox({required this.dialogTitle, required this.checkboxTexts});
+ const ShowDialogCheckBox({
+    Key? key,
+    required this.dialogTitle, 
+    required this.checkboxTexts
+    }): super(key: key);
 
   @override
   _ShowDialogCheckBoxState createState() => _ShowDialogCheckBoxState();
@@ -634,7 +638,12 @@ class CustomDatePickerDialog extends StatefulWidget {
   final String startText;
   final String endText;
 
-  const CustomDatePickerDialog({this.titleText = 'Vade Tarihi', this.startText = 'BAŞLANGIÇ TARİHİ', this.endText = 'BİTİŞ TARİHİ'});
+  const CustomDatePickerDialog({
+    Key? key, 
+    this.titleText = 'Vade Tarihi',
+     this.startText = 'BAŞLANGIÇ TARİHİ',
+      this.endText = 'BİTİŞ TARİHİ'
+      }): super(key: key);
 
   @override
   _CustomDatePickerDialogState createState() => _CustomDatePickerDialogState();

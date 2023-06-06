@@ -9,20 +9,21 @@ class OzelDugme extends StatelessWidget {
   final String hintText;
 
   const OzelDugme({
+    Key? key,
     required this.metin,
     required this.baslik,
     required this.aciklama,
     required this.keyboardType,
     required this.onEkle,
     required this.hintText,
-  });
+  }): super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
+    return SizedBox(
       width: screenWidth * 0.9,
       height: screenHeight * 0.07,
       child: ElevatedButton(

@@ -96,7 +96,7 @@ class _HizmetMasrafSaveState extends State<HizmetMasrafSave> {
                         ],
                       ),
                     ),
-                    child: Container(
+                    child: SizedBox(
                       width: screenWidth * 0.9,
                       height: screenHeight * 0.07,
                       child:const Align(
@@ -168,7 +168,7 @@ class _HizmetMasrafSaveState extends State<HizmetMasrafSave> {
                                       });
                                     }
                                   },
-                                  child: Container(
+                                  child: SizedBox(
                                     width: screenWidth * 0.40,
                                     height: screenHeight * 0.07,
                                     child: Align(
@@ -247,7 +247,7 @@ class _HizmetMasrafSaveState extends State<HizmetMasrafSave> {
                         ],
                       ),
                     ),
-                    child: Container(
+                    child: SizedBox(
                       width: screenWidth * 0.9,
                       height: screenHeight * 0.07,
                       child:const Align(

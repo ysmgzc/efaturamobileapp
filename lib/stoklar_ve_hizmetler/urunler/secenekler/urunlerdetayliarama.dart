@@ -47,9 +47,9 @@ class _UrunlerDetayliAramaState extends State<UrunlerDetayliArama> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Aktif",
         "Pasif",
       ],

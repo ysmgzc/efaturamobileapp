@@ -83,7 +83,7 @@ class _KasaEkleState extends State<KasaEkle> {
                   children: [
                     const Text('Kasa Adı', style: TextStyle(color: Colors.white, fontSize: 14)),
                     const SizedBox(height: 8),
-                    Container(
+                    SizedBox(
                       width: screenWidth * 0.8,
                       height: screenHeight * 0.07,
                       child: TextField(
@@ -199,7 +199,7 @@ class _KasaEkleState extends State<KasaEkle> {
                 });
               }
             },
-            child: Container(
+            child: SizedBox(
             width: screenWidth * 0.9,
                   height: screenHeight * 0.07,
               child: Align(

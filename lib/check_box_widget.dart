@@ -5,9 +5,10 @@ class CheckBoxWidget extends StatefulWidget {
   final ValueChanged<bool?> onChanged;
 
   const CheckBoxWidget({
+    Key? key, 
     required this.value,
     required this.onChanged,
-  });
+  }): super(key: key);
 
   @override
   _CheckBoxWidgetState createState() => _CheckBoxWidgetState();

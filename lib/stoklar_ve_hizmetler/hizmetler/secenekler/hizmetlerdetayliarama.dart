@@ -48,9 +48,9 @@ class _HizmetlerDetayliAramaState extends State<HizmetlerDetayliArama> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Alınan Hizmet",
         "Verilen Hizmet",
       ],
@@ -66,9 +66,9 @@ class _HizmetlerDetayliAramaState extends State<HizmetlerDetayliArama> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Aktif",
         "Pasif",
       ],

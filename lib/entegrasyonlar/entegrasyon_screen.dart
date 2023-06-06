@@ -164,7 +164,7 @@ class EntegrasyonWidget extends StatelessWidget {
         );
       },
       child: Center(
-        child: Container(
+        child: SizedBox(
           width: screenWidth * 0.95,
           height: screenHeight * 0.4,
           child: Padding(

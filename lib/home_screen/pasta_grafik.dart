@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class DonutChart extends StatelessWidget {
+  const DonutChart({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     List<double> tlValues = [50, 100];

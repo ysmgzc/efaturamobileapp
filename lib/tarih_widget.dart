@@ -20,7 +20,7 @@ class TarihWidget {
       onTap: () => selectDate(context, dateInput),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          return Container(
+          return SizedBox(
             width: constraints.maxWidth * widthFactor,
             height: constraints.maxHeight * heightFactor,
             child: Align(

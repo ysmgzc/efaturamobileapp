@@ -62,7 +62,7 @@ int sonuc = value2 - value1;
          padding:const EdgeInsets.only(top: 10),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               child: Center(
                 child: Padding(
                  padding: const EdgeInsets.only(left: 10,right: 10),
@@ -299,7 +299,7 @@ Padding(
       padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 250,
             width: 800,
             child: Stack(
@@ -372,70 +372,69 @@ Padding(
   ),
 ),
 //-----------------------------------------------------
- Container(
-  child: Center(
-    child: Padding(
-     padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(5.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(0, 0),
-              blurRadius: 20,
-              color: Colors.grey.shade300,
-            ),
-          ],
+ Center(
+  child: Padding(
+    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+    child: Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(5.0),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-            const  Padding(
-                         padding:  EdgeInsets.only(left: 15,right: 15),
-                         child: Row(
-                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                     children: [
-                             Text(
-                               "Toplam Nakit",
-                               style: TextStyle(
-                                 color: yTextColor3,
-                                 fontWeight: FontWeight.bold,
-                                 fontSize: 18,
-                               ),
-                             ),
-                             Text(
-                               "₺0.00",
-                                // '₺: ${total.toStringAsFixed(2)}',
-                               style: TextStyle(
-                                 color: yTextColor3,
-                                 fontSize: 18,
-                               ),
-                             ),
-                           ],
-                         ),
-                       ),
-              const SizedBox(height: 16.0),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, 0),
+            blurRadius: 20,
+            color: Colors.grey.shade300,
+          ),
+        ],
+      ),
+      child:const Padding(
+        padding:  EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            Padding(
+              padding:  EdgeInsets.only(left: 15, right: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                 Container(
-                  height: 200, 
-                  width: 200,  
-                  child: DonutChart(),
-                ),
+                  Text(
+                    "Toplam Nakit",
+                    style: TextStyle(
+                      color: yTextColor3,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Text(
+                    "₺0.00",
+                    // '₺: ${total.toStringAsFixed(2)}',
+                    style: TextStyle(
+                      color: yTextColor3,
+                      fontSize: 18,
+                    ),
+                  ),
                 ],
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 16.0),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 200,
+                  width: 200,
+                  child: DonutChart(),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     ),
   ),
 ),
+
 
             //----------------------------------------   
 

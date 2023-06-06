@@ -5,10 +5,10 @@ import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/toplam_tutar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import '../custom_pop_menu.dart';
 import '../kamera_showdialog_widget.dart';
 import '../urunekleborder.dart';
+
 
 enum OdemeDurumu { odendi, odenecek }
 enum Indirim { tutar, oran }
@@ -64,7 +64,7 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
             color: Colors.black,
           ),
           onPressed: () {
-            KameraShowDialogWidget(context);
+            kameraShowDialogWidget(context);
           },
         ),
         title: const Text(
@@ -97,7 +97,7 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
                       ],
                     ),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
                     child: ElevatedButton(
@@ -177,7 +177,7 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
                                     });
                                   }
                                 },
-                                child: Container(
+                                child: SizedBox(
                                   width: screenWidth * 0.40,
                                   height: screenHeight * 0.07,
                                   child: Align(
@@ -277,7 +277,7 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
                               });
                             }
                           },
-                          child: Container(
+                          child: SizedBox(
                             width: screenWidth * 0.9,
                             height: screenHeight * 0.07,
                             child: Align(
@@ -334,12 +334,12 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
                     width: 0.7,
                   ),
                   const SizedBox(width: 15),
-                  Container(
+                  SizedBox(
                     width: screenWidth * 0.1,
                     child: IconButton(
                       icon: const Icon(Icons.camera_alt),
                       onPressed: () {
-                         KameraShowDialogWidget(context);
+                         kameraShowDialogWidget(context);
                       },
                     ),
                   ),
@@ -368,7 +368,7 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
                   //Expanded(child: Container()),
                  TextButton(
   onPressed: () async {
-    print('TextButton tıklandı');
+    
 await showDialog<void>(
   context: context,
   //barrierDismissible: false,
@@ -376,7 +376,7 @@ await showDialog<void>(
     return StatefulBuilder(
       builder: (context, setState) {
         return AlertDialog(
-          title: Text('İndirim'),
+          title:const Text('İndirim'),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
@@ -396,13 +396,13 @@ await showDialog<void>(
                             }
                           },
                         ),
-                         Text(
+                       const  Text(
                       'Tutar (TL)',
                       style: TextStyle(fontSize: 14),
                     ),
                       ],
                     ),
-                   SizedBox(width: 25,),
+                  const SizedBox(width: 25,),
                     Row(
                       children: [
                         Radio<Indirim>(
@@ -416,7 +416,7 @@ await showDialog<void>(
                             }
                           },
                         ),
-                       Text(
+                      const Text(
                       'Oran',
                       style: TextStyle(fontSize: 14),
                     ),  
@@ -430,7 +430,7 @@ await showDialog<void>(
                       Expanded(
                         child: TextField(
                           controller: _textFieldController1,
-                          decoration: InputDecoration(
+                          decoration:const InputDecoration(
                             labelText: "0,00",
                           ),
                         ),
@@ -439,7 +439,7 @@ await showDialog<void>(
                       Expanded(
                         child: TextField(
                           controller: _textFieldController2,
-                          decoration: InputDecoration(
+                          decoration:const InputDecoration(
                             labelText: "0,00",
                           ),
                         ),

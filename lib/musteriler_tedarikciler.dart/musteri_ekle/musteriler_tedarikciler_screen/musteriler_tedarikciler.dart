@@ -164,13 +164,14 @@ class CustomWidget extends StatelessWidget {
    // final VoidCallback onTap;
 
   const CustomWidget({
+    Key? key,
     this.avatarText = '',
     this.tedarikciAdi = '',
     this.lokasyon,
     this.paraBirimi = '',
     this.durumu = '',
       //  required this.onTap,
-  });
+  }): super(key: key);
 
   @override
   Widget build(BuildContext context) {

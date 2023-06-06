@@ -195,14 +195,15 @@ body: SingleChildScrollView(
                               DateFormat('dd MM yyyy').format(DateTime.now()),
                               style:const TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:yTextColor),
                             ),
-                        ),SizedBox(height: 50,)
+                        ),
+                        const SizedBox(height: 50,)
                       ],
                     ),
                   ),
                 ),
               ],
             ),
-            SeceneklerButton(),
+          const  SeceneklerButton(),
              const SizedBox(height: 20,),
            UrunEkleBorderSaveAnimasyonsuz(
           screenHeight: screenHeight, 
@@ -222,7 +223,7 @@ body: SingleChildScrollView(
         ),
       Padding(
               padding:const  EdgeInsets.only(top: 20),
-              child: Container(
+              child: SizedBox(
                 height: screenHeight * 0.07,
                   width: screenWidth * 0.94,
                 child:const Align(

@@ -68,9 +68,9 @@ class _CeklerDetayliAramaState extends State<CeklerDetayliArama> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Durum",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Pörtföyde",
         "Ciro Edildi",
         "Tahsil Edildi",
@@ -152,9 +152,9 @@ class _CeklerDetayliAramaState extends State<CeklerDetayliArama> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Müşteri Çeki",
         "Kendi Çekimiz",
       ],

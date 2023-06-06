@@ -106,13 +106,14 @@ class HomePageWidget extends StatelessWidget {
   final String asset;
   final String text;
 
-  HomePageWidget({
+ const HomePageWidget({
+    Key? key,
     required this.screenWidth,
     required this.screenHeight,
     required this.route,
     required this.asset,
     required this.text
-  });
+  }): super(key: key);
 
   @override
   Widget build(BuildContext context) {

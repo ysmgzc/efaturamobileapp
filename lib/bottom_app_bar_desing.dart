@@ -5,6 +5,7 @@ class BottomAppBarDesign extends StatelessWidget {
   final Color backgroundColor;
   final int saveButtonFlex;
   final String text;
+  final Widget? child;
 
   const BottomAppBarDesign({
     Key? key,
@@ -12,13 +13,14 @@ class BottomAppBarDesign extends StatelessWidget {
     this.backgroundColor = const Color(0xffD9B26D),
     this.saveButtonFlex = 4,
     this.text = "Kaydet",
+    this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
       color: backgroundColor,
-      child: Container(
+      child: SizedBox(
         height: 50.0,
         child: Row(
           children: [
@@ -26,12 +28,14 @@ class BottomAppBarDesign extends StatelessWidget {
               flex: saveButtonFlex,
               child: TextButton(
                 onPressed: onSaveButtonPressed,
-                child: Text(text, style:const TextStyle(color: Colors.white)),
                 style: TextButton.styleFrom(
                   backgroundColor: backgroundColor,
                 ),
+                child: Text(text, style:const TextStyle(color: Colors.white)),
+
               ),
             ),
+            if (child != null) child!,
           ],
         ),
       ),

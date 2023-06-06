@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-Future<dynamic> KameraShowDialogWidget(BuildContext context) {
+Future<dynamic> kameraShowDialogWidget(BuildContext context) {
   return showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -53,13 +53,13 @@ Future<dynamic> KameraShowDialogWidget(BuildContext context) {
 }
 
 Future<XFile?> _kameradanResimSec() async {
-  final ImagePicker _picker = ImagePicker();
-  final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+  final ImagePicker picker = ImagePicker();
+  final XFile? image = await picker.pickImage(source: ImageSource.camera);
   return image;
 }
 
 Future<XFile?> _galeridenResimSec() async {
-  final ImagePicker _picker = ImagePicker();
-  final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+  final ImagePicker picker = ImagePicker();
+  final XFile? image = await picker.pickImage(source: ImageSource.gallery);
   return image;
 }

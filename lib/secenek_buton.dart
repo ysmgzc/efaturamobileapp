@@ -2,6 +2,8 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 
 class SeceneklerButton extends StatefulWidget {
+  const SeceneklerButton({Key? key}) : super(key: key);
+  
   @override
   _SeceneklerButtonState createState() => _SeceneklerButtonState();
 }

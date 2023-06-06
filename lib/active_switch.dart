@@ -6,8 +6,9 @@ class ActiveSwitch extends StatefulWidget {
   final Function(bool)? onChanged;
 
     const ActiveSwitch({
+      Key? key, 
     this.showDialog = false, this.onChanged
-    });
+    }): super(key: key);
 
   @override
     _ActiveSwitchState  createState() => _ActiveSwitchState();

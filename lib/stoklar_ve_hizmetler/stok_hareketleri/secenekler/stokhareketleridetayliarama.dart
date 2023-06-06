@@ -65,9 +65,9 @@ class _StokHareketleriDetayliAramaState extends State<StokHareketleriDetayliAram
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "İşlem Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Satış Faturası",
         "Alış Faturası",
         "Satış Siparişi",

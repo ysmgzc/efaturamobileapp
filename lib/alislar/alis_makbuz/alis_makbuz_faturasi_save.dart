@@ -121,7 +121,7 @@ class _AlisMakbuzFaturasiState extends State<AlisMakbuzFaturasi> {
                       assetPath: 'assets/icons/persongreenicon.png',
                       ),
                   ),
-                    Container(
+                    SizedBox(
                       height: screenHeight * 0.08,
                       width: screenWidth * 0.47,
                     )

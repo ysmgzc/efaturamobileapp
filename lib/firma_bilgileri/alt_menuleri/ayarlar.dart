@@ -73,7 +73,7 @@ class _AyarlarScreenState extends State<AyarlarScreen> {
                       ],
                     ),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
                     child: ElevatedButton(

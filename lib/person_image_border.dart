@@ -44,7 +44,7 @@ class PersonImageBorder extends StatelessWidget {
                     );
                   }
                   else {
-                    KameraShowDialogWidget(context); 
+                    kameraShowDialogWidget(context); 
                   }
                 },
                 style: TextButton.styleFrom(

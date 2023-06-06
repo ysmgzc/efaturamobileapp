@@ -12,7 +12,11 @@ class SimpleBarChart extends StatefulWidget {
   final List<FinancialData> data;
   final bool animate;
 
-  SimpleBarChart({required this.data, this.animate = false});
+ const SimpleBarChart({
+    Key? key,
+    required this.data, 
+    this.animate = false
+    }): super(key: key);
 
   @override
   _SimpleBarChartState createState() => _SimpleBarChartState();

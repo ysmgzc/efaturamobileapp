@@ -198,9 +198,9 @@ class _AlisMakbuzDetayliAramaState extends State<AlisMakbuzDetayliArama> {
               showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Makbuz Türü",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Kağıt",
         "E-SMM",
       ],
@@ -216,9 +216,9 @@ class _AlisMakbuzDetayliAramaState extends State<AlisMakbuzDetayliArama> {
               showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "E-SMM Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Henüz imzaya\ngönderilmedi",
         "E-makbuz oluşturuldu",
         "E-makbuz paketlendi",

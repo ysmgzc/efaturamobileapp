@@ -70,9 +70,9 @@ class _AlisFaturasiDetayliAramaState extends State<AlisFaturasiDetayliArama> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "İşlem Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Perakede Satış Faturası",
         "Toptan Satış Faturası",
       ],
@@ -286,9 +286,9 @@ class _AlisFaturasiDetayliAramaState extends State<AlisFaturasiDetayliArama> {
                  showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Muhsasebe Notu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "İşlem bekliyor",
         "Muhasebeleşti",
         "Kaydedilmedi",

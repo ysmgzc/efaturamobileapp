@@ -107,7 +107,7 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
                       ],
                     ),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
                     child: ElevatedButton(
@@ -151,7 +151,7 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
                       ],
                     ),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
                     child: ElevatedButton(
@@ -264,7 +264,7 @@ const Divider(),
                 });
               }
             },
-            child: Container(
+            child: SizedBox(
             width: screenWidth * 0.9,
                   height: screenHeight * 0.07,
               child: Align(

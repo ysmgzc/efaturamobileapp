@@ -80,7 +80,7 @@ class _BorcAlacakEkleState extends State<BorcAlacakEkle> {
                       ],
                     ),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
                     child:const Align(
@@ -196,7 +196,7 @@ class _BorcAlacakEkleState extends State<BorcAlacakEkle> {
                 });
               }
             },
-            child: Container(
+            child: SizedBox(
             width: screenWidth * 0.4,
                   height: screenHeight * 0.07,
               child: Align(

@@ -67,9 +67,9 @@ class _SatisOzetiDetayliAramaState extends State<SatisOzetiDetayliArama> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "İşlem Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Perakede Satış Faturası",
         "Toptan Satış Faturası",
       ],
@@ -114,9 +114,9 @@ class _SatisOzetiDetayliAramaState extends State<SatisOzetiDetayliArama> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Ürün",
         "Hizmet",
       ],

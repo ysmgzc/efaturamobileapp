@@ -65,9 +65,9 @@ class _MusteriVeTedarikciDetayliAramaState extends State<MusteriVeTedarikciDetay
                  showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Müşteri & Tedarikçi Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Müşteri / Tedarikçi",
         "Müşteri",
         "Tedarikçi",
@@ -84,9 +84,9 @@ class _MusteriVeTedarikciDetayliAramaState extends State<MusteriVeTedarikciDetay
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Bakiye Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Tahsil Edilecek",
         "Ödenecek",
       ],
@@ -101,9 +101,9 @@ class _MusteriVeTedarikciDetayliAramaState extends State<MusteriVeTedarikciDetay
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Aktif",
         "Pasif",
       ],

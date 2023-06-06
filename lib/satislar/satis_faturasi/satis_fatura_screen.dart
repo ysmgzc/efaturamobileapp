@@ -49,11 +49,14 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
                 text: 'Detaylı Arama',
                 page: const SatisFaturasiDetayliArama(),
               ),
-              SheetOption(
+             SheetOption(
                 icon: const Icon(Icons.send, color: Colors.black),
                 text: 'Gönder',
-                page: const YeniRaporEkle(),
+                onTap: () {
+                  eventBus.fire(ContainerSelectedEvent(true));
+                },
               ),
+
               SheetOption(
                 icon: const Icon(Icons.print, color: Colors.black),
                 text: 'Yazdır',

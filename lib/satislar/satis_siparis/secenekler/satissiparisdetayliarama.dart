@@ -109,9 +109,9 @@ class _SatisSiparisDetayliAramaState extends State<SatisSiparisDetayliArama> {
             showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Kapanmış",
         "Bekleyen",
         "İptal",
@@ -128,9 +128,9 @@ class _SatisSiparisDetayliAramaState extends State<SatisSiparisDetayliArama> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Ödemeli",
         "Ödemesiz",
       ],

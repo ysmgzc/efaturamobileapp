@@ -110,7 +110,7 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
                   children: [
                     const Text('Müşteri Unvanı', style: TextStyle(color: Colors.white, fontSize: 14)),
                     const SizedBox(height: 8),
-                    Container(
+                    SizedBox(
                       width: screenWidth * 0.8,
                       height: screenHeight * 0.07,
                       child: TextField(
@@ -333,7 +333,7 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
                       ],
                     ),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
                     child: ElevatedButton(
@@ -448,7 +448,7 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
                 });
               }
             },
-            child: Container(
+            child: SizedBox(
             width: screenWidth * 0.9,
                   height: screenHeight * 0.07,
               child: Align(

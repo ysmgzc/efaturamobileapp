@@ -47,9 +47,9 @@ class _MasrafOzetiDetayliAramaState extends State<MasrafOzetiDetayliArama> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "İşlem Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Alış Faturası",
         "Giderler",
       ],
@@ -65,9 +65,9 @@ class _MasrafOzetiDetayliAramaState extends State<MasrafOzetiDetayliArama> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Ödeme Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Ödendi",
         "Ödenecek",
       ],
@@ -117,9 +117,9 @@ class _MasrafOzetiDetayliAramaState extends State<MasrafOzetiDetayliArama> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Hizmet Adı",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Brüt Ücretler",
         "Danışmanlık Giderleri",
         "Demirbaş ve Bakım\nOnarım Giderleri",

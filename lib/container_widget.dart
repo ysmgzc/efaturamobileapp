@@ -1,9 +1,11 @@
 //satis_faturaları, satis_siparisler, satis_serbest_meslek_makbuzu,
 //alis_faturaları, alis_siparisler, alis_serbest_meslek_makbuzu, giderler
-import 'package:efaturamobileapp/constants.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 
-class ContainerWidget extends StatelessWidget {
+EventBus eventBus = EventBus();
+
+class ContainerWidget extends StatefulWidget {
   final String tedarikciAdi;
   final String? tedarikciNo;
   final String? tarih;
@@ -16,25 +18,55 @@ class ContainerWidget extends StatelessWidget {
   final IconData? icon;
 
   const ContainerWidget({
+    Key? key, 
     required this.tedarikciAdi,
-     this.tedarikciNo,
-     this.tarih,
-     this.ustTarih,
+    this.tedarikciNo,
+    this.tarih,
+    this.ustTarih,
     required this.paraBirimi,
     this.durumu,
     this.durumuSag,
     this.odemeVadesi,
     this.icon,
     required this.page,
-  });
+  }): super(key: key);
+
+  @override
+  _ContainerWidgetState createState() => _ContainerWidgetState();
+}
+
+class _ContainerWidgetState extends State<ContainerWidget> {
+  bool isSelected = false;
+
+  @override
+  void initState() {
+    super.initState();
+    eventBus.on<ContainerSelectedEvent>().listen((event) {
+      if (mounted) {
+        setState(() {
+          isSelected = event.isSelected;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    Widget checkBox = Checkbox(
+      value: isSelected,
+      onChanged: (value) {
+        setState(() {
+          isSelected = value!;
+        });
+      },
+    );
+
     return InkWell(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => page,
+            builder: (context) => widget.page,
           ),
         );
       },
@@ -43,21 +75,20 @@ class ContainerWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            if (isSelected) checkBox,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                    Text(ustTarih??"", style: const TextStyle(
-                        color: yTextColor,
-                        fontSize: 14,)),
+                Text(widget.ustTarih ?? "", style: const TextStyle(color: Colors.grey, fontSize: 14)),
                 Row(
                   children: [
-                     if (icon != null) Icon(icon),
-                    Text(tedarikciAdi, style: const TextStyle(color: Colors.black, fontSize: 16)),
+                    if (widget.icon != null) Icon(widget.icon),
+                    Text(widget.tedarikciAdi, style: const TextStyle(color: Colors.black, fontSize: 16)),
                   ],
                 ),
-                Text(tedarikciNo??"", style: const TextStyle(color: Colors.grey, fontSize: 14)),
-                if (durumu != null) Text(durumu!, style: const TextStyle(color: Colors.grey, fontSize: 14)),
-                if (odemeVadesi != null) Text(odemeVadesi!, style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                Text(widget.tedarikciNo ?? "", style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                if (widget.durumu != null) Text(widget.durumu!, style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                if (widget.odemeVadesi != null) Text(widget.odemeVadesi!, style: const TextStyle(color: Colors.grey, fontSize: 14)),
               ],
             ),
             Align(
@@ -65,13 +96,9 @@ class ContainerWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(tarih??"",
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      )),
-                  Text(paraBirimi, style: const TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold)),
-                  if (durumuSag != null) Text(durumuSag!, style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                  Text(widget.tarih ?? "", style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                  Text(widget.paraBirimi, style: const TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold)),
+                  if (widget.durumuSag != null) Text(widget.durumuSag!, style: const TextStyle(color: Colors.grey, fontSize: 14)),
                 ],
               ),
             ),
@@ -80,4 +107,9 @@ class ContainerWidget extends StatelessWidget {
       ),
     );
   }
+}
+class ContainerSelectedEvent {
+  final bool isSelected;
+
+  ContainerSelectedEvent(this.isSelected);
 }

@@ -212,7 +212,8 @@ class CustomInkWell extends StatelessWidget {
   final String amount;
   final VoidCallback onTap;
 
-  CustomInkWell({
+  const CustomInkWell({
+    Key? key,
     required this.companyName,
     required this.status,
     required this.number,
@@ -221,7 +222,7 @@ class CustomInkWell extends StatelessWidget {
     required this.dueDate,
     required this.amount,
     required this.onTap,
-  });
+  }): super(key: key);
 
   @override
   Widget build(BuildContext context) {

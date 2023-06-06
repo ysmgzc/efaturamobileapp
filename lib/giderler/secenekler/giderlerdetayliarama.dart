@@ -85,9 +85,9 @@ class _GiderlerDetayliAramaState extends State<GiderlerDetayliArama> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "E-SMM Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Ödendi",
         "Ödenecek",
       ],
@@ -167,9 +167,9 @@ class _GiderlerDetayliAramaState extends State<GiderlerDetayliArama> {
                  showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Muhsasebe Notu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "İşlem bekliyor",
         "Muhasebeleşti",
         "Kaydedilmedi",

@@ -81,7 +81,7 @@ class _VirmanEkleState extends State<VirmanEkle> {
                       ],
                     ),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
                     child:const Align(
@@ -111,7 +111,7 @@ class _VirmanEkleState extends State<VirmanEkle> {
                       ],
                     ),
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
                     child: ElevatedButton(
@@ -203,7 +203,7 @@ class _VirmanEkleState extends State<VirmanEkle> {
                 });
               }
             },
-            child: Container(
+            child: SizedBox(
             width: screenWidth * 0.4,
                   height: screenHeight * 0.07,
               child: Align(

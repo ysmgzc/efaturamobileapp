@@ -100,11 +100,12 @@ class KasalarWidget extends StatelessWidget {
   final String paraBirimi;
 
   const KasalarWidget({
+    Key? key,
     required this.kasaTuru,
     required this.kasaAdi,
      this.guncelKur,
     required this.paraBirimi,
-  });
+  }): super(key: key);
   @override
   Widget build(BuildContext context) {
     return InkWell(

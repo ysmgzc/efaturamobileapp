@@ -49,9 +49,9 @@ class _AlisOzetiDetayliAramaState extends State<AlisOzetiDetayliArama> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "İşlem Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Alış Faturası",
         "Giderler",
       ],
@@ -96,9 +96,9 @@ class _AlisOzetiDetayliAramaState extends State<AlisOzetiDetayliArama> {
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Ürün",
         "Alınan Hizmet",
       ],

@@ -111,7 +111,7 @@ backgroundColor: Colors.white,
 body: SingleChildScrollView(
   child: Column(
     children: [
-      Container(
+      SizedBox(
         width: screenWidth * 0.95,
         height: screenHeight * 0.50,
         child: Padding(
@@ -286,7 +286,7 @@ body: SingleChildScrollView(
         ),
      Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: Container(
+              child: SizedBox(
                 height: screenHeight * 0.07,
                   width: screenWidth * 0.94,
                 child:const Align(

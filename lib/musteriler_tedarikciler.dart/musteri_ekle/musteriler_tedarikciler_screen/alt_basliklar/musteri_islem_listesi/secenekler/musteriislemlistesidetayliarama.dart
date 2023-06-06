@@ -102,9 +102,9 @@ class _MusteriTedarikciIslemListesiDetayliAramaState extends State<MusteriTedari
                     showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "İşlem Tipi",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Gider",
         "Ödeme",
          "Tahsilat",

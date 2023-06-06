@@ -86,9 +86,9 @@ class _SiparisOzetiDetayliAramaState extends State<SiparisOzetiDetayliArama> {
             showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Tür",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Kapanmış",
         "Bekleyen",
         "İptal",
@@ -105,9 +105,9 @@ class _SiparisOzetiDetayliAramaState extends State<SiparisOzetiDetayliArama> {
        showDialog(
   context: context,
   builder: (BuildContext context) {
-    return ShowDialogCheckBox(
+    return const ShowDialogCheckBox(
       dialogTitle: "Ödeme Durumu",
-      checkboxTexts:const [
+      checkboxTexts: [
         "Ödemeli",
         "Ödemesiz",
       ],

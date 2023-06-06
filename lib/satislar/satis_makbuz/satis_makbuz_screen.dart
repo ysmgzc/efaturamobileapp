@@ -125,8 +125,8 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
                     ),
                   ],
                 ),
-                child: Column(
-                  children: const [
+                child:const Column(
+                  children:  [
                     ContainerWidget(
                       tedarikciAdi: 'Personel Ahmet Usta',
                       tedarikciNo: '0000000000001',

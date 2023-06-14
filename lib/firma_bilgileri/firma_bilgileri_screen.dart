@@ -1,5 +1,6 @@
 
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/firma_bilgileri/alt_menuleri/ayarlar.dart';
 import 'package:efaturamobileapp/firma_bilgileri/alt_menuleri/edevlet_bilgileri.dart';
 import 'package:efaturamobileapp/firma_bilgileri/alt_menuleri/fatura_numaralari.dart';
@@ -567,7 +568,7 @@ const SizedBox(height: 15,),
       ),
           bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffAC8BB6),
+        saveButtonBackgroundColor:const Color(0xffAC8BB6),
           ),
     );
 

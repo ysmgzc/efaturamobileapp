@@ -1,16 +1,18 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
-class BottomAppBarDeleteDesign extends StatelessWidget {
+class BottomAppBarDesign extends StatelessWidget {
   final VoidCallback onSaveButtonPressed;
   final Color backgroundColor;
   final int saveButtonFlex;
+  final String text;
   final Widget? child;
 
-  const BottomAppBarDeleteDesign({
+  const BottomAppBarDesign({
     Key? key,
     required this.onSaveButtonPressed,
     this.backgroundColor = const Color(0xffD9B26D),
     this.saveButtonFlex = 4,
+    this.text = "Kaydet",
     this.child,
   }) : super(key: key);
 
@@ -29,10 +31,8 @@ class BottomAppBarDeleteDesign extends StatelessWidget {
                 style: TextButton.styleFrom(
                   backgroundColor: backgroundColor,
                 ),
-                child: const Text(
-                  'Sil',
-                  style: TextStyle(color: Colors.white),
-                ),
+                child: Text(text, style:const TextStyle(color: Colors.white)),
+
               ),
             ),
             if (child != null) child!,
@@ -41,4 +41,4 @@ class BottomAppBarDeleteDesign extends StatelessWidget {
       ),
     );
   }
-}
+}*/

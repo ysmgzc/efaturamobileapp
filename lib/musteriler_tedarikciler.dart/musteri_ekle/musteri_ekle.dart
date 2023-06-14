@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/active_switch.dart';
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/banka_hesabi_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/teslimat_adresi_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/yetkili_kisi_ekle.dart';
@@ -732,11 +733,23 @@ Container(
         ),]
         ),
       ),
-          bottomNavigationBar: BottomAppBarDesign(
+ bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xff8FAD4B),
+        saveButtonBackgroundColor:const Color(0xff8FAD4B),
           ),
+          
     );
 
   }
 }
+/*
+    bottomNavigationBar:BottomAppBarDesignWithDelete(
+  onSaveButtonPressed: () {
+    // Kaydet düğmesine basıldığında yapılacak işlemler
+  },
+  onDeleteButtonPressed: () {
+    // Sil düğmesine basıldığında yapılacak işlemler
+  },
+  saveButtonBackgroundColor: Colors.green,  // Kaydetme kısmının arka plan rengi
+  deleteButtonBackgroundColor: Colors.red,  // Silme kısmının arka plan rengi
+)*/

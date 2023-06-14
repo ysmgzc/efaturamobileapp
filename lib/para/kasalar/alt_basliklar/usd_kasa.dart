@@ -6,14 +6,14 @@ import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tahsilat_ekle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
-class MerkezKasaTLScreen extends StatefulWidget {
-  const MerkezKasaTLScreen({super.key});
+class USDKasaScreen extends StatefulWidget {
+  const USDKasaScreen({super.key});
 
   @override
-  State<MerkezKasaTLScreen> createState() => _MerkezKasaTLScreenState();
+  State<USDKasaScreen> createState() => _USDKasaScreenState();
 }
 
-class _MerkezKasaTLScreenState extends State<MerkezKasaTLScreen> {
+class _USDKasaScreenState extends State<USDKasaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _MerkezKasaTLScreenState extends State<MerkezKasaTLScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
-          'Merkez Kasa (TL KASASI)',
+          ' USD KASASI',
           style: TextStyle(color: Colors.black),
         ),
          iconTheme:const IconThemeData(color: Colors.black),

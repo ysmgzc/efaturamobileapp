@@ -20,7 +20,7 @@ const kBarColor = Color(0xff055E98);
 const kContImgColor = Color(0xffECF3F9);
 const yTextColor = Color(0xff748891);
 const yTextColor2 = Colors.black54;
-const yTextColor3 = Color(0XFFCE4D56);
+const yTextColor3 = Colors.red;
 const yTextColor4 = Color(0xff4C7F83);
 
 const kListTileSize = TextStyle(

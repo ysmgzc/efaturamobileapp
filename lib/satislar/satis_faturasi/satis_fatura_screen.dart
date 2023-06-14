@@ -53,7 +53,8 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
                 icon: const Icon(Icons.send, color: Colors.black),
                 text: 'Gönder',
                 onTap: () {
-                  eventBus.fire(ContainerSelectedEvent(true));
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
                 },
               ),
 

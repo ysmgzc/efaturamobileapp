@@ -1,8 +1,9 @@
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:flutter/material.dart';
 
-import '../../bottom_app_bar_desing.dart';
+import '../../bottom_app_bar_desing_save.dart';
 
 class KullaniciBilgileriScreen extends StatefulWidget {
   const KullaniciBilgileriScreen({Key? key}) : super(key: key);
@@ -84,7 +85,7 @@ class _KullaniciBilgileriScreenState extends State<KullaniciBilgileriScreen> {
       ),
        bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffAC8BB6),
+        saveButtonBackgroundColor:const Color(0xffAC8BB6),
           ),
     );
   }

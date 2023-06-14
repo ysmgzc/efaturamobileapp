@@ -1,4 +1,5 @@
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:flutter/material.dart';
 
 class YengecScreen extends StatelessWidget {
@@ -93,9 +94,8 @@ class YengecScreen extends StatelessWidget {
       ),
         bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor: Colors.blue,
-        text: "BİLGİ ALMAK İSTİYORUM",
-
+        saveButtonBackgroundColor: Colors.blue,
+        saveButtonText: "BİLGİ ALMAK İSTİYORUM",
           ),
     );
   }

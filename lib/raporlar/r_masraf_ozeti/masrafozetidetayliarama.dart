@@ -1,4 +1,5 @@
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/detayli_arama_screen.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
@@ -197,8 +198,8 @@ class _MasrafOzetiDetayliAramaState extends State<MasrafOzetiDetayliArama> {
       ),
     bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        text: "SONUÇLARI GÖSTER",
-        backgroundColor: Colors.blue,
+        saveButtonText: "SONUÇLARI GÖSTER",
+        saveButtonBackgroundColor: Colors.blue,
           ),
     );
   }

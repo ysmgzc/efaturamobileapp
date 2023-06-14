@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/active_switch.dart';
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/banka_hesabi_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/teslimat_adresi_ekle.dart';
@@ -739,7 +740,8 @@ Container(
       ),
           bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xff8FAD4B),
+        saveButtonBackgroundColor:const Color(0xff8FAD4B),
+        onDeleteButtonPressed: () {},
           ),
     );
 

@@ -97,7 +97,7 @@ class _KayitliKullanicilarScreenState extends State<KayitliKullanicilarScreen> {
           ],
         ),
       ),
-
+  
       
     floatingActionButton: FloatingActionButton(
   backgroundColor: kButtonColor,

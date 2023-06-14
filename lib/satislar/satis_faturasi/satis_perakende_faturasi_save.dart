@@ -297,6 +297,7 @@ body: SingleChildScrollView(
             ),
       const ToplamTutarSave(
          textLabels: [
+          "Genel Toplam:",
            'Ara Toplam:',
            'İndirim:',
            'Toplam İndirim:',
@@ -305,6 +306,7 @@ body: SingleChildScrollView(
            'Toplam KDV:',
          ],
          textValues: [
+           '₺0.00',
            '₺0.00',
            '₺0.00',
            '₺0.00',

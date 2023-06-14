@@ -1,7 +1,8 @@
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../bottom_app_bar_desing.dart';
+import '../../bottom_app_bar_desing_save.dart';
 import '../../text_field_decoration.dart';
 
 class YeniRaporEkle extends StatefulWidget {
@@ -111,7 +112,7 @@ class _YeniRaporEkleState extends State<YeniRaporEkle> {
       
     bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffAC8BB6),
+        saveButtonBackgroundColor:const Color(0xffAC8BB6),
           ),
     );
   }

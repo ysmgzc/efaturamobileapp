@@ -1,7 +1,8 @@
 
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:flutter/material.dart';
 
-import '../../bottom_app_bar_desing.dart';
+import '../../bottom_app_bar_desing_save.dart';
 import '../../constants.dart';
 import '../../text_field_decoration.dart';
 
@@ -60,9 +61,10 @@ class _FaturaNumaralariScreenState extends State<FaturaNumaralariScreen> {
           ],
         ),
       ),
-        bottomNavigationBar: BottomAppBarDesign(text: "EKLE",
+        bottomNavigationBar: BottomAppBarDesign(
+          saveButtonText: "EKLE",
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffAC8BB6),
+        saveButtonBackgroundColor:const Color(0xffAC8BB6),
           ),
     );
   }

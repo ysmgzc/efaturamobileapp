@@ -2,13 +2,32 @@ import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/search_field.dart';
-import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/hareketler.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/brut_ucretler_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/danismalik_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/demirbasbakimonarimgider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/diger_giderler_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/egitim_giderleri_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/elektrik_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/haberlesme_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/hesaplama_hizmeti_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/isinma_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/kira_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/kirtasiye_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/maas_ucret_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/nakliye_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/saglik_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/su_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/tasitbakimonarim_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/temizlik_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/yemek_gider_hareket.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/yol_ogs_hgs_ulasim_gider_hareket.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hizmet_duzenle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmet_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/secenekler/hizmetlerdetayliarama.dart';
 import 'package:flutter/material.dart';
 import '../../show_dialog_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
+import 'alt_basliklar/hareketler/prim_odeme_hareket.dart';
 
 class HizmetlerScreen extends StatefulWidget {
   const HizmetlerScreen({Key? key}) : super(key: key);
@@ -120,7 +139,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                             kdvsizAlisText: "₺25,00",
                             kdvsizSatisText: "₺100,00",
                             onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: BrutUcretlerHareket(),
                               ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -130,7 +149,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: DanismalikGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -140,7 +159,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: DemirbasBakimOnarimGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -150,7 +169,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: DigerGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -160,7 +179,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: EgitimGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -170,7 +189,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: ElektrikGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -180,7 +199,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: HaberlesmeGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -190,7 +209,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: HesaplamaHizmetHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -200,7 +219,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: IsinmaGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -210,7 +229,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: KiraGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -220,7 +239,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: KirtasiyeGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -230,7 +249,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: MaasUcretHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -240,7 +259,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: NakliyeGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -250,7 +269,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: PrimOdemeHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -260,7 +279,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: SaglikGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -270,7 +289,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: SuGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -280,7 +299,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: TasitBakimOnarimGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -290,7 +309,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: TemizlikGiderHareket(),
                             
                         ),
                           Divider(),
@@ -301,7 +320,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: YemekGiderHareket(),
                         ),
                           Divider(),
                           UrunlerHizmetlerWidget(
@@ -311,7 +330,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                           kdvsizAlisText: "₺25,00",
                           kdvsizSatisText: "₺100,00",
                            onPressedDuzenle: HizmetDuzenle(),
-                            onPressedHareketler: HizmetlerDanismanlikHareketler(),
+                            onPressedHareketler: YolOGSHGSUlasimGiderHareket(),
                         ),
                         
                             ],

@@ -1,4 +1,5 @@
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:efaturamobileapp/constants.dart';
@@ -106,8 +107,9 @@ class _YetkiliKisiEkleScreenState extends State<YetkiliKisiEkleScreen> {
       
      bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xff8FAD4B),
-         saveButtonFlex: 3, 
+        saveButtonBackgroundColor:const Color(0xff8FAD4B),
+        onDeleteButtonPressed: () {},
+        // saveButtonFlex: 3, 
           ),
     );
   }

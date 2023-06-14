@@ -252,6 +252,7 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
             ),
             const ToplamTutarSave(
               textLabels: [
+                'Genel Toplam:',
                 'Ara Toplam:',
                 'İndirim:',
                 'Toplam İndirim:',
@@ -260,6 +261,7 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                 'Toplam KDV:',
               ],
               textValues: [
+                '₺0.00',
                 '₺0.00',
                 '₺0.00',
                 '₺0.00',

@@ -1,5 +1,6 @@
 
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
@@ -267,7 +268,7 @@ class _BorcAlacakEkleState extends State<BorcAlacakEkle> {
       ),
         bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor: Colors.blue,
+        saveButtonBackgroundColor: Colors.blue,
           ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/scan_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
 class SearchField extends StatelessWidget {
@@ -7,8 +8,6 @@ class SearchField extends StatelessWidget {
     Key? key,
     this.suffixIcon,
   }) : super(key: key);
-
-  get index => null;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +38,13 @@ class SearchField extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  onPressed: controller.clear,
+                  onPressed: () {
+                    controller.clear();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BarkodTara()),
+                    );
+                  },
                   icon: suffixIcon != null 
                       ? Image.asset(suffixIcon!) 
                       : const Icon(Icons.clear),

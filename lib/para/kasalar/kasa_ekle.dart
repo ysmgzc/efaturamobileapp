@@ -1,5 +1,6 @@
 
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/active_switch.dart';
@@ -249,7 +250,7 @@ class _KasaEkleState extends State<KasaEkle> {
       ),
           bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffA1CFC2),
+        saveButtonBackgroundColor:const Color(0xffA1CFC2),
           ),
     );
 

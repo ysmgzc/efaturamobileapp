@@ -1,8 +1,9 @@
 
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:flutter/material.dart';
 
 import '../../../active_switch.dart';
-import '../../../bottom_app_bar_desing.dart';
+import '../../../bottom_app_bar_desing_save.dart';
 import '../../../constants.dart';
 import '../../../custom_pop_menu.dart';
 import '../../../detayli_arama_screen.dart';
@@ -306,8 +307,8 @@ class _AlisFaturasiDetayliAramaState extends State<AlisFaturasiDetayliArama> {
       ),
     bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        text: "SONUÇLARI GÖSTER",
-        backgroundColor: Colors.blue,
+        saveButtonText: "SONUÇLARI GÖSTER",
+        saveButtonBackgroundColor: Colors.blue,
           ),
     );
   }

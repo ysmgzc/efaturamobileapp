@@ -1,6 +1,7 @@
 //detaylı aramanın tum seçeneklerinin bulunduğuu sayfa
 import 'package:efaturamobileapp/active_switch.dart';
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/check_box_widget.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
@@ -499,8 +500,8 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
       ),
     bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        text: "SONUÇLARI GÖSTER",
-        backgroundColor: Colors.blue,
+        saveButtonText: "SONUÇLARI GÖSTER",
+        saveButtonBackgroundColor: Colors.blue,
           ),
     );
   }

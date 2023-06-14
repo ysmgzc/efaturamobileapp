@@ -1,10 +1,11 @@
 import 'package:efaturamobileapp/active_switch.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../bottom_app_bar_desing.dart';
+import '../../bottom_app_bar_desing_save.dart';
 import '../../custom_pop_menu.dart';
 
 
@@ -419,7 +420,7 @@ class _BankaHesabiEkleState extends State<BankaHesabiEkle> {
       ),
          bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffA1CFC2),
+        saveButtonBackgroundColor:const Color(0xffA1CFC2),
           ),
     );
   }

@@ -1,8 +1,10 @@
 
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/detayli_arama_screen.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:flutter/material.dart';
+
+import '../../../bottom_app_bar_design.dart';
 
 class UrunlerDetayliArama extends StatefulWidget {
   const UrunlerDetayliArama({super.key});
@@ -173,8 +175,10 @@ class _UrunlerDetayliAramaState extends State<UrunlerDetayliArama> {
       ),
     bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        text: "SONUÇLARI GÖSTER",
-        backgroundColor: Colors.blue,
+        saveButtonText: "SONUÇLARI GÖSTER",
+        saveButtonBackgroundColor: Colors.blue,
+        onDeleteButtonPressed: () {},
+        deleteButtonText: "TEMİZLE",
           ),
     );
   }

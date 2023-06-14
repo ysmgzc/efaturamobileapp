@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
@@ -5,7 +6,7 @@ import 'package:efaturamobileapp/para/nakit_durumu.dart';
 import 'package:flutter/material.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:intl/intl.dart';
-import '../../../bottom_app_bar_desing.dart';
+import '../../../bottom_app_bar_desing_save.dart';
 
 
 class KasalarOdemeEkle extends StatefulWidget {
@@ -310,7 +311,7 @@ const Divider(),
       ),
          bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffA1CFC2),
+        saveButtonBackgroundColor:const Color(0xffA1CFC2),
           ),
     );
   }

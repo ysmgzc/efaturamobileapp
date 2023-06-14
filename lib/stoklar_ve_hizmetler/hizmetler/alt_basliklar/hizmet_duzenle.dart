@@ -1,9 +1,11 @@
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/active_switch.dart';
 import 'package:flutter/material.dart';
+
+import '../../../bottom_app_bar_design.dart';
 
 
 class HizmetDuzenle extends StatefulWidget {
@@ -440,6 +442,8 @@ class _HizmetDuzenleState extends State<HizmetDuzenle> {
       ),
           bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
+         onDeleteButtonPressed: () {},
+         deleteButtonText: "TEMİZLE",
           ),
     );
 

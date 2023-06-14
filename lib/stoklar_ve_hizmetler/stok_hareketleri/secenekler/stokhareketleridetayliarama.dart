@@ -1,7 +1,9 @@
 import 'package:efaturamobileapp/active_switch.dart';
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/detayli_arama_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../../bottom_app_bar_design.dart';
 
 class StokHareketleriDetayliArama extends StatefulWidget {
   const StokHareketleriDetayliArama({super.key});
@@ -116,8 +118,8 @@ class _StokHareketleriDetayliAramaState extends State<StokHareketleriDetayliAram
       ),
     bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        text: "SONUÇLARI GÖSTER",
-        backgroundColor: Colors.blue,
+        saveButtonText: "SONUÇLARI GÖSTER",
+        saveButtonBackgroundColor: Colors.blue,
           ),
     );
   }

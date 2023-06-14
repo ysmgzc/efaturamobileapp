@@ -1,7 +1,8 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 import '../../active_switch.dart';
-import '../../bottom_app_bar_desing.dart';
+import '../../bottom_app_bar_design.dart';
+import '../../bottom_app_bar_desing_save.dart';
 import '../../text_field_decoration.dart';
 
 class KullaniciEkleScreen extends StatefulWidget {
@@ -133,7 +134,7 @@ class _KullaniciEkleScreenState extends State<KullaniciEkleScreen> {
       
     bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffAC8BB6),
+        saveButtonBackgroundColor:const Color(0xffAC8BB6),
           ),
     );
   }

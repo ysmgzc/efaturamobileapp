@@ -1,10 +1,11 @@
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/para/kasalar/kasalar.dart';
 import 'package:flutter/material.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:intl/intl.dart';
-import '../../../bottom_app_bar_desing.dart';
+import '../../../bottom_app_bar_desing_save.dart';
 
 
 class ParaTransferiEkle extends StatefulWidget {
@@ -264,7 +265,7 @@ const Divider(),
       ),
          bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffA1CFC2),
+        saveButtonBackgroundColor:const Color(0xffA1CFC2),
           ),
     );
   }

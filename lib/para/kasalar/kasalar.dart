@@ -1,6 +1,8 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
-import 'package:efaturamobileapp/para/kasalar/alt_basliklar/merkez_kasa_tl.dart';
+import 'package:efaturamobileapp/para/kasalar/alt_basliklar/eur_kasa.dart';
+import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tl_kasa.dart';
+import 'package:efaturamobileapp/para/kasalar/alt_basliklar/usd_kasa.dart';
 import 'package:flutter/material.dart';
 
 import 'kasa_ekle.dart';
@@ -60,14 +62,24 @@ class _KasalarScreenState extends State<KasalarScreen> {
             KasalarWidget(
               kasaTuru: "TL KASASI",
               kasaAdi: "Merkez Kasa",
-              guncelKur: "Güncel Kur: ₺0,14",
-              paraBirimi: "₺0,00",
+              paraBirimi: "₺ 0,00",
+              route: TLKasaScreen(),
             ),
              Divider(),
             KasalarWidget(
-              kasaTuru: "TL KASASI",
+              kasaTuru: "EUR KASASI",
               kasaAdi: "Merkez Kasa",
-              paraBirimi: "₺0,00",
+              guncelKur: "Güncel Kur: ₺0,14",
+              paraBirimi: "€ 0,00",
+              route: EURKasaScreen(),
+            ),
+             Divider(),
+             KasalarWidget(
+              kasaTuru: "USD KASASI",
+              kasaAdi: "Merkez Kasa",
+              guncelKur: "Güncel Kur: ₺0,14",
+              paraBirimi: "\$ 0,00",
+              route: USDKasaScreen(),
             ),
           ],
     ),
@@ -92,29 +104,29 @@ class _KasalarScreenState extends State<KasalarScreen> {
     );
   }
 }
-
 class KasalarWidget extends StatelessWidget {
   final String kasaTuru;
   final String kasaAdi;
   final String? guncelKur;
   final String paraBirimi;
+  final Widget route; 
 
   const KasalarWidget({
     Key? key,
     required this.kasaTuru,
     required this.kasaAdi,
-     this.guncelKur,
+    this.guncelKur,
     required this.paraBirimi,
-  }): super(key: key);
+    required this.route,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => const MerkezKasaTLScreen(),
-          ),
+          MaterialPageRoute(builder: (context) => route), 
         );
       },
       child: Padding(
@@ -125,10 +137,9 @@ class KasalarWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(kasaTuru, style:const TextStyle(color: Colors.red, fontSize: 14)),
-                Text(kasaAdi, style:const TextStyle(color: Colors.black, fontSize: 14)),
-                if (guncelKur != null)
-                Text(guncelKur!, style:const TextStyle(color: Colors.black, fontSize: 13)),
+                Text(kasaTuru, style: const TextStyle(color: Colors.red, fontSize: 14)),
+                Text(kasaAdi, style: const TextStyle(color: Colors.black, fontSize: 14)),
+                if (guncelKur != null) Text(guncelKur!, style: const TextStyle(color: Colors.black, fontSize: 13)),
               ],
             ),
             Align(
@@ -136,7 +147,7 @@ class KasalarWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(paraBirimi, style:const TextStyle(color: Colors.black, fontSize: 16,fontWeight: FontWeight.bold)),
+                  Text(paraBirimi, style: const TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold)),
                 ],
               ),
             ),

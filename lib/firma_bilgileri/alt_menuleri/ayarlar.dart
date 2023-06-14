@@ -1,4 +1,5 @@
-import 'package:efaturamobileapp/bottom_app_bar_desing.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/para/banka_hesaplari/banka_hesaplari.dart';
 import 'package:flutter/material.dart';
@@ -128,7 +129,7 @@ class _AyarlarScreenState extends State<AyarlarScreen> {
       ),
        bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        backgroundColor:const Color(0xffAC8BB6),
+        saveButtonBackgroundColor:const Color(0xffAC8BB6),
           ),
     );
   }

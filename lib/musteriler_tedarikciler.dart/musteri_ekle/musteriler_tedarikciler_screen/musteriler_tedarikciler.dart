@@ -121,6 +121,13 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
                     tedarikciAdi: 'Personel Ahmet Usta',
                     paraBirimi: '₺1000',
                     durumu : 'Ödenecek',
+                    onPressedDuzenle: MusteriDuzenleScreen(),
+                    onPressedIslemListesi:MusteriIslemListesiScreen(),
+                    onPressedTahsilat: TahsilatMakbuzuEkle(),
+                    onPressedOdeme:  MusterilerVeTedarikcilerOdemeEkle(),
+                    onPressedVirman: VirmanEkle(),
+                    onPressedBorcAlacak: BorcAlacakEkle(),
+                    onPressedCekGirisi: CekGirisiEkle(),
                     
                   ),
                  SizedBox(height: 10,),
@@ -131,7 +138,14 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
                         lokasyon: 'İstanbul',
                         paraBirimi: '₺1000',
                         durumu: 'Tahsil Edilecek',
-                      ),
+                        onPressedDuzenle: MusteriDuzenleScreen(),
+                        onPressedIslemListesi:MusteriIslemListesiScreen(),
+                        onPressedTahsilat: TahsilatMakbuzuEkle(),
+                        onPressedOdeme:  MusterilerVeTedarikcilerOdemeEkle(),
+                        onPressedVirman: VirmanEkle(),
+                        onPressedBorcAlacak: BorcAlacakEkle(),
+                        onPressedCekGirisi: CekGirisiEkle(),
+                          ),
                SizedBox(height: 10,),
                   ],
                 ),     
@@ -162,6 +176,13 @@ class CustomWidget extends StatelessWidget {
   final String? lokasyon;
   final String paraBirimi;
   final String durumu;
+  final Widget onPressedDuzenle;
+  final Widget onPressedIslemListesi;
+  final Widget onPressedTahsilat;
+  final Widget onPressedOdeme;
+  final Widget onPressedVirman;
+  final Widget onPressedBorcAlacak;
+  final Widget onPressedCekGirisi;
    // final VoidCallback onTap;
 
   const CustomWidget({
@@ -171,6 +192,13 @@ class CustomWidget extends StatelessWidget {
     this.lokasyon,
     this.paraBirimi = '',
     this.durumu = '',
+    required this.onPressedDuzenle,
+    required this.onPressedIslemListesi,
+    required this.onPressedTahsilat,
+    required this.onPressedOdeme,
+    required this.onPressedVirman,
+    required this.onPressedBorcAlacak,
+    required this.onPressedCekGirisi,
       //  required this.onTap,
   }): super(key: key);
 
@@ -183,7 +211,7 @@ class CustomWidget extends StatelessWidget {
                                       title: 'Düzenle',
                                       onPressed: () {
                                          Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const MusteriDuzenleScreen(),
+                                builder: (context) =>  onPressedDuzenle,
                               ));
                                       },
                                     ),
@@ -191,7 +219,7 @@ class CustomWidget extends StatelessWidget {
                                       title: "İşlem Listesi",
                                       onPressed: () {
                                          Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const MusteriIslemListesiScreen(),
+                                builder: (context) => onPressedIslemListesi, 
                               ));
                                       },
                                     ),
@@ -199,7 +227,7 @@ class CustomWidget extends StatelessWidget {
                                       title: "Tahsilat Ekle",
                                       onPressed: () {
                                          Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const TahsilatMakbuzuEkle(),
+                                builder: (context) => onPressedTahsilat,
                               ));
                                       },
                                     ),
@@ -207,7 +235,7 @@ class CustomWidget extends StatelessWidget {
                                       title: "Ödeme Ekle",
                                       onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const MusterilerVeTedarikcilerOdemeEkle(),
+                                builder: (context) => onPressedOdeme,
                               ));
                                       },
                                     ),
@@ -215,7 +243,7 @@ class CustomWidget extends StatelessWidget {
                                       title: "Virman",
                                       onPressed: () {
                                  Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const VirmanEkle(),
+                                builder: (context) => onPressedVirman,
                               ));
                                       },
                                     ),
@@ -223,7 +251,7 @@ class CustomWidget extends StatelessWidget {
                                       title: "Borç & Alacak Ekle",
                                       onPressed: () {
                                  Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const BorcAlacakEkle(),
+                                builder: (context) =>onPressedBorcAlacak,
                               ));
                                       },
                                     ),
@@ -231,7 +259,7 @@ class CustomWidget extends StatelessWidget {
                                       title: "Çek Girişi",
                                       onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const CekGirisiEkle(),
+                                builder: (context) =>onPressedCekGirisi,
                               ));
                                       },
                                     ),

@@ -42,7 +42,7 @@ class SearchField extends StatelessWidget {
                     controller.clear();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => BarkodTara()),
+                      MaterialPageRoute(builder: (context) =>const BarkodTara()),
                     );
                   },
                   icon: suffixIcon != null 

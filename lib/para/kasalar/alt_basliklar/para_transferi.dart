@@ -5,7 +5,6 @@ import 'package:efaturamobileapp/para/kasalar/kasalar.dart';
 import 'package:flutter/material.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:intl/intl.dart';
-import '../../../bottom_app_bar_desing_save.dart';
 
 
 class ParaTransferiEkle extends StatefulWidget {

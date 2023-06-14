@@ -1,8 +1,7 @@
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 import '../../active_switch.dart';
-import '../../bottom_app_bar_design.dart';
-import '../../bottom_app_bar_desing_save.dart';
 import '../../text_field_decoration.dart';
 
 class KullaniciEkleScreen extends StatefulWidget {

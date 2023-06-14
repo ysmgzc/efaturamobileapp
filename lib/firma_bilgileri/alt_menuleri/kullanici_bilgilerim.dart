@@ -3,8 +3,6 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:flutter/material.dart';
 
-import '../../bottom_app_bar_desing_save.dart';
-
 class KullaniciBilgileriScreen extends StatefulWidget {
   const KullaniciBilgileriScreen({Key? key}) : super(key: key);
 

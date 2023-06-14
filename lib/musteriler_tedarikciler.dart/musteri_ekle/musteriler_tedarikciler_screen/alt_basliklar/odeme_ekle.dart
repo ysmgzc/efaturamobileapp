@@ -1,5 +1,4 @@
 import 'package:efaturamobileapp/bottom_app_bar_design.dart';
-import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/para/nakit_durumu.dart';

@@ -1,6 +1,5 @@
 import 'package:efaturamobileapp/active_switch.dart';
 import 'package:efaturamobileapp/bottom_app_bar_design.dart';
-import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/banka_hesabi_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/teslimat_adresi_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/yetkili_kisi_ekle.dart';

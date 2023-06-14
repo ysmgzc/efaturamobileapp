@@ -1,6 +1,5 @@
 import 'package:efaturamobileapp/active_switch.dart';
 import 'package:efaturamobileapp/bottom_app_bar_design.dart';
-import 'package:efaturamobileapp/bottom_app_bar_desing_save.dart';
 import 'package:efaturamobileapp/detayli_arama_screen.dart';
 import 'package:flutter/material.dart';
 

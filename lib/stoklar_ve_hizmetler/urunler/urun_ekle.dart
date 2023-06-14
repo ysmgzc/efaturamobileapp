@@ -6,8 +6,6 @@ import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/active_switch.dart';
 import 'package:flutter/material.dart';
 
-import '../../bottom_app_bar_desing_save.dart';
-
 class UrunEkle extends StatefulWidget {
   const UrunEkle({Key? key}) : super(key: key);
 

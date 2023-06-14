@@ -39,7 +39,7 @@ class BottomAppBarDesign extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: deleteButtonBackgroundColor,
                     ),
-                    child: Text(deleteButtonText, style: TextStyle(color: Colors.white)),
+                    child: Text(deleteButtonText, style:const TextStyle(color: Colors.white)),
                   ),
                 ),
               ),
@@ -50,7 +50,7 @@ class BottomAppBarDesign extends StatelessWidget {
                 style: TextButton.styleFrom(
                   backgroundColor: saveButtonBackgroundColor,
                 ),
-                child: Text(saveButtonText, style: TextStyle(color: Colors.white)),
+                child: Text(saveButtonText, style:const TextStyle(color: Colors.white)),
               ),
             ),
             if (child != null) child!,

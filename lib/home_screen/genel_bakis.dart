@@ -335,17 +335,21 @@ Padding(
                 children: [
                   Column(
                     children: [
-                     const Text('Borçlarım', style: TextStyle(fontSize: 14)),
-                      TextButton(
-                        onPressed: () {
-                           Navigator.of(context).push(MaterialPageRoute(
+                     const Text('Borçlarım  ', style: TextStyle(fontSize: 14)),
+                      Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                               Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const MusterilerTedarikcilerScreen()));
-                        },
-                        child: Text('₺$value1', style:const TextStyle(fontWeight: FontWeight.bold,fontSize: 16)),
+                            },
+                            child: Text('₺$value1', style:const TextStyle(fontWeight: FontWeight.bold,fontSize: 16)),
+                          ),
+                          const Icon(Icons.navigate_next),
+                        ],
                       ),
                     ],
                   ),
-              const Icon(Icons.navigate_next),
                 ],
               ),
               Row(
@@ -353,16 +357,20 @@ Padding(
                   Column(
                     children: [
                       const Text('Alacaklarım', style: TextStyle(fontSize: 14)),
-                      TextButton(
-                        onPressed: () {
-                           Navigator.of(context).push(MaterialPageRoute(
+                      Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                               Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const MusterilerTedarikcilerScreen()));
-                        },
-                        child: Text('₺$value2', style:const TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 16)),
+                            },
+                            child: Text('₺$value2', style:const TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 16)),
+                          ),
+                          const Icon(Icons.navigate_next),
+                        ],
                       ),
                     ],
                   ),
-                const Icon(Icons.navigate_next),
                 ],
               ),
             ],

@@ -1,13 +1,12 @@
-import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_perakende_siparis.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_faturasi_save.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_toptan_siparis.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/secenekler/satissiparisdetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-
 import '../../bottom_show_dialog_widget.dart';
 import '../../container_widget.dart';
 import '../../home_screen/home_page_screen.dart';
@@ -145,40 +144,24 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
           ),
         ),
       ),
-      floatingActionButton: SpeedDial(
-        animatedIcon: AnimatedIcons.add_event,
-        backgroundColor: kButtonColor,
-        overlayColor: kButtonColor,
-        overlayOpacity: 0.4,
-        spaceBetweenChildren: 12,
-        spacing: 12,
-        children: [
-          SpeedDialChild(
-            child: const Icon(Icons.add),
-            label: 'Toptan Sipariş (KDV Hariç)',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SatisToptanSiparisEkle(),
-                ),
-              );
-            },
-          ),
-          SpeedDialChild(
-            child: const Icon(Icons.add),
-            label: 'Perakende Sipariş (KDV Dahil)',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SatisPerakendeSiparisEkle(),
-                ),
-              );
-            },
-          ),
-        ],
+       bottomNavigationBar:const CustomBottomAppBarToplam(
+  firstText: "TOPLAM",
+  secondText: "₺1000",
+),
+     floatingActionButton: CustomFAB(
+    isSpeedDial: true,
+    childrenData: [
+      SpeedDialData(
+        label: 'Toptan Sipariş\n(KDV Hariç)',
+        route:const SatisToptanSiparisEkle(),
       ),
+      SpeedDialData(
+        label: 'Perakende Sipariş\n(KDV Dahil)',
+        route: const SatisPerakendeSiparisEkle(),
+      ),
+    ],
+  ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

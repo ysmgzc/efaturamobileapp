@@ -2,12 +2,12 @@ import 'package:efaturamobileapp/alislar/alis_makbuz/alis_makbuz_ekle.dart';
 import 'package:efaturamobileapp/alislar/alis_makbuz/alis_makbuz_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_makbuz/secenekler/alismakbuzdetayliarama.dart';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
-import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../container_widget.dart';
+import '../../float_action_buton_widget.dart';
 import '../../show_dialog_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
@@ -140,20 +140,19 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
           ),
         ),
       ),
-   floatingActionButton: FloatingActionButton(
-  backgroundColor: kButtonColor,
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const AlisMakbuzEkle(),
-      ),
-    );
-  }, 
-  shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-  child:const Icon(Icons.add),
- 
-),
+      floatingActionButton: Padding(
+         padding: const EdgeInsets.only(bottom: 20),
+         child: CustomFAB(
+           isSpeedDial: false,
+          childrenData: [
+            SpeedDialData(
+          label: '',
+          route:const AlisMakbuzEkle(),
+             ),
+          ],
+         ),
+       ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

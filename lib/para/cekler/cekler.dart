@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/para/cekler/cek_cikisi/cek_cikisi_ekle.dart';
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_cirolama.dart';
@@ -6,8 +6,8 @@ import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import '../../bottom_show_dialog_widget.dart';
+import '../../float_action_buton_widget.dart';
 import '../../show_dialog_ekle.dart';
 import 'cek_girisi/islem_listesi.dart';
 import 'cek_girisi/tahsilat_makbuzu.dart';
@@ -165,41 +165,24 @@ const Divider(),
           ),
         ),
       ),
-      floatingActionButton: SpeedDial(
-        animatedIcon: AnimatedIcons.add_event,
-        backgroundColor: kButtonColor,
-        overlayColor: kButtonColor,
-        overlayOpacity: 0.4,
-        spaceBetweenChildren: 12,
-        spacing: 12,
-        children: [
-          SpeedDialChild(
-            child: const Icon(Icons.add),
-            label: 'Çek Çıkışı',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const CekCikisiEkle(),
-                ),
-              );
-            },
-          ),
-          SpeedDialChild(
-            child: const Icon(Icons.add),
-            label: 'Çek Girişi',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const CekGirisiEkle(),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-    );
+     floatingActionButton: Padding(
+       padding: const EdgeInsets.only(bottom: 20),
+       child: CustomFAB(
+         isSpeedDial: true,
+         childrenData: [
+        SpeedDialData(
+          label: 'Çek Çıkışı',
+          route:const CekCikisiEkle(),
+        ),
+        SpeedDialData(
+          label: 'Çek Girişi',
+          route: const CekGirisiEkle(),
+        ),
+         ],
+       ),
+     ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+);
   }
 }
 class CustomInkWell extends StatelessWidget {

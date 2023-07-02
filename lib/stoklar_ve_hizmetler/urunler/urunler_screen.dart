@@ -1,6 +1,7 @@
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/secenekler/urunlerdetayliarama.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammade_stok_hareketleri.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_urunleri/tekstil_urunleri_stok_hareketleri.dart';
@@ -182,19 +183,19 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: kButtonColor,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const UrunEkle(),
-            ),
-          );
-        },
-        shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-        child: const Icon(Icons.add),
-      ),
+       floatingActionButton: Padding(
+         padding: const EdgeInsets.only(bottom: 20),
+         child: CustomFAB(
+           isSpeedDial: false,
+          childrenData: [
+            SpeedDialData(
+          label: '',
+          route:const UrunEkle(),
+             ),
+          ],
+         ),
+       ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

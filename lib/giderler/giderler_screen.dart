@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/giderler/hizmet_masraf_ekle.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
@@ -8,6 +8,7 @@ import 'package:efaturamobileapp/search_field.dart';
 import 'package:flutter/material.dart';
 
 import '../bottom_show_dialog_widget.dart';
+import '../float_action_buton_widget.dart';
 import '../home_screen/home_page_screen.dart';
 import '../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
@@ -115,20 +116,20 @@ class _GiderlerScreenState extends State<GiderlerScreen> {
           ),
         ),
       ),
-       floatingActionButton: FloatingActionButton(
-  backgroundColor: kButtonColor,
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HizmetMasrafEkle(),
-      ),
-    );
-  }, 
-  shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-  child:const Icon(Icons.add),
- 
+       bottomNavigationBar:const CustomBottomAppBarToplam(
+  firstText: "TOPLAM",
+  secondText: "₺1000",
 ),
+       floatingActionButton: CustomFAB(
+         isSpeedDial: false,
+        childrenData: [
+          SpeedDialData(
+        label: '',
+        route:const HizmetMasrafEkle(),
+           ),
+        ],
+       ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

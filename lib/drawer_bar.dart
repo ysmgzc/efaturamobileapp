@@ -10,7 +10,7 @@ import 'package:efaturamobileapp/verileri_disa_aktar/verileri_disa_aktar_screen.
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmetler.dart';
 import 'package:efaturamobileapp/home_screen/genel_bakis.dart';
-import 'package:efaturamobileapp/giderler/giderler.dart';
+import 'package:efaturamobileapp/giderler/giderler_screen.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import 'package:efaturamobileapp/para/banka_hesaplari/banka_hesaplari.dart';
 import 'package:efaturamobileapp/para/banka_mutabakati/banka_mutabakati.dart';

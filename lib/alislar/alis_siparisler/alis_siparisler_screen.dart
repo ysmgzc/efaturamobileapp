@@ -1,13 +1,13 @@
 import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparis_ekle.dart';
 import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparis_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_siparisler/secenekler/alissiparisdetayliarama.dart';
-import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
-
 import '../../bottom_show_dialog_widget.dart';
 import '../../home_screen/home_page_screen.dart';
 import '../../show_dialog_ekle.dart';
@@ -139,20 +139,20 @@ class _AlisSiparislerScreenState extends State<AlisSiparislerScreen> {
           ),
         ),
       ),
-     floatingActionButton: FloatingActionButton(
-  backgroundColor: kButtonColor,
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const AlisSiparisEkle(),
-      ),
-    );
-  }, 
-  shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-  child:const Icon(Icons.add),
- 
+         bottomNavigationBar:const CustomBottomAppBarToplam(
+  firstText: "TOPLAM",
+  secondText: "₺1000",
 ),
+ floatingActionButton: CustomFAB(
+    isSpeedDial: false,
+   childrenData: [
+     SpeedDialData(
+        label: '',
+        route:const AlisSiparisEkle(),
+      ),
+   ],
+  ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
     );
   }

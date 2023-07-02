@@ -1,8 +1,9 @@
-import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/para/banka_mutabakati/banka_mutabakati_ekle.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:flutter/material.dart';
+
+import '../../float_action_buton_widget.dart';
 
 class BankaMutabakatiScreen extends StatefulWidget {
   const BankaMutabakatiScreen({Key? key}) : super(key: key);
@@ -33,20 +34,19 @@ class _BankaMutabakatiScreenState extends State<BankaMutabakatiScreen> {
           const SearchField(),
         ],
       ),
-       floatingActionButton: FloatingActionButton(
-  backgroundColor: kButtonColor,
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const BankaMutabakatiEkle(),
-      ),
-    );
-  }, 
-  shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-  child:const Icon(Icons.add),
- 
-),
+       floatingActionButton: Padding(
+         padding: const EdgeInsets.only(bottom: 20),
+         child: CustomFAB(
+           isSpeedDial: false,
+          childrenData: [
+            SpeedDialData(
+          label: '',
+          route:const BankaMutabakatiEkle(),
+             ),
+          ],
+         ),
+       ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

@@ -1,10 +1,12 @@
-import 'package:efaturamobileapp/constants.dart';
+
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/eur_kasa.dart';
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tl_kasa.dart';
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/usd_kasa.dart';
 import 'package:flutter/material.dart';
 
+import '../../bottom_app_bar_widget_toplam.dart';
 import 'kasa_ekle.dart';
 
 class KasalarScreen extends StatefulWidget {
@@ -88,20 +90,21 @@ class _KasalarScreenState extends State<KasalarScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: kButtonColor,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const KasaEkle(),
-            ),
-          );
-        },
-        shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-        child: const Icon(Icons.add),
+       bottomNavigationBar:const CustomBottomAppBarToplam(
+  firstText: "KASA TOPLAMI",
+  secondText: "₺1000",
+),
+     floatingActionButton: CustomFAB(
+    isSpeedDial: false,
+    childrenData: [
+      SpeedDialData(
+        label: '',
+        route:const KasaEkle(),
       ),
-    );
+    ],
+  ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+);
   }
 }
 class KasalarWidget extends StatelessWidget {

@@ -1,5 +1,5 @@
 
-import 'package:efaturamobileapp/constants.dart';
+
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/satislar/satis_makbuz/satis_makbuz_ekle.dart';
 import 'package:efaturamobileapp/satislar/satis_makbuz/satis_makbuz_faturasi_save.dart';
@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 import '../../bottom_show_dialog_widget.dart';
 import '../../container_widget.dart';
+import '../../float_action_buton_widget.dart';
 import '../../show_dialog_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
@@ -141,20 +142,19 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
           ),
         ),
       ),
-     floatingActionButton: FloatingActionButton(
-  backgroundColor: kButtonColor,
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SatisMakbuzEkle(),
-      ),
-    );
-  }, 
-  shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-  child:const Icon(Icons.add),
- 
-),
+       floatingActionButton: Padding(
+         padding: const EdgeInsets.only(bottom: 20),
+         child: CustomFAB(
+           isSpeedDial: false,
+          childrenData: [
+            SpeedDialData(
+          label: '',
+          route:const SatisMakbuzEkle(),
+             ),
+          ],
+         ),
+       ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

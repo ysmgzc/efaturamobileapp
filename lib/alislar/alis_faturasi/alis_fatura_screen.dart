@@ -3,13 +3,12 @@ import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_ekle.dart';
 import 'package:efaturamobileapp/alislar/alis_faturasi/alis_iade_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_faturasi/alis_iade_faturasi_ekle.dart';
 import 'package:efaturamobileapp/alislar/alis_faturasi/secenekler/alisfaturasidetayliarama.dart';
-import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-
 import '../../bottom_show_dialog_widget.dart';
 import '../../container_widget.dart';
 import '../../home_screen/home_page_screen.dart';
@@ -157,40 +156,24 @@ class _AlisFaturalarScreenState extends State<AlisFaturalarScreen> {
           ),
         ),
       ),
-      floatingActionButton: SpeedDial(
-        animatedIcon: AnimatedIcons.add_event,
-        backgroundColor: kButtonColor,
-        overlayColor: kButtonColor,
-        overlayOpacity: 0.4,
-        spaceBetweenChildren: 12,
-        spacing: 12,
-        children: [
-          SpeedDialChild(
-            child: const Icon(Icons.add),
-            label: 'İade Faturası',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AlisIadeFaturasiEkle(),
-                ),
-              );
-            },
-          ),
-          SpeedDialChild(
-            child: const Icon(Icons.add),
-            label: 'Alış Faturası',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AlisFaturasiEkle(),
-                ),
-              );
-            },
-          ),
-        ],
+   bottomNavigationBar:const CustomBottomAppBarToplam(
+  firstText: "TOPLAM",
+  secondText: "₺1000",
+),
+     floatingActionButton: CustomFAB(
+    isSpeedDial: true,
+    childrenData: [
+      SpeedDialData(
+        label: 'İade Faturası',
+        route:const AlisIadeFaturasiEkle(),
       ),
-    );
+      SpeedDialData(
+        label: 'Alış Faturası',
+        route: const AlisFaturasiEkle(),
+      ),
+    ],
+  ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+);
   }
 }

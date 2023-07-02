@@ -1,7 +1,7 @@
 import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparisler_screen.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/home_screen/genel_bakis.dart';
-import 'package:efaturamobileapp/giderler/giderler.dart';
+import 'package:efaturamobileapp/giderler/giderler_screen.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/raporlar/raporlar.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_screen.dart';

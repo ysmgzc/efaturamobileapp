@@ -1,13 +1,12 @@
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
-import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/secenekler/stokhareketleridetayliarama.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_cikisi.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_girisi.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import '../../alislar/alis_faturasi/alis_faturasi_save.dart';
 import '../../satislar/satis_faturasi/satis_perakende_faturasi_save.dart';
 import '../../satislar/satis_faturasi/satis_toptan_faturasi_save.dart';
@@ -115,40 +114,23 @@ class _StokHareketleriScreenState extends State<StokHareketleriScreen> {
           ),
         ),
       ),
-      floatingActionButton: SpeedDial(
-        animatedIcon: AnimatedIcons.add_event,
-        backgroundColor: kButtonColor,
-        overlayColor: kButtonColor,
-        overlayOpacity: 0.4,
-        spaceBetweenChildren: 12,
-        spacing: 12,
-        children: [
-          SpeedDialChild(
-            child: const Icon(Icons.add),
-            label: 'Stok Çıkışı',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const StokCikisiEkle(),
-                ),
-              );
-            },
-          ),
-           SpeedDialChild(
-            child: const Icon(Icons.add),
-            label: 'Stok Girişi',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const StokGirisiEkle(),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-    );
+       floatingActionButton: Padding(
+         padding: const EdgeInsets.only(bottom: 20),
+         child: CustomFAB(
+           isSpeedDial: true,
+           childrenData: [
+             SpeedDialData(
+          label: 'Stok Çıkışı',
+          route:const StokCikisiEkle(),
+             ),
+             SpeedDialData(
+          label: 'Stok Girişi',
+          route: const StokGirisiEkle(),
+             ),
+           ],
+         ),
+       ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+);
   }
 }

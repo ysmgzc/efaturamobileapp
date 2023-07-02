@@ -1,5 +1,6 @@
 
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
+import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteri_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/borc_alacak_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/musteri_duzenle.dart';
@@ -11,9 +12,9 @@ import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/secen
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
-import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/search_field.dart';
+import '../../../bottom_app_bar_widget_toplam.dart';
 import '../../../show_dialog_ekle.dart';
 
 class MusterilerTedarikcilerScreen extends StatefulWidget {
@@ -153,23 +154,26 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-  backgroundColor: kButtonColor,
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const MusteriEkleScreen(),
-      ),
-    );
-  }, 
-  shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-  child:const Icon(Icons.add),
- 
+       bottomNavigationBar:const CustomBottomAppBarToplam(
+  firstText: "BAKİYE",
+  secondText: "₺1000",
 ),
+       floatingActionButton: CustomFAB(
+         isSpeedDial: false,
+        childrenData: [
+          SpeedDialData(
+        label: '',
+        route:const MusteriEkleScreen(),
+           ),
+        ],
+       ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
+
+
+
 class CustomWidget extends StatelessWidget {
   final String avatarText;
   final String tedarikciAdi;

@@ -25,6 +25,7 @@ import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hi
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmet_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/secenekler/hizmetlerdetayliarama.dart';
 import 'package:flutter/material.dart';
+import '../../float_action_buton_widget.dart';
 import '../../show_dialog_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'alt_basliklar/hareketler/prim_odeme_hareket.dart';
@@ -340,20 +341,19 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-  backgroundColor: kButtonColor,
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HizmetEkle(),
-      ),
-    );
-  }, 
-  shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 3)),
-  child:const Icon(Icons.add),
- 
-),
+       floatingActionButton: Padding(
+         padding: const EdgeInsets.only(bottom: 20),
+         child: CustomFAB(
+           isSpeedDial: false,
+          childrenData: [
+            SpeedDialData(
+          label: '',
+          route:const HizmetEkle(),
+             ),
+          ],
+         ),
+       ),
+  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

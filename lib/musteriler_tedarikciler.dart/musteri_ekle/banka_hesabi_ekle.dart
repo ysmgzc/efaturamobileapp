@@ -141,7 +141,6 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
      bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
         saveButtonBackgroundColor:const Color(0xff8FAD4B),
-        // saveButtonFlex: 3, 
           ),
     );
   }

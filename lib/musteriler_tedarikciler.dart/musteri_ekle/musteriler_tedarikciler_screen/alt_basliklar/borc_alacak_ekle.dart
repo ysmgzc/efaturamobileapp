@@ -134,6 +134,7 @@ class _BorcAlacakEkleState extends State<BorcAlacakEkle> {
               ),
                             const Divider(),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,9 +149,8 @@ class _BorcAlacakEkleState extends State<BorcAlacakEkle> {
                           ),
                         ],
                       ),
-                                             CustomPopMenuWidget(
+                      CustomPopMenuWidget(
                        width: screenWidth * 0.3,
-                       height: screenHeight * 0.07,
                        title: "PARA BİRİMİ",
                        menuWidth: screenWidth * 0.3,
                        selectedValue: "TL",

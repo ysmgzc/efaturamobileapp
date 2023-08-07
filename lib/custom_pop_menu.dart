@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomPopMenuWidget extends StatefulWidget {
   final double width;
-  final double height;
+  final double? height; // İsteğe bağlı olarak 'double?' tipine çevirdik.
   final String title;
   final double menuWidth;
   final String selectedValue;
@@ -13,10 +13,10 @@ class CustomPopMenuWidget extends StatefulWidget {
   final double dividerEndIndent;
   final bool showDivider;
 
- const CustomPopMenuWidget({
+  const CustomPopMenuWidget({
     Key? key,
     required this.width,
-    required this.height,
+    this.height, // 'required' özelliğini kaldırdık.
     required this.title,
     required this.menuWidth,
     required this.selectedValue,
@@ -25,7 +25,7 @@ class CustomPopMenuWidget extends StatefulWidget {
     this.dividerIndent = 0,
     this.dividerEndIndent = 0,
     this.showDivider = false,
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
   _CustomPopMenuWidgetState createState() => _CustomPopMenuWidgetState();
@@ -42,66 +42,66 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       width: widget.width,
-      height: widget.height,
+      height: widget.height, // Eğer 'widget.height' null ise, otomatik olarak içeriğine göre yükseklik alır.
       color: Colors.white,
       alignment: Alignment.topLeft,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          if (widget.showDivider)
-            Divider(
-              indent: widget.dividerIndent,
-              endIndent: widget.dividerEndIndent,
-            ),
-          Text(
-            widget.title,
-            style:const TextStyle(color: yTextColor, fontSize: 14),
-          ),
-        const  SizedBox(height: 6,),
-          PopupMenuButton(
-            offset:const Offset(-20, 0),
-            child: Container(
-              width: widget.menuWidth,
-              alignment: Alignment.centerLeft,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: widget.menuWidth - 40,  // Icon ve padding için ayrılan alan 
-                    child: Text(
-                      selectedValue ?? "18",
-                      style:const TextStyle(fontSize: 16, color: Colors.black),
-                      overflow: TextOverflow.ellipsis,  // Metnin taşması durumunda ... ekler
-                    ),
-                  ),
-                 const Icon(
-                    Icons.expand_more,
-                    color: Colors.grey,
-                  ),
-                ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (widget.showDivider)
+              Divider(
+                indent: widget.dividerIndent,
+                endIndent: widget.dividerEndIndent,
+              ),
+            Padding(
+              padding: EdgeInsets.only(bottom: screenHeight * 0.025),
+              child: Text(
+                widget.title,
+                style: const TextStyle(color: yTextColor, fontSize: 14),
               ),
             ),
-            onSelected: (value) {
-              setState(() {
-                selectedValue = value;
-              });
-            },
-            itemBuilder: (BuildContext context) {
-              return widget.items.map((value) {
-                return PopupMenuItem(
-                  value: value,
-                  child: SizedBox(
-                    width: widget.menuItemsWidth,
-                    child: Text(value),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.30 - 25,
+                  child: PopupMenuButton<String>(
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        selectedValue ?? "18",
+                        style: const TextStyle(fontSize: 16, color: Colors.black),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    onSelected: (value) {
+                      setState(() {
+                        selectedValue = value;
+                      });
+                    },
+                    itemBuilder: (BuildContext context) {
+                      return widget.items.map((value) {
+                        return PopupMenuItem(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList();
+                    },
                   ),
-                );
-              }).toList();
-            },
-          ),
-        ],
+                ),
+                const Icon(
+                  Icons.expand_more,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

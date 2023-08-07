@@ -71,16 +71,18 @@ class _SatisMakbuzEkleState extends State<SatisMakbuzEkle> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Column(children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 15),
-            child: Row(
-              children: [
-                Column(
+        child: Column(
+          children: [
+            SizedBox(height: screenHeight*0.02,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
+                      padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
                       child: PersonImageBorder(
                         screenHeight: screenHeight,
                         screenWidth: screenWidth,
@@ -89,101 +91,100 @@ class _SatisMakbuzEkleState extends State<SatisMakbuzEkle> {
                         assetPath: 'assets/icons/personicon.png',
                       ),
                     ),
-                  const  SizedBox(height: 50,)
                   ],
                 ),
-                Expanded(
-                  child: Container(
-                   // height: screenHeight * 0.35,
-                  //  width: screenWidth * 0.47,
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'BELGE NUMARASI',
-                            style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
-                          ),
+              ),
+              Expanded(
+                child: Container(
+                 // height: screenHeight * 0.35,
+                //  width: screenWidth * 0.47,
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'BELGE NUMARASI',
+                          style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(
-                          height: 5,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          '---',
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                         ),
-                        const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            '---',
-                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          ),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      const Divider(
+                        indent: 45,
+                        endIndent: 40,
+                      ),
+                      const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'İŞLEM TARİHİ',
+                          style: TextStyle(fontSize: 13, color: Colors.black, fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(
-                          height: 5,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            Text(
+                              DateFormat('dd MM yyyy').format(DateTime.now()),
+                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              DateFormat('HH:mm').format(DateTime.now()),
+                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
+                            ),
+                          ],
                         ),
-                        const Divider(
-                          indent: 45,
-                          endIndent: 40,
+                      ),
+                      const Divider(
+                        indent: 45,
+                        endIndent: 40,
+                      ),
+                      const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'VADE TARİHİ',
+                          style: TextStyle(fontSize: 13, color: Colors.black, fontWeight: FontWeight.bold),
                         ),
-                        const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'İŞLEM TARİHİ',
-                            style: TextStyle(fontSize: 13, color: Colors.black, fontWeight: FontWeight.bold),
-                          ),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          DateFormat('dd MM yyyy').format(DateTime.now()),
+                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                              Text(
-                                DateFormat('dd MM yyyy').format(DateTime.now()),
-                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
-                              ),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                DateFormat('HH:mm').format(DateTime.now()),
-                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const Divider(
-                          indent: 45,
-                          endIndent: 40,
-                        ),
-                        const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'VADE TARİHİ',
-                            style: TextStyle(fontSize: 13, color: Colors.black, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            DateFormat('dd MM yyyy').format(DateTime.now()),
-                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
-                          ),
-                        ),
-                        const Divider(
-                          indent: 45,
-                          endIndent: 40,
-                        ),
-                      ],
-                    ),
+                      ),
+                      const Divider(
+                        indent: 45,
+                        endIndent: 40,
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
 
           Container(
@@ -196,7 +197,6 @@ class _SatisMakbuzEkleState extends State<SatisMakbuzEkle> {
               children: [
               CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "DÖVİZ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "TL",
@@ -233,10 +233,10 @@ class _SatisMakbuzEkleState extends State<SatisMakbuzEkle> {
                         ),
                             const Divider(),
        Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
          children: [
                  CustomPopMenuWidget(
               width: screenWidth * 0.3,
-              height: screenHeight * 0.07,
               title: "KDV ORANI",
               menuWidth: screenWidth * 0.3,
               selectedValue: "18",
@@ -349,7 +349,7 @@ const SizedBox(height: 5,),
                       ),
               ],
             ),
-          ),
+          ),SizedBox(height: screenHeight*0.02,),
         ]),
       ),
     );

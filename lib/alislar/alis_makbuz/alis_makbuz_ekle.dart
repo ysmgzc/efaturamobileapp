@@ -199,7 +199,6 @@ class _AlisMakbuzEkleState extends State<AlisMakbuzEkle> {
               children: [
               CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "DÖVİZ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "TL",

@@ -107,112 +107,118 @@ class _AlisMakbuzFaturasiState extends State<AlisMakbuzFaturasi> {
         child: IgnorePointer(
           child: Column(
             children: [
+              SizedBox(height: screenHeight*0.02,),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 15, 10, 0),
-                      child: PersonImageBorderSave(  
-                      screenHeight: screenHeight, 
-                      screenWidth: screenWidth, 
-                      text: "Test Satis Ltd. Şti.",
-                      assetPath: 'assets/icons/persongreenicon.png',
-                      ),
-                  ),
-                    SizedBox(
-                      height: screenHeight * 0.08,
-                      width: screenWidth * 0.47,
-                    )
-                  ],
-                ),
-                Container(
-                  height: screenHeight * 0.28,
-                  width: screenWidth * 0.5,
-                  color: Colors.white,
+                Expanded(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'BELGE NUMARASI',
-                          style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
+                        child: PersonImageBorderSave(  
+                        screenHeight: screenHeight, 
+                        screenWidth: screenWidth, 
+                        text: "Test Satis Ltd. Şti.",
+                        assetPath: 'assets/icons/persongreenicon.png',
                         ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          '0000000000000000001',
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: yTextColor),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      const Divider(
-                        indent: 45,
-                        endIndent: 40,
-                      ),
-                      const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'İŞLEM TARİHİ',
-                          style: TextStyle(fontSize: 13, color: Colors.black,),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Column(
-                          children: [
-                            Text(
-                              DateFormat('dd MM yyyy').format(DateTime.now()),
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              DateFormat('HH:mm').format(DateTime.now()),
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Divider(
-                        indent: 45,
-                        endIndent: 40,
-                      ),
-                      const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'VADE TARİHİ',
-                          style: TextStyle(fontSize: 13, color: Colors.black,),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          DateFormat('dd MM yyyy').format(DateTime.now()),
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
-                        ),
-                      ),
-                      const Divider(
-                        indent: 45,
-                        endIndent: 40,
-                      ),
+                    ),
+                   /*   SizedBox(
+                        height: screenHeight * 0.08,
+                        width: screenWidth * 0.47,
+                      )*/
                     ],
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    //height: screenHeight * 0.28,
+                   // width: screenWidth * 0.5,
+                    color: Colors.white,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'BELGE NUMARASI',
+                            style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            '0000000000000000001',
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: yTextColor),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const Divider(
+                          indent: 45,
+                          endIndent: 40,
+                        ),
+                        const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'İŞLEM TARİHİ',
+                            style: TextStyle(fontSize: 13, color: Colors.black,),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Column(
+                            children: [
+                              Text(
+                                DateFormat('dd MM yyyy').format(DateTime.now()),
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                DateFormat('HH:mm').format(DateTime.now()),
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Divider(
+                          indent: 45,
+                          endIndent: 40,
+                        ),
+                        const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'VADE TARİHİ',
+                            style: TextStyle(fontSize: 13, color: Colors.black,),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            DateFormat('dd MM yyyy').format(DateTime.now()),
+                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
+                          ),
+                        ),
+                        const Divider(
+                          indent: 45,
+                          endIndent: 40,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -231,7 +237,6 @@ class _AlisMakbuzFaturasiState extends State<AlisMakbuzFaturasi> {
                 children: [
                 CustomPopMenuWidget(
                 width: screenWidth * 0.9,
-                height: screenHeight * 0.07,
                 title: "DÖVİZ",
                 menuWidth: screenWidth * 0.9,
                 selectedValue: "TL",
@@ -268,10 +273,10 @@ class _AlisMakbuzFaturasiState extends State<AlisMakbuzFaturasi> {
                           ),
                               const Divider(),
                Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
            children: [
                    CustomPopMenuWidget(
                 width: screenWidth * 0.3,
-                height: screenHeight * 0.07,
                 title: "KDV ORANI",
                 menuWidth: screenWidth * 0.3,
                 selectedValue: "18",
@@ -382,6 +387,7 @@ class _AlisMakbuzFaturasiState extends State<AlisMakbuzFaturasi> {
                             ),
                           ],
                         ),
+                        SizedBox(height: screenHeight*0.02,),
                 ],
               ),
             ),

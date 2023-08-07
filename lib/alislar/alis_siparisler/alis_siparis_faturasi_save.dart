@@ -99,40 +99,43 @@ backgroundColor: Colors.white,
 body: SingleChildScrollView(
   child: Column(
     children: [
+      SizedBox(height: screenHeight*0.02,),
       Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 15, 10, 0),
-                child: PersonImageBorderSave(  
-                  screenHeight: screenHeight, 
-                  screenWidth: screenWidth,
-                  text: "Personel Ahmet Usta",
-                  assetPath: 'assets/icons/persongreenicon.png',
-                  ),
-              ),
-               IgnorePointer(
-                 child: Padding(
-                        padding: const EdgeInsets.only(left: 30,top: 3),
-                        child: CustomPopMenuWidget(
-                        width: screenWidth * 0.45,
-                        height: screenHeight * 0.15,
-                        title: "DÖVİZ",
-                        menuWidth: screenWidth * 0.4,
-                        selectedValue: "TL",
-                        items: items,
-                        menuItemsWidth: screenWidth * 0.2,
-                        dividerIndent: 35,  
-                        dividerEndIndent: 45,  
-                        showDivider: true,  
-                            ),
-                      ),
-               ),
-
-                  ],
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
+                  child: PersonImageBorderSave(  
+                    screenHeight: screenHeight, 
+                    screenWidth: screenWidth,
+                    text: "Personel Ahmet Usta",
+                    assetPath: 'assets/icons/persongreenicon.png',
+                    ),
                 ),
+                 IgnorePointer(
+                   child: Padding(
+                          padding: const EdgeInsets.only(left: 30,top: 3),
+                          child: CustomPopMenuWidget(
+                          width: screenWidth * 0.45,
+                          title: "DÖVİZ",
+                          menuWidth: screenWidth * 0.4,
+                          selectedValue: "TL",
+                          items: items,
+                          menuItemsWidth: screenWidth * 0.2,
+                          dividerIndent: 35,  
+                          dividerEndIndent: 45,  
+                          showDivider: true,  
+                              ),
+                        ),
+                 ),
+          
+                    ],
+                  ),
+          ),
                 Expanded(
                   child: Container(
                    // height: screenHeight * 0.34,
@@ -254,7 +257,7 @@ body: SingleChildScrollView(
                 '₺0.00',
               ],
             ),
-
+SizedBox(height: screenHeight*0.02,),
     ],
   ),
         

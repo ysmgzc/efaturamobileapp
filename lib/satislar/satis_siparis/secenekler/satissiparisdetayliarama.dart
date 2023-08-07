@@ -171,7 +171,6 @@ class _SatisSiparisDetayliAramaState extends State<SatisSiparisDetayliArama> {
               const  Divider(),
                 CustomPopMenuWidget(
                   width: screenWidth * 0.65,
-                  height: screenHeight * 0.07,
                   title: "PARA BİRİMİ",
                   menuWidth: screenWidth * 0.65,
                   selectedValue: "TL",

@@ -164,7 +164,6 @@ class _MusteriTedarikciIslemListesiDetayliAramaState extends State<MusteriTedari
               const  Divider(),
                 CustomPopMenuWidget(
                   width: screenWidth * 0.65,
-                  height: screenHeight * 0.07,
                   title: "PARA BİRİMİ",
                   menuWidth: screenWidth * 0.65,
                   selectedValue: "TL",

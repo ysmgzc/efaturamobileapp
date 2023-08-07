@@ -104,7 +104,6 @@ class _AyarlarScreenState extends State<AyarlarScreen> {
               const SizedBox(height: 8),
                 CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "FİŞ OKUMA YÖNTEMİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Satır Bazlı, Detaylı Fiş Okuma",
@@ -115,7 +114,6 @@ class _AyarlarScreenState extends State<AyarlarScreen> {
  const SizedBox(height: 8),
    CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "ERİŞİM İZNİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Destek ekibinin firma verilerinize erişimi yok",

@@ -118,7 +118,6 @@ class _KasaEkleState extends State<KasaEkle> {
               const SizedBox(height: 10),
                 CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "PARA BİRİMİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "TL",
@@ -129,6 +128,7 @@ class _KasaEkleState extends State<KasaEkle> {
               const Divider(),
               const SizedBox(height: 8),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,7 +150,6 @@ class _KasaEkleState extends State<KasaEkle> {
                     children: [
                         CustomPopMenuWidget(
               width: screenWidth * 0.4,
-              height: screenHeight * 0.07,
               title: "BAKİYE DURUMU",
               menuWidth: screenWidth * 0.4,
               selectedValue: "(+) Bakiye",

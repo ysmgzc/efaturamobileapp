@@ -54,7 +54,6 @@ class _StokCikisiEkleState extends State<StokCikisiEkle> {
             children: [
                  CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "HAREKET TİPİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Fire Çıkış",

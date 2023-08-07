@@ -78,7 +78,7 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
                     PersonImageBorder(  
                       screenHeight: screenHeight, 
                       screenWidth: screenWidth, 
-                      text: "Ön",
+                      text: "Ön  ",
                       assetPath: 'assets/icons/cameraicon.png',
                       ),
 
@@ -107,6 +107,7 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
        ),
          const Divider(),
        Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
          children: [
            Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,7 +124,6 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
                       ),
                        CustomPopMenuWidget(
                        width: screenWidth * 0.3,
-                       height: screenHeight * 0.07,
                        title: "PARA BİRİMİ",
                        menuWidth: screenWidth * 0.3,
                        selectedValue: "TL",

@@ -205,7 +205,6 @@ class _HizmetEkleState extends State<HizmetEkle> {
               const SizedBox(height: 10),
                 CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "TÜR*",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Hizmet",
@@ -232,7 +231,6 @@ class _HizmetEkleState extends State<HizmetEkle> {
               const Divider(),
               CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "BİRİM",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Adet",
@@ -242,7 +240,6 @@ class _HizmetEkleState extends State<HizmetEkle> {
               const Divider(),
               CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "PARA BİRİMİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "TL",
@@ -359,7 +356,6 @@ class _HizmetEkleState extends State<HizmetEkle> {
               const Divider(),
              CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "KDV ORANI",
               menuWidth: screenWidth * 0.9,
               selectedValue: "18",
@@ -394,7 +390,6 @@ class _HizmetEkleState extends State<HizmetEkle> {
               const Divider(),
                CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "EK VERGİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Uygulanmaz",

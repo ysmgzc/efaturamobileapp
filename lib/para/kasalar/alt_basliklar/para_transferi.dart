@@ -123,6 +123,7 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
               ),
                   const Divider(),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,9 +138,8 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
                           ),
                         ],
                       ),
-                                             CustomPopMenuWidget(
+                        CustomPopMenuWidget(
                        width: screenWidth * 0.3,
-                       height: screenHeight * 0.07,
                        title: "PARA BİRİMİ",
                        menuWidth: screenWidth * 0.3,
                        selectedValue: "TL",
@@ -158,6 +158,7 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
             ),
               const Divider(),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,9 +173,8 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
                           ),
                         ],
                       ),
-                                             CustomPopMenuWidget(
+                        CustomPopMenuWidget(
                        width: screenWidth * 0.3,
-                       height: screenHeight * 0.07,
                        title: "PARA BİRİMİ",
                        menuWidth: screenWidth * 0.3,
                        selectedValue: "TL",

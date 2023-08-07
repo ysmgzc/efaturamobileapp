@@ -58,15 +58,16 @@ backgroundColor: Colors.white,
 body: SingleChildScrollView(
   child: Column(
     children: [
-      Padding(
-        padding: const EdgeInsets.only(top: 15),
-        child: Row(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      SizedBox(height: screenHeight*0.02,),
+      Row(
+         crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Column(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
                   child: PersonImageBorder(  
                     screenHeight: screenHeight, 
                     screenWidth: screenWidth, 
@@ -80,7 +81,6 @@ body: SingleChildScrollView(
                         padding: const EdgeInsets.only(left: 30),
                         child: CustomPopMenuWidget(
                         width: screenWidth * 0.45,
-                        height: screenHeight * 0.35,
                         title: "DÖVİZ",
                         menuWidth: screenWidth * 0.4,
                         selectedValue: "TL",
@@ -94,130 +94,130 @@ body: SingleChildScrollView(
                
                     ],
                   ),
-                  Expanded(
-                    child: Container(
-                      //height: screenHeight * 0.54,
-                     // width: screenWidth * 0.47,
-                      color: Colors.white,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  [
-                       const   Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'FATURA NUMARASI',
-                              style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        const  SizedBox(
-                            height: 5,
-                          ),
-                        const  Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              '---',
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        const SizedBox( height: 5,),
-                       const Divider( indent: 45,
-                      endIndent: 40,),
-                          const Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'FATURA TARİHİ',
-                              style: TextStyle(fontSize: 13, color:Colors.black,fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const SizedBox( height: 5,),
-                         Align(
+          ),
+                Expanded(
+                  child: Container(
+                    //height: screenHeight * 0.54,
+                   // width: screenWidth * 0.47,
+                    color: Colors.white,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children:  [
+                     const   Align(
                           alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                              Text(
-                                DateFormat('dd MM yyyy').format(DateTime.now()),
-                                style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
-                              ),
-                               const SizedBox( height: 8,),
-                              Text(
-                                DateFormat('HH:mm').format(DateTime.now()),
-                                style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
-                              ),
-                            ],
+                          child: Text(
+                            'FATURA NUMARASI',
+                            style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
                           ),
                         ),
-                        const Divider( indent: 45,
-                      endIndent: 40,),
-                         const  Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'ALIŞ FATURA NUMARASI',
-                              style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        const  SizedBox(
-                            height: 5,
-                          ),
-                        const  Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              '---',
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        const SizedBox( height: 5,),
-                       const Divider( indent: 45,
-                      endIndent: 40,),
-                          const Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'ALIŞ FATURA TARİHİ',
-                              style: TextStyle(fontSize: 13, color:Colors.black,fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const SizedBox( height: 5,),
-                         Align(
+                      const  SizedBox(
+                          height: 5,
+                        ),
+                      const  Align(
                           alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                              Text(
-                                DateFormat('dd MM yyyy').format(DateTime.now()),
-                                style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
-                              ),
-                               const SizedBox( height: 8,),
-                              Text(
-                                DateFormat('HH:mm').format(DateTime.now()),
-                                style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
-                              ),
-                            ],
+                          child: Text(
+                            '---',
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        const Divider( indent: 45,
-                      endIndent: 40,),
+                      const SizedBox( height: 5,),
+                     const Divider( indent: 45,
+                    endIndent: 40,),
                         const Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'VADE TARİHİ',
-                              style: TextStyle(fontSize: 13, color:Colors.black,fontWeight: FontWeight.bold),
+                          alignment: Alignment.center,
+                          child: Text(
+                            'FATURA TARİHİ',
+                            style: TextStyle(fontSize: 13, color:Colors.black,fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox( height: 5,),
+                       Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            Text(
+                              DateFormat('dd MM yyyy').format(DateTime.now()),
+                              style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
                             ),
-                          ),
-                           const SizedBox( height: 5,),
-                          Align(
-                            alignment: Alignment.center,
-                            child:Text(
-                                DateFormat('dd MM yyyy').format(DateTime.now()),
-                                style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
-                              ),
-                          ),
-                         const SizedBox(height: 90,)
-                        ],
+                             const SizedBox( height: 8,),
+                            Text(
+                              DateFormat('HH:mm').format(DateTime.now()),
+                              style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
+                            ),
+                          ],
+                        ),
                       ),
+                      const Divider( indent: 45,
+                    endIndent: 40,),
+                       const  Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'ALIŞ FATURA NUMARASI',
+                            style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      const  SizedBox(
+                          height: 5,
+                        ),
+                      const  Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            '---',
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      const SizedBox( height: 5,),
+                     const Divider( indent: 45,
+                    endIndent: 40,),
+                        const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'ALIŞ FATURA TARİHİ',
+                            style: TextStyle(fontSize: 13, color:Colors.black,fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox( height: 5,),
+                       Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            Text(
+                              DateFormat('dd MM yyyy').format(DateTime.now()),
+                              style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
+                            ),
+                             const SizedBox( height: 8,),
+                            Text(
+                              DateFormat('HH:mm').format(DateTime.now()),
+                              style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider( indent: 45,
+                    endIndent: 40,),
+                      const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'VADE TARİHİ',
+                            style: TextStyle(fontSize: 13, color:Colors.black,fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                         const SizedBox( height: 5,),
+                        Align(
+                          alignment: Alignment.center,
+                          child:Text(
+                              DateFormat('dd MM yyyy').format(DateTime.now()),
+                              style:const TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color:yTextColor),
+                            ),
+                        ),
+                       const SizedBox(height: 90,)
+                      ],
                     ),
                   ),
-                ],
-              ),
-      ),
+                ),
+              ],
+            ),
         UrunEkleBorder(
           screenHeight: screenHeight, 
           screenWidth: screenWidth, 
@@ -264,7 +264,7 @@ body: SingleChildScrollView(
             ),
         ],
       ),
-
+SizedBox(height: screenHeight*0.02,),
     ],
   ),
         

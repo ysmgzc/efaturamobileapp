@@ -55,7 +55,6 @@ class _UygulamaAyarlariScreenState extends State<UygulamaAyarlariScreen> {
                 const SizedBox(height: 15),
                   CustomPopMenuWidget(
                 width: screenWidth * 0.9,
-                height: screenHeight * 0.07,
                 title: "",
                 menuWidth: screenWidth * 0.9,
                 selectedValue: "Türkçe",

@@ -139,7 +139,6 @@ class _BankaHesabiEkleState extends State<BankaHesabiEkle> {
             children: [
                CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "BANKA ADI",
               menuWidth: screenWidth * 0.9,
               selectedValue: "ABN AMRO BANK N.V.",
@@ -266,7 +265,6 @@ class _BankaHesabiEkleState extends State<BankaHesabiEkle> {
                 const Divider(),
                  CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "PARA BİRİMİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "TL",
@@ -275,7 +273,7 @@ class _BankaHesabiEkleState extends State<BankaHesabiEkle> {
                   ),
       //---------------------
        const Divider(),
-              Row(
+              Row(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -297,7 +295,6 @@ class _BankaHesabiEkleState extends State<BankaHesabiEkle> {
                     children: [
                        CustomPopMenuWidget(
                        width: screenWidth * 0.4,
-                       height: screenHeight * 0.07,
                        title: "BAKİYE DURUMU",
                        menuWidth: screenWidth * 0.4,
                        selectedValue: "(+) Bakiye",

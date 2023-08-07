@@ -83,7 +83,6 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
              const Divider(),
         CustomPopMenuWidget(
        width: screenWidth * 0.9,
-       height: screenHeight * 0.07,
        title: "TÜR",
        menuWidth: screenWidth * 0.9,
        selectedValue: "Nakit",
@@ -189,6 +188,7 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
               ),
                   const Divider(),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,9 +203,8 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
                           ),
                         ],
                       ),
-                                             CustomPopMenuWidget(
+                        CustomPopMenuWidget(
                        width: screenWidth * 0.3,
-                       height: screenHeight * 0.07,
                        title: "PARA BİRİMİ",
                        menuWidth: screenWidth * 0.3,
                        selectedValue: "TL",

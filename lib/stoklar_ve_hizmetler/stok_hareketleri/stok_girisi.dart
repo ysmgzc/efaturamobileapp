@@ -75,7 +75,6 @@ class _StokGirisiEkleState extends State<StokGirisiEkle> {
             children: [
                CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "HAREKET TİPİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Giriş Fişi",
@@ -167,7 +166,6 @@ class _StokGirisiEkleState extends State<StokGirisiEkle> {
           const Divider(),
             CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "PARA BİRİMİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "TL",

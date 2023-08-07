@@ -220,7 +220,6 @@ class _FirmaBilgileriScreenState extends State<FirmaBilgileriScreen> {
               const Divider(),
                 CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "ÜLKE*",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Türkiye",
@@ -318,7 +317,7 @@ class _FirmaBilgileriScreenState extends State<FirmaBilgileriScreen> {
                       PersonImageBorder(  
                         screenHeight: screenHeight, 
                         screenWidth: screenWidth,
-                        text: "İmza",
+                        text: "İmza    ",
                         assetPath: 'assets/icons/cameraicon.png',
                         ),
                 ],

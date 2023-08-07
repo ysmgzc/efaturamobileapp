@@ -239,7 +239,6 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
       const Divider(),
                CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "TÜR*",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Müşteri / Tedarikçi",
@@ -274,7 +273,6 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
               const Divider(),
                 CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "ÜLKE",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Türkiye",
@@ -285,13 +283,13 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
 
               
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                          CustomPopMenuWidget(
               width: screenWidth * 0.4,
-              height: screenHeight * 0.07,
               title: "İL",
               menuWidth: screenWidth * 0.35,
               selectedValue: "Lütfen Seçin...",
@@ -306,7 +304,6 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
                     children: [
                          CustomPopMenuWidget(
               width: screenWidth * 0.4,
-              height: screenHeight * 0.07,
               title: "İLÇE",
               menuWidth: screenWidth * 0.35,
               selectedValue: "Lütfen Seçin",
@@ -378,6 +375,7 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
               const SizedBox(height: 8),
 
  Row(
+  crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -399,7 +397,6 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
                     children: [
                       CustomPopMenuWidget(
               width: screenWidth * 0.4,
-              height: screenHeight * 0.07,
               title: "BAKİYE DURUMU",
               menuWidth: screenWidth * 0.4,
               selectedValue: "Borcu Var",
@@ -471,7 +468,6 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
               const SizedBox(height: 8),
              CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "PARA BİRİMİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "TL",

@@ -50,15 +50,16 @@ backgroundColor: Colors.white,
 body: SingleChildScrollView(
   child: Column(
     children: [
-      Padding(
-       padding: const EdgeInsets.only(top: 15),
-        child: Row(
-          children: [
-            Column(
+      SizedBox(height: screenHeight*0.02,),
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
                   child: PersonImageBorder(  
                     screenHeight: screenHeight, 
                     screenWidth: screenWidth, 
@@ -72,7 +73,6 @@ body: SingleChildScrollView(
                         padding: const EdgeInsets.only(left: 30),
                         child: CustomPopMenuWidget(
                         width: screenWidth * 0.45,
-                        height: screenHeight * 0.15,
                         title: "DÖVİZ",
                         menuWidth: screenWidth * 0.4,
                         selectedValue: "TL",
@@ -83,78 +83,78 @@ body: SingleChildScrollView(
                         showDivider: true,  
                             ),
                       ),
-      
+                
                     ],
                   ),
-                  Expanded(
-                    child: Container(
-                     // height: screenHeight * 0.35,
-                     // width: screenWidth * 0.47,
-                      color: Colors.white,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  [
-                       const   Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'SİPARİŞ NUMARASI',
-                              style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
-                            ),
+          ),
+                Expanded(
+                  child: Container(
+                   // height: screenHeight * 0.35,
+                   // width: screenWidth * 0.47,
+                    color: Colors.white,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children:  [
+                     const   Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'SİPARİŞ NUMARASI',
+                            style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
                           ),
-                        const  SizedBox(
-                            height: 5,
+                        ),
+                      const  SizedBox(
+                          height: 5,
+                        ),
+                      const  Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            '0000000000000001',
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: yTextColor2),
                           ),
-                        const  Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              '0000000000000001',
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: yTextColor2),
-                            ),
-                          ),
-                        const SizedBox( height: 5,),
-                       const Divider( indent: 45,
-                      endIndent: 40,),
-                          const Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                               'TEDARİKÇİ SİPARİŞ\nNUMARASI',
-                                textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                           const Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                               '---',
-                              style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        const Divider( indent: 45,
-                      endIndent: 40,),
+                        ),
+                      const SizedBox( height: 5,),
+                     const Divider( indent: 45,
+                    endIndent: 40,),
                         const Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              'SİPARİŞ TARİHİ',
-                              style: TextStyle(fontSize: 13, color:Colors.black,fontWeight: FontWeight.bold),
+                          alignment: Alignment.center,
+                          child: Text(
+                             'TEDARİKÇİ SİPARİŞ\nNUMARASI',
+                              textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 14, color: Color(0XFFCE4D56), fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                         const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                             '---',
+                            style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      const Divider( indent: 45,
+                    endIndent: 40,),
+                      const Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'SİPARİŞ TARİHİ',
+                            style: TextStyle(fontSize: 13, color:Colors.black,fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                         const SizedBox( height: 5,),
+                        Align(
+                          alignment: Alignment.center,
+                          child:Text(
+                              DateFormat('dd MM yyyy').format(DateTime.now()),
+                              style:const TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:yTextColor),
                             ),
-                          ),
-                           const SizedBox( height: 5,),
-                          Align(
-                            alignment: Alignment.center,
-                            child:Text(
-                                DateFormat('dd MM yyyy').format(DateTime.now()),
-                                style:const TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:yTextColor),
-                              ),
-                          ),
-                        const  SizedBox(height: 80,)
-                        ],
-                      ),
+                        ),
+                      const  SizedBox(height: 80,)
+                      ],
                     ),
                   ),
-                ],
-              ),
-      ),
+                ),
+              ],
+            ),
            UrunEkleBorder(
           screenHeight: screenHeight, 
           screenWidth: screenWidth, 
@@ -202,7 +202,7 @@ body: SingleChildScrollView(
 
         ],
       ),
-
+ SizedBox(height: screenHeight*0.02,),
     ],
   ),
         

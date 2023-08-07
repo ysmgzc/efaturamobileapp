@@ -128,7 +128,6 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
                     const Divider(),
                      CustomPopMenuWidget(
                        width: screenWidth * 0.9,
-                       height: screenHeight * 0.07,
                        title: "ÜLKE*",
                        menuWidth: screenWidth * 0.9,
                        selectedValue: "Türkiye",
@@ -145,7 +144,6 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
                     children: [
                        CustomPopMenuWidget(
                        width: screenWidth * 0.4,
-                       height: screenHeight * 0.07,
                        title: "İL*",
                        menuWidth: screenWidth * 0.35,
                        selectedValue: "Lütfen seçin...",
@@ -158,7 +156,6 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
                   SizedBox( width:screenWidth * 0.1,),
                   CustomPopMenuWidget(
                        width: screenWidth * 0.4,
-                       height: screenHeight * 0.07,
                        title: "İLÇE*",
                        menuWidth: screenWidth * 0.35,
                        selectedValue: "Lütfen seçin...",

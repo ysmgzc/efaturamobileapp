@@ -59,44 +59,45 @@ backgroundColor: Colors.white,
 body: SingleChildScrollView(
   child: Column(
     children: [
+      SizedBox(height: screenHeight*0.02,),
       Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 15, 10, 0),
-                child: PersonImageBorder(  
-                  screenHeight: screenHeight, 
-                  screenWidth: screenWidth, 
-                  route:const MusterilerTedarikcilerScreen(), 
-                  text: "Müşteri ekle",
-                  assetPath: 'assets/icons/personicon.png',
-                  ),
-              ),
-               Padding(
-                      padding: const EdgeInsets.only(left: 30,top: 3),
-                      child: CustomPopMenuWidget(
-                      width: screenWidth * 0.45,
-                      height: screenHeight * 0.15,
-                      title: "DÖVİZ",
-                      menuWidth: screenWidth * 0.4,
-                      selectedValue: "TL",
-                      items: items,
-                      menuItemsWidth: screenWidth * 0.2,
-                      dividerIndent: 35,  
-                      dividerEndIndent: 45,  
-                      showDivider: true,  
-                          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
+                  child: PersonImageBorder(  
+                    screenHeight: screenHeight, 
+                    screenWidth: screenWidth, 
+                    route:const MusterilerTedarikcilerScreen(), 
+                    text: "Müşteri ekle",
+                    assetPath: 'assets/icons/personicon.png',
                     ),
-               
-
-                  ],
                 ),
+                 Padding(
+                        padding: const EdgeInsets.only(left: 30,top: 3),
+                        child: CustomPopMenuWidget(
+                        width: screenWidth * 0.45,
+                        title: "DÖVİZ",
+                        menuWidth: screenWidth * 0.4,
+                        selectedValue: "TL",
+                        items: items,
+                        menuItemsWidth: screenWidth * 0.2,
+                        dividerIndent: 35,  
+                        dividerEndIndent: 45,  
+                        showDivider: true,  
+                            ),
+                      ),
+                 
+          
+                    ],
+                  ),
+          ),
                 Expanded(
                   child: Container(
-                    //height: screenHeight * 0.35,
-                    //width: screenWidth * 0.47,
                     color: Colors.white,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -208,7 +209,7 @@ body: SingleChildScrollView(
 
         ],
       ),
-
+   SizedBox(height: screenHeight*0.02,),
     ],
   ),
         

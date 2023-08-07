@@ -111,14 +111,16 @@ backgroundColor: Colors.white,
 body: SingleChildScrollView(
   child: Column(
     children: [
+      SizedBox(height: screenHeight*0.02,),
       Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(15, 15, 10, 0),
+                  padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
                   child: PersonImageBorderSave(  
                     screenHeight: screenHeight, 
                     screenWidth: screenWidth,  
@@ -131,7 +133,6 @@ body: SingleChildScrollView(
                           padding: const EdgeInsets.only(left: 30,top: 3),
                           child: CustomPopMenuWidget(
                           width: screenWidth * 0.45,
-                          height: screenHeight * 0.26,
                           title: "DÖVİZ",
                           menuWidth: screenWidth * 0.4,
                           selectedValue: "TL",
@@ -315,7 +316,7 @@ body: SingleChildScrollView(
            '₺0.00',
          ],
        ),
-         const SizedBox(height: 10,),
+         SizedBox(height: screenHeight*0.02,),
     ],
   ),
       ),

@@ -115,7 +115,6 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
                       const Divider(),
                        CustomPopMenuWidget(
                        width: screenWidth * 0.9,
-                       height: screenHeight * 0.07,
                        title: "PARA BİRİMİ",
                        menuWidth: screenWidth * 0.9,
                        selectedValue: "TL",

@@ -77,10 +77,10 @@ class _RKdvRaporuScreenState extends State<RKdvRaporuScreen> {
             Center(
               child: Container( alignment: Alignment.center,
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                         CustomPopMenuWidget(
                   width: screenWidth * 0.43,
-                  height: screenHeight * 0.07,
                   title: "YIL",
                   menuWidth: screenWidth * 0.35,
                   selectedValue: "2023",
@@ -89,7 +89,6 @@ class _RKdvRaporuScreenState extends State<RKdvRaporuScreen> {
                       ), const SizedBox(width: 10), 
                   CustomPopMenuWidget(
                   width: screenWidth * 0.44,
-                  height: screenHeight * 0.07,
                   title: "AY",
                   menuWidth: screenWidth * 0.35,
                   selectedValue: "OCAK",

@@ -71,7 +71,8 @@ class _CekCirolamaEkleState extends State<CekCirolamaEkle> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row( mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                     PersonImageBorder(  
                       screenHeight: screenHeight, 
@@ -121,6 +122,7 @@ class _CekCirolamaEkleState extends State<CekCirolamaEkle> {
        ),
          const Divider(),
        Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
          children: [
            Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,7 +139,6 @@ class _CekCirolamaEkleState extends State<CekCirolamaEkle> {
                       ),
                         CustomPopMenuWidget(
                        width: screenWidth * 0.3,
-                       height: screenHeight * 0.07,
                        title: "PARA BİRİMİ",
                        menuWidth: screenWidth * 0.3,
                        selectedValue: "TL",

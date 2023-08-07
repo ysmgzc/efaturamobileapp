@@ -244,7 +244,6 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
       const Divider(),
                CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "TÜR*",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Müşteri / Tedarikçi",
@@ -279,7 +278,6 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
               const Divider(),
                 CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "ÜLKE",
               menuWidth: screenWidth * 0.9,
               selectedValue: "Türkiye",
@@ -296,7 +294,6 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
                     children: [
                          CustomPopMenuWidget(
               width: screenWidth * 0.4,
-              height: screenHeight * 0.07,
               title: "İL",
               menuWidth: screenWidth * 0.35,
               selectedValue: "Lütfen Seçin...",
@@ -311,7 +308,6 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
                     children: [
                          CustomPopMenuWidget(
               width: screenWidth * 0.4,
-              height: screenHeight * 0.07,
               title: "İLÇE",
               menuWidth: screenWidth * 0.35,
               selectedValue: "Lütfen Seçin",
@@ -382,7 +378,7 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
               ),
               const SizedBox(height: 8),
 
- Row(
+ Row(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -404,7 +400,6 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
                     children: [
                       CustomPopMenuWidget(
               width: screenWidth * 0.4,
-              height: screenHeight * 0.07,
               title: "BAKİYE DURUMU",
               menuWidth: screenWidth * 0.4,
               selectedValue: "Borcu Var",
@@ -476,7 +471,6 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
               const SizedBox(height: 8),
              CustomPopMenuWidget(
               width: screenWidth * 0.9,
-              height: screenHeight * 0.07,
               title: "PARA BİRİMİ",
               menuWidth: screenWidth * 0.9,
               selectedValue: "TL",

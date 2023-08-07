@@ -149,7 +149,6 @@ class _UrunEkleState extends State<UrunEkle> {
                 const SizedBox(height: 10),
                 CustomPopMenuWidget(
                   width: screenWidth * 0.9,
-                  height: screenHeight * 0.07,
                   title: "TÜR*",
                   menuWidth: screenWidth * 0.9,
                   selectedValue: "Ürün",
@@ -205,7 +204,6 @@ class _UrunEkleState extends State<UrunEkle> {
                 const Divider(),
                 CustomPopMenuWidget(
                   width: screenWidth * 0.9,
-                  height: screenHeight * 0.07,
                   title: "BİRİM",
                   menuWidth: screenWidth * 0.9,
                   selectedValue: "Adet",
@@ -215,7 +213,6 @@ class _UrunEkleState extends State<UrunEkle> {
                 const Divider(),
                 CustomPopMenuWidget(
                   width: screenWidth * 0.9,
-                  height: screenHeight * 0.07,
                   title: "PARA BİRİMİ",
                   menuWidth: screenWidth * 0.9,
                   selectedValue: "TL",
@@ -326,7 +323,6 @@ class _UrunEkleState extends State<UrunEkle> {
                 const Divider(),
                 CustomPopMenuWidget(
                   width: screenWidth * 0.9,
-                  height: screenHeight * 0.07,
                   title: "KDV ORANI",
                   menuWidth: screenWidth * 0.9,
                   selectedValue: "18",
@@ -361,7 +357,6 @@ class _UrunEkleState extends State<UrunEkle> {
                 const Divider(),
                 CustomPopMenuWidget(
                   width: screenWidth * 0.9,
-                  height: screenHeight * 0.07,
                   title: "EK VERGİ",
                   menuWidth: screenWidth * 0.9,
                   selectedValue: "Uygulanmaz",

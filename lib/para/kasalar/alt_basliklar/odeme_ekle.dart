@@ -81,7 +81,6 @@ class _KasalarOdemeEkleState extends State<KasalarOdemeEkle> {
              const Divider(),
         CustomPopMenuWidget(
        width: screenWidth * 0.9,
-       height: screenHeight * 0.07,
        title: "TÜR",
        menuWidth: screenWidth * 0.9,
        selectedValue: "Çek",
@@ -187,6 +186,7 @@ class _KasalarOdemeEkleState extends State<KasalarOdemeEkle> {
               ),
                   const Divider(),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -201,9 +201,8 @@ class _KasalarOdemeEkleState extends State<KasalarOdemeEkle> {
                           ),
                         ],
                       ),
-                                             CustomPopMenuWidget(
+                      CustomPopMenuWidget(
                        width: screenWidth * 0.3,
-                       height: screenHeight * 0.07,
                        title: "PARA BİRİMİ",
                        menuWidth: screenWidth * 0.3,
                        selectedValue: "TL",

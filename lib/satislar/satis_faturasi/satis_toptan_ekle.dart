@@ -58,13 +58,15 @@ backgroundColor: Colors.white,
 body: SingleChildScrollView(
   child: Column(
     children: [
+       SizedBox(height: screenHeight*0.02,),
       Row(
+         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
                 Padding(
-                padding: const EdgeInsets.fromLTRB(15, 15, 10, 0),
+                padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
                 child: PersonImageBorder(  
                   screenHeight: screenHeight, 
                   screenWidth: screenWidth, 
@@ -77,7 +79,6 @@ body: SingleChildScrollView(
                       padding: const EdgeInsets.only(left: 30,top: 3),
                       child: CustomPopMenuWidget(
                       width: screenWidth * 0.45,
-                      height: screenHeight * 0.15,
                       title: "DÖVİZ",
                       menuWidth: screenWidth * 0.4,
                       selectedValue: "TL",
@@ -213,7 +214,7 @@ body: SingleChildScrollView(
             ),
         ],
       ),
-
+ SizedBox(height: screenHeight*0.02,),
     ],
   ),
         

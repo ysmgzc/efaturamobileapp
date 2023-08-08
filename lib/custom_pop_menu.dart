@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomPopMenuWidget extends StatefulWidget {
   final double width;
-  final double? height; // İsteğe bağlı olarak 'double?' tipine çevirdik.
+  final double? height;
   final String title;
   final double menuWidth;
   final String selectedValue;
@@ -16,7 +16,7 @@ class CustomPopMenuWidget extends StatefulWidget {
   const CustomPopMenuWidget({
     Key? key,
     required this.width,
-    this.height, // 'required' özelliğini kaldırdık.
+    this.height,
     required this.title,
     required this.menuWidth,
     required this.selectedValue,
@@ -45,8 +45,8 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      width: widget.width,
-      height: widget.height, // Eğer 'widget.height' null ise, otomatik olarak içeriğine göre yükseklik alır.
+      width: widget.width, // Ana Container genişliği burada ayarlandı
+      height: widget.height,
       color: Colors.white,
       alignment: Alignment.topLeft,
       child: SingleChildScrollView(
@@ -68,30 +68,35 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.30 - 25,
-                  child: PopupMenuButton<String>(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        selectedValue ?? "18",
-                        style: const TextStyle(fontSize: 16, color: Colors.black),
-                        overflow: TextOverflow.ellipsis,
+                Expanded(
+                  child: Container(
+                    width: widget.menuWidth, // Menu genişliği burada ayarlandı
+                    child: PopupMenuButton<String>(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          selectedValue ?? "18",
+                          style: const TextStyle(fontSize: 16, color: Colors.black),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
+                      onSelected: (value) {
+                        setState(() {
+                          selectedValue = value;
+                        });
+                      },
+                      itemBuilder: (BuildContext context) {
+                        return widget.items.map((value) {
+                          return PopupMenuItem(
+                            value: value,
+                            child: Container(
+                              width: widget.menuItemsWidth, // Menü öğelerinin genişliği burada ayarlandı
+                              child: Text(value),
+                            ),
+                          );
+                        }).toList();
+                      },
                     ),
-                    onSelected: (value) {
-                      setState(() {
-                        selectedValue = value;
-                      });
-                    },
-                    itemBuilder: (BuildContext context) {
-                      return widget.items.map((value) {
-                        return PopupMenuItem(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList();
-                    },
                   ),
                 ),
                 const Icon(

@@ -270,6 +270,7 @@ body: SingleChildScrollView(
                 ),
               ],
             ),
+            SizedBox(height: screenHeight*0.02,),
          UrunEkleBorderSave(
           screenHeight: screenHeight, 
           screenWidth: screenWidth, 

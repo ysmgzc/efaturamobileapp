@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'home_screen/home_page_screen.dart';
-import 'stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammadde.dart';
-
 void main() {
   runApp(const MyApp());
 }

@@ -129,18 +129,22 @@ body: SingleChildScrollView(
                     ),
                 ),
                   IgnorePointer(
-                    child: CustomPopMenuWidget(
-                    width: screenWidth * 0.45,
-                    title: "DÖVİZ",
-                    menuWidth: screenWidth * 0.4,
-                    selectedValue: "TL",
-                    items: items,
-                    menuItemsWidth: screenWidth * 0.2,
-                    dividerIndent: 35,  
-                    dividerEndIndent: 45,  
-                    showDivider: true,  
-                        ),
+                    child: Padding(
+                       padding: const EdgeInsets.only(left: 30,top: 3),
+                      child: CustomPopMenuWidget(
+                      width: screenWidth * 0.45,
+                      title: "DÖVİZ",
+                      menuWidth: screenWidth * 0.4,
+                      selectedValue: "TL",
+                      items: items,
+                      menuItemsWidth: screenWidth * 0.2,
+                      dividerIndent: 35,  
+                      dividerEndIndent: 45,  
+                      showDivider: true,  
+                          ),
+                    ),
                   ),
+                  
                     ],
                   ),
           ),

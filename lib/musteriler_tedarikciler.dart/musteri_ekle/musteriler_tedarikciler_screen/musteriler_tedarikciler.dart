@@ -280,7 +280,7 @@ class CustomWidget extends StatelessWidget {
                 CircleAvatar(
                   child: Text(
                     avatarText.substring(0, 1).toUpperCase(),
-                    style: const TextStyle(color: Colors.white),
+                    style:const TextStyle(color: Colors.white),
                   ),
                   backgroundColor: Colors.black,
                 ),

@@ -3,6 +3,8 @@ import 'package:efaturamobileapp/home_screen/home_page_screen.dart';
 import 'package:efaturamobileapp/screens/forgot_password_screen.dart';
 import 'package:efaturamobileapp/screens/sign_up_screen.dart';
 import "package:flutter/material.dart";
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,6 +14,23 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController uyeNoKontrol = TextEditingController();
+    @override
+  void initState() {
+    super.initState();
+    _loadUyeNo();
+  }
+_loadUyeNo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      uyeNoKontrol.text = prefs.getString('member_number') ?? '';
+    });
+  }
+  _saveUyeNo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('member_number', uyeNoKontrol.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height*0.15,),
+                SizedBox(height: MediaQuery.of(context).size.height*0.12,),
                 Text(
                   'E-Fatura',
                   style: TextStyle(
@@ -41,7 +60,38 @@ class _LoginScreenState extends State<LoginScreen> {
                       shadows:const [BoxShadow(color: Colors.white, offset: Offset(1,2),blurRadius: 3 ),],
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height*0.15,),
+                SizedBox(height: MediaQuery.of(context).size.height*0.08,),
+                  Container(
+                width: MediaQuery.of(context).size.width * 0.76,
+                alignment: Alignment.center,
+                child: TextFormField(
+                  controller: uyeNoKontrol,
+                  style: const TextStyle(
+                    height: 1.5,
+                  ),
+                  decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 10, top: 3),
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.only(top: 17),
+                      child: Icon(
+                        Icons.assignment_ind, 
+                        color: kIconColor,
+                      ),
+                    ),
+                    enabledBorder: UnderlineInputBorder(      
+                      borderSide: BorderSide(color: kBorderColor),   
+                    ),  
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: kBorderColor),
+                    ),
+                    label: Center(
+                      child: Text("Üye Numarası"),
+                    ), 
+                    labelStyle: kHintTextStyle,
+                  ),
+                ),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
                 Container(
                   width: MediaQuery.of(context).size.width*0.76,
                   alignment: Alignment.center,
@@ -51,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                     decoration:const InputDecoration(
                       contentPadding:
-                      EdgeInsets.only(left: 10, top: 10, bottom: 15),
+                      EdgeInsets.only(left: 10, top: 3),
                        prefixIcon: Padding(
                          padding:  EdgeInsets.only(top: 17),
                          child: Icon(
@@ -67,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderSide: BorderSide(color: kBorderColor) 
                       ),
                     label: Center(
-                    child: Text("Kullanıcı Adı"),
+                    child: Text("Kullanıcı"),
                   ), 
                   labelStyle: kHintTextStyle,
                   
@@ -86,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                     decoration:const InputDecoration(
                       contentPadding:
-                      EdgeInsets.only(left: 10, top: 10, bottom: 15),
+                      EdgeInsets.only(left: 10, top: 3),
                        prefixIcon: Padding(
                          padding: EdgeInsets.only(top: 17),
                          child: Icon(
@@ -102,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderSide: BorderSide(color: kBorderColor) 
                       ),
                     label: Center(
-                    child: Text("Parola"),
+                    child: Text("Şifre"),
                   ), 
                   labelStyle: kHintTextStyle,
                   
@@ -111,6 +161,80 @@ class _LoginScreenState extends State<LoginScreen> {
                   
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+                Container(
+                width: MediaQuery.of(context).size.width * 0.76,
+                alignment: Alignment.center,
+                child: DropdownButtonFormField<String>(
+                  icon: const SizedBox.shrink(),
+                  decoration:const InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 10, top: 3),
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.only(top: 17),
+                      child: Icon(
+                        Icons.unfold_more,
+                        color: kIconColor,
+                      ),
+                    ),
+                    enabledBorder: UnderlineInputBorder(      
+                      borderSide: BorderSide(color: kBorderColor),   
+                    ),  
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: kBorderColor),
+                    ),
+                    label: Center(
+                      child: Text("Yıl"),
+                    ),
+                    labelStyle: kHintTextStyle,
+                  ),
+                  items: ["2020", "2021", "2022", "2023"]
+                      .map((label) => DropdownMenuItem(
+                            child: Text(label),
+                            value: label,
+                          ))
+                      .toList(),
+                  onChanged: (value) {
+                    print(value);
+                  },
+                ),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+                 Container(
+                width: MediaQuery.of(context).size.width * 0.76,
+                alignment: Alignment.center,
+                child: DropdownButtonFormField<String>(
+                  icon: const SizedBox.shrink(),
+                  decoration:const InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 10, top: 3),
+                    prefixIcon: Padding(
+                      padding: EdgeInsets.only(top: 17),
+                      child: Icon(
+                        Icons.unfold_more,
+                        color: kIconColor,
+                      ),
+                    ),
+                    enabledBorder: UnderlineInputBorder(      
+                      borderSide: BorderSide(color: kBorderColor),   
+                    ),  
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: kBorderColor),
+                    ),
+                    label: Center(
+                      child: Text("Dönem"),
+                    ),
+                    labelStyle: kHintTextStyle,
+                  ),
+                  items: ["2020", "2021", "2022", "2023"]
+                      .map((label) => DropdownMenuItem(
+                            child: Text(label),
+                            value: label,
+                          ))
+                      .toList(),
+                  onChanged: (value) {
+                    print(value);
+                  },
+                ),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
                 Container(
                   width: MediaQuery.of(context).size.width*0.8,
                   alignment: Alignment.center,
@@ -136,9 +260,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                               ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height*0.055,),
+                SizedBox(height: MediaQuery.of(context).size.height*0.05,),
                 GestureDetector(
                   onTap: () {
+                    _saveUyeNo();
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -187,7 +312,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         )
                       ),
                       TextSpan(
-                        
                         text: 'Kaydol',
                         style: TextStyle(
                           color: Colors.grey,
@@ -197,8 +321,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     ]
                   
-                  )
-                   
+                  ), 
                   ),
                 ),
               ],

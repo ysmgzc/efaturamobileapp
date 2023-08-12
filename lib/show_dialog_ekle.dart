@@ -20,7 +20,7 @@ class ShowDialogEkle {
                     fontSize: 16,
                   ),
                 ),
-               const SizedBox(height: 10), 
+                const SizedBox(height: 10),
               ],
             ),
           ),
@@ -39,12 +39,13 @@ class ShowDialogEkle {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-              const  SizedBox(height: 20),
+                const SizedBox(height: 20),
                 for (var option in dialogOptions)
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextButton(
+                        onPressed: option.onPressed,
                         child: Text(
                           option.title,
                           style: const TextStyle(
@@ -53,7 +54,6 @@ class ShowDialogEkle {
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                        onPressed: option.onPressed,
                       ),
                       const Divider(endIndent: 10, indent: 10),
                     ],
@@ -73,3 +73,4 @@ class DialogOption {
 
   DialogOption({required this.title, required this.onPressed});
 }
+

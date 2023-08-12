@@ -53,7 +53,7 @@ class _SeceneklerButtonState extends State<SeceneklerButton> {
               ),
               if (showSubMenu) const SizedBox(height: 10),
               if (showSubMenu) 
-                Text(
+               const Text(
                   'Taşıyıcı Firma',
                   style: TextStyle(fontSize: 14, color: yTextColor),
                   maxLines: 1,
@@ -61,7 +61,7 @@ class _SeceneklerButtonState extends State<SeceneklerButton> {
                 ),
               if (showSubMenu) const SizedBox(height: 10),
               if (showSubMenu) 
-                Row(
+              const  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -71,7 +71,7 @@ class _SeceneklerButtonState extends State<SeceneklerButton> {
                     Icon(Icons.expand_more, color: yTextColor),
                   ],
                 ),
-              if (showSubMenu) SizedBox(height: 10),
+              if (showSubMenu)const SizedBox(height: 10),
               if (showSubMenu) 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -90,7 +90,7 @@ class _SeceneklerButtonState extends State<SeceneklerButton> {
                               });
                             },
                           ),
-                          Flexible(
+                       const   Flexible(
                             child: Text(
                               'Ödemeli (Müşteri sipariş tutarı kadar borçlanır)',
                               style: TextStyle(color: yTextColor),
@@ -115,7 +115,7 @@ class _SeceneklerButtonState extends State<SeceneklerButton> {
                               });
                             },
                           ),
-                          Flexible(
+                        const  Flexible(
                             child: Text(
                               'Ürünler rezerve edilir.',
                               style: TextStyle(color: yTextColor),

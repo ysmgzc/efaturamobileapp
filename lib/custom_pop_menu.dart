@@ -69,8 +69,8 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Container(
-                    width: widget.menuWidth, // Menu genişliği burada ayarlandı
+                  child: SizedBox(
+                    width: widget.menuWidth,
                     child: PopupMenuButton<String>(
                       child: Align(
                         alignment: Alignment.centerLeft,
@@ -89,8 +89,8 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
                         return widget.items.map((value) {
                           return PopupMenuItem(
                             value: value,
-                            child: Container(
-                              width: widget.menuItemsWidth, // Menü öğelerinin genişliği burada ayarlandı
+                            child: SizedBox(
+                              width: widget.menuItemsWidth, 
                               child: Text(value),
                             ),
                           );

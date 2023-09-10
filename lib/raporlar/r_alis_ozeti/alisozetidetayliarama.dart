@@ -83,7 +83,7 @@ class _AlisOzetiDetayliAramaState extends State<AlisOzetiDetayliArama> {
             onTap: () {
                Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const MusterilerTedarikcilerScreen()),
+          MaterialPageRoute(builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)),
         );
             },
             

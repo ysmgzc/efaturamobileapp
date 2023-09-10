@@ -190,7 +190,7 @@ class DrawerBar extends StatelessWidget {
                   ),
                   title: 'Müşteriler & Tedarikçiler',
                   titleStyle: kListTileSize,
-                  route: const MusterilerTedarikcilerScreen(),
+                  route:  MusterilerTedarikcilerScreen(secim: 0),
                   enablePadding: false,
                 ),
                 //-------------------------------------------------

@@ -338,7 +338,7 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MusterilerTedarikcilerScreen()));
+                                builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)));
                       },
                       style: ButtonStyle(
                         backgroundColor:

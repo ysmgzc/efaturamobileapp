@@ -102,7 +102,7 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
                     height: screenHeight * 0.07,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const MusterilerTedarikcilerScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)));
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.transparent),

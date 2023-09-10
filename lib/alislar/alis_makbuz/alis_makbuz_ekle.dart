@@ -86,7 +86,7 @@ class _AlisMakbuzEkleState extends State<AlisMakbuzEkle> {
                       child: PersonImageBorder(
                         screenHeight: screenHeight,
                         screenWidth: screenWidth,
-                        route: const MusterilerTedarikcilerScreen(),
+                        route:  MusterilerTedarikcilerScreen(secim: 1),
                         text: "Tedarikci ekle",
                         assetPath: 'assets/icons/personicon.png',
                       ),

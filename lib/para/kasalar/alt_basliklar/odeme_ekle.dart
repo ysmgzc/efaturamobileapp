@@ -112,7 +112,7 @@ class _KasalarOdemeEkleState extends State<KasalarOdemeEkle> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MusterilerTedarikcilerScreen()));
+                                builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)));
                       },
                       style: ButtonStyle(
                         backgroundColor:

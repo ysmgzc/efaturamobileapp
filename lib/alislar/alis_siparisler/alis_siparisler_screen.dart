@@ -148,7 +148,7 @@ class _AlisSiparislerScreenState extends State<AlisSiparislerScreen> {
    childrenData: [
      SpeedDialData(
         label: '',
-        route:const AlisSiparisEkle(),
+        route: AlisSiparisEkle(metin: ""),
       ),
    ],
   ),

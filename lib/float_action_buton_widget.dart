@@ -15,13 +15,14 @@ class CustomFAB extends StatelessWidget {
       ? Container(
           padding:const EdgeInsets.only(bottom: 10),
           child: SpeedDial(
-            animatedIcon: AnimatedIcons.add_event,
+            icon: Icons.add,
+            activeIcon: Icons.close,
             backgroundColor: Colors.green,
             foregroundColor: Colors.white,
             overlayColor: Colors.grey,
             overlayOpacity: 0.4,
-            spaceBetweenChildren: 12,
-            spacing: 12,
+            spaceBetweenChildren: 5,
+            spacing: 5,
             children: childrenData.map((data) {
               return SpeedDialChild(
                 child: const Icon(Icons.add, color: Colors.white,),

@@ -341,7 +341,7 @@ Padding(
                           TextButton(
                             onPressed: () {
                                Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const MusterilerTedarikcilerScreen()));
+            builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)));
                             },
                             child: Text('₺$value1', style:const TextStyle(fontWeight: FontWeight.bold,fontSize: 16)),
                           ),
@@ -362,7 +362,7 @@ Padding(
                           TextButton(
                             onPressed: () {
                                Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const MusterilerTedarikcilerScreen()));
+            builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)));
                             },
                             child: Text('₺$value2', style:const TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 16)),
                           ),

@@ -71,7 +71,7 @@ body: SingleChildScrollView(
                   child: PersonImageBorder(  
                     screenHeight: screenHeight, 
                     screenWidth: screenWidth, 
-                    route:const MusterilerTedarikcilerScreen(), 
+                    route: MusterilerTedarikcilerScreen(secim: 1), 
                     text: "Tedarikçi ekle",
                     assetPath: 'assets/icons/personicon.png',
                     ),

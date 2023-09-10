@@ -11,7 +11,9 @@ import '../../stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 
 
 class AlisSiparisEkle extends StatefulWidget {
-  const AlisSiparisEkle({Key? key}) : super(key: key);
+  String metin;
+  
+  AlisSiparisEkle({required this.metin});
 
   @override
   State<AlisSiparisEkle> createState() => _AlisSiparisEkleState();
@@ -28,11 +30,24 @@ class _AlisSiparisEkleState extends State<AlisSiparisEkle> {
   'USD',
   'KGS',
 ];
+@override
+  void initState() {
+    if(widget.metin == ""){
+      widget.metin="Tedarikçi Ekle";
+    }
+    else{
+
+    }
+    setState(() {
+      
+    });
+  }
   TextEditingController dateInput = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+  
 
     return Scaffold(
       appBar: AppBar(
@@ -63,8 +78,8 @@ body: SingleChildScrollView(
                   child: PersonImageBorder(  
                     screenHeight: screenHeight, 
                     screenWidth: screenWidth, 
-                    route:const MusterilerTedarikcilerScreen(), 
-                    text: "Tedarikçi ekle",
+                    route: MusterilerTedarikcilerScreen(secim: 1), 
+                    text: widget.metin,
                     assetPath: 'assets/icons/personicon.png',
                     ),
                 ),

@@ -331,6 +331,7 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
                         Colors.grey.shade100,
                         Colors.grey.shade50,
                         Colors.white70,
+
                       ],
                     ),
                   ),
@@ -342,7 +343,7 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const MusterilerTedarikcilerScreen()));
+                                builder: (context) =>  MusterilerTedarikcilerScreen(secim:1 ,)));
                       },
                       style: ButtonStyle(
                         backgroundColor:

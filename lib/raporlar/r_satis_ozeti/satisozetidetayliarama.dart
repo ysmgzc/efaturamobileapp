@@ -101,7 +101,7 @@ class _SatisOzetiDetayliAramaState extends State<SatisOzetiDetayliArama> {
             onTap: () {
                Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const MusterilerTedarikcilerScreen()),
+          MaterialPageRoute(builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)),
         );
             },
             

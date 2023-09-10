@@ -98,7 +98,7 @@ class _MasrafOzetiDetayliAramaState extends State<MasrafOzetiDetayliArama> {
             onTap: () {
                Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const MusterilerTedarikcilerScreen()),
+          MaterialPageRoute(builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)),
         );
             },
             

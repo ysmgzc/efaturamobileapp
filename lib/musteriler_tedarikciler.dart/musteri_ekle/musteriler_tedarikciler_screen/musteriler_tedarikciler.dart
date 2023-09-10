@@ -1,4 +1,6 @@
 
+import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparis_ekle.dart';
+import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparisler_screen.dart';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteri_ekle.dart';
@@ -18,13 +20,17 @@ import '../../../bottom_app_bar_widget_toplam.dart';
 import '../../../show_dialog_ekle.dart';
 
 class MusterilerTedarikcilerScreen extends StatefulWidget {
-  const MusterilerTedarikcilerScreen({Key? key}) : super(key: key);
+  int secim;
+
+MusterilerTedarikcilerScreen({required this.secim});
+
 
   @override
   State<MusterilerTedarikcilerScreen> createState() => _MusterilerTedarikcilerScreenState();
 }
 
 class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScreen> {
+
   @override
   Widget build(BuildContext context) {
      double screenHeight = MediaQuery.of(context).size.height;
@@ -114,7 +120,7 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
                   ),
                 ],
               ),
-                child: const Column(
+                child: widget.secim==0? Column(
                   children: [  
                      SizedBox(height: 10,),
                   CustomWidget(
@@ -149,7 +155,25 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
                           ),
                SizedBox(height: 10,),
                   ],
-                ),     
+                ):Column(children: [
+                   SizedBox(height: 10,),
+                  CustomWidget2(
+                    avatarText: 'Personel Ahmet Usta',
+                    tedarikciAdi: 'Personel Ahmet Usta',
+                    paraBirimi: '₺1000',
+                    durumu : 'Ödenecek',
+                  ),
+                 SizedBox(height: 10,),
+                  Divider(),
+                   CustomWidget2(
+                        avatarText: 'Test Alış Ltd. Şti.',
+                        tedarikciAdi: 'Test Alış Ltd. Şti.',
+                        lokasyon: 'İstanbul',
+                        paraBirimi: '₺1000',
+                        durumu: 'Tahsil Edilecek',
+                          ),
+               SizedBox(height: 10,),
+                ],),     
           )],
           ),
         ),
@@ -270,6 +294,93 @@ class CustomWidget extends StatelessWidget {
                                   ];
                                   ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
                                 },
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  child: Text(
+                    avatarText.substring(0, 1).toUpperCase(),
+                    style:const TextStyle(color: Colors.white),
+                  ),
+                  backgroundColor: Colors.black,
+                ),
+                const SizedBox(width: 20.0),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      tedarikciAdi,
+                      style: const TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                    Text(
+                      lokasyon ?? '',
+                      style: const TextStyle(color: Colors.grey, fontSize: 14),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    paraBirimi,
+                    style: const TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  Text(
+                    durumu,
+                    style: const TextStyle(color: Colors.black, fontSize: 14),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+class CustomWidget2 extends StatelessWidget {
+  final String avatarText;
+  final String tedarikciAdi;
+  final String? lokasyon;
+  final String paraBirimi;
+  final String durumu;
+   // final VoidCallback onTap;
+
+  const CustomWidget2({
+    Key? key,
+    this.avatarText = '',
+    this.tedarikciAdi = '',
+    this.lokasyon,
+    this.paraBirimi = '',
+    this.durumu = '',
+      //  required this.onTap,
+  }): super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap:  () {   Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => AlisSiparisEkle(metin: tedarikciAdi),
+                              ));},
       child: Container(
         padding: const EdgeInsets.all(8.0),
         child: Row(

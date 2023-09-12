@@ -1,6 +1,5 @@
 
 import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparis_ekle.dart';
-import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparisler_screen.dart';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteri_ekle.dart';

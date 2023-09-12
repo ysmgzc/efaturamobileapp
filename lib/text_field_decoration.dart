@@ -18,31 +18,39 @@ class TextFieldDecoration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        gradient: LinearGradient(
-          colors: [
-            Colors.grey.shade200,
-            Colors.grey.shade100,
-            Colors.grey.shade50,
-            Colors.white70,
-          ],
+    return SingleChildScrollView(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: screenHeight * heightFactor, //  istediğimiz maksimum yüksekliği belirleyecek.
         ),
-      ),
-      child: SizedBox(
-        width: screenWidth * widthFactor,
-        height: screenHeight * heightFactor,
-        child: TextField(
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.transparent,
-            hintText: hintText,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5),
-              borderSide: BorderSide.none,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            gradient: LinearGradient(
+              colors: [
+                Colors.grey.shade200,
+                Colors.grey.shade100,
+                Colors.grey.shade50,
+                Colors.white70,
+              ],
             ),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          ),
+          child: SizedBox(
+            width: screenWidth * widthFactor,
+            height: screenHeight * heightFactor,
+            child: TextField(
+              maxLines: null, // Sınırsız satır için
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.transparent,
+                hintText: hintText,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+              ),
+            ),
           ),
         ),
       ),

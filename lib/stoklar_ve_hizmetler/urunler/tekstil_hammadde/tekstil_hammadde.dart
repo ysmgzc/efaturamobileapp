@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import '../../../active_switch.dart';
 import '../../../bottom_app_bar_design.dart';
 import '../../../constants.dart';
 import '../../../custom_pop_menu.dart';
@@ -213,10 +214,51 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
                 screenHeight: screenHeight,
                 heightFactor: 0.14, 
                 ),
+                
           ],
         ),
       ),
-
+      const Divider(),
+       const SizedBox(height: 15),
+        Container(
+                alignment: Alignment.center,
+                child: const Text(
+                  'E-DEVLET BİLGİLERİ',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+               const SizedBox(height: 15),
+ Row(
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: [
+                        const Text(
+                         'KDV Muafiyeti',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      child: ActiveSwitch(
+                        onChanged: (bool value) {},
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+const Divider(),
        const SizedBox(height: 18),
             ],
           ),

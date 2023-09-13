@@ -1,19 +1,21 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/secenek_buton.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../bottom_show_dialog_widget.dart';
 import '../../custom_pop_menu.dart';
 import '../../person_image_border_save.dart';
-import '../../stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import '../../toplam_tutar_save.dart';
 import '../../urun_ekle_border_save_animasyonsuz.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 
 class AlisSiparisFaturasiSave extends StatefulWidget {
-  const AlisSiparisFaturasiSave({Key? key}) : super(key: key);
+  const AlisSiparisFaturasiSave({
+    Key? key
+    }) : super(key: key);
 
   @override
   State<AlisSiparisFaturasiSave> createState() => _AlisSiparisFaturasiSaveState();
@@ -30,6 +32,7 @@ class _AlisSiparisFaturasiSaveState extends State<AlisSiparisFaturasiSave> {
   'USD',
   'KGS',
 ];
+
   TextEditingController dateInput = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -211,7 +214,7 @@ body: SingleChildScrollView(
            UrunEkleBorderSaveAnimasyonsuz(
           screenHeight: screenHeight, 
           screenWidth: screenWidth, 
-          route:const  UrunEkle(), 
+          route:const  UrunHizmetSecScreen(), 
           text: "Ürün / Hizmet Ekle",
           baslik: "Tekstil Hammade",
           altbaslikBirim: '100 KİLOGRAM',

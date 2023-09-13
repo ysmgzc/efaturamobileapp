@@ -9,6 +9,8 @@ import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.da
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
+
 enum OdemeDurumu { odendi, odenecek }
 
 class HizmetMasrafSave extends StatefulWidget {
@@ -283,7 +285,7 @@ class _HizmetMasrafSaveState extends State<HizmetMasrafSave> {
                     height: 0.19,
           screenHeight: screenHeight, 
           screenWidth: screenWidth, 
-          route:const  UrunEkle(), 
+          route:const  UrunHizmetSecScreen(), 
           text: "Ürün / Hizmet Ekle",
           baslik: "DİĞER GİDERLER",
           altbaslikBirim: '1 ADET',

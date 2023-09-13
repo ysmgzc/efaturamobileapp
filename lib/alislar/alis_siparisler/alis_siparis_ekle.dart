@@ -1,5 +1,7 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/person_image_border.dart';
+import 'package:efaturamobileapp/person_image_border_save.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/toplam_tutar.dart';
 import 'package:efaturamobileapp/urunekleborder.dart';
 import 'package:flutter/material.dart';
@@ -75,10 +77,15 @@ body: SingleChildScrollView(
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
-                  child: PersonImageBorder(  
+                  child: widget.metin=="Tedarikçi Ekle" ? PersonImageBorder(  
                     screenHeight: screenHeight, 
                     screenWidth: screenWidth, 
                     route: MusterilerTedarikcilerScreen(secim: 1), 
+                    text: widget.metin,
+                    assetPath: 'assets/icons/personicon.png',
+                    ):PersonImageBorderSave(  
+                    screenHeight: screenHeight, 
+                    screenWidth: screenWidth, 
                     text: widget.metin,
                     assetPath: 'assets/icons/personicon.png',
                     ),
@@ -173,7 +180,7 @@ body: SingleChildScrollView(
            UrunEkleBorder(
           screenHeight: screenHeight, 
           screenWidth: screenWidth, 
-          route:const  UrunEkle(), 
+          route:const UrunHizmetSecScreen(), 
           text: "Ürün / Hizmet Ekle",
         ),
      const Divider(),

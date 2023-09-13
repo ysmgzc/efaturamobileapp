@@ -4,9 +4,9 @@ import 'package:intl/intl.dart';
 import '../../bottom_show_dialog_widget.dart';
 import '../../custom_pop_menu.dart';
 import '../../person_image_border_save.dart';
+import '../../stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import '../../toplam_tutar_save.dart';
 import '../../urun_ekle_border_save.dart';
-import '../../stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class AlisFaturasiSave extends StatefulWidget {
@@ -225,7 +225,7 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
             UrunEkleBorderSave(
               screenHeight: screenHeight,
               screenWidth: screenWidth,
-              route: const UrunEkle(),
+              route: const UrunHizmetSecScreen(),
               text: "Ürün / Hizmet Ekle",
               baslik: "Tekstil Hammade",
               altbaslikKG: '100 KİLOGRAM',

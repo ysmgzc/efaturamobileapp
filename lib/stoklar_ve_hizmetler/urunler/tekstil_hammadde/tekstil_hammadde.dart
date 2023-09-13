@@ -232,7 +232,7 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
                 ),
               ),
                const SizedBox(height: 15),
- Row(
+            Row(
                 children: [
                   Container(
                     alignment: Alignment.centerLeft,

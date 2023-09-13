@@ -6,6 +6,7 @@ import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/secenekler/urunler
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammade_stok_hareketleri.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_urunleri/tekstil_urunleri_stok_hareketleri.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../search_field.dart';
@@ -111,13 +112,12 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
                 ],
               ),
                         child: Padding(
-                          padding:const  EdgeInsets.only(left: 25, right: 25),
+                          padding:const  EdgeInsets.only(left: 15, right: 15),
                           child: Column(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               UrunlerHizmetlerWidget(
                                 baslikText: "Tekstil Hammadde",
-                                kdvsizText: "100 Kilogram / ",
+                                kdvsizText: "100 Kilogram",
                                 kdvsizTextYuzde:"%18",
                                 kdvsizAlisText: "₺25,00",
                                 alisText: "(KDV'siz)",
@@ -149,7 +149,7 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
                               const Divider(),
                                UrunlerHizmetlerWidget(
                                 baslikText: "Tekstil Ürünleri",
-                                kdvsizText: "-100 Kilogram / ",
+                                kdvsizText: "-100 Kilogram",
                                 kdvsizTextYuzde:"%10",
                                 kdvsizAlisText: "₺25,00",
                                 alisText: "(KDV'siz)",
@@ -200,7 +200,7 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
   }
 }
 
-class UrunlerHizmetlerWidget extends StatelessWidget {
+/*class UrunlerHizmetlerWidget extends StatelessWidget {
   final String kdvsizAlisText;
   final String kdvsizSatisText;
   final String baslikText;
@@ -373,4 +373,4 @@ class UrunlerHizmetlerWidget extends StatelessWidget {
       ),
     );
   }
-}
+}*/

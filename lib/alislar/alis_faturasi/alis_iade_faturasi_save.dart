@@ -1,11 +1,11 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../bottom_show_dialog_widget.dart';
 import '../../person_image_border_save.dart';
-import '../../stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import '../../urun_ekle_border_save.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
@@ -240,7 +240,7 @@ body: SingleChildScrollView(
         UrunEkleBorderSave(
           screenHeight: screenHeight, 
           screenWidth: screenWidth, 
-          route:const  UrunEkle(), 
+          route:const  UrunHizmetSecScreen(), 
           text: "Ürün / Hizmet Ekle",
           baslik: "Tekstil Hammade",
           altbaslikKG: '100 KİLOGRAM',

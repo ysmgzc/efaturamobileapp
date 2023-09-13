@@ -358,15 +358,14 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
   }
 }
 
-
 class UrunlerHizmetlerWidget extends StatelessWidget {
   final String kdvsizAlisText;
   final String kdvsizSatisText;
   final String baslikText;
   final String kdvsizText;
   final String kdvsizTextYuzde;
-   final Widget onPressedDuzenle;
-   final Widget onPressedHareketler;
+  final Widget onPressedDuzenle;
+  final Widget onPressedHareketler;
 
   const UrunlerHizmetlerWidget({
     Key? key,
@@ -381,167 +380,80 @@ class UrunlerHizmetlerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-   return InkWell(
- onTap: () {
-                  List<DialogOption> dialogOptions = [
-              DialogOption(
-                          title: "Düzenle",
-                          onPressed: () { 
-                                         Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>  onPressedDuzenle,
-                              ));
-                          },
-                        ),
-                        DialogOption(
-                          title: "Hareketler",
-                          onPressed: () {
-                                 Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>  onPressedHareketler,
-                              ));
-                          },
-                        ),
-                  ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                },
+    return InkWell(
+      onTap: () {
+        List<DialogOption> dialogOptions = [
+          DialogOption(
+            title: "Düzenle",
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => onPressedDuzenle,
+              ));
+            },
+          ),
+          DialogOption(
+            title: "Hareketler",
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => onPressedHareketler,
+              ));
+            },
+          ),
+        ];
+        ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
           Text(
             baslikText,
             style: const TextStyle(
               color: Colors.black,
-              fontSize: 16,
+              fontSize: 15,
             ),
           ),
-          const SizedBox(
-            height: 12,
-          ),
+          const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                 const Text(
-                    "STOK / KDV",
-                    style:  TextStyle(
-                      color: yTextColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Container(
-                    height: 2.0,
-                    color: Colors.blue,
-                    width: 20.0,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        kdvsizText,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                        ),
-                      ),
-                       Text(
-                    kdvsizTextYuzde,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                    ),
-                  ),
-                    ],
-                  ),
-                  
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "ALIŞ",
-                    style: TextStyle(
-                      color: yTextColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Container(
-                    height: 2.0,
-                    color: Colors.red,
-                    width: 20.0,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    kdvsizAlisText,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "SATIŞ",
-                    style: TextStyle(
-                      color: yTextColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Container(
-                    height: 2.0,
-                    color: Colors.green,
-                    width: 20.0,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    kdvsizSatisText,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
-              ),
+              _buildColumn("STOK / KDV", Colors.blue, [kdvsizText, kdvsizTextYuzde]),
+              _buildColumn("ALIŞ", Colors.red, [kdvsizAlisText]),
+              _buildColumn("SATIŞ", Colors.green, [kdvsizSatisText]),
             ],
           ),
-           const SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
         ],
       ),
     );
   }
+
+  Column _buildColumn(String title, Color color, List<String> texts) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            color: yTextColor,
+            fontWeight: FontWeight.bold,
+            fontSize: 13,
+          ),
+        ),
+        const SizedBox(height: 5),
+        Container(height: 2.0, color: color, width: 20.0),
+        const SizedBox(height: 5),
+        Row(
+          children: texts.map((text) => Text(
+            text,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 13,
+            ),
+          )).toList(),
+        ),
+      ],
+    );
+  }
 }
-
-

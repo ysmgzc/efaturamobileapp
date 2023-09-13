@@ -12,45 +12,46 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = TextEditingController();
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
-      child: Container(
-        decoration: BoxDecoration(
-          color: kSearchColor.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: TextField(
-          controller: controller,
-          onChanged: (value) {
-            print(value);
-          }, 
-          decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(
-                // horizontal: 20,
-                vertical: 20),
-            border: InputBorder.none,
-            focusedBorder: InputBorder.none,
-            enabledBorder: InputBorder.none,
-            hintText: "Ara",
-            prefixIcon: const Icon(Icons.search),
-            suffixIcon: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    controller.clear();
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>const BarkodTara()),
-                    );
-                  },
-                  icon: suffixIcon != null 
-                      ? Image.asset(suffixIcon!) 
-                      : const Icon(Icons.clear),
-                ),
-              ],
-            ),
+     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Container(
+      decoration: BoxDecoration(
+        color: kSearchColor.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: TextField(
+        controller: controller,
+        maxLines: 1,
+        onChanged: (value) {
+          print(value);
+        }, 
+        decoration: InputDecoration(
+          contentPadding:  EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.05,
+             vertical: screenHeight * 0.02,
+              ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          hintText: "Ara",
+          prefixIcon: const Icon(Icons.search),
+          suffixIcon: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                onPressed: () {
+                  controller.clear();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>const BarkodTara()),
+                  );
+                },
+                icon: suffixIcon != null 
+                    ? Image.asset(suffixIcon!) 
+                    : const Icon(Icons.clear),
+              ),
+            ],
           ),
         ),
       ),

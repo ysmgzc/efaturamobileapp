@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     primarySwatch: Colors.blue, 
    // appBarTheme: AppBarTheme(color: Colors.blue),
   ),
-      home: TekstilHammaddeEkle(),
+      home: HomePageScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

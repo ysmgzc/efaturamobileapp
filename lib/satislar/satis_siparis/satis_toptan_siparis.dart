@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/person_image_border.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/toplam_tutar.dart';
 import 'package:efaturamobileapp/urunekleborder.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
@@ -162,7 +163,7 @@ body: SingleChildScrollView(
         UrunEkleBorder(
           screenHeight: screenHeight, 
           screenWidth: screenWidth, 
-          route:const  UrunEkle(), 
+          route:const  UrunHizmetSecScreen(), 
           text: "Ürün / Hizmet Ekle",
         ),
      const Divider(),

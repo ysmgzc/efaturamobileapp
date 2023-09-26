@@ -1,35 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-Future<dynamic> kameraShowDialogWidget(BuildContext context) {
-  return showDialog(
+Future<XFile?> kameraShowDialogWidget(BuildContext context) {
+  return showDialog<XFile?>(
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title:const Text('Seç',style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.bold),),
+        title: const Text('Seç', style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold)),
         content: SingleChildScrollView(
           child: Column(
             children: [
               Row(
                 children: [
-                const  Icon(Icons.camera_alt),
+                  const Icon(Icons.camera_alt),
                   TextButton(
-                    onPressed: () {
-                      _kameradanResimSec();
+                    onPressed: () async {
+                      XFile? image = await _kameradanResimSec();
+                      Navigator.of(context).pop(image);
                     },
-                    child:const Text('Kamera',style: TextStyle(color: Colors.black,fontSize: 14),),
+                    child: const Text('Kamera', style: TextStyle(color: Colors.black, fontSize: 14)),
                   ),
                 ],
               ),
-           const   SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               Row(
                 children: [
-              const    Icon(Icons.image),
+                  const Icon(Icons.image),
                   TextButton(
-                    onPressed: () {
-                      _galeridenResimSec();
+                    onPressed: () async {
+                      XFile? image = await _galeridenResimSec();
+                      Navigator.of(context).pop(image);
                     },
-                    child:const Text('Galeri',style: TextStyle(color: Colors.black,fontSize: 14),),
+                    child: const Text('Galeri', style: TextStyle(color: Colors.black, fontSize: 14)),
                   ),
                 ],
               ),
@@ -40,9 +42,9 @@ Future<dynamic> kameraShowDialogWidget(BuildContext context) {
           Align(
             alignment: Alignment.bottomRight,
             child: TextButton(
-              child:const Text('Vazgeç',style: TextStyle(color: Colors.black,fontSize: 14),),
+              child: const Text('Vazgeç', style: TextStyle(color: Colors.black, fontSize: 14)),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(null); // Vazgeçildiğinde null döndür.
               },
             ),
           ),

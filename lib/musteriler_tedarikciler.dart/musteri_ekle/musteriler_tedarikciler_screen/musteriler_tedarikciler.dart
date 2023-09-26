@@ -194,9 +194,6 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
     );
   }
 }
-
-
-
 class CustomWidget extends StatelessWidget {
   final String avatarText;
   final String tedarikciAdi;

@@ -7,14 +7,12 @@ import 'package:efaturamobileapp/satislar/satis_faturasi/satis_toptan_ekle.dart'
 import 'package:efaturamobileapp/satislar/satis_faturasi/satis_toptan_faturasi_save.dart';
 import 'package:efaturamobileapp/satislar/satis_faturasi/secenekler/satisfaturasidetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';
+import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:flutter/material.dart';
-
 import '../../bottom_app_bar_widget_toplam.dart';
 import '../../bottom_show_dialog_widget.dart';
 import '../../float_action_buton_widget.dart';
 import '../../home_screen/home_page_screen.dart';
-import '../../show_dialog_ekle.dart';
-import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 enum ExceleAktar { standart, luca, detayli }
 
@@ -61,45 +59,36 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
               SheetOption(
                 icon: const Icon(Icons.print, color: Colors.black),
                 text: 'Yazdır',
-                page: const YeniRaporEkle(),
+                onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
               SheetOption(
                 icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-                onTap: () {
-                  List<DialogOption> dialogOptions = [
-                    DialogOption(
-                      title: 'Tarihe göre (En yeni)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En eski)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tutara göre (En yüksek)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tutara göre (En düşük)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Gönderen unvanı (A-Z)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Gönderen unvanı (Z-A)',
-                      onPressed: () {},
-                    ),
-                  ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                },
+               onTap: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SiralamaIslemi(
+                      onSort: (sortedItems) {
+                      },
+                      optionIds: [1, 2, 3, 4, 5, 6, 7, 8],
+                    );
+                  },
+                );
+                
+              },
               ),
               SheetOption(
                 icon: const Icon(Icons.find_in_page, color: Colors.black),
                 text: 'Muhasebe Notu',
-                page: const YeniRaporEkle(),
+                 onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
               SheetOption(
                   icon: Image.asset(

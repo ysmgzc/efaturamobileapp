@@ -45,7 +45,10 @@ class _GiderlerScreenState extends State<GiderlerScreen> {
                SheetOption(
                 icon:const Icon(Icons.find_in_page,color: Colors.black),
                 text: 'Muhasebe Notu',
-                page: const YeniRaporEkle(),
+                 onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
                  SheetOption(
                 icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
@@ -55,12 +58,18 @@ class _GiderlerScreenState extends State<GiderlerScreen> {
                SheetOption(
                 icon:const Icon(Icons.attachment,color: Colors.black),
                 text: "Ek'leri İndir",
-                page: const YeniRaporEkle(),
+                 onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
                SheetOption(
                 icon:const Icon(Icons.delete,color: Colors.black),
                 text: 'Sil',
-                page: const HomePageScreen(),
+                 onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
             ],
           )

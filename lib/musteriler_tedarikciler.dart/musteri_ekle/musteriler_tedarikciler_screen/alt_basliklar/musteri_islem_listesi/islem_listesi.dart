@@ -13,6 +13,7 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import '../../../../../show_dialog_ekle.dart';
+import '../../../../../siralama_islemi_widget.dart';
 
 class MusteriIslemListesiScreen extends StatefulWidget {
   const MusteriIslemListesiScreen({Key? key}) : super(key: key);
@@ -44,23 +45,23 @@ class _MusteriIslemListesiScreenState extends State<MusteriIslemListesiScreen> {
                 text: 'Detaylı Arama',
                 page: const MusteriTedarikciIslemListesiDetayliArama(),
               ),
-              SheetOption(
-                icon:const Icon(Icons.swap_vert,color: Colors.black),
+               SheetOption(
+                icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-                 onTap: () {
-                  List<DialogOption> dialogOptions = [
-                    DialogOption(
-                      title: 'Tarihe göre (En yeni)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En eski)',
-                      onPressed: () {},
-                    ),
-                   
-                  ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                },
+               onTap: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SiralamaIslemi(
+                      onSort: (sortedItems) {
+                      },
+                      optionIds: [3, 4],
+                    );
+                  },
+                );
+                
+              },
               ),
               SheetOption(
                icon:const Icon(Icons.print,color: Colors.black),

@@ -5,6 +5,7 @@ import 'package:efaturamobileapp/satislar/satis_makbuz/satis_makbuz_ekle.dart';
 import 'package:efaturamobileapp/satislar/satis_makbuz/satis_makbuz_faturasi_save.dart';
 import 'package:efaturamobileapp/satislar/satis_makbuz/secenekler/satismakbuzdetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';
+import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../bottom_show_dialog_widget.dart';
@@ -47,12 +48,18 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
               SheetOption(
                 icon:const Icon(Icons.send,color: Colors.black),
                 text: 'Gönder',
-                page: const YeniRaporEkle(),
+                 onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
                SheetOption(
                 icon:const Icon(Icons.print,color: Colors.black),
                 text: 'Yazdır',
-                page: const YeniRaporEkle(),
+                onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
                SheetOption(
                 icon:const Icon(Icons.download,color: Colors.black),
@@ -60,30 +67,22 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
                 page: const YeniRaporEkle(),
               ),
                SheetOption(
-                icon:const Icon(Icons.swap_vert,color: Colors.black),
+                icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-                onTap: () {
-                  List<DialogOption> dialogOptions = [
-                    DialogOption(
-                      title: 'Ada göre (A-Z)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Ada göre (Z-A)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En yeni)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En eski)',
-                      onPressed: () {},
-                    ),
-                   
-                  ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                },
+               onTap: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SiralamaIslemi(
+                      onSort: (sortedItems) {
+                      },
+                      optionIds: [1, 2, 3, 4],
+                    );
+                  },
+                );
+                
+              },
               ),
                  SheetOption(
                 icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),

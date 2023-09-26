@@ -9,7 +9,7 @@ import 'package:intl/intl.dart';
 
 import '../../custom_pop_menu.dart';
 import '../../musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
-import '../../stoklar_ve_hizmetler/urunler/urun_ekle.dart';
+
 
 
 class AlisSiparisEkle extends StatefulWidget {

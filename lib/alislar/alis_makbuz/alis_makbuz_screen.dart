@@ -4,6 +4,7 @@ import 'package:efaturamobileapp/alislar/alis_makbuz/secenekler/alismakbuzdetayl
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/search_field.dart';
+import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../container_widget.dart';
@@ -19,6 +20,7 @@ class AlisMakbuzScreen extends StatefulWidget {
 }
 
 class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
+
   @override
   Widget build(BuildContext context) {
      double screenHeight = MediaQuery.of(context).size.height;
@@ -44,12 +46,18 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
               SheetOption(
                 icon:const Icon(Icons.send,color: Colors.black),
                 text: 'Gönder',
-                page: const YeniRaporEkle(),
+                onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
                SheetOption(
                 icon:const Icon(Icons.print,color: Colors.black),
                 text: 'Yazdır',
-                page: const YeniRaporEkle(),
+                onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
                SheetOption(
                 icon:const Icon(Icons.download,color: Colors.black),
@@ -57,30 +65,21 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
                 page: const YeniRaporEkle(),
               ),
                SheetOption(
-                icon:const Icon(Icons.swap_vert,color: Colors.black),
+                icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-                 onTap: () {
-                  List<DialogOption> dialogOptions = [
-                    DialogOption(
-                      title: 'Ada göre (A-Z)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Ada göre (Z-A)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En yeni)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En eski)',
-                      onPressed: () {},
-                    ),
-                   
-                  ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                },
+               onTap: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SiralamaIslemi(
+                      onSort: (sortedItems) {
+                      },
+                      optionIds: [1, 2, 3, 4,],
+                    );
+                  },
+                );
+              },
               ),
                  SheetOption(
                 icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
@@ -140,7 +139,7 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
           ),
         ),
       ),
-      floatingActionButton: Padding(
+      floatingActionButton:Padding(
          padding: const EdgeInsets.only(bottom: 20),
          child: CustomFAB(
            isSpeedDial: false,

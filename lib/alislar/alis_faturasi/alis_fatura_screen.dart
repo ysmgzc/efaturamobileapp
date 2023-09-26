@@ -7,11 +7,11 @@ import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/search_field.dart';
+import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
 import '../../bottom_show_dialog_widget.dart';
 import '../../container_widget.dart';
-import '../../home_screen/home_page_screen.dart';
 import '../../show_dialog_ekle.dart';
 
 class AlisFaturalarScreen extends StatefulWidget {
@@ -45,43 +45,30 @@ class _AlisFaturalarScreenState extends State<AlisFaturalarScreen> {
                 text: 'Detaylı Arama',
                 page: const AlisFaturasiDetayliArama(),
               ),
-              SheetOption(
-                icon:const Icon(Icons.swap_vert,color: Colors.black),
+               SheetOption(
+                icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-                onTap: () {
-                  List<DialogOption> dialogOptions = [
-                    DialogOption(
-                      title: 'Tarihe göre (En yeni)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En eski)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tutara göre (En yüksek)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tutara göre (En düşük)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Gönderen unvanı (A-Z)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Gönderen unvanı (Z-A)',
-                      onPressed: () {},
-                    ),
-                  ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                },
+               onTap: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SiralamaIslemi(
+                      onSort: (sortedItems) {
+                      },
+                      optionIds: [3, 4, 5, 6, 7, 8],
+                    );
+                  },
+                );
+              },
               ),
                SheetOption(
                 icon:const Icon(Icons.find_in_page,color: Colors.black),
                 text: 'Muhasebe Notu',
-                page: const YeniRaporEkle(),
+                 onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
                SheetOption(
                 icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
@@ -91,7 +78,10 @@ class _AlisFaturalarScreenState extends State<AlisFaturalarScreen> {
                SheetOption(
                 icon:const Icon(Icons.delete,color: Colors.black),
                 text: 'Sil',
-                page: const HomePageScreen(),
+                onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
             ],
           )

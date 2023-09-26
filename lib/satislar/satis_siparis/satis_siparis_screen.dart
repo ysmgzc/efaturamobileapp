@@ -6,6 +6,7 @@ import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_faturasi_s
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_toptan_siparis.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/secenekler/satissiparisdetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';
+import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:flutter/material.dart';
 import '../../bottom_show_dialog_widget.dart';
 import '../../container_widget.dart';
@@ -45,38 +46,23 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
                 text: 'Detaylı Arama',
                 page: const SatisSiparisDetayliArama(),
               ),
-              SheetOption(
+               SheetOption(
                 icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-                 onTap: () {
-                  List<DialogOption> dialogOptions = [
-                    DialogOption(
-                      title: 'Tarihe göre (En yeni)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En eski)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tutara göre (En yüksek)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tutara göre (En düşük)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Gönderen unvanı (A-Z)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Gönderen unvanı (Z-A)',
-                      onPressed: () {},
-                    ),
-                  ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                },
+               onTap: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SiralamaIslemi(
+                      onSort: (sortedItems) {
+                      },
+                      optionIds: [3, 4, 5, 6, 7, 8],
+                    );
+                  },
+                );
+                
+              },
               ),
               SheetOption(
                 icon: Image.asset(

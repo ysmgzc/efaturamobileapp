@@ -1,7 +1,8 @@
 
+import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
-import 'package:efaturamobileapp/home_screen/home_page_screen.dart';
 import 'package:efaturamobileapp/interaktif_vergi_dairesi/interaktifvergidairesidetayliarama.dart';
+import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../bottom_show_dialog_widget.dart';
@@ -35,38 +36,22 @@ class InteraktifVergiDairesiScreen extends StatelessWidget {
                 text: 'Detaylı Arama',
                 page: const InteraktifVergiDairesiDetayliArama(),
               ),
-              SheetOption(
-                icon:const Icon(Icons.swap_vert,color: Colors.black),
+               SheetOption(
+                icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-                 onTap: () {
-                  List<DialogOption> dialogOptions = [
-                    DialogOption(
-                      title: 'Tarihe göre (En yeni)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tarihe göre (En eski)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tutara göre (En yüksek)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Tutara göre (En düşük)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Gönderen unvanı (A-Z)',
-                      onPressed: () {},
-                    ),
-                    DialogOption(
-                      title: 'Gönderen unvanı (Z-A)',
-                      onPressed: () {},
-                    ),
-                  ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                },
+               onTap: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SiralamaIslemi(
+                      onSort: (sortedItems) {
+                      },
+                      optionIds: [3, 4, 5, 6, 7, 8],
+                    );
+                  },
+                );
+              },
               ),
                SheetOption(
                 icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
@@ -76,7 +61,10 @@ class InteraktifVergiDairesiScreen extends StatelessWidget {
                SheetOption(
                 icon:const Icon(Icons.delete,color: Colors.black),
                 text: 'Sil',
-                page: const HomePageScreen(),
+                 onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
             ],
           )

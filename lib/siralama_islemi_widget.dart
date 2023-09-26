@@ -70,7 +70,7 @@ class SiralamaIslemi extends StatelessWidget {
   final Function(List<Item> sortedItems) onSort;
   final List<int> optionIds;
 
-  SiralamaIslemi({
+ const SiralamaIslemi({
     //required this.items,
     required this.onSort,
     required this.optionIds,
@@ -81,8 +81,8 @@ class SiralamaIslemi extends StatelessWidget {
     List<DialogOption> filteredOptions = allOptions.where((option) => optionIds.contains(option.id)).toList();
 
     return SimpleDialog(
-      title: Text('Sıralama'),
-      contentPadding: EdgeInsets.all(10), 
+      title:const Text('Sıralama'),
+      contentPadding:const EdgeInsets.all(10), 
       children: [
         Container(
           decoration: BoxDecoration(
@@ -105,7 +105,7 @@ class SiralamaIslemi extends StatelessWidget {
                     title: Text(option.title),
                     onTap: option.onPressed,
                   ),
-                  if (option != filteredOptions.last) Divider(height: 1, thickness: 1, indent: 15.0, endIndent: 15.0) // Sonuncu eleman hariç diğerlerine Divider ekliyoruz.
+                  if (option != filteredOptions.last)const Divider(height: 1, thickness: 1, indent: 15.0, endIndent: 15.0) // Sonuncu eleman hariç diğerlerine Divider ekliyoruz.
                 ],
               );
             }).toList(),

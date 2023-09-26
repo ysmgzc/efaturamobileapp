@@ -119,7 +119,7 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
                   ),
                 ],
               ),
-                child: widget.secim==0? Column(
+                child: widget.secim==0?const Column(
                   children: [  
                      SizedBox(height: 10,),
                   CustomWidget(
@@ -154,7 +154,7 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
                           ),
                SizedBox(height: 10,),
                   ],
-                ):Column(children: [
+                ):const Column(children: [
                    SizedBox(height: 10,),
                   CustomWidget2(
                     avatarText: 'Personel Ahmet Usta',

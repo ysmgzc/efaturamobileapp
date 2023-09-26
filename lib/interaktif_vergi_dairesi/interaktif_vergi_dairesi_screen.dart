@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 import '../bottom_show_dialog_widget.dart';
 import '../search_field.dart';
-import '../show_dialog_ekle.dart';
 import '../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class InteraktifVergiDairesiScreen extends StatelessWidget {
@@ -47,7 +46,7 @@ class InteraktifVergiDairesiScreen extends StatelessWidget {
                     return SiralamaIslemi(
                       onSort: (sortedItems) {
                       },
-                      optionIds: [3, 4, 5, 6, 7, 8],
+                      optionIds:const [3, 4, 5, 6, 7, 8],
                     );
                   },
                 );

@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 
 import '../../container_widget.dart';
 import '../../float_action_buton_widget.dart';
-import '../../show_dialog_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class AlisMakbuzScreen extends StatefulWidget {
@@ -75,7 +74,7 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
                     return SiralamaIslemi(
                       onSort: (sortedItems) {
                       },
-                      optionIds: [1, 2, 3, 4,],
+                      optionIds:const [1, 2, 3, 4,],
                     );
                   },
                 );

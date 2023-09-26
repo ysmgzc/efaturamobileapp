@@ -129,7 +129,7 @@ class DrawerBar extends StatelessWidget {
                       ),
                       title: 'Serbest Meslek Makbuzu',
                       titleStyle: kListTileSize,
-                      route:  SatisMakbuzScreen(),
+                      route: const SatisMakbuzScreen(),
                       backgroundColor: Colors.grey.shade50,
                     ),
                   ],

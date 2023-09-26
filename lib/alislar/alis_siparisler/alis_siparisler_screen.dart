@@ -11,7 +11,6 @@ import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.da
 import 'package:flutter/material.dart';
 import '../../bottom_show_dialog_widget.dart';
 import '../../home_screen/home_page_screen.dart';
-import '../../show_dialog_ekle.dart';
 
 class AlisSiparislerScreen extends StatefulWidget {
   const AlisSiparislerScreen({super.key});
@@ -56,7 +55,7 @@ class _AlisSiparislerScreenState extends State<AlisSiparislerScreen> {
                     return SiralamaIslemi(
                       onSort: (sortedItems) {
                       },
-                      optionIds: [3, 4, 5, 6, 7, 8],
+                      optionIds:const [3, 4, 5, 6, 7, 8],
                     );
                   },
                 );

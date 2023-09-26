@@ -1,8 +1,6 @@
-import 'package:efaturamobileapp/screens/login_screen.dart';
-import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammadde.dart';
+
 import 'package:flutter/material.dart';
 import 'home_screen/home_page_screen.dart';
-import 'satislar/satis_faturasi/satis_fatura_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
     primarySwatch: Colors.blue, 
    // appBarTheme: AppBarTheme(color: Colors.blue),
   ),
-      home: HomePageScreen(),
+      home:const HomePageScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

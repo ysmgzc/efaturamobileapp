@@ -236,9 +236,9 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
                 children: [
                   Container(
                     alignment: Alignment.centerLeft,
-                    child: Column(
+                    child:const Column(
                       children: [
-                        const Text(
+                         Text(
                          'KDV Muafiyeti',
                           style: TextStyle(
                             color: Colors.black,

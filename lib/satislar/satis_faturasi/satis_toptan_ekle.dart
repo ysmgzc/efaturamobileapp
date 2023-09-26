@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import '../../person_image_border.dart';
-import '../../stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 
 class SatisToptanEkle extends StatefulWidget {
   const SatisToptanEkle({Key? key}) : super(key: key);

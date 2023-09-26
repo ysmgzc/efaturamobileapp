@@ -1,5 +1,4 @@
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
-import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/secenekler/urunlerdetayliarama.dart';

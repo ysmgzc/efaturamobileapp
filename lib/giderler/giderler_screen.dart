@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 
 import '../bottom_show_dialog_widget.dart';
 import '../float_action_buton_widget.dart';
-import '../home_screen/home_page_screen.dart';
 import '../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class GiderlerScreen extends StatefulWidget {

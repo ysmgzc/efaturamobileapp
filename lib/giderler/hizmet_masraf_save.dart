@@ -1,7 +1,6 @@
 
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/toplam_tutar.dart';
 import 'package:efaturamobileapp/urun_ekle_border_save_animasyonsuz.dart';

@@ -75,7 +75,7 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
                     return SiralamaIslemi(
                       onSort: (sortedItems) {
                       },
-                      optionIds: [1, 2, 3, 4, 5, 6, 7, 8],
+                      optionIds:const [1, 2, 3, 4, 5, 6, 7, 8],
                     );
                   },
                 );

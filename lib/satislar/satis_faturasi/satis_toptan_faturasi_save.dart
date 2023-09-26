@@ -7,7 +7,6 @@ import 'package:efaturamobileapp/urun_ekle_border_save.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../bottom_show_dialog_widget.dart';
-import '../../stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class SatisToptanFaturasiSave extends StatefulWidget {

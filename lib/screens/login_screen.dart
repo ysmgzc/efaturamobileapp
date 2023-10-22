@@ -1,7 +1,10 @@
 import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/constants/globals.dart';
 import 'package:efaturamobileapp/home_screen/home_page_screen.dart';
+import 'package:efaturamobileapp/models/token_model.dart';
 import 'package:efaturamobileapp/screens/forgot_password_screen.dart';
 import 'package:efaturamobileapp/screens/sign_up_screen.dart';
+import 'package:efaturamobileapp/services/token_services.dart';
 import "package:flutter/material.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -15,8 +18,11 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController uyeNoKontrol = TextEditingController();
+  TokenModel? _tokenModel;
+
     @override
   void initState() {
+    _tokenFonk();
     super.initState();
     _loadUyeNo();
   }
@@ -25,7 +31,17 @@ _loadUyeNo() async {
     setState(() {
       uyeNoKontrol.text = prefs.getString('member_number') ?? '';
     });
+
+  // tokenModel= await TokenServices.tokenGive();
+  // token=tokenModel.data!.token.toString();
+
   }
+   _tokenFonk() async {
+_tokenModel= await TokenServices.tokenData();
+setState(() {
+  token=_tokenModel!.data!.token.toString()??"";
+});
+ }
   _saveUyeNo() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('member_number', uyeNoKontrol.text);

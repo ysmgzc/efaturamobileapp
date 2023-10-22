@@ -9,14 +9,26 @@ import '../../musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_
 import '../../person_image_border.dart';
 
 class SatisToptanEkle extends StatefulWidget {
-  const SatisToptanEkle({Key? key}) : super(key: key);
+
+String appBarBaslik;
+SatisToptanEkle({required this.appBarBaslik});
+ 
 
   @override
   State<SatisToptanEkle> createState() => _SatisToptanEkleState();
 }
 
 class _SatisToptanEkleState extends State<SatisToptanEkle> {
-   String? selectedValue;
+  @override
+  void initState() {
+    loading();
+    super.initState();
+  
+  }
+  void loading(){
+
+  }
+   String? selectedValue; 
   List<String> items = <String>[
       'TL',
       'EUR',
@@ -48,8 +60,8 @@ class _SatisToptanEkleState extends State<SatisToptanEkle> {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: const Text(
-          'Toptan Satış Faturası (KDV Hariç)',
+        title:  Text(
+         widget.appBarBaslik,
           style: TextStyle(color: Colors.black),
         ),
         automaticallyImplyLeading: false, 

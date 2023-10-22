@@ -166,7 +166,7 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
           ),
         ),
       ),
-        bottomNavigationBar:const CustomBottomAppBarToplam(
+        bottomNavigationBar: CustomBottomAppBarToplam(
   firstText: "TOPLAM",
   secondText: "₺1000",
 ),
@@ -175,11 +175,11 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
     childrenData: [
       SpeedDialData(
         label: 'Toptan Satış\n(KDV Hariç)',
-        route:const SatisToptanEkle(),
+        route: SatisToptanEkle(appBarBaslik: 'Toptan Satış (KDV Hariç)'),
       ),
       SpeedDialData(
         label: 'Perakende Satış\n(KDV Dahil)',
-        route: const SatisPerakendeEkle(),
+        route:  SatisToptanEkle(appBarBaslik: 'Perakende Satış (KDV Dahil)'),
       ),
     ],
   ),

@@ -1,7 +1,10 @@
 
 import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparis_ekle.dart';
+import 'dart:core';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
+import 'package:efaturamobileapp/loading.dart';
+import 'package:efaturamobileapp/models/musteri_kart_model.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteri_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/borc_alacak_ekle.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/musteri_duzenle.dart';
@@ -11,13 +14,14 @@ import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/muste
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/virman.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/secenekler/musterivetedarikcidetayliarama.dart';
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
+import 'package:efaturamobileapp/services/musteri_kart_services.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import '../../../bottom_app_bar_widget_toplam.dart';
 import '../../../show_dialog_ekle.dart';
-
+import 'package:http/http.dart'as http;
 class MusterilerTedarikcilerScreen extends StatefulWidget {
   int secim;
 
@@ -30,6 +34,25 @@ MusterilerTedarikcilerScreen({required this.secim});
 
 class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScreen> {
 
+List<MusteriKartModel>?  musteriKartModel;
+int yukle = 0;
+
+
+  @override
+  void initState() {//sayfa yüklendiğinde çalışan ilk fonk.
+   _musteriFonk();
+   print("hello");
+    super.initState();
+  }
+
+  _musteriFonk() async {
+musteriKartModel= await MusteriServices.musteriData();
+setState(() {//sayfada değişikilik olursa çalışan ilk fonk.
+  yukle=1;
+  print("yeşim"+musteriKartModel!.length.toString()??"aaa");
+});
+  }
+
   @override
   Widget build(BuildContext context) {
      double screenHeight = MediaQuery.of(context).size.height;
@@ -41,8 +64,8 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
          backgroundColor: Colors.white,
          elevation: 0,
         centerTitle: true,
-        title: const Text(
-          'Müşteriler & Tedarikçiler', style: TextStyle(color: Colors.black),
+        title:  Text(
+          'Müşteriler&Tedarikçiler', style: TextStyle(color: Colors.black),
         ),
          actions: [ 
           CustomIconButton(
@@ -88,7 +111,7 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
         ],
       ),
        backgroundColor: Colors.white,
-      body:  SingleChildScrollView(
+      body:  yukle==1?SingleChildScrollView(
         child: Container(
             padding: EdgeInsets.symmetric(
             horizontal: screenWidth * 0.05,
@@ -119,64 +142,46 @@ class _MusterilerTedarikcilerScreenState extends State<MusterilerTedarikcilerScr
                   ),
                 ],
               ),
-                child: widget.secim==0?const Column(
+                child: widget.secim==0? Column(
                   children: [  
                      SizedBox(height: 10,),
-                  CustomWidget(
-                    avatarText: 'Personel Ahmet Usta',
-                    tedarikciAdi: 'Personel Ahmet Usta',
-                    paraBirimi: '₺1000',
-                    durumu : 'Ödenecek',
-                    onPressedDuzenle: MusteriDuzenleScreen(),
-                    onPressedIslemListesi:MusteriIslemListesiScreen(),
-                    onPressedTahsilat: TahsilatMakbuzuEkle(),
-                    onPressedOdeme:  MusterilerVeTedarikcilerOdemeEkle(),
-                    onPressedVirman: VirmanEkle(),
-                    onPressedBorcAlacak: BorcAlacakEkle(),
-                    onPressedCekGirisi: CekGirisiEkle(),
-                    
-                  ),
-                 SizedBox(height: 10,),
-                  Divider(),
-                   CustomWidget(
-                        avatarText: 'Test Alış Ltd. Şti.',
-                        tedarikciAdi: 'Test Alış Ltd. Şti.',
-                        lokasyon: 'İstanbul',
-                        paraBirimi: '₺1000',
-                        durumu: 'Tahsil Edilecek',
-                        onPressedDuzenle: MusteriDuzenleScreen(),
+                     Container(
+            width: screenWidth * 0.9, 
+            height: screenHeight * 0.9,
+                      child: ListView.builder(
+                      itemCount: musteriKartModel?.length, // Veri kaynağınızdaki öğelerin sayısı
+                        itemBuilder: (context, index) {
+                        var veri = musteriKartModel?[index]; // Liste öğesini al
+                    return Column(
+                      children: [
+                        CustomWidget(
+                          avatarText: veri?.definitioN.toString()??"", 
+                            tedarikciAdi: veri?.definitioN.toString()??"",
+                          paraBirimi: '₺${veri?.id.toString()??""}',
+                          durumu: veri?.country.toString()??"",
+                          onPressedDuzenle: MusteriDuzenleScreen(),
                         onPressedIslemListesi:MusteriIslemListesiScreen(),
                         onPressedTahsilat: TahsilatMakbuzuEkle(),
                         onPressedOdeme:  MusterilerVeTedarikcilerOdemeEkle(),
                         onPressedVirman: VirmanEkle(),
                         onPressedBorcAlacak: BorcAlacakEkle(),
-                        onPressedCekGirisi: CekGirisiEkle(),
+                          onPressedCekGirisi: CekGirisiEkle(),
                           ),
-               SizedBox(height: 10,),
+                                  SizedBox(height: 10,),
+                                  Divider(),
+                                  ]
+                                  ,
+                                );
+                        },
+                      ),
+                     ), 
                   ],
                 ):const Column(children: [
-                   SizedBox(height: 10,),
-                  CustomWidget2(
-                    avatarText: 'Personel Ahmet Usta',
-                    tedarikciAdi: 'Personel Ahmet Usta',
-                    paraBirimi: '₺1000',
-                    durumu : 'Ödenecek',
-                  ),
-                 SizedBox(height: 10,),
-                  Divider(),
-                   CustomWidget2(
-                        avatarText: 'Test Alış Ltd. Şti.',
-                        tedarikciAdi: 'Test Alış Ltd. Şti.',
-                        lokasyon: 'İstanbul',
-                        paraBirimi: '₺1000',
-                        durumu: 'Tahsil Edilecek',
-                          ),
-               SizedBox(height: 10,),
                 ],),     
           )],
           ),
         ),
-      ),
+      ):LoadingScreen(),
        bottomNavigationBar:const CustomBottomAppBarToplam(
   firstText: "BAKİYE",
   secondText: "₺1000",

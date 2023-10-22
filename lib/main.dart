@@ -1,4 +1,5 @@
 
+import 'package:efaturamobileapp/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'home_screen/home_page_screen.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     primarySwatch: Colors.blue, 
    // appBarTheme: AppBarTheme(color: Colors.blue),
   ),
-      home:const HomePageScreen(),
+      home:const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

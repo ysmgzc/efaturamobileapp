@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/person_image_border.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/toplam_tutar.dart';
@@ -10,7 +10,7 @@ import '../../musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_
 import '../../urunekleborder.dart';
 
 class SatisPerakendeEkle extends StatefulWidget {
-  const SatisPerakendeEkle({Key? key}) : super(key: key);
+  const SatisPerakendeEkle({Key? key}) : super(key: key); 
 
   @override
   State<SatisPerakendeEkle> createState() => _SatisPerakendeEkleState();
@@ -227,3 +227,4 @@ SizedBox(height: screenHeight*0.02,),
     );
   }
 }
+*/

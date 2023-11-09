@@ -5,6 +5,7 @@ import 'package:efaturamobileapp/scan_widget.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/active_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class UrunEkle extends StatefulWidget {
   const UrunEkle({Key? key}) : super(key: key);
@@ -111,7 +112,8 @@ class _UrunEkleState extends State<UrunEkle> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Ürün Adı', style: TextStyle(color: Colors.white, fontSize: 14)),
+                      const Text('Ürün Adı',
+                          style: TextStyle(color: Colors.white, fontSize: 14)),
                       const SizedBox(height: 8),
                       SizedBox(
                         width: screenWidth * 0.8,
@@ -125,7 +127,8 @@ class _UrunEkleState extends State<UrunEkle> {
                               borderRadius: BorderRadius.circular(15),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 12),
                           ),
                         ),
                       ),
@@ -156,11 +159,14 @@ class _UrunEkleState extends State<UrunEkle> {
                   menuItemsWidth: screenWidth * 0.9,
                 ),
                 const Divider(),
-                const Text('ÜRÜN ADI 2', style: TextStyle(color: yTextColor, fontSize: 14)),
+                const Text('ÜRÜN ADI 2',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
                 const SizedBox(height: 8),
-                TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
+                TextFieldDecoration(
+                    screenWidth: screenWidth, screenHeight: screenHeight),
                 const Divider(),
-                const Text('ÜRÜN KODU', style: TextStyle(color: yTextColor, fontSize: 14)),
+                const Text('ÜRÜN KODU',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
                 const SizedBox(height: 8),
                 TextFieldDecoration(
                   screenWidth: screenWidth,
@@ -168,7 +174,8 @@ class _UrunEkleState extends State<UrunEkle> {
                   hintText: 'P00001',
                 ),
                 const Divider(),
-                const Text('BARKOD', style: TextStyle(color: yTextColor, fontSize: 14)),
+                const Text('BARKOD',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
                 const SizedBox(height: 8),
                 Row(
                   children: [
@@ -181,26 +188,27 @@ class _UrunEkleState extends State<UrunEkle> {
                     SizedBox(
                       width: screenWidth * 0.1,
                       child: IconButton(
-                        icon: Image.asset('assets/icons/barcodescannericon.png'),
+                        icon:
+                            Image.asset('assets/icons/barcodescannericon.png'),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const BarkodTara(),
-                              ));
+                          Get.to(const BarkodTara());
                         },
                       ),
                     ),
                   ],
                 ),
                 const Divider(),
-                const Text('MARKA', style: TextStyle(color: yTextColor, fontSize: 14)),
+                const Text('MARKA',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
                 const SizedBox(height: 8),
-                TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
+                TextFieldDecoration(
+                    screenWidth: screenWidth, screenHeight: screenHeight),
                 const Divider(),
-                const Text('KATEGORİ', style: TextStyle(color: yTextColor, fontSize: 14)),
+                const Text('KATEGORİ',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
                 const SizedBox(height: 8),
-                TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
+                TextFieldDecoration(
+                    screenWidth: screenWidth, screenHeight: screenHeight),
                 const Divider(),
                 CustomPopMenuWidget(
                   width: screenWidth * 0.9,
@@ -238,7 +246,8 @@ class _UrunEkleState extends State<UrunEkle> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('BİRİM FİYATI(KDV HARİÇ)', style: TextStyle(color: yTextColor, fontSize: 14)),
+                        const Text('BİRİM FİYATI(KDV HARİÇ)',
+                            style: TextStyle(color: yTextColor, fontSize: 14)),
                         const SizedBox(height: 8),
                         TextFieldDecoration(
                           screenWidth: screenWidth,
@@ -251,7 +260,8 @@ class _UrunEkleState extends State<UrunEkle> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('BİRİM FİYATI(KDV DAHİL)', style: TextStyle(color: yTextColor, fontSize: 14)),
+                        const Text('BİRİM FİYATI(KDV DAHİL)',
+                            style: TextStyle(color: yTextColor, fontSize: 14)),
                         const SizedBox(height: 8),
                         TextFieldDecoration(
                           screenWidth: screenWidth,
@@ -282,7 +292,8 @@ class _UrunEkleState extends State<UrunEkle> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('BİRİM FİYATI(KDV HARİÇ)', style: TextStyle(color: yTextColor, fontSize: 14)),
+                        const Text('BİRİM FİYATI(KDV HARİÇ)',
+                            style: TextStyle(color: yTextColor, fontSize: 14)),
                         const SizedBox(height: 8),
                         TextFieldDecoration(
                           screenWidth: screenWidth,
@@ -295,7 +306,8 @@ class _UrunEkleState extends State<UrunEkle> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('BİRİM FİYATI(KDV DAHİL)', style: TextStyle(color: yTextColor, fontSize: 14)),
+                        const Text('BİRİM FİYATI(KDV DAHİL)',
+                            style: TextStyle(color: yTextColor, fontSize: 14)),
                         const SizedBox(height: 8),
                         TextFieldDecoration(
                           screenWidth: screenWidth,

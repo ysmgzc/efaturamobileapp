@@ -1,10 +1,10 @@
-
 import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 enum ParaDurumu { giris, cikis }
@@ -18,26 +18,26 @@ class VirmanEkle extends StatefulWidget {
 
 class _VirmanEkleState extends State<VirmanEkle> {
   TextEditingController dateInput = TextEditingController();
- // ParaDurumu? _seciliParaDurumu;
-    List<String> items1 = <String>[
-      'TL',
-      'EUR',
-      'GBP',
-      'CHF',
-      'JPY',
-      'AZM',
-      'BGN',
-      'CNY',
-      'USD',
-      'PLN',
-      'RUB',
-      'SGD',
-      'DZD',
-      'XAU',
-      'UZS',
-      'MKD',
-      'KGS',
-];
+  // ParaDurumu? _seciliParaDurumu;
+  List<String> items1 = <String>[
+    'TL',
+    'EUR',
+    'GBP',
+    'CHF',
+    'JPY',
+    'AZM',
+    'BGN',
+    'CNY',
+    'USD',
+    'PLN',
+    'RUB',
+    'SGD',
+    'DZD',
+    'XAU',
+    'UZS',
+    'MKD',
+    'KGS',
+  ];
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -45,7 +45,7 @@ class _VirmanEkleState extends State<VirmanEkle> {
 
     return Scaffold(
       appBar: AppBar(
-        actionsIconTheme:const IconThemeData(color: Colors.black),
+        actionsIconTheme: const IconThemeData(color: Colors.black),
         elevation: 0,
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
@@ -66,7 +66,8 @@ class _VirmanEkleState extends State<VirmanEkle> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('VIRMAN YAPAN', style: TextStyle(color: yTextColor, fontSize: 14)),
+              const Text('VIRMAN YAPAN',
+                  style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               Center(
                 child: DecoratedBox(
@@ -84,20 +85,24 @@ class _VirmanEkleState extends State<VirmanEkle> {
                   child: SizedBox(
                     width: screenWidth * 0.9,
                     height: screenHeight * 0.07,
-                    child:const Align(
+                    child: const Align(
                       alignment: Alignment.centerLeft,
-                      child:  Text(
-                                         "PERSONEL AHMET USTA", style: TextStyle(fontSize: 14,),
-                              textAlign: TextAlign.start,  
+                      child: Text(
+                        "PERSONEL AHMET USTA",
+                        style: TextStyle(
+                          fontSize: 14,
+                        ),
+                        textAlign: TextAlign.start,
                       ),
                     ),
                   ),
                 ),
               ),
-               const Divider(),
-           const SizedBox(height: 8),
-      const Text('VIRMAN YAPILAN', style: TextStyle(color: yTextColor,fontSize: 14)),
-      const SizedBox(height: 8),
+              const Divider(),
+              const SizedBox(height: 8),
+              const Text('VIRMAN YAPILAN',
+                  style: TextStyle(color: yTextColor, fontSize: 14)),
+              const SizedBox(height: 8),
               Center(
                 child: DecoratedBox(
                   decoration: BoxDecoration(
@@ -116,10 +121,10 @@ class _VirmanEkleState extends State<VirmanEkle> {
                     height: screenHeight * 0.07,
                     child: ElevatedButton(
                       onPressed: () {
-                       Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>  MusterilerTedarikcilerScreen(secim: 1,)));
+                        Get.to(MusterilerTedarikcilerScreen(
+                          secim: 1,
+                          appBarBaslik: "",
+                        ));
                       },
                       style: ButtonStyle(
                         backgroundColor:
@@ -138,96 +143,106 @@ class _VirmanEkleState extends State<VirmanEkle> {
                   ),
                 ),
               ),
-             
-                            const Divider(),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('TUTAR*', style: TextStyle(color: yTextColor, fontSize: 14)),
-                          const SizedBox(height: 8),
-                          TextFieldDecoration(
-                            screenWidth: screenWidth,
-                            screenHeight: screenHeight,
-                            widthFactor: 0.6,
-                            hintText: '0,00',
-                          ),
-                        ],
+              const Divider(),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('TUTAR*',
+                          style: TextStyle(color: yTextColor, fontSize: 14)),
+                      const SizedBox(height: 8),
+                      TextFieldDecoration(
+                        screenWidth: screenWidth,
+                        screenHeight: screenHeight,
+                        widthFactor: 0.6,
+                        hintText: '0,00',
                       ),
-                      CustomPopMenuWidget(
-                       width: screenWidth * 0.3,
-                       title: "PARA BİRİMİ",
-                       menuWidth: screenWidth * 0.3,
-                       selectedValue: "TL",
-                       items: items1,
-                       menuItemsWidth: screenWidth * 0.2, 
-                           ),
-         ],
-       ),
-              const Divider(),const SizedBox(height: 8),
-               Container(
-        alignment: Alignment.topLeft,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-        const Text('TARİH', style: TextStyle(color: yTextColor,fontSize: 14)),
-        const SizedBox(height: 8),
-        Align(
-          alignment: Alignment.topLeft,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              gradient: LinearGradient(
-                colors: [
-                  Colors.grey.shade200,
-                  Colors.grey.shade100,
-                  Colors.grey.shade50,
-                  Colors.white70,
+                    ],
+                  ),
+                  CustomPopMenuWidget(
+                    width: screenWidth * 0.3,
+                    title: "PARA BİRİMİ",
+                    menuWidth: screenWidth * 0.3,
+                    selectedValue: "TL",
+                    items: items1,
+                    menuItemsWidth: screenWidth * 0.2,
+                  ),
                 ],
               ),
-            ),
-            child: GestureDetector(
-            onTap: () async {
-              final DateTime? pickedDate = await showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(2000),
-                lastDate: DateTime.now(),
-              );
-      
-              if (pickedDate != null) {
-                setState(() {
-                  dateInput.text = DateFormat('dd/MM/yyyy').format(pickedDate);
-                });
-              }
-            },
-            child: SizedBox(
-            width: screenWidth * 0.4,
-                  height: screenHeight * 0.07,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  dateInput.text.isNotEmpty ? dateInput.text : DateFormat('  dd/MM/yyyy').format(DateTime.now()),
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
-                ),
-              ),
-            ),
-            
-          ),
-      
-          ),
-        ),
-          ],
-        ),
-      ),  const Divider(),const SizedBox(height: 8),
-               Container(
+              const Divider(),
+              const SizedBox(height: 8),
+              Container(
                 alignment: Alignment.topLeft,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('MAKBUZ/BELGE NO', style: TextStyle(color: yTextColor, fontSize: 14)),
+                    const Text('TARİH',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
+                    const SizedBox(height: 8),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.grey.shade200,
+                              Colors.grey.shade100,
+                              Colors.grey.shade50,
+                              Colors.white70,
+                            ],
+                          ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () async {
+                            final DateTime? pickedDate = await showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2000),
+                              lastDate: DateTime.now(),
+                            );
+
+                            if (pickedDate != null) {
+                              setState(() {
+                                dateInput.text =
+                                    DateFormat('dd/MM/yyyy').format(pickedDate);
+                              });
+                            }
+                          },
+                          child: SizedBox(
+                            width: screenWidth * 0.4,
+                            height: screenHeight * 0.07,
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                dateInput.text.isNotEmpty
+                                    ? dateInput.text
+                                    : DateFormat('  dd/MM/yyyy')
+                                        .format(DateTime.now()),
+                                style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(),
+              const SizedBox(height: 8),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('MAKBUZ/BELGE NO',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
                     const SizedBox(height: 8),
                     TextFieldDecoration(
                       screenWidth: screenWidth,
@@ -235,13 +250,16 @@ class _VirmanEkleState extends State<VirmanEkle> {
                     ),
                   ],
                 ),
-              ),  const Divider(),const SizedBox(height: 8),
+              ),
+              const Divider(),
+              const SizedBox(height: 8),
               Container(
                 alignment: Alignment.topLeft,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('AÇIKLAMA', style: TextStyle(color: yTextColor, fontSize: 14)),
+                    const Text('AÇIKLAMA',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
                     const SizedBox(height: 8),
                     TextFieldDecoration(
                       screenWidth: screenWidth,
@@ -257,10 +275,10 @@ class _VirmanEkleState extends State<VirmanEkle> {
           ),
         ),
       ),
-        bottomNavigationBar: BottomAppBarDesign(
+      bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
         saveButtonBackgroundColor: Colors.blue,
-          ),
+      ),
     );
   }
 }

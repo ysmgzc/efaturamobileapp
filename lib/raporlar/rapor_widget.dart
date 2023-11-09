@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 class RaporWidget extends StatelessWidget {
   const RaporWidget({
     Key? key,
@@ -19,10 +21,7 @@ class RaporWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => route),
-        );
+        Get.to(route);
       },
       child: Center(
         child: Container(
@@ -37,14 +36,17 @@ class RaporWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   titleText,
-                  style:const TextStyle(fontSize: 14, color: Colors.black),
+                  style: const TextStyle(fontSize: 14, color: Colors.black),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   amountText,
-                  style:const TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 25,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],

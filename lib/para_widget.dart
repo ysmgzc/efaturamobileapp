@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Kasa {
   final String birim;
@@ -27,10 +28,7 @@ class ParaWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (containerRoute != null) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => containerRoute!),
-          );
+          Get.to(containerRoute!);
         }
       },
       child: Padding(
@@ -79,10 +77,7 @@ class ParaWidget extends StatelessWidget {
                   return GestureDetector(
                     onTap: () {
                       if (kasa.route != null) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => kasa.route!),
-                        );
+                        Get.to(kasa.route!);
                       }
                     },
                     child: Column(

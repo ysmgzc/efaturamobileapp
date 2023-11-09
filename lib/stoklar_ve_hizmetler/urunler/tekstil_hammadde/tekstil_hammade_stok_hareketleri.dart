@@ -1,4 +1,3 @@
-
 import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_save.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/container_widget.dart';
@@ -8,6 +7,7 @@ import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_ciki
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_girisi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:get/get.dart';
 
 import '../../../bottom_show_dialog_widget.dart';
 
@@ -51,8 +51,7 @@ class _TekstilHammaddeScreenState extends State<TekstilHammaddeScreen> {
                     height: 20,
                   ),
                   text: "Excel'e Aktar",
-                  onTap: () {}
-                  ),
+                  onTap: () {}),
             ],
           )
         ],
@@ -85,13 +84,13 @@ class _TekstilHammaddeScreenState extends State<TekstilHammaddeScreen> {
                     ),
                   ],
                 ),
-                child:const Column(
-                  children:  [
+                child: const Column(
+                  children: [
                     ContainerWidget(
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
                       tedarikciNo: '000000000000001',
                       durumu: 'Satınalma Faturası',
-                      odemeVadesi:"1 Kilogram x ₺25" ,
+                      odemeVadesi: "1 Kilogram x ₺25",
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
                       page: AlisFaturasiSave(),
@@ -101,7 +100,7 @@ class _TekstilHammaddeScreenState extends State<TekstilHammaddeScreen> {
                       tedarikciAdi: 'Test Satış Ltd. Şti.',
                       tedarikciNo: '000000000000001',
                       durumu: 'Satınalma Faturası',
-                      odemeVadesi:"1 Kilogram x ₺25" ,
+                      odemeVadesi: "1 Kilogram x ₺25",
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
                       page: AlisFaturasiSave(),
@@ -125,24 +124,14 @@ class _TekstilHammaddeScreenState extends State<TekstilHammaddeScreen> {
             child: const Icon(Icons.add),
             label: 'Stok Çıkışı',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const StokCikisiEkle(),
-                ),
-              );
+              Get.to(const StokCikisiEkle());
             },
           ),
           SpeedDialChild(
             child: const Icon(Icons.add),
             label: 'Stok Girişi',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const StokGirisiEkle(),
-                ),
-              );
+              Get.to(const StokGirisiEkle());
             },
           ),
         ],

@@ -6,7 +6,6 @@ import 'package:efaturamobileapp/giderler/hizmet_masraf_save.dart';
 import 'package:efaturamobileapp/giderler/secenekler/giderlerdetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:flutter/material.dart';
-
 import '../bottom_show_dialog_widget.dart';
 import '../float_action_buton_widget.dart';
 import '../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';

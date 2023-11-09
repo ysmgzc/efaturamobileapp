@@ -3,6 +3,7 @@ import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammadde.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../search_field.dart';
 
 class UrunHizmetSecScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class UrunHizmetSecScreen extends StatefulWidget {
 class _UrunHizmetSecScreenState extends State<UrunHizmetSecScreen> {
   @override
   Widget build(BuildContext context) {
-            double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
@@ -29,95 +30,87 @@ class _UrunHizmetSecScreenState extends State<UrunHizmetSecScreen> {
         ),
       ),
       backgroundColor: Colors.white,
-      body:SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: screenWidth * 0.05,
             vertical: screenHeight * 0.01,
           ),
           child: Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
-              const SearchField(suffixIcon: 'assets/icons/barcodescannericon.png'),
+              const SearchField(
+                  suffixIcon: 'assets/icons/barcodescannericon.png'),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-            Container(
-    padding: const EdgeInsets.all(8.0),
-    decoration:  BoxDecoration(
-                color: Colors.white,
-                borderRadius:const BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset:const Offset(0, 0),
-                    blurRadius: 20,
-                    color:  Colors.grey.shade300,
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(5.0),
                   ),
-                ],
+                  boxShadow: [
+                    BoxShadow(
+                      offset: const Offset(0, 0),
+                      blurRadius: 20,
+                      color: Colors.grey.shade300,
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  child: Column(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      UrunlerHizmetlerWidget(
+                        baslikText: "Tekstil Hammadde",
+                        kdvsizText: "100 Kilogram",
+                        kdvsizTextYuzde: "%18",
+                        kdvsizSatisText: "₺100,00",
+                        satisText: "(KDV'siz)",
+                        showAlisContainer: false,
+                        onTap: () {
+                          Get.to(const TekstilHammaddeEkle());
+                        },
+                      ),
+                      const Divider(),
+                      UrunlerHizmetlerWidget(
+                        baslikText: "Tekstil Ürünleri",
+                        kdvsizText: "-100 Kilogram",
+                        kdvsizTextYuzde: "%10",
+                        kdvsizSatisText: "₺100,00",
+                        satisText: "(KDV'siz)",
+                        showAlisContainer: false,
+                        onTap: () {
+                          Get.to(const TekstilHammaddeEkle());
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ),
-                        child: Padding(
-                          padding:const  EdgeInsets.only(left: 15, right: 15),
-                          child: Column(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              UrunlerHizmetlerWidget(
-                                baslikText: "Tekstil Hammadde",
-                                kdvsizText: "100 Kilogram",
-                                kdvsizTextYuzde:"%18",
-                                kdvsizSatisText: "₺100,00",
-                                satisText: "(KDV'siz)",
-                                showAlisContainer: false,
-                                onTap: () {
-                                     Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const TekstilHammaddeEkle(),
-                                        ),
-                                      );
-                                },
-                              ),
-                              const Divider(),
-                               UrunlerHizmetlerWidget(
-                                baslikText: "Tekstil Ürünleri",
-                                kdvsizText: "-100 Kilogram",
-                                kdvsizTextYuzde:"%10",
-                                kdvsizSatisText: "₺100,00",
-                                satisText: "(KDV'siz)",
-                                showAlisContainer: false,
-                                onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const TekstilHammaddeEkle(),
-                                        ),
-                                      );
-                                },
-                                ),
-  ],
-    ),
-  ),     
-            ),  ],
+            ],
           ),
         ),
       ),
-       floatingActionButton: Padding(
-         padding: const EdgeInsets.only(bottom: 20),
-         child: CustomFAB(
-           isSpeedDial: false,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: CustomFAB(
+          isSpeedDial: false,
           childrenData: [
             SpeedDialData(
-          label: '',
-          route:const UrunEkle(),
-             ),
+              label: '',
+              route: const UrunEkle(),
+            ),
           ],
-         ),
-       ),
-  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
@@ -132,32 +125,35 @@ class UrunlerHizmetlerWidget extends StatelessWidget {
   final String satisText;
   final VoidCallback onTap;
   final bool showAlisContainer;
-   final String stokKdvTextTitle;
+  final String stokKdvTextTitle;
   final String alisTextTitle;
   final String satisTextTitle;
 
   const UrunlerHizmetlerWidget({
     Key? key,
-     this.kdvsizAlisText,
+    this.kdvsizAlisText,
     required this.kdvsizSatisText,
     required this.baslikText,
     required this.kdvsizText,
     required this.kdvsizTextYuzde,
-     this.alisText,
+    this.alisText,
     required this.satisText,
     required this.onTap,
     this.showAlisContainer = true,
-     this.stokKdvTextTitle = "STOK / KDV",
-    this.alisTextTitle = "ALIŞ", 
-    this.satisTextTitle = "SATIŞ", 
+    this.stokKdvTextTitle = "STOK / KDV",
+    this.alisTextTitle = "ALIŞ",
+    this.satisTextTitle = "SATIŞ",
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     List<Widget> containers = [
-      _buildContainer(stokKdvTextTitle, Colors.blue, kdvsizText, kdvsizTextYuzde, addSlash: true),
+      _buildContainer(
+          stokKdvTextTitle, Colors.blue, kdvsizText, kdvsizTextYuzde,
+          addSlash: true),
       if (showAlisContainer)
-        _buildContainer(alisTextTitle, Colors.red, kdvsizAlisText??'', alisText),
+        _buildContainer(
+            alisTextTitle, Colors.red, kdvsizAlisText ?? '', alisText),
       _buildContainer(satisTextTitle, Colors.green, kdvsizSatisText, satisText),
     ];
 
@@ -185,7 +181,9 @@ class UrunlerHizmetlerWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildContainer(String title, Color color, String mainText, String? subText, {bool addSlash = false}) {
+  Widget _buildContainer(
+      String title, Color color, String mainText, String? subText,
+      {bool addSlash = false}) {
     return Expanded(
       child: Container(
         alignment: Alignment.center,

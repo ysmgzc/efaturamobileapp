@@ -7,6 +7,7 @@ import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_urunleri/t
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../search_field.dart';
 import '../../show_dialog_ekle.dart';
@@ -22,7 +23,7 @@ class UrunlerScreen extends StatefulWidget {
 class _UrunlerScreenState extends State<UrunlerScreen> {
   @override
   Widget build(BuildContext context) {
-            double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: const DrawerBar(),
@@ -35,18 +36,18 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
           'Ürünler',
           style: TextStyle(color: Colors.black),
         ),
-         actions: [ 
+        actions: [
           CustomIconButton(
             options: [
               SheetOption(
-                icon:const Icon(Icons.filter_alt,color: Colors.black),
+                icon: const Icon(Icons.filter_alt, color: Colors.black),
                 text: 'Detaylı Arama',
                 page: const UrunlerDetayliArama(),
               ),
               SheetOption(
-                icon:const Icon(Icons.swap_vert,color: Colors.black),
+                icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-                 onTap: () {
+                onTap: () {
                   List<DialogOption> dialogOptions = [
                     DialogOption(
                       title: 'Ada göre (A-Z)',
@@ -64,13 +65,17 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
                       title: 'Tarihe göre (En eski)',
                       onPressed: () {},
                     ),
-                   
                   ];
-                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
+                  ShowDialogEkle.showCustomDialog(
+                      context, dialogOptions, 'Sıralama');
                 },
               ),
-               SheetOption(
-                icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
+              SheetOption(
+                icon: Image.asset(
+                  'assets/icons/excelicon.png',
+                  width: 20,
+                  height: 20,
+                ),
                 text: "Excel'e Aktar",
                 page: const YeniRaporEkle(),
               ),
@@ -79,122 +84,114 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
         ],
       ),
       backgroundColor: Colors.white,
-      body:SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: screenWidth * 0.05,
             vertical: screenHeight * 0.01,
           ),
           child: Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
-              const SearchField(suffixIcon: 'assets/icons/barcodescannericon.png'),
+              const SearchField(
+                  suffixIcon: 'assets/icons/barcodescannericon.png'),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-            Container(
-    padding: const EdgeInsets.all(8.0),
-    decoration:  BoxDecoration(
-                color: Colors.white,
-                borderRadius:const BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset:const Offset(0, 0),
-                    blurRadius: 20,
-                    color:  Colors.grey.shade300,
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(5.0),
                   ),
-                ],
+                  boxShadow: [
+                    BoxShadow(
+                      offset: const Offset(0, 0),
+                      blurRadius: 20,
+                      color: Colors.grey.shade300,
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  child: Column(
+                    children: [
+                      UrunlerHizmetlerWidget(
+                        baslikText: "Tekstil Hammadde",
+                        kdvsizText: "100 Kilogram",
+                        kdvsizTextYuzde: "%18",
+                        kdvsizAlisText: "₺25,00",
+                        alisText: "(KDV'siz)",
+                        kdvsizSatisText: "₺100,00",
+                        satisText: "(KDV'siz)",
+                        onTap: () {
+                          List<DialogOption> dialogOptions = [
+                            DialogOption(
+                              title: 'Düzenle',
+                              onPressed: () {},
+                            ),
+                            DialogOption(
+                              title: 'Stok Hareketleri',
+                              onPressed: () {
+                                Get.to(const TekstilHammaddeScreen());
+                              },
+                            ),
+                          ];
+                          ShowDialogEkle.showCustomDialog(
+                              context, dialogOptions, 'Sıralama');
+                        },
+                      ),
+                      const Divider(),
+                      UrunlerHizmetlerWidget(
+                        baslikText: "Tekstil Ürünleri",
+                        kdvsizText: "-100 Kilogram",
+                        kdvsizTextYuzde: "%10",
+                        kdvsizAlisText: "₺25,00",
+                        alisText: "(KDV'siz)",
+                        kdvsizSatisText: "₺100,00",
+                        satisText: "(KDV'siz)",
+                        onTap: () {
+                          List<DialogOption> dialogOptions = [
+                            DialogOption(
+                              title: 'Düzenle',
+                              onPressed: () {},
+                            ),
+                            DialogOption(
+                              title: 'Stok Hareketleri',
+                              onPressed: () {
+                                Get.to(const TekstilUrunleriScreen());
+                              },
+                            ),
+                          ];
+                          ShowDialogEkle.showCustomDialog(
+                              context, dialogOptions, 'Sıralama');
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ),
-                        child: Padding(
-                          padding:const  EdgeInsets.only(left: 15, right: 15),
-                          child: Column(
-                            children: [
-                              UrunlerHizmetlerWidget(
-                                baslikText: "Tekstil Hammadde",
-                                kdvsizText: "100 Kilogram",
-                                kdvsizTextYuzde:"%18",
-                                kdvsizAlisText: "₺25,00",
-                                alisText: "(KDV'siz)",
-                                kdvsizSatisText: "₺100,00",
-                                satisText: "(KDV'siz)",
-                                onTap: () {
-                                    List<DialogOption> dialogOptions = [
-                                    DialogOption(
-                                      title: 'Düzenle',
-                                      onPressed: () {
-                                        
-                                      },
-                                    ),
-                                    DialogOption(
-                                      title: 'Stok Hareketleri',
-                                      onPressed: () {
-                                         Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const TekstilHammaddeScreen(),
-                                        ),
-                                      );
-                                      },
-                                    ),
-                                  ];
-                                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                                },
-                              ),
-                              const Divider(),
-                               UrunlerHizmetlerWidget(
-                                baslikText: "Tekstil Ürünleri",
-                                kdvsizText: "-100 Kilogram",
-                                kdvsizTextYuzde:"%10",
-                                kdvsizAlisText: "₺25,00",
-                                alisText: "(KDV'siz)",
-                                kdvsizSatisText: "₺100,00",
-                                satisText: "(KDV'siz)",
-                                onTap: () {
-                                    List<DialogOption> dialogOptions = [
-                                    DialogOption(
-                                      title: 'Düzenle',
-                                      onPressed: () {},
-                                    ),
-                                    DialogOption(
-                                      title: 'Stok Hareketleri',
-                                      onPressed: () {
-                                         Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const TekstilUrunleriScreen(),
-                                        ),
-                                      );
-                                      },
-                                    ),
-                                  ];
-                                  ShowDialogEkle.showCustomDialog(context, dialogOptions, 'Sıralama');
-                                },
-                                ),
-  ],
-    ),
-  ),     
-            ),  ],
+            ],
           ),
         ),
       ),
-       floatingActionButton: Padding(
-         padding: const EdgeInsets.only(bottom: 20),
-         child: CustomFAB(
-           isSpeedDial: false,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: CustomFAB(
+          isSpeedDial: false,
           childrenData: [
             SpeedDialData(
-          label: '',
-          route:const UrunEkle(),
-             ),
+              label: '',
+              route: const UrunEkle(),
+            ),
           ],
-         ),
-       ),
-  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

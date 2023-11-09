@@ -1,10 +1,11 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 EventBus eventBus = EventBus();
 
 class ContainerWidget extends StatefulWidget {
-  final String? baslik;  
+  final String? baslik;
   final String tedarikciAdi;
   final String? tedarikciNo;
   final String? tarih;
@@ -45,7 +46,7 @@ class ContainerWidget extends StatefulWidget {
     this.durumuStyle,
     this.durumuSagStyle,
     this.odemeVadesiStyle,
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
   _ContainerWidgetState createState() => _ContainerWidgetState();
@@ -87,12 +88,7 @@ class _ContainerWidgetState extends State<ContainerWidget> {
 
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => widget.page!,
-          ),
-        );
+        Get.to(() => widget.page!);
       },
       child: Padding(
         padding: const EdgeInsets.fromLTRB(8, 15, 8, 15),
@@ -109,9 +105,19 @@ class _ContainerWidgetState extends State<ContainerWidget> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(widget.tarih ?? "", style: widget.tarihStyle ?? const TextStyle(color: Colors.grey, fontSize: 14)),
-                  Text(widget.paraBirimi, style: widget.paraBirimiStyle ?? const TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold)),
-                  if (widget.durumuSag != null) Text(widget.durumuSag!, style: widget.durumuSagStyle ?? const TextStyle(color: Colors.grey, fontSize: 14)),
+                  Text(widget.tarih ?? "",
+                      style: widget.tarihStyle ??
+                          const TextStyle(color: Colors.grey, fontSize: 14)),
+                  Text(widget.paraBirimi,
+                      style: widget.paraBirimiStyle ??
+                          const TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                  if (widget.durumuSag != null)
+                    Text(widget.durumuSag!,
+                        style: widget.durumuSagStyle ??
+                            const TextStyle(color: Colors.grey, fontSize: 14)),
                 ],
               ),
             ),
@@ -128,7 +134,9 @@ class _ContainerWidgetState extends State<ContainerWidget> {
       children.add(
         Text(
           widget.baslik!,
-          style:const TextStyle(color: Colors.black, fontSize: 16,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -136,28 +144,38 @@ class _ContainerWidgetState extends State<ContainerWidget> {
     }
 
     if (widget.ustTarih != null) {
-      children.add(Text(widget.ustTarih!, style: widget.ustTarihStyle ?? const TextStyle(color: Colors.grey, fontSize: 14)));
+      children.add(Text(widget.ustTarih!,
+          style: widget.ustTarihStyle ??
+              const TextStyle(color: Colors.grey, fontSize: 14)));
     }
 
     children.add(
       Row(
         children: [
           if (widget.icon != null) Icon(widget.icon),
-          Text(widget.tedarikciAdi, style: widget.tedarikciAdiStyle ?? const TextStyle(color: Colors.black, fontSize: 16)),
+          Text(widget.tedarikciAdi,
+              style: widget.tedarikciAdiStyle ??
+                  const TextStyle(color: Colors.black, fontSize: 16)),
         ],
       ),
     );
 
     if (widget.tedarikciNo != null) {
-      children.add(Text(widget.tedarikciNo!, style: widget.tedarikciNoStyle ?? const TextStyle(color: Colors.grey, fontSize: 14)));
+      children.add(Text(widget.tedarikciNo!,
+          style: widget.tedarikciNoStyle ??
+              const TextStyle(color: Colors.grey, fontSize: 14)));
     }
 
     if (widget.durumu != null) {
-      children.add(Text(widget.durumu!, style: widget.durumuStyle ?? const TextStyle(color: Colors.grey, fontSize: 14)));
+      children.add(Text(widget.durumu!,
+          style: widget.durumuStyle ??
+              const TextStyle(color: Colors.grey, fontSize: 14)));
     }
 
     if (widget.odemeVadesi != null) {
-      children.add(Text(widget.odemeVadesi!, style: widget.odemeVadesiStyle ?? const TextStyle(color: Colors.grey, fontSize: 14)));
+      children.add(Text(widget.odemeVadesi!,
+          style: widget.odemeVadesiStyle ??
+              const TextStyle(color: Colors.grey, fontSize: 14)));
     }
 
     return children;

@@ -1,6 +1,7 @@
 import 'package:efaturamobileapp/alislar/alis_faturasi/alis_fatura_screen.dart';
 import 'package:efaturamobileapp/alislar/alis_makbuz/alis_makbuz_screen.dart';
 import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparisler_screen.dart';
+import 'package:efaturamobileapp/raporlar/rapor_ozeti_screen.dart';
 import 'package:efaturamobileapp/screens/destek_screen.dart';
 import 'package:efaturamobileapp/entegrasyonlar/entegrasyon_screen.dart';
 import 'package:efaturamobileapp/firma_bilgileri/firma_bilgileri_screen.dart';
@@ -17,11 +18,8 @@ import 'package:efaturamobileapp/para/banka_mutabakati/banka_mutabakati.dart';
 import 'package:efaturamobileapp/para/cekler/cekler.dart';
 import 'package:efaturamobileapp/para/kasalar/kasalar.dart';
 import 'package:efaturamobileapp/para/nakit_durumu.dart';
-import 'package:efaturamobileapp/raporlar/r_alis_ozeti/r_alis_ozeti.dart';
 import 'package:efaturamobileapp/raporlar/r_alis_satis_toplamlari/r_alis_satis_toplamlari.dart';
 import 'package:efaturamobileapp/raporlar/r_kdv_raporu.dart';
-import 'package:efaturamobileapp/raporlar/r_masraf_ozeti/r_masraf_ozeti.dart';
-import 'package:efaturamobileapp/raporlar/r_satis_ozeti/r_satis_ozeti.dart';
 import 'package:efaturamobileapp/raporlar/r_siparis_ozeti/r_siparis_ozeti.dart';
 import 'package:efaturamobileapp/raporlar/raporlar.dart';
 import 'package:efaturamobileapp/satislar/satis_faturasi/satis_fatura_screen.dart';
@@ -30,6 +28,7 @@ import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_screen.dar
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_hareketleri.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'constants.dart';
 
 class DrawerBar extends StatelessWidget {
@@ -52,7 +51,7 @@ class DrawerBar extends StatelessWidget {
                         flex: 3,
                         child: Container(
                           width: double.infinity,
-                          decoration:const BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage('assets/images/splashh.png'),
                               fit: BoxFit.fitWidth,
@@ -64,16 +63,18 @@ class DrawerBar extends StatelessWidget {
                         flex: 2,
                         child: Container(
                           alignment: Alignment.center,
-                          child:const Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children:  [
+                            children: [
                               Text(
                                 'Yeşim Gezici',
-                                style: TextStyle(fontSize: 14, color: Colors.black),
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black),
                               ),
                               Text(
                                 'gezici267@gmail.com',
-                                style: TextStyle(fontSize: 14, color: Colors.black),
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black),
                               ),
                             ],
                           ),
@@ -82,13 +83,14 @@ class DrawerBar extends StatelessWidget {
                     ],
                   ),
                 ),
-          
+
                 //-------------------------------------------------
-                 const SearchField(),
-          
+                const SearchField(),
+
                 CustomListTile(
                   icon: SizedBox(
-                    child: Image.asset('assets/icons/drawericon/genelbakisicon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/genelbakisicon.png'),
                   ),
                   title: 'Genel Bakış',
                   titleStyle: kListTileSize,
@@ -107,7 +109,8 @@ class DrawerBar extends StatelessWidget {
                   children: <Widget>[
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/faturaicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/faturaicon.png'),
                       ),
                       title: 'Satış Faturaları',
                       titleStyle: kListTileSize,
@@ -116,7 +119,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/siparisicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/siparisicon.png'),
                       ),
                       title: 'Siparişler',
                       titleStyle: kListTileSize,
@@ -125,7 +129,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/serbestmeslekmakbuzicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/serbestmeslekmakbuzicon.png'),
                       ),
                       title: 'Serbest Meslek Makbuzu',
                       titleStyle: kListTileSize,
@@ -146,7 +151,8 @@ class DrawerBar extends StatelessWidget {
                   children: <Widget>[
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/faturaicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/faturaicon.png'),
                       ),
                       title: 'Alış Faturaları',
                       titleStyle: kListTileSize,
@@ -155,7 +161,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/siparisicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/siparisicon.png'),
                       ),
                       title: 'Siparişler',
                       titleStyle: kListTileSize,
@@ -164,7 +171,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/serbestmeslekmakbuzicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/serbestmeslekmakbuzicon.png'),
                       ),
                       title: 'Serbest Meslek Makbuzu',
                       titleStyle: kListTileSize,
@@ -176,7 +184,8 @@ class DrawerBar extends StatelessWidget {
                 //-------------------------------------------------------------------
                 CustomListTile(
                   icon: SizedBox(
-                    child: Image.asset('assets/icons/drawericon/masraficon.png'),
+                    child:
+                        Image.asset('assets/icons/drawericon/masraficon.png'),
                   ),
                   title: 'Giderler',
                   titleStyle: kListTileSize,
@@ -186,15 +195,19 @@ class DrawerBar extends StatelessWidget {
                 //------------------------------------------------------------
                 CustomListTile(
                   icon: SizedBox(
-                    child: Image.asset('assets/icons/drawericon/musteritedarikciicon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/musteritedarikciicon.png'),
                   ),
                   title: 'Müşteriler & Tedarikçiler',
                   titleStyle: kListTileSize,
-                  route:  MusterilerTedarikcilerScreen(secim: 0),
+                  route: MusterilerTedarikcilerScreen(
+                    secim: 0,
+                    appBarBaslik: "",
+                  ),
                   enablePadding: false,
                 ),
                 //-------------------------------------------------
-          
+
                 ExpansionTile(
                   initiallyExpanded: true,
                   leading: SizedBox(
@@ -206,7 +219,8 @@ class DrawerBar extends StatelessWidget {
                   children: <Widget>[
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/urunicon.png'),
+                        child:
+                            Image.asset('assets/icons/drawericon/urunicon.png'),
                       ),
                       title: 'Ürünler',
                       titleStyle: kListTileSize,
@@ -216,7 +230,8 @@ class DrawerBar extends StatelessWidget {
                     //-----------------------------------------------------------------------
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/hizmetlericon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/hizmetlericon.png'),
                       ),
                       title: 'Hizmetler',
                       titleStyle: kListTileSize,
@@ -225,7 +240,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/stokhareketicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/stokhareketicon.png'),
                       ),
                       title: 'Stok Hareketleri',
                       titleStyle: kListTileSize,
@@ -240,13 +256,15 @@ class DrawerBar extends StatelessWidget {
                   leading: SizedBox(
                     width: 30.0,
                     height: 30.0,
-                    child: Image.asset('assets/icons/drawericon/parahesabiicon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/parahesabiicon.png'),
                   ),
                   title: const Text('Para', style: kExpTileSize),
                   children: <Widget>[
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/nakitdurumicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/nakitdurumicon.png'),
                       ),
                       title: 'Nakit Durumu',
                       titleStyle: kListTileSize,
@@ -255,7 +273,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/kasaicon.png'),
+                        child:
+                            Image.asset('assets/icons/drawericon/kasaicon.png'),
                       ),
                       title: 'Kasalar',
                       titleStyle: kListTileSize,
@@ -264,7 +283,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/bankahesapmutabakaticon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/bankahesapmutabakaticon.png'),
                       ),
                       title: 'Banka Hesapları',
                       titleStyle: kListTileSize,
@@ -273,7 +293,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/bankahesapmutabakaticon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/bankahesapmutabakaticon.png'),
                       ),
                       title: 'Banka Mutabakatı',
                       titleStyle: kListTileSize,
@@ -282,7 +303,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/cekicon.png'),
+                        child:
+                            Image.asset('assets/icons/drawericon/cekicon.png'),
                       ),
                       title: 'Çekler',
                       titleStyle: kListTileSize,
@@ -303,7 +325,8 @@ class DrawerBar extends StatelessWidget {
                   children: <Widget>[
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/raporlarsayfasiicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/raporlarsayfasiicon.png'),
                       ),
                       title: 'Raporlar Sayfası',
                       titleStyle: kListTileSize,
@@ -312,34 +335,44 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/satisraporicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/satisraporicon.png'),
                       ),
                       title: 'Satış Özeti',
                       titleStyle: kListTileSize,
-                      route: const RSatisOzetiScreen(),
+                      route: RaporOzetiScreen(
+                          raporOzetiScreenAppBar: "Satış Özeti"),
+                      // route: const RSatisOzetiScreen(),
                       backgroundColor: Colors.grey.shade50,
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/alisraporicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/alisraporicon.png'),
                       ),
                       title: 'Alış Özeti',
                       titleStyle: kListTileSize,
-                      route: const RAlisOzetiScreen(),
+                      route: RaporOzetiScreen(
+                          raporOzetiScreenAppBar: "Alış Özeti"),
+                      //  route: const RAlisOzetiScreen(),
                       backgroundColor: Colors.grey.shade50,
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/masrafraporuicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/masrafraporuicon.png'),
                       ),
                       title: 'Masraf Özeti',
                       titleStyle: kListTileSize,
-                      route: const RMasrafOzetiScreen(),
+                      route: RaporOzetiScreen(
+                          raporOzetiScreenAppBar: "Masraf Özeti"),
+                      //route: const RMasrafOzetiScreen(),
                       backgroundColor: Colors.grey.shade50,
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/siparisraporuicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/siparisraporuicon.png'),
                       ),
                       title: 'Sipariş Özeti',
                       titleStyle: kListTileSize,
@@ -348,7 +381,8 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/alissatistoplamrapor.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/alissatistoplamrapor.png'),
                       ),
                       title: 'Alış / Satış Toplamları',
                       titleStyle: kListTileSize,
@@ -357,14 +391,15 @@ class DrawerBar extends StatelessWidget {
                     ),
                     CustomListTile(
                       icon: SizedBox(
-                        child: Image.asset('assets/icons/drawericon/kdvraporicon.png'),
+                        child: Image.asset(
+                            'assets/icons/drawericon/kdvraporicon.png'),
                       ),
                       title: 'KDV Raporu',
                       titleStyle: kListTileSize,
                       route: const RKdvRaporuScreen(),
                       backgroundColor: Colors.grey.shade50,
                     ),
-                   /* CustomListTile(
+                    /* CustomListTile(
                       icon: SizedBox(
                         child: Image.asset('assets/icons/drawericon/depostokraporicon.png'),
                       ),
@@ -394,40 +429,44 @@ class DrawerBar extends StatelessWidget {
                   ],
                 ),
                 //-----------------------------------------------------------------
-                
+
                 CustomListTile(
                   icon: SizedBox(
-                    child: Image.asset('assets/icons/drawericon/verileridisaaktaricon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/verileridisaaktaricon.png'),
                   ),
                   title: 'Verileri Dışa Aktar',
                   titleStyle: kListTileSize,
                   route: const VerileriDisaAktarScreen(),
                   enablePadding: false,
                 ),
-                 const Divider(endIndent: 30,indent: 65),
+                const Divider(endIndent: 30, indent: 65),
                 CustomListTile(
                   icon: SizedBox(
-                    child: Image.asset('assets/icons/drawericon/interaktifvergidairesiicon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/interaktifvergidairesiicon.png'),
                   ),
                   title: 'İnteraktif Vergi Dairesi',
                   titleStyle: kListTileSize,
                   route: const InteraktifVergiDairesiScreen(),
                   enablePadding: false,
                 ),
-                  const Divider(endIndent: 30,indent: 65),
+                const Divider(endIndent: 30, indent: 65),
                 CustomListTile(
                   icon: SizedBox(
-                    child: Image.asset('assets/icons/drawericon/entegrasyonlaricon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/entegrasyonlaricon.png'),
                   ),
                   title: 'Entegrasyonlar',
                   titleStyle: kListTileSize,
                   route: const EntegrasyonScreen(),
                   enablePadding: false,
                 ),
-                   const Divider(endIndent: 30,indent: 65),
+                const Divider(endIndent: 30, indent: 65),
                 CustomListTile(
                   icon: SizedBox(
-                    child: Image.asset('assets/icons/drawericon/firmabilgileriicon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/firmabilgileriicon.png'),
                   ),
                   title: 'Firma Bilgileri',
                   titleStyle: kListTileSize,
@@ -436,77 +475,72 @@ class DrawerBar extends StatelessWidget {
                 ),
               ],
             ),
-          ),  
-        Container(
-          height: 50,
-          decoration:const BoxDecoration(
-            color: Colors.white,
-            border: Border(
-              top: BorderSide(
-                color: Colors.grey,
-                width: 1,
+          ),
+          Container(
+            height: 50,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              border: Border(
+                top: BorderSide(
+                  color: Colors.grey,
+                  width: 1,
+                ),
               ),
             ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Expanded(
-                child: ElevatedButton.icon(
-                  onPressed: () { Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) =>const DestekScreen()),
-            );
-            },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    elevation: 0,
-                  ),
-                  icon: Image.asset(
-                    'assets/icons/drawericon/destekicon.png', // PNG ikonunun yolunu belirtin
-                    width: 24,
-                    height: 24,
-                  ),
-                  label:const Text(
-                    'Destek',
-                    style: TextStyle(
-                      color: Colors.black,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Get.to(const DestekScreen());
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      elevation: 0,
+                    ),
+                    icon: Image.asset(
+                      'assets/icons/drawericon/destekicon.png', // PNG ikonunun yolunu belirtin
+                      width: 24,
+                      height: 24,
+                    ),
+                    label: const Text(
+                      'Destek',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const VerticalDivider(
-                width: 1,
-                color: Colors.grey,
-              ),
-              Expanded(
-                child: ElevatedButton.icon(
-                  onPressed: () { Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) =>const LoginScreen()),
-            );
-            },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    elevation: 0,
-                  ),
-                  icon: Image.asset(
-                    'assets/icons/drawericon/cikisicon.png',
-                    width: 30,
-                    height: 30,
-                  ),
-                  label: const Text(
-                    'Çıkış',
-                    style: TextStyle(
-                      color: Colors.black,
+                const VerticalDivider(
+                  width: 1,
+                  color: Colors.grey,
+                ),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Get.to(const LoginScreen());
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      elevation: 0,
+                    ),
+                    icon: Image.asset(
+                      'assets/icons/drawericon/cikisicon.png',
+                      width: 30,
+                      height: 30,
+                    ),
+                    label: const Text(
+                      'Çıkış',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        )
-
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -536,7 +570,8 @@ class CustomListTile extends StatelessWidget {
     return Container(
       color: backgroundColor,
       child: Padding(
-        padding: enablePadding ? const EdgeInsets.only(left: 25) : EdgeInsets.zero,
+        padding:
+            enablePadding ? const EdgeInsets.only(left: 25) : EdgeInsets.zero,
         child: ListTile(
           leading: SizedBox(
             width: 30.0,
@@ -548,10 +583,7 @@ class CustomListTile extends StatelessWidget {
             style: titleStyle,
           ),
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => route),
-            );
+            Get.to(route);
           },
         ),
       ),

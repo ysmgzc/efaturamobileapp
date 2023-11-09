@@ -1,6 +1,7 @@
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/verileridisaaktardetayliarama.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../float_action_buton_widget.dart';
 import '../search_field.dart';
 import 'alt_basliklar/yeni_rapor.dart';
@@ -27,12 +28,7 @@ class VerileriDisaAktarScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.filter_alt),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const VerileriDisaAktarDetayliArama(),
-                ),
-              );
+              Get.to(const VerileriDisaAktarDetayliArama());
             },
           ),
         ],
@@ -54,6 +50,22 @@ class VerileriDisaAktarScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(5.0),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: const Offset(0, 0),
+                      blurRadius: 20,
+                      color: Colors.grey.shade300,
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),

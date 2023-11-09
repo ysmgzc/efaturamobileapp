@@ -25,57 +25,50 @@ class CustomWidget extends StatelessWidget {
                                     DialogOption(
                                       title: 'Düzenle',
                                       onPressed: () {
-                                         Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const MusteriDuzenleScreen(),
-                              ));
+                                        Get.to(const MusteriDuzenleScreen());
+                                        
                                       },
                                     ),
                                     DialogOption(
                                       title: "İşlem Listesi",
                                       onPressed: () {
-                                         Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const MusteriIslemListesiScreen(),
-                              ));
+                                          Get.to(const MusteriIslemListesiScreen());
+                                        
                                       },
                                     ),
                                      DialogOption(
                                       title: "Tahsilat Ekle",
                                       onPressed: () {
-                                         Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const TahsilatMakbuzuEkle(),
-                              ));
+                                          Get.to(const TahsilatMakbuzuEkle());
+                                         
                                       },
                                     ),
                                     DialogOption(
                                       title: "Ödeme Ekle",
                                       onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const MusterilerVeTedarikcilerOdemeEkle(),
-                              ));
+                                           Get.to(const MusterilerVeTedarikcilerOdemeEkle());
+                            
                                       },
                                     ),
                                     DialogOption(
                                       title: "Virman",
                                       onPressed: () {
-                                 Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const VirmanEkle(),
-                              ));
+                                          Get.to(const VirmanEkle());
+                               
                                       },
                                     ),
                                         DialogOption(
                                       title: "Borç & Alacak Ekle",
                                       onPressed: () {
-                                 Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const BorcAlacakEkle(),
-                              ));
+                                          Get.to(const BorcAlacakEkle());
+                             
                                       },
                                     ),
                                         DialogOption(
                                       title: "Çek Girişi",
                                       onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const CekGirisiEkle(),
-                              ));
+                                         Get.to(const CekGirisiEkle());
+                              
                                       },
                                     ),
                                   ];

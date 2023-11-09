@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreens extends StatelessWidget {
   const SplashScreens({super.key});
@@ -11,12 +12,13 @@ class SplashScreens extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            Navigator.pushReplacement(
+            Get.offAll(() => const LoginScreen());
+            /* Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => const LoginScreen(),
               ),
-            );
+            );*/
           });
         }
         return Scaffold(

@@ -1,4 +1,3 @@
-
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/giderler/hizmet_masraf_save.dart';
@@ -12,63 +11,68 @@ import 'package:flutter/material.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:get/get.dart';
 import '../../../../../siralama_islemi_widget.dart';
 
 class MusteriIslemListesiScreen extends StatefulWidget {
   const MusteriIslemListesiScreen({Key? key}) : super(key: key);
 
   @override
-  State<MusteriIslemListesiScreen> createState() => _MusteriIslemListesiScreenState();
+  State<MusteriIslemListesiScreen> createState() =>
+      _MusteriIslemListesiScreenState();
 }
 
 class _MusteriIslemListesiScreenState extends State<MusteriIslemListesiScreen> {
   @override
   Widget build(BuildContext context) {
-     double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme:const IconThemeData(color: Colors.black),
-         backgroundColor: Colors.white,
-         elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        elevation: 0,
         centerTitle: true,
         title: const Text(
-          'Test Ltd. Şti.', style: TextStyle(color: Colors.black),
+          'Test Ltd. Şti.',
+          style: TextStyle(color: Colors.black),
         ),
-         actions: [ 
+        actions: [
           CustomIconButton(
             options: [
               SheetOption(
-                icon:const Icon(Icons.filter_alt,color: Colors.black),
+                icon: const Icon(Icons.filter_alt, color: Colors.black),
                 text: 'Detaylı Arama',
                 page: const MusteriTedarikciIslemListesiDetayliArama(),
               ),
-               SheetOption(
+              SheetOption(
                 icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-               onTap: () {
-                Navigator.pop(context);
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SiralamaIslemi(
-                      onSort: (sortedItems) {
-                      },
-                      optionIds:const [3, 4],
-                    );
-                  },
-                );
-                
-              },
+                onTap: () {
+                  Navigator.pop(context);
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SiralamaIslemi(
+                        onSort: (sortedItems) {},
+                        optionIds: const [3, 4],
+                      );
+                    },
+                  );
+                },
               ),
               SheetOption(
-               icon:const Icon(Icons.print,color: Colors.black),
+                icon: const Icon(Icons.print, color: Colors.black),
                 text: "Extre Görüntüle",
                 page: const YeniRaporEkle(),
               ),
-               SheetOption(
-                icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
+              SheetOption(
+                icon: Image.asset(
+                  'assets/icons/excelicon.png',
+                  width: 20,
+                  height: 20,
+                ),
                 text: "Excel'e Aktar",
                 page: const YeniRaporEkle(),
               ),
@@ -76,61 +80,68 @@ class _MusteriIslemListesiScreenState extends State<MusteriIslemListesiScreen> {
           )
         ],
       ),
-       backgroundColor: Colors.white,
-      body:  SingleChildScrollView(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: screenWidth * 0.05,
             vertical: screenHeight * 0.01,
           ),
           child: Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.015,
               ),
-            Container(
-    padding: const EdgeInsets.all(8.0),
-    decoration:  BoxDecoration(
-                color: Colors.white,
-                borderRadius:const BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset:const Offset(0, 0),
-                    blurRadius: 20,
-                    color:  Colors.grey.shade300,
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(5.0),
                   ),
-                ],
-              ),
-                child: const Column(
-                  children: [  
-                     SizedBox(height: 10,),
-                  ContainerWidget(
-                        ustTarih: '24 Nisan',
-                        tedarikciAdi:'Personel Ahmet Usta' ,
-                        tedarikciNo: '000001',
-                        paraBirimi: '₺1000',
-                        page: HizmetMasrafSave(),
-                        ),
-                 SizedBox(height: 10,),
-                  Divider(),
-                   ContainerWidget(
-                        ustTarih: '24 Nisan',
-                        tedarikciAdi:'Personel Ahmet Usta' ,
-                        tedarikciNo: '000001',
-                        paraBirimi: '₺1000',
-                        page: HizmetMasrafSave(),
-                        ),
-               SizedBox(height: 10,),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: const Offset(0, 0),
+                      blurRadius: 20,
+                      color: Colors.grey.shade300,
+                    ),
                   ],
-                ),     
-          )],
+                ),
+                child: const Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ContainerWidget(
+                      ustTarih: '24 Nisan',
+                      tedarikciAdi: 'Personel Ahmet Usta',
+                      tedarikciNo: '000001',
+                      paraBirimi: '₺1000',
+                      page: HizmetMasrafSave(),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Divider(),
+                    ContainerWidget(
+                      ustTarih: '24 Nisan',
+                      tedarikciAdi: 'Personel Ahmet Usta',
+                      tedarikciNo: '000001',
+                      paraBirimi: '₺1000',
+                      page: HizmetMasrafSave(),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ),
-    floatingActionButton: SpeedDial(
+      floatingActionButton: SpeedDial(
         animatedIcon: AnimatedIcons.add_event,
         backgroundColor: kButtonColor,
         overlayColor: kButtonColor,
@@ -142,48 +153,28 @@ class _MusteriIslemListesiScreenState extends State<MusteriIslemListesiScreen> {
             child: const Icon(Icons.add),
             label: 'Ödeme Ekle',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const KasalarOdemeEkle(),
-                ),
-              );
+              Get.to(const KasalarOdemeEkle());
             },
           ),
           SpeedDialChild(
             child: const Icon(Icons.add),
             label: 'Tahsilat Ekle',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const TahsilatEkle(),
-                ),
-              );
+              Get.to(const TahsilatEkle());
             },
           ),
           SpeedDialChild(
             child: const Icon(Icons.add),
             label: 'Borç & Alacak',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const BorcAlacakEkle(),
-                ),
-              );
+              Get.to(const BorcAlacakEkle());
             },
           ),
           SpeedDialChild(
             child: const Icon(Icons.add),
             label: 'Virman',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const VirmanEkle(),
-                ),
-              );
+              Get.to(const VirmanEkle());
             },
           ),
         ],

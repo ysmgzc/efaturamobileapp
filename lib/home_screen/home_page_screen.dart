@@ -7,6 +7,7 @@ import 'package:efaturamobileapp/raporlar/raporlar.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_screen.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_hareketleri.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class HomePageScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-     body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
           child: Column(
@@ -42,7 +43,7 @@ class HomePageScreen extends StatelessWidget {
                     asset: 'assets/images/grafikk.png',
                     text: "Genel Durum",
                   ),
-                   HomePageWidget(
+                  HomePageWidget(
                     screenWidth: screenWidth,
                     screenHeight: screenHeight,
                     route: const SatisSiparislerScreen(),
@@ -59,14 +60,14 @@ class HomePageScreen extends StatelessWidget {
                     screenWidth: screenWidth,
                     screenHeight: screenHeight,
                     route: const AlisSiparislerScreen(),
-                    asset:  'assets/images/alislar1.png',
+                    asset: 'assets/images/alislar1.png',
                     text: "Alışlar",
                   ),
                   HomePageWidget(
                     screenWidth: screenWidth,
                     screenHeight: screenHeight,
                     route: const GiderlerScreen(),
-                    asset:  'assets/images/masraflar.png',
+                    asset: 'assets/images/masraflar.png',
                     text: "Giderler",
                   ),
                 ],
@@ -95,10 +96,11 @@ class HomePageScreen extends StatelessWidget {
           ),
         ),
       ),
- //bottomNavigationBar: BottomNavBar(),
+      //bottomNavigationBar: BottomNavBar(),
     );
   }
 }
+
 class HomePageWidget extends StatelessWidget {
   final double screenWidth;
   final double screenHeight;
@@ -106,23 +108,20 @@ class HomePageWidget extends StatelessWidget {
   final String asset;
   final String text;
 
- const HomePageWidget({
-    Key? key,
-    required this.screenWidth,
-    required this.screenHeight,
-    required this.route,
-    required this.asset,
-    required this.text
-  }): super(key: key);
+  const HomePageWidget(
+      {Key? key,
+      required this.screenWidth,
+      required this.screenHeight,
+      required this.route,
+      required this.asset,
+      required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => route),
-        );
+        Get.to(route);
       },
       child: Column(
         children: [
@@ -133,23 +132,21 @@ class HomePageWidget extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: Colors.grey,
-               width: 0.25
-               ),
+              border: Border.all(color: Colors.grey, width: 0.25),
             ),
             child: Image.asset(asset),
           ),
           const SizedBox(
             height: 5,
           ),
-           Text(
-            text,
-              style:const TextStyle(
+          Text(text,
+              style: const TextStyle(
                 color: kTextColor2,
                 fontSize: 14,
-              )
-            ),
-           const SizedBox(height: 12,)
+              )),
+          const SizedBox(
+            height: 12,
+          )
         ],
       ),
     );

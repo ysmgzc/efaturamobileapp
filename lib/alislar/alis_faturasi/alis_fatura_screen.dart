@@ -1,11 +1,10 @@
 import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_save.dart';
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_ekle.dart';
 import 'package:efaturamobileapp/alislar/alis_faturasi/alis_iade_faturasi_save.dart';
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_iade_faturasi_ekle.dart';
 import 'package:efaturamobileapp/alislar/alis_faturasi/secenekler/alisfaturasidetayliarama.dart';
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
+import 'package:efaturamobileapp/satislar/satis_faturasi/form_screen_ekle.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
@@ -154,11 +153,11 @@ class _AlisFaturalarScreenState extends State<AlisFaturalarScreen> {
     childrenData: [
       SpeedDialData(
         label: 'İade Faturası',
-        route:const AlisIadeFaturasiEkle(),
+        route: FormScreenEkle(appBarBaslik: 'İade Faturası',personImageBorderMetin: ""),
       ),
       SpeedDialData(
         label: 'Alış Faturası',
-        route: const AlisFaturasiEkle(),
+        route: FormScreenEkle(appBarBaslik: 'Alış Faturası',personImageBorderMetin: ""),
       ),
     ],
   ),

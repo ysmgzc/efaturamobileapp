@@ -1,11 +1,10 @@
 import 'package:efaturamobileapp/drawer_bar.dart';
-import 'package:efaturamobileapp/raporlar/r_alis_ozeti/r_alis_ozeti.dart';
 import 'package:efaturamobileapp/raporlar/r_alis_satis_toplamlari/r_alis_satis_toplamlari.dart';
 import 'package:efaturamobileapp/raporlar/r_kdv_raporu.dart';
-import 'package:efaturamobileapp/raporlar/r_masraf_ozeti/r_masraf_ozeti.dart';
-import 'package:efaturamobileapp/raporlar/r_satis_ozeti/r_satis_ozeti.dart';
 import 'package:efaturamobileapp/raporlar/r_siparis_ozeti/r_siparis_ozeti.dart';
+import 'package:efaturamobileapp/raporlar/rapor_ozeti_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RaporlarScreen extends StatefulWidget {
   const RaporlarScreen({super.key});
@@ -17,13 +16,13 @@ class RaporlarScreen extends StatefulWidget {
 class _RaporlarScreenState extends State<RaporlarScreen> {
   @override
   Widget build(BuildContext context) {
-        double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-        Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme:const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
@@ -33,62 +32,66 @@ class _RaporlarScreenState extends State<RaporlarScreen> {
         ),
       ),
       body: SingleChildScrollView(
-         child: Container(color: Colors.transparent,
-           padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.05,
-              vertical: screenHeight * 0.01,
-            ),
-            child: Container(
-              color: Colors.white,
-              child: Column(  
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: size.height * 0.03,      
-                ),
-               const CustomContainer(
-                    screen: RSatisOzetiScreen(),
+        child: Container(
+          color: Colors.transparent,
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.05,
+            vertical: screenHeight * 0.01,
+          ),
+          child: Container(
+            color: Colors.white,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: size.height * 0.03,
+                  ),
+                  CustomContainer(
+                    screen:
+                        RaporOzetiScreen(raporOzetiScreenAppBar: "Satış Özeti"),
                     title: "Satış Özeti",
                     iconPath: 'assets/icons/drawericon/satisicon.png',
                   ),
                   const Divider(),
-                   const CustomContainer(
-                    screen: RAlisOzetiScreen(),
+                  CustomContainer(
+                    screen:
+                        RaporOzetiScreen(raporOzetiScreenAppBar: "Alış Özeti"),
                     title: "Alış Özeti",
                     iconPath: 'assets/icons/drawericon/alisicon.png',
                   ),
-                
-                 const Divider(),
-                   const CustomContainer(
-                    screen: RMasrafOzetiScreen(),
+                  const Divider(),
+                  CustomContainer(
+                    screen: RaporOzetiScreen(
+                        raporOzetiScreenAppBar: "Masraf Özeti"),
                     title: "Masraf Özeti",
                     iconPath: 'assets/icons/drawericon/masraficon.png',
                   ),
-                   const Divider(),
-                    const CustomContainer(
+                  const Divider(),
+                  const CustomContainer(
                     screen: RSiparisOzetiScreen(),
                     title: "Sipariş Özeti",
                     iconPath: 'assets/icons/drawericon/siparisicon.png',
                   ),
-                   const Divider(),
-                     const CustomContainer(
+                  const Divider(),
+                  const CustomContainer(
                     screen: RAlisSatisToplamlariScreen(),
                     title: "Alış / Satış Toplamları",
-                    iconPath: 'assets/icons/drawericon/alissatistoplamrapor.png',
+                    iconPath:
+                        'assets/icons/drawericon/alissatistoplamrapor.png',
                   ),
-                   const Divider(),
-                    const CustomContainer(
+                  const Divider(),
+                  const CustomContainer(
                     screen: RKdvRaporuScreen(),
                     title: "KDV Raporu",
                     iconPath: 'assets/icons/drawericon/kdvraporicon.png',
                   ),
-                   const Divider(),
-                /*    const CustomContainer(
+                  const Divider(),
+                  /*    const CustomContainer(
                     screen: IadeRaporu(),
                     title: "İadeler",
                     iconPath: 'assets/icons/drawericon/iaderaporuicon.png',
                   ),*/
-               /* const  Divider(),
+                  /* const  Divider(),
                  const CustomContainer(
                     screen: DepoStokRaporu(),
                     title: "Depo Stokları",
@@ -106,24 +109,24 @@ class _RaporlarScreenState extends State<RaporlarScreen> {
                     title: "Hesap Hareketleri",
                     iconPath: 'assets/icons/drawericon/hesaphareketraporicon.png',
                   ),*/
-              ]
-                     ),
-            ),
+                ]),
+          ),
+        ),
       ),
-    ),);
+    );
   }
 }
 
 class CustomContainer extends StatelessWidget {
   final Widget screen;
   final String title;
-  final String iconPath; 
+  final String iconPath;
 
   const CustomContainer({
     Key? key,
     required this.screen,
     required this.title,
-    required this.iconPath, 
+    required this.iconPath,
   }) : super(key: key);
 
   @override
@@ -135,14 +138,14 @@ class CustomContainer extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => screen));
+              Get.to(screen);
             },
             child: ListTile(
-              leading: Image.asset(iconPath), 
+              leading: Image.asset(iconPath),
               title: Text(
                 title,
               ),
-              trailing: const Icon(Icons.navigate_next, size: 30.0), 
+              trailing: const Icon(Icons.navigate_next, size: 30.0),
             ),
           ),
         ],

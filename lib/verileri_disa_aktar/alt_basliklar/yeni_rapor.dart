@@ -41,67 +41,64 @@ class _YeniRaporEkleState extends State<YeniRaporEkle> {
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
-            ),
-                  const Text('DOSYA ADI', style: TextStyle(color: yTextColor, fontSize: 14)),
-                      const SizedBox(height: 8),
-                      TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
-                      const Divider(),
-                       Container(
+      ),
+        const Text('DOSYA ADI', style: TextStyle(color: yTextColor, fontSize: 14)),
+            const SizedBox(height: 8),
+            TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
+            const Divider(),
+              Container(
         alignment: Alignment.topLeft,
-        child: Padding(
-          padding:const EdgeInsets.only(left: 8.0),
-          child: Column(
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('DÖNEM TARİHİ', style: TextStyle(color: yTextColor,fontSize: 14)),
-          const SizedBox(height: 8),
-          Align(
-            alignment: Alignment.topLeft,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.grey.shade200,
-                    Colors.grey.shade100,
-                    Colors.grey.shade50,
-                    Colors.white70,
-                  ],
+        const Text('DÖNEM TARİHİ', style: TextStyle(color: yTextColor,fontSize: 14)),
+        const SizedBox(height: 8),
+        Align(
+          alignment: Alignment.topLeft,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.grey.shade200,
+                  Colors.grey.shade100,
+                  Colors.grey.shade50,
+                  Colors.white70,
+                ],
+              ),
+            ),
+            child: GestureDetector(
+            onTap: () async {
+              final DateTime? pickedDate = await showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2000),
+                lastDate: DateTime.now(),
+              );
+      
+              if (pickedDate != null) {
+                setState(() {
+                  dateInput.text = DateFormat('dd/MM/yyyy').format(pickedDate);
+                });
+              }
+            },
+            child: SizedBox(
+              width: screenWidth * 0.9,
+              height: screenHeight * 0.07,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  dateInput.text.isNotEmpty ? dateInput.text : DateFormat('  dd/MM/yyyy').format(DateTime.now()),
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
               ),
-              child: GestureDetector(
-              onTap: () async {
-                final DateTime? pickedDate = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(2000),
-                  lastDate: DateTime.now(),
-                );
-      
-                if (pickedDate != null) {
-                  setState(() {
-                    dateInput.text = DateFormat('dd/MM/yyyy').format(pickedDate);
-                  });
-                }
-              },
-              child: SizedBox(
-                width: screenWidth * 0.9,
-                height: screenHeight * 0.07,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    dateInput.text.isNotEmpty ? dateInput.text : DateFormat('  dd/MM/yyyy').format(DateTime.now()),
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
-                  ),
-                ),
-              ),
-              
             ),
-      
-            ),
+            
           ),
+      
+          ),
+        ),
         ],
-          ),
         ),
       ),
           ],
@@ -111,7 +108,7 @@ class _YeniRaporEkleState extends State<YeniRaporEkle> {
       
     bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        saveButtonBackgroundColor:const Color(0xffAC8BB6),
+        saveButtonBackgroundColor: Colors.blue,
           ),
     );
   }

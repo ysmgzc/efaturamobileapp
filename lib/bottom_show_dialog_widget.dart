@@ -1,13 +1,11 @@
 //ekranın altında açılan showdialog
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomIconButton extends StatelessWidget {
   final List<SheetOption> options;
 
-  const CustomIconButton({
-    Key? key,
-    required this.options
-    }): super(key: key);
+  const CustomIconButton({Key? key, required this.options}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +44,7 @@ class CustomIconButton extends StatelessWidget {
       title: Text(option.text),
       onTap: () {
         if (option.page != null) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => option.page!,
-            ),
-          );
+          Get.to(() => option.page!);
         } else if (option.onTap != null) {
           option.onTap!();
         }

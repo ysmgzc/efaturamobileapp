@@ -1,9 +1,8 @@
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/satislar/satis_siparis/satis_perakende_siparis.dart';
+import 'package:efaturamobileapp/satislar/satis_faturasi/form_screen_ekle.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_faturasi_save.dart';
-import 'package:efaturamobileapp/satislar/satis_siparis/satis_toptan_siparis.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/secenekler/satissiparisdetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
@@ -138,11 +137,11 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
     childrenData: [
       SpeedDialData(
         label: 'Toptan Sipariş\n(KDV Hariç)',
-        route:const SatisToptanSiparisEkle(),
+        route: FormScreenEkle(appBarBaslik: 'Toptan Sipariş (KDV Hariç)',personImageBorderMetin: ""),
       ),
       SpeedDialData(
         label: 'Perakende Sipariş\n(KDV Dahil)',
-        route: const SatisPerakendeSiparisEkle(),
+        route: FormScreenEkle(appBarBaslik: 'Perakende Sipariş (KDV Dahil)',personImageBorderMetin: ""),
       ),
     ],
   ),

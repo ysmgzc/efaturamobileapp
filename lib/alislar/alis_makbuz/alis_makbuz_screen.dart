@@ -1,4 +1,3 @@
-import 'package:efaturamobileapp/alislar/alis_makbuz/alis_makbuz_ekle.dart';
 import 'package:efaturamobileapp/alislar/alis_makbuz/alis_makbuz_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_makbuz/secenekler/alismakbuzdetayliarama.dart';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
@@ -9,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import '../../container_widget.dart';
 import '../../float_action_buton_widget.dart';
+import '../../satislar/satis_faturasi/form_screen_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class AlisMakbuzScreen extends StatefulWidget {
@@ -145,7 +145,7 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
           childrenData: [
             SpeedDialData(
           label: '',
-          route:const AlisMakbuzEkle(),
+          route:  FormScreenEkle(appBarBaslik: 'Serbest Meslek Makbuzu',personImageBorderMetin: ""),
              ),
           ],
          ),

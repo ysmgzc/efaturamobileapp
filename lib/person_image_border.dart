@@ -2,7 +2,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/kamera_showdialog_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart'; 
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 class PersonImageBorder extends StatefulWidget {
@@ -57,10 +58,7 @@ class _PersonImageBorderState extends State<PersonImageBorder> {
               child: TextButton(
                 onPressed: () async {
                   if (widget.route != null) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => widget.route!),
-                    );
+                    Get.to(widget.route!);
                   } else {
                     XFile? image = await kameraShowDialogWidget(context);
                     if (image != null) {

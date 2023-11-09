@@ -1,6 +1,7 @@
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/entegrasyonlar/yengec.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EntegrasyonScreen extends StatelessWidget {
   const EntegrasyonScreen({super.key});
@@ -134,7 +135,6 @@ class EntegrasyonScreen extends StatelessWidget {
   }
 }
 
-
 class EntegrasyonWidget extends StatelessWidget {
   final double screenWidth;
   final double screenHeight;
@@ -155,87 +155,87 @@ class EntegrasyonWidget extends StatelessWidget {
     required this.page,
   });
 
- @override
-Widget build(BuildContext context) {
-  return GestureDetector(
-    onTap: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => page),
-      );
-    },
-    child: Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(5.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(0, 0),
-              blurRadius: 20,
-              color: Colors.grey.shade300,
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Get.to(page);
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: const BorderRadius.all(
+              Radius.circular(5.0),
             ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-          child: Column(
-            mainAxisSize: MainAxisSize.min, // Bu satırı ekledik
-            children: [
-              Container(
-                width: screenWidth * 0.5,
-                height: screenHeight * 0.12,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(5.0),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(5, 5),
-                      blurRadius: 5,
-                      color: Colors.grey.shade300,
-                    ),
-                  ],
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Image.asset(image),
-                ),
-              ),
-              Flexible(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 25, 0, 15),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        baslik,
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        altBaslik,
-                        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        aciklama,
-                        style: const TextStyle(fontSize: 14, color: Colors.black54),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
+            boxShadow: [
+              BoxShadow(
+                offset: const Offset(0, 0),
+                blurRadius: 20,
+                color: Colors.grey.shade300,
               ),
             ],
           ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            child: Column(
+              mainAxisSize: MainAxisSize.min, // Bu satırı ekledik
+              children: [
+                Container(
+                  width: screenWidth * 0.5,
+                  height: screenHeight * 0.12,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(5.0),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(5, 5),
+                        blurRadius: 5,
+                        color: Colors.grey.shade300,
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Image.asset(image),
+                  ),
+                ),
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 25, 0, 15),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          baslik,
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          altBaslik,
+                          style: const TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          aciklama,
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.black54),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 }

@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-class RaporIcerigiWidget extends StatelessWidget {
+class SatisOzetiRaporIcerigiWidget extends StatelessWidget {
 
   final String baslikTarih;
   final String toplamTutarText;
   final String indirimFiyat;
   final String netTutarText;
-  final VoidCallback onTap;
   final String tutarText;
   final String kdvFiyat;
   final String faturaSayisi;
 
 
-  const RaporIcerigiWidget({
+  const SatisOzetiRaporIcerigiWidget({
     Key? key,
     required this.baslikTarih,
     required this.toplamTutarText,
     required this.indirimFiyat,
     required this.netTutarText,
-    required this.onTap,
     required this.tutarText,
     required this.kdvFiyat,
     required this.faturaSayisi,
@@ -26,7 +24,6 @@ class RaporIcerigiWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

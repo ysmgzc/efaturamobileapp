@@ -1,6 +1,8 @@
 import 'package:efaturamobileapp/scan_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../constants.dart';
+
 class SearchField extends StatelessWidget {
   final String? suffixIcon;
 
@@ -12,7 +14,7 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = TextEditingController();
-     double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       decoration: BoxDecoration(
@@ -24,12 +26,12 @@ class SearchField extends StatelessWidget {
         maxLines: 1,
         onChanged: (value) {
           print(value);
-        }, 
+        },
         decoration: InputDecoration(
-          contentPadding:  EdgeInsets.symmetric(
+          contentPadding: EdgeInsets.symmetric(
             horizontal: screenWidth * 0.05,
-             vertical: screenHeight * 0.02,
-              ),
+            vertical: screenHeight * 0.02,
+          ),
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
@@ -42,13 +44,10 @@ class SearchField extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   controller.clear();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>const BarkodTara()),
-                  );
+                  Get.to(const BarkodTara());
                 },
-                icon: suffixIcon != null 
-                    ? Image.asset(suffixIcon!) 
+                icon: suffixIcon != null
+                    ? Image.asset(suffixIcon!)
                     : const Icon(Icons.clear),
               ),
             ],

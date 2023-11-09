@@ -1,6 +1,6 @@
-
 import 'package:efaturamobileapp/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'home_screen/home_page_screen.dart';
 
 void main() {
@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   MaterialApp(
-       theme: ThemeData(
+    return GetMaterialApp(
+      theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-    primarySwatch: Colors.blue, 
-   // appBarTheme: AppBarTheme(color: Colors.blue),
-  ),
-      home:const LoginScreen(),
+        primarySwatch: Colors.blue,
+        // appBarTheme: AppBarTheme(color: Colors.blue),
+      ),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

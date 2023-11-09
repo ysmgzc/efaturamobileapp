@@ -1,10 +1,10 @@
-import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparis_ekle.dart';
 import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparis_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_siparisler/secenekler/alissiparisdetayliarama.dart';
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
+import 'package:efaturamobileapp/satislar/satis_faturasi/form_screen_ekle.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
@@ -132,7 +132,7 @@ class _AlisSiparislerScreenState extends State<AlisSiparislerScreen> {
    childrenData: [
      SpeedDialData(
         label: '',
-        route: AlisSiparisEkle(metin: ""),
+       route:  FormScreenEkle(appBarBaslik: 'Sipariş (KDV Hariç)',personImageBorderMetin: ""),
       ),
    ],
   ),

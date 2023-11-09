@@ -2,6 +2,8 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/hesaplar/hesaplar.dart';
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
+
 class HesapBilgileri extends StatefulWidget {
   const HesapBilgileri({super.key});
 
@@ -13,10 +15,11 @@ class _HesapBilgileriState extends State<HesapBilgileri> {
   TextEditingController dateInput = TextEditingController();
   @override
   void initState() {
-    dateInput.text = ""; 
+    dateInput.text = "";
     super.initState();
   }
- bool? value = false;
+
+  bool? value = false;
   String? selectedValue1;
   List<String> items1 = [
     'Kasa',
@@ -26,24 +29,24 @@ class _HesapBilgileriState extends State<HesapBilgileri> {
   ];
   String? selectedValue2;
   List<String> items2 = [
-      'TL',
-      'EUR',
-      'GBP',
-      'CHF',
-      'JPY',
-      'AZM',
-      'BGN',
-      'CNY',
-      'USD',
-      'PLN',
-      'RUB',
-      'SGD',
-      'DZD',
-      'XAU',
-      'UZS',
-      'MKD',
-      'KGS',
-];
+    'TL',
+    'EUR',
+    'GBP',
+    'CHF',
+    'JPY',
+    'AZM',
+    'BGN',
+    'CNY',
+    'USD',
+    'PLN',
+    'RUB',
+    'SGD',
+    'DZD',
+    'XAU',
+    'UZS',
+    'MKD',
+    'KGS',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,41 +72,45 @@ class _HesapBilgileriState extends State<HesapBilgileri> {
                   fontSize: MediaQuery.of(context).size.width * 0.07,
                   fontWeight: FontWeight.bold,
                   shadows: const [
-                    BoxShadow(color: Colors.black, offset: Offset(1, 2), blurRadius: 3),
+                    BoxShadow(
+                        color: Colors.black,
+                        offset: Offset(1, 2),
+                        blurRadius: 3),
                   ],
                 ),
               ),
-             SizedBox(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
               hesapbilgilericontainer1("Hesap Adı: "),
               Container(
                 alignment: Alignment.center,
                 child: Padding(
-                  padding:const EdgeInsets.only( top: 15),
+                  padding: const EdgeInsets.only(top: 15),
                   child: DropdownButton2(
-                    icon:const Padding(
-                      padding:  EdgeInsets.only(right: 7),
-                      child: Icon(Icons.expand_more, color: kIconColor,),
+                    icon: const Padding(
+                      padding: EdgeInsets.only(right: 7),
+                      child: Icon(
+                        Icons.expand_more,
+                        color: kIconColor,
+                      ),
                     ),
-                    underline: Container( 
-                     height: 2, color: Colors.white60 ),
-                    hint:const Text(
+                    underline: Container(height: 2, color: Colors.white60),
+                    hint: const Text(
                       textAlign: TextAlign.start,
                       "Hesap Tipi",
-                      style:kHintTextStyle,
+                      style: kHintTextStyle,
                     ),
                     items: items1
-                        .map((item) =>
-                        DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            style: const TextStyle(
-                              fontSize: 14,
-                            ),
-                          ),
-                        ))
+                        .map((item) => DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(
+                                item,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ))
                         .toList(),
                     value: selectedValue1,
                     onChanged: (value) {
@@ -122,30 +129,31 @@ class _HesapBilgileriState extends State<HesapBilgileri> {
               Container(
                 alignment: Alignment.center,
                 child: Padding(
-                  padding:const EdgeInsets.only( top: 10),
+                  padding: const EdgeInsets.only(top: 10),
                   child: DropdownButton2(
-                    icon:const Padding(
+                    icon: const Padding(
                       padding: EdgeInsets.only(right: 7),
-                      child: Icon(Icons.expand_more, color: kIconColor,),
+                      child: Icon(
+                        Icons.expand_more,
+                        color: kIconColor,
+                      ),
                     ),
-                    underline: Container( 
-                     height: 2, color: Colors.white60 ),
-                    hint:const Text(
+                    underline: Container(height: 2, color: Colors.white60),
+                    hint: const Text(
                       textAlign: TextAlign.start,
                       "Para Birimi",
-                      style:kHintTextStyle,
+                      style: kHintTextStyle,
                     ),
                     items: items2
-                        .map((item) =>
-                        DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            style: const TextStyle(
-                              fontSize: 14,
-                            ),
-                          ),
-                        ))
+                        .map((item) => DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(
+                                item,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ))
                         .toList(),
                     value: selectedValue2,
                     onChanged: (value) {
@@ -159,8 +167,8 @@ class _HesapBilgileriState extends State<HesapBilgileri> {
                     //itemWidth: 140,
                   ),
                 ),
-              ), 
-              hesapbilgilericontainer1("Bakiyesi: "),               
+              ),
+              hesapbilgilericontainer1("Bakiyesi: "),
             ],
           ),
         ),
@@ -171,17 +179,12 @@ class _HesapBilgileriState extends State<HesapBilgileri> {
           FloatingActionButton.extended(
             backgroundColor: kButtonColor,
             onPressed: () {
-               Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                            const  HesaplarScreen(),
-                        ),
-                      );
+              Get.to(const HesaplarScreen());
             },
             icon: const Icon(Icons.delete_outline),
             label: const Text('Vazgeç'),
-            shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 5)),
+            shape: const StadiumBorder(
+                side: BorderSide(color: kButtonColor, width: 5)),
           ),
           FloatingActionButton.extended(
             backgroundColor: kButtonColor,
@@ -190,25 +193,25 @@ class _HesapBilgileriState extends State<HesapBilgileri> {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: const Text('Kaydet'),
-                  content:const  Text('Kaydetme işleminiz başarılı.'),
+                  content: const Text('Kaydetme işleminiz başarılı.'),
                   actions: [
-                    
                     ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(kButtonColor),
-                      ),
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(kButtonColor),
+                        ),
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child:const Text('Kapat')
-                        )
+                        child: const Text('Kapat'))
                   ],
                 ),
               );
             },
             icon: const Icon(Icons.save),
             label: const Text('Kaydet'),
-            shape: const StadiumBorder(side: BorderSide(color: kButtonColor, width: 5)),
+            shape: const StadiumBorder(
+                side: BorderSide(color: kButtonColor, width: 5)),
           ),
         ],
       ),
@@ -217,26 +220,27 @@ class _HesapBilgileriState extends State<HesapBilgileri> {
 
   Container hesapbilgilericontainer1(String text) {
     return Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              alignment: Alignment.center,
-              child: TextFormField(
-                style: const TextStyle(
-                  height: 1.5,
-                ),
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.only(left: 10, top: 10, bottom: 15),
-                  prefixIcon: Padding(
-                      padding:const EdgeInsets.only(top: 12),
-                      child: Text(
-                        text,
-                        style:kHintTextStyle,
-                      )),
-                  enabledBorder:const UnderlineInputBorder(
-                    borderSide: BorderSide(color: kBorderColor),
-                  ),
-                  focusedBorder:const UnderlineInputBorder(borderSide: BorderSide(color: kBorderColor)),
-                ),
-              ),
-            );
+      width: MediaQuery.of(context).size.width * 0.8,
+      alignment: Alignment.center,
+      child: TextFormField(
+        style: const TextStyle(
+          height: 1.5,
+        ),
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.only(left: 10, top: 10, bottom: 15),
+          prefixIcon: Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Text(
+                text,
+                style: kHintTextStyle,
+              )),
+          enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: kBorderColor),
+          ),
+          focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(color: kBorderColor)),
+        ),
+      ),
+    );
   }
 }

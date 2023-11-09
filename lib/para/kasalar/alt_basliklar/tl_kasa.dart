@@ -5,6 +5,7 @@ import 'package:efaturamobileapp/para/kasalar/alt_basliklar/para_transferi.dart'
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tahsilat_ekle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:get/get.dart';
 
 class TLKasaScreen extends StatefulWidget {
   const TLKasaScreen({super.key});
@@ -19,7 +20,7 @@ class _TLKasaScreenState extends State<TLKasaScreen> {
     return Scaffold(
       drawer: const DrawerBar(),
       appBar: AppBar(
-         //elevation: 0,
+        //elevation: 0,
         shadowColor: Colors.transparent,
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -27,22 +28,19 @@ class _TLKasaScreenState extends State<TLKasaScreen> {
           'TL KASASI',
           style: TextStyle(color: Colors.black),
         ),
-         iconTheme:const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
-       backgroundColor: Colors.white,
-       body:const SingleChildScrollView(
-         child: Column(
-           children: [
-                 Column(
-                  children: [
-                  
-                              
-                  ],
-                ),
-           ],
-         ),
-       ),
-                floatingActionButton: SpeedDial(
+      backgroundColor: Colors.white,
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            Column(
+              children: [],
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: SpeedDial(
         animatedIcon: AnimatedIcons.add_event,
         backgroundColor: kButtonColor,
         overlayColor: kButtonColor,
@@ -54,36 +52,21 @@ class _TLKasaScreenState extends State<TLKasaScreen> {
             child: const Icon(Icons.add),
             label: 'Para Transferi',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ParaTransferiEkle(),
-                ),
-              );
+              Get.to(const ParaTransferiEkle());
             },
           ),
           SpeedDialChild(
             child: const Icon(Icons.add),
             label: 'Tahsilat Ekle',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const TahsilatEkle(),
-                ),
-              );
+              Get.to(const TahsilatEkle());
             },
           ),
           SpeedDialChild(
             child: const Icon(Icons.add),
             label: 'Ödeme Ekle',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const KasalarOdemeEkle(),
-                ),
-              );
+              Get.to(const KasalarOdemeEkle());
             },
           ),
         ],

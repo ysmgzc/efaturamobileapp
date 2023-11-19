@@ -16,29 +16,36 @@ class ToplamTutarSave extends StatelessWidget {
     return Column(
       children: [
         const Padding(
-            padding:  EdgeInsets.only(left: 30,top: 20,right: 80),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'TOPLAM',
-                    style: TextStyle(fontSize: 16, color: yTextColor,decoration: TextDecoration.underline, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    'TUTAR',
-                    style: TextStyle(fontSize: 16, color: yTextColor,decoration: TextDecoration.underline, fontWeight: FontWeight.bold),
-                  ),
-                ],
+          padding: EdgeInsets.only(/*left: 30,*/ top: 20, right: 80),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'TOPLAM',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: yTextColor,
+                    decoration: TextDecoration.underline,
+                    fontWeight: FontWeight.bold),
               ),
-            
+              Text(
+                'TUTAR',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: yTextColor,
+                    decoration: TextDecoration.underline,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
+        ),
         Container(
           alignment: Alignment.topCenter,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 30.0, top: 10),
+                padding: const EdgeInsets.only(/*left: 30.0,*/ top: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -47,7 +54,8 @@ class ToplamTutarSave extends StatelessWidget {
                         padding: EdgeInsets.only(top: i == 0 ? 15.0 : 10.0),
                         child: Text(
                           textLabels[i],
-                          style:const TextStyle(fontSize: 16, color: yTextColor2),
+                          style:
+                              const TextStyle(fontSize: 16, color: yTextColor2),
                         ),
                       ),
                   ],
@@ -63,7 +71,8 @@ class ToplamTutarSave extends StatelessWidget {
                         padding: EdgeInsets.only(top: i == 0 ? 15.0 : 10.0),
                         child: Text(
                           textValues[i],
-                          style:const TextStyle(fontSize: 16, color: yTextColor2),
+                          style:
+                              const TextStyle(fontSize: 16, color: yTextColor2),
                         ),
                       ),
                   ],

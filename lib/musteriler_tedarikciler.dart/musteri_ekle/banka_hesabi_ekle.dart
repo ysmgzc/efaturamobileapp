@@ -17,7 +17,7 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-  List<String> items = <String>[
+    List<String> items = <String>[
       'TL',
       'EUR',
       'GBP',
@@ -35,15 +35,15 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
       'UZS',
       'MKD',
       'KGS',
-];
+    ];
 
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor:const Color(0xff8FAD4B),
+        backgroundColor: const Color(0xff8FAD4B),
         title: const Text('Banka Hesabı Ekle'),
         centerTitle: true,
-        automaticallyImplyLeading: false, 
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -62,7 +62,8 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
-                    child: Image.asset('assets/icons/drawericon/musteritedarikciicon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/musteritedarikciicon.png'),
                   ),
                 ),
                 Container(
@@ -70,7 +71,8 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Banka Başlığı', style: TextStyle(color: Colors.white, fontSize: 14)),
+                      const Text('Banka Başlığı',
+                          style: TextStyle(color: Colors.white, fontSize: 14)),
                       const SizedBox(height: 8),
                       SizedBox(
                         width: screenWidth * 0.8,
@@ -84,7 +86,8 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
                               borderRadius: BorderRadius.circular(15),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 12),
                           ),
                         ),
                       ),
@@ -109,26 +112,34 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('ŞUBE ADI*', style: TextStyle(color: yTextColor, fontSize: 14)),
+                    const Text('ŞUBE ADI *',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
                     const SizedBox(height: 8),
-                    TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
-                      const Divider(),
-                       CustomPopMenuWidget(
-                       width: screenWidth * 0.9,
-                       title: "PARA BİRİMİ",
-                       menuWidth: screenWidth * 0.9,
-                       selectedValue: "TL",
-                       items: items,
-                       menuItemsWidth: screenWidth * 0.9, 
-                           ),
+                    TextFieldDecoration(
+                        screenWidth: screenWidth, screenHeight: screenHeight),
                     const Divider(),
-                    const Text('HESAP NUMARASI*', style: TextStyle(color: yTextColor, fontSize: 14)),
+                    CustomPopMenuWidget(
+                      width: screenWidth * 0.9,
+                      title: "PARA BİRİMİ",
+                      menuWidth: screenWidth * 0.9,
+                      selectedValue: "TL",
+                      items: items,
+                      menuItemsWidth: screenWidth * 0.9,
+                    ),
+                    const Divider(),
+                    const Text('HESAP NUMARASI *',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
                     const SizedBox(height: 8),
-                    TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
-                       const Divider(),
-                    const Text('IBAN', style: TextStyle(color: yTextColor, fontSize: 14)),
+                    TextFieldDecoration(
+                        screenWidth: screenWidth, screenHeight: screenHeight),
+                    const Divider(),
+                    const Text('IBAN',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
                     const SizedBox(height: 8),
-                    TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight,hintText: "TR"),
+                    TextFieldDecoration(
+                        screenWidth: screenWidth,
+                        screenHeight: screenHeight,
+                        hintText: "TR"),
                   ],
                 ),
               ],
@@ -136,11 +147,10 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
           ),
         ]),
       ),
-      
-     bottomNavigationBar: BottomAppBarDesign(
+      bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        saveButtonBackgroundColor:const Color(0xff8FAD4B),
-          ),
+        saveButtonBackgroundColor: const Color(0xff8FAD4B),
+      ),
     );
   }
 }

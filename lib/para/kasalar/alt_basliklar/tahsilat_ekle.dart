@@ -73,7 +73,7 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
               const SizedBox(
                 height: 10,
               ),
-              const Text('KASA ADI*',
+              const Text('KASA ADI *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               TextFieldDecoration(
@@ -91,7 +91,7 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
               ),
               const Divider(),
               const SizedBox(height: 8),
-              const Text('MÜŞTERİ*',
+              const Text('MÜŞTERİ *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               Center(

@@ -72,7 +72,7 @@ class _TasilatMakbuzuEkleState extends State<TasilatMakbuzuEkle> {
               const SizedBox(
                 height: 10,
               ),
-              const Text('MÜŞTERİ*',
+              const Text('MÜŞTERİ *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               TextFieldDecoration(
@@ -90,7 +90,7 @@ class _TasilatMakbuzuEkleState extends State<TasilatMakbuzuEkle> {
               ),
               const Divider(),
               const SizedBox(height: 8),
-              const Text('KASA / BANKA ADI*',
+              const Text('KASA / BANKA ADI *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               Center(

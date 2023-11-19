@@ -9,30 +9,28 @@ class TeslimatAdresiEkleScreen extends StatefulWidget {
   const TeslimatAdresiEkleScreen({Key? key}) : super(key: key);
 
   @override
-  State<TeslimatAdresiEkleScreen> createState() => _TeslimatAdresiEkleScreenState();
+  State<TeslimatAdresiEkleScreen> createState() =>
+      _TeslimatAdresiEkleScreenState();
 }
 
 class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
-   String? selectedValue1;
-    List<String> items1 = <String>[
-      'Türkiye',
-      'Almanya',
-     
-    ];
-    String? selectedValue2;
-    List<String> items2 = <String>[
-      'Lütfen seçin...',
-      'Ankara',
-      'İstanbul',
-     
-    ];
-    String? selectedValue3;
-    List<String> items3 = <String>[
-      'Lütfen seçin...',
-      'Beypazarı',
-      'Çankaya',
-     
-    ];
+  String? selectedValue1;
+  List<String> items1 = <String>[
+    'Türkiye',
+    'Almanya',
+  ];
+  String? selectedValue2;
+  List<String> items2 = <String>[
+    'Lütfen seçin...',
+    'Ankara',
+    'İstanbul',
+  ];
+  String? selectedValue3;
+  List<String> items3 = <String>[
+    'Lütfen seçin...',
+    'Beypazarı',
+    'Çankaya',
+  ];
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -41,10 +39,10 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor:const Color(0xff8FAD4B),
+        backgroundColor: const Color(0xff8FAD4B),
         title: const Text('Teslimat Adresi Ekle'),
         centerTitle: true,
-        automaticallyImplyLeading: false, 
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -63,7 +61,8 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
-                    child: Image.asset('assets/icons/drawericon/locationicon.png'),
+                    child:
+                        Image.asset('assets/icons/drawericon/locationicon.png'),
                   ),
                 ),
                 Container(
@@ -71,7 +70,8 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Adres Başlığı', style: TextStyle(color: Colors.white, fontSize: 14)),
+                      const Text('Adres Başlığı',
+                          style: TextStyle(color: Colors.white, fontSize: 14)),
                       const SizedBox(height: 8),
                       SizedBox(
                         width: screenWidth * 0.8,
@@ -85,7 +85,8 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
                               borderRadius: BorderRadius.circular(15),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 12),
                           ),
                         ),
                       ),
@@ -111,68 +112,73 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-        alignment: Alignment.topLeft,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, 
-          children: [
-        const Text('ADRES*', style: TextStyle(color: yTextColor,fontSize: 14)),
-        const SizedBox(height: 8),
-        TextFieldDecoration(
-                screenWidth: screenWidth, 
-                screenHeight: screenHeight,
-                heightFactor: 0.14, 
-                ),
-          ],
-        ),
-      ),
+                      alignment: Alignment.topLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('ADRES *',
+                              style:
+                                  TextStyle(color: yTextColor, fontSize: 14)),
+                          const SizedBox(height: 8),
+                          TextFieldDecoration(
+                            screenWidth: screenWidth,
+                            screenHeight: screenHeight,
+                            heightFactor: 0.14,
+                          ),
+                        ],
+                      ),
+                    ),
                     const Divider(),
-                     CustomPopMenuWidget(
-                       width: screenWidth * 0.9,
-                       title: "ÜLKE*",
-                       menuWidth: screenWidth * 0.9,
-                       selectedValue: "Türkiye",
-                       items: items1,
-                       menuItemsWidth: screenWidth * 0.9, 
-                           ),
-              const Divider(),
-
-              
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                       CustomPopMenuWidget(
-                       width: screenWidth * 0.4,
-                       title: "İL*",
-                       menuWidth: screenWidth * 0.35,
-                       selectedValue: "Lütfen seçin...",
-                       items: items2,
-                       menuItemsWidth: screenWidth * 0.2, 
-                           ),
-                     
-                    ],
-                  ),
-                  SizedBox( width:screenWidth * 0.1,),
-                  CustomPopMenuWidget(
-                       width: screenWidth * 0.4,
-                       title: "İLÇE*",
-                       menuWidth: screenWidth * 0.35,
-                       selectedValue: "Lütfen seçin...",
-                       items: items3,
-                       menuItemsWidth: screenWidth * 0.2, 
-                           ),
-                ],
-              ),
-              const Divider(),
-              const Text('AD SOYAD', style: TextStyle(color: yTextColor, fontSize: 14)),
-              const SizedBox(height: 8),
-              TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
-                const Divider(),
-              const Text('TELEFON', style: TextStyle(color: yTextColor, fontSize: 14)),
-              const SizedBox(height: 8),
-              TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
-                const SizedBox(height: 25),
+                    CustomPopMenuWidget(
+                      width: screenWidth * 0.9,
+                      title: "ÜLKE*",
+                      menuWidth: screenWidth * 0.9,
+                      selectedValue: "Türkiye",
+                      items: items1,
+                      menuItemsWidth: screenWidth * 0.9,
+                    ),
+                    const Divider(),
+                    Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomPopMenuWidget(
+                              width: screenWidth * 0.4,
+                              title: "İL*",
+                              menuWidth: screenWidth * 0.35,
+                              selectedValue: "Lütfen seçin...",
+                              items: items2,
+                              menuItemsWidth: screenWidth * 0.2,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: screenWidth * 0.1,
+                        ),
+                        CustomPopMenuWidget(
+                          width: screenWidth * 0.4,
+                          title: "İLÇE*",
+                          menuWidth: screenWidth * 0.35,
+                          selectedValue: "Lütfen seçin...",
+                          items: items3,
+                          menuItemsWidth: screenWidth * 0.2,
+                        ),
+                      ],
+                    ),
+                    const Divider(),
+                    const Text('AD SOYAD',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
+                    const SizedBox(height: 8),
+                    TextFieldDecoration(
+                        screenWidth: screenWidth, screenHeight: screenHeight),
+                    const Divider(),
+                    const Text('TELEFON',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
+                    const SizedBox(height: 8),
+                    TextFieldDecoration(
+                        screenWidth: screenWidth, screenHeight: screenHeight),
+                    const SizedBox(height: 25),
                   ],
                 ),
               ],
@@ -180,12 +186,11 @@ class _TeslimatAdresiEkleScreenState extends State<TeslimatAdresiEkleScreen> {
           ),
         ]),
       ),
-      
-     bottomNavigationBar: BottomAppBarDesign(
+      bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        saveButtonBackgroundColor:const Color(0xff8FAD4B),
-      //   saveButtonFlex: 3, 
-          ),
+        saveButtonBackgroundColor: const Color(0xff8FAD4B),
+        //   saveButtonFlex: 3,
+      ),
     );
   }
 }

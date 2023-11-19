@@ -48,7 +48,8 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
           CustomIconButton(
             options: [
               SheetOption(
-                icon: const Icon(Icons.restore_page_outlined, color: Colors.black),
+                icon: const Icon(Icons.restore_page_outlined,
+                    color: Colors.black),
                 text: 'İade Faturası',
                 page: const YeniRaporEkle(),
               ),
@@ -95,10 +96,12 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: screenHeight*0.02,),
+            SizedBox(
+              height: screenHeight * 0.02,
+            ),
             IgnorePointer(
               child: Row(
-                 crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: Column(
@@ -113,9 +116,13 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                             assetPath: 'assets/icons/persongreenicon.png',
                           ),
                         ),
-                       const SizedBox(height: 3,),
+                        const SizedBox(
+                          height: 3,
+                        ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 30, ),
+                          padding: const EdgeInsets.only(
+                            left: 30,
+                          ),
                           child: CustomPopMenuWidget(
                             width: screenWidth * 0.45,
                             title: "DÖVİZ",
@@ -133,8 +140,8 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                   ),
                   Expanded(
                     child: Container(
-                     // height: screenHeight * 0.35,
-                     // width: screenWidth * 0.47,
+                      // height: screenHeight * 0.35,
+                      // width: screenWidth * 0.47,
                       color: Colors.white,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -144,7 +151,10 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                             alignment: Alignment.center,
                             child: Text(
                               'FATURA NUMARASI',
-                              style: TextStyle(fontSize: 14, color: yTextColor3, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: yTextColor3,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                           const SizedBox(
@@ -154,7 +164,8 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                             alignment: Alignment.center,
                             child: Text(
                               '---',
-                              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
                             ),
                           ),
                           const SizedBox(
@@ -168,7 +179,8 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                             alignment: Alignment.center,
                             child: Text(
                               'FATURA TARİHİ',
-                              style: TextStyle(fontSize: 13, color: Colors.black),
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.black),
                             ),
                           ),
                           const SizedBox(
@@ -179,15 +191,22 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                             child: Column(
                               children: [
                                 Text(
-                                  DateFormat('dd MM yyyy').format(DateTime.now()),
-                                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
+                                  DateFormat('dd MM yyyy')
+                                      .format(DateTime.now()),
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: yTextColor),
                                 ),
                                 const SizedBox(
                                   height: 8,
                                 ),
                                 Text(
                                   DateFormat('HH:mm').format(DateTime.now()),
-                                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: yTextColor),
                                 ),
                               ],
                             ),
@@ -200,7 +219,8 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                             alignment: Alignment.center,
                             child: Text(
                               'VADE TARİHİ',
-                              style: TextStyle(fontSize: 13, color: Colors.black),
+                              style:
+                                  TextStyle(fontSize: 13, color: Colors.black),
                             ),
                           ),
                           const SizedBox(
@@ -210,15 +230,19 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                             alignment: Alignment.center,
                             child: Text(
                               DateFormat('dd MM yyyy').format(DateTime.now()),
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: yTextColor),
+                              style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: yTextColor),
                             ),
                           ),
-                         const SizedBox(height: 70,)
+                          const SizedBox(
+                            height: 70,
+                          )
                         ],
                       ),
                     ),
                   ),
-                 
                 ],
               ),
             ),
@@ -240,35 +264,39 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
                 padding: const EdgeInsets.only(top: 20),
                 child: SizedBox(
                   height: screenHeight * 0.07,
-                    width: screenWidth * 0.94,
-                  child:const Align(
+                  width: screenWidth * 0.94,
+                  child: const Align(
                       alignment: Alignment.topLeft,
                       child: Text("Fatura açıklaması; ",
                           style: TextStyle(
-                            fontSize: 14,color: yTextColor,fontWeight: FontWeight.bold
-                          ))),
+                              fontSize: 14,
+                              color: yTextColor,
+                              fontWeight: FontWeight.bold))),
                 ),
               ),
             ),
-            const ToplamTutarSave(
-              textLabels: [
-                'Genel Toplam:',
-                'Ara Toplam:',
-                'İndirim:',
-                'Toplam İndirim:',
-                'Toplam:',
-                'Ek Vergi:',
-                'Toplam KDV:',
-              ],
-              textValues: [
-                '₺0.00',
-                '₺0.00',
-                '₺0.00',
-                '₺0.00',
-                '₺0.00',
-                '₺0.00',
-                '₺0.00',
-              ],
+            const Padding(
+              padding: EdgeInsets.only(left: 30),
+              child: ToplamTutarSave(
+                textLabels: [
+                  'Genel Toplam:',
+                  'Ara Toplam:',
+                  'İndirim:',
+                  'Toplam İndirim:',
+                  'Toplam:',
+                  'Ek Vergi:',
+                  'Toplam KDV:',
+                ],
+                textValues: [
+                  '₺0.00',
+                  '₺0.00',
+                  '₺0.00',
+                  '₺0.00',
+                  '₺0.00',
+                  '₺0.00',
+                  '₺0.00',
+                ],
+              ),
             ),
             const SizedBox(
               height: 10,

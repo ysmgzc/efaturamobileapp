@@ -70,7 +70,7 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
               const SizedBox(
                 height: 10,
               ),
-              const Text('GÖNDERİCİ KASA ADI*',
+              const Text('GÖNDERİCİ KASA ADI *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               TextFieldDecoration(
@@ -79,7 +79,7 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
               ),
               const Divider(),
               const SizedBox(height: 8),
-              const Text('ALICI KASA / BANKA ADI*',
+              const Text('ALICI KASA / BANKA ADI *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               Center(
@@ -126,7 +126,7 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('ÇIKAN TUTAR*',
+                      const Text('ÇIKAN TUTAR *',
                           style: TextStyle(color: yTextColor, fontSize: 14)),
                       const SizedBox(height: 8),
                       TextFieldDecoration(
@@ -165,7 +165,7 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('GİREN TUTAR*',
+                      const Text('GİREN TUTAR *',
                           style: TextStyle(color: yTextColor, fontSize: 14)),
                       const SizedBox(height: 8),
                       TextFieldDecoration(

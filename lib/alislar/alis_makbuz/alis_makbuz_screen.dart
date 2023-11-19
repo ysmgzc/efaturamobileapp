@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 import '../../container_widget.dart';
 import '../../float_action_buton_widget.dart';
-import '../../satislar/satis_faturasi/form_screen_ekle.dart';
+import '../../form_screen_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class AlisMakbuzScreen extends StatefulWidget {
@@ -19,69 +19,77 @@ class AlisMakbuzScreen extends StatefulWidget {
 }
 
 class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
-
   @override
   Widget build(BuildContext context) {
-     double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer:const DrawerBar(),
+      drawer: const DrawerBar(),
       appBar: AppBar(
-         iconTheme:const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
-         elevation: 0,
+        elevation: 0,
         centerTitle: true,
-        title:const Text(
-          'Alınan Serbest Meslek Makbuzu',style: TextStyle(color: Colors.black),
+        title: const Text(
+          'Alınan Serbest Meslek Makbuzu',
+          style: TextStyle(color: Colors.black),
         ),
-         actions: [ 
+        actions: [
           CustomIconButton(
             options: [
               SheetOption(
-                icon:const Icon(Icons.filter_alt,color: Colors.black),
+                icon: const Icon(Icons.filter_alt, color: Colors.black),
                 text: 'Detaylı Arama',
                 page: const AlisMakbuzDetayliArama(),
               ),
               SheetOption(
-                icon:const Icon(Icons.send,color: Colors.black),
+                icon: const Icon(Icons.send, color: Colors.black),
                 text: 'Gönder',
                 onTap: () {
                   eventBus.fire(ShowCheckboxEvent(true));
                   Navigator.pop(context);
                 },
               ),
-               SheetOption(
-                icon:const Icon(Icons.print,color: Colors.black),
+              SheetOption(
+                icon: const Icon(Icons.print, color: Colors.black),
                 text: 'Yazdır',
                 onTap: () {
                   eventBus.fire(ShowCheckboxEvent(true));
                   Navigator.pop(context);
                 },
               ),
-               SheetOption(
-                icon:const Icon(Icons.download,color: Colors.black),
+              SheetOption(
+                icon: const Icon(Icons.download, color: Colors.black),
                 text: 'UBL İndir',
                 page: const YeniRaporEkle(),
               ),
-               SheetOption(
+              SheetOption(
                 icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-               onTap: () {
-                Navigator.pop(context);
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SiralamaIslemi(
-                      onSort: (sortedItems) {
-                      },
-                      optionIds:const [1, 2, 3, 4,],
-                    );
-                  },
-                );
-              },
+                onTap: () {
+                  Navigator.pop(context);
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SiralamaIslemi(
+                        onSort: (sortedItems) {},
+                        optionIds: const [
+                          1,
+                          2,
+                          3,
+                          4,
+                        ],
+                      );
+                    },
+                  );
+                },
               ),
-                 SheetOption(
-                icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
+              SheetOption(
+                icon: Image.asset(
+                  'assets/icons/excelicon.png',
+                  width: 20,
+                  height: 20,
+                ),
                 text: "Excel'e Aktar",
                 page: const YeniRaporEkle(),
               ),
@@ -89,7 +97,7 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
           )
         ],
       ),
-     backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(
@@ -121,8 +129,8 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
                     ),
                   ],
                 ),
-                child:const Column(
-                  children:  [
+                child: const Column(
+                  children: [
                     ContainerWidget(
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
                       tedarikciNo: '000000000000001',
@@ -138,19 +146,21 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
           ),
         ),
       ),
-      floatingActionButton:Padding(
-         padding: const EdgeInsets.only(bottom: 20),
-         child: CustomFAB(
-           isSpeedDial: false,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: CustomFAB(
+          isSpeedDial: false,
           childrenData: [
             SpeedDialData(
-          label: '',
-          route:  FormScreenEkle(appBarBaslik: 'Serbest Meslek Makbuzu',personImageBorderMetin: ""),
-             ),
+              label: '',
+              route: FormScreenEkle(
+                  appBarBaslik: 'Serbest Meslek Makbuzu',
+                  personImageBorderMetin: ""),
+            ),
           ],
-         ),
-       ),
-  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

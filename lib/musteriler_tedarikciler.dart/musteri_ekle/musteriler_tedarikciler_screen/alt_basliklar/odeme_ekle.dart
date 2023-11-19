@@ -72,7 +72,7 @@ class _MusterilerVeTedarikcilerOdemeEkleState
               const SizedBox(
                 height: 10,
               ),
-              const Text('TEDARİKÇİ*',
+              const Text('TEDARİKÇİ *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               TextFieldDecoration(
@@ -81,7 +81,7 @@ class _MusterilerVeTedarikcilerOdemeEkleState
               ),
               const Divider(),
               const SizedBox(height: 8),
-              const Text('KASA / BANKA ADI*',
+              const Text('KASA / BANKA ADI *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               Center(

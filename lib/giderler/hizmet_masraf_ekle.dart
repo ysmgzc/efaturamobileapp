@@ -1,8 +1,10 @@
 import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/indirim_widget.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmet_ekle.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/toplam_tutar.dart';
+import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -392,124 +394,11 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
                     ),
                   ),
                   //Expanded(child: Container()),
-                  TextButton(
-                    onPressed: () async {
-                      await showDialog<void>(
-                        context: context,
-                        //barrierDismissible: false,
-                        builder: (BuildContext context) {
-                          return StatefulBuilder(
-                            builder: (context, setState) {
-                              return AlertDialog(
-                                title: const Text('İndirim'),
-                                content: SingleChildScrollView(
-                                  child: ListBody(
-                                    children: <Widget>[
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Radio<Indirim>(
-                                                value: Indirim.tutar,
-                                                groupValue: _seciliIndirim,
-                                                onChanged: (Indirim? value) {
-                                                  if (value != null) {
-                                                    setState(() {
-                                                      _seciliIndirim = value;
-                                                    });
-                                                  }
-                                                },
-                                              ),
-                                              const Text(
-                                                'Tutar (TL)',
-                                                style: TextStyle(fontSize: 14),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            width: 25,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Radio<Indirim>(
-                                                value: Indirim.oran,
-                                                groupValue: _seciliIndirim,
-                                                onChanged: (Indirim? value) {
-                                                  if (value != null) {
-                                                    setState(() {
-                                                      _seciliIndirim = value;
-                                                    });
-                                                  }
-                                                },
-                                              ),
-                                              const Text(
-                                                'Oran',
-                                                style: TextStyle(fontSize: 14),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          if (_seciliIndirim == Indirim.tutar)
-                                            Expanded(
-                                              child: TextField(
-                                                controller:
-                                                    _textFieldController1,
-                                                decoration:
-                                                    const InputDecoration(
-                                                  labelText: "0,00",
-                                                ),
-                                              ),
-                                            ),
-                                          if (_seciliIndirim == Indirim.oran)
-                                            Expanded(
-                                              child: TextField(
-                                                controller:
-                                                    _textFieldController2,
-                                                decoration:
-                                                    const InputDecoration(
-                                                  labelText: "0,00",
-                                                ),
-                                              ),
-                                            ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                actions: [
-                                  TextButton(
-                                    child: const Text('Vazgeç'),
-                                    onPressed: () {
-                                      setState(() {
-                                        dateInput.text = '';
-                                      });
-                                    },
-                                  ),
-                                  TextButton(
-                                    child: const Text('Kaydet'),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      );
-                    },
-                    child: const Text(
-                      'İndirim Uygula',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold),
-                    ),
+                  IndirimWidget(
+                    buttonText: 'İndirim Uygula',
+                    dialogTitle: 'İndirim',
+                    option1Text: 'Tutar (TL)',
+                    option2Text: 'Oran',
                   ),
                 ],
               ),
@@ -519,46 +408,25 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
               const Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 30, top: 20, right: 80),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'TOPLAM',
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: yTextColor,
-                              decoration: TextDecoration.underline,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          'TUTAR',
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: yTextColor,
-                              decoration: TextDecoration.underline,
-                              fontWeight: FontWeight.bold),
-                        ),
+                    padding: EdgeInsets.only(left: 30),
+                    child: ToplamTutarSave(
+                      textLabels: [
+                        'Ara Toplam:',
+                        'İndirim:',
+                        'Toplam İndirim:',
+                        'Ek Vergi:',
+                        'Toplam KDV:',
+                        'Genel Toplam:',
+                      ],
+                      textValues: [
+                        '₺0.00',
+                        '₺0.00',
+                        '₺0.00',
+                        '₺0.00',
+                        '₺0.00',
+                        '₺0.00',
                       ],
                     ),
-                  ),
-                  ToplamTutar(
-                    textLabels: [
-                      'Ara Toplam:',
-                      'İndirim:',
-                      'Toplam İndirim:',
-                      'Ek Vergi:',
-                      'Toplam KDV:',
-                      'Genel Toplam:',
-                    ],
-                    textValues: [
-                      '₺0.00',
-                      '₺0.00',
-                      '₺0.00',
-                      '₺0.00',
-                      '₺0.00',
-                      '₺0.00',
-                    ],
                   ),
                 ],
               ),

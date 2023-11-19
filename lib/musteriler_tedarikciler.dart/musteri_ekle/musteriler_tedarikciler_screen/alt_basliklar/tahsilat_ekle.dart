@@ -70,7 +70,7 @@ class _TahsilatMakbuzuEkleState extends State<TahsilatMakbuzuEkle> {
               const SizedBox(
                 height: 10,
               ),
-              const Text('MÜŞTERİ*',
+              const Text('MÜŞTERİ *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               TextFieldDecoration(
@@ -79,7 +79,7 @@ class _TahsilatMakbuzuEkleState extends State<TahsilatMakbuzuEkle> {
               ),
               const Divider(),
               const SizedBox(height: 8),
-              const Text('KASA / BANKA ADI*',
+              const Text('KASA / BANKA ADI *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               Center(
@@ -175,7 +175,7 @@ class _TahsilatMakbuzuEkleState extends State<TahsilatMakbuzuEkle> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('TAHSİLAT TUTARı*',
+                      const Text('TAHSİLAT TUTARı *',
                           style: TextStyle(color: yTextColor, fontSize: 14)),
                       const SizedBox(height: 8),
                       TextFieldDecoration(

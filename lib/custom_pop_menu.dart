@@ -12,6 +12,7 @@ class CustomPopMenuWidget extends StatefulWidget {
   final double dividerIndent;
   final double dividerEndIndent;
   final bool showDivider;
+  final ValueChanged<String>? onChanged;
 
   const CustomPopMenuWidget({
     Key? key,
@@ -25,6 +26,7 @@ class CustomPopMenuWidget extends StatefulWidget {
     this.dividerIndent = 0,
     this.dividerEndIndent = 0,
     this.showDivider = false,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -59,7 +61,7 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
                 endIndent: widget.dividerEndIndent,
               ),
             Padding(
-              padding: EdgeInsets.only(bottom: screenHeight * 0.025),
+              padding: EdgeInsets.only(bottom: screenHeight * 0.02),
               child: Text(
                 widget.title,
                 style: const TextStyle(color: yTextColor, fontSize: 14),
@@ -74,15 +76,20 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
                     child: PopupMenuButton<String>(
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          selectedValue ?? "18",
-                          style: const TextStyle(fontSize: 16, color: Colors.black),
-                          overflow: TextOverflow.ellipsis,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 15),
+                          child: Text(
+                            selectedValue ?? "18",
+                            style: const TextStyle(
+                                fontSize: 16, color: Colors.black),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                       ),
                       onSelected: (value) {
                         setState(() {
                           selectedValue = value;
+                          widget.onChanged?.call(value);
                         });
                       },
                       itemBuilder: (BuildContext context) {
@@ -90,7 +97,7 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
                           return PopupMenuItem(
                             value: value,
                             child: SizedBox(
-                              width: widget.menuItemsWidth, 
+                              width: widget.menuItemsWidth,
                               child: Text(value),
                             ),
                           );
@@ -99,9 +106,12 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
                     ),
                   ),
                 ),
-                const Icon(
-                  Icons.expand_more,
-                  color: Colors.grey,
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 15),
+                  child: Icon(
+                    Icons.expand_more,
+                    color: Colors.grey,
+                  ),
                 ),
               ],
             ),

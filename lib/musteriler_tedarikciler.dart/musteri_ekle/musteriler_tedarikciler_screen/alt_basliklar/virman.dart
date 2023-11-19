@@ -150,7 +150,7 @@ class _VirmanEkleState extends State<VirmanEkle> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('TUTAR*',
+                      const Text('TUTAR *',
                           style: TextStyle(color: yTextColor, fontSize: 14)),
                       const SizedBox(height: 8),
                       TextFieldDecoration(

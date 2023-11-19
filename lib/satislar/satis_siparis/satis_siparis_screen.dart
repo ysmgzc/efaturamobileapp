@@ -1,7 +1,7 @@
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/satislar/satis_faturasi/form_screen_ekle.dart';
+import 'package:efaturamobileapp/form_screen_ekle.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_faturasi_save.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/secenekler/satissiparisdetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';
@@ -44,23 +44,21 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
                 text: 'Detaylı Arama',
                 page: const SatisSiparisDetayliArama(),
               ),
-               SheetOption(
+              SheetOption(
                 icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-               onTap: () {
-                Navigator.pop(context);
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SiralamaIslemi(
-                      onSort: (sortedItems) {
-                      },
-                      optionIds:const [3, 4, 5, 6, 7, 8],
-                    );
-                  },
-                );
-                
-              },
+                onTap: () {
+                  Navigator.pop(context);
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SiralamaIslemi(
+                        onSort: (sortedItems) {},
+                        optionIds: const [3, 4, 5, 6, 7, 8],
+                      );
+                    },
+                  );
+                },
               ),
               SheetOption(
                 icon: Image.asset(
@@ -112,8 +110,8 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
                     ),
                   ],
                 ),
-                child:const Column(
-                  children:  [
+                child: const Column(
+                  children: [
                     ContainerWidget(
                       tedarikciAdi: 'Personel Ahmet Usta',
                       tedarikciNo: '0000000000001',
@@ -128,24 +126,28 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
           ),
         ),
       ),
-       bottomNavigationBar:const CustomBottomAppBarToplam(
-  firstText: "TOPLAM",
-  secondText: "₺1000",
-),
-     floatingActionButton: CustomFAB(
-    isSpeedDial: true,
-    childrenData: [
-      SpeedDialData(
-        label: 'Toptan Sipariş\n(KDV Hariç)',
-        route: FormScreenEkle(appBarBaslik: 'Toptan Sipariş (KDV Hariç)',personImageBorderMetin: ""),
+      bottomNavigationBar: const CustomBottomAppBarToplam(
+        firstText: "TOPLAM",
+        secondText: "₺1000",
       ),
-      SpeedDialData(
-        label: 'Perakende Sipariş\n(KDV Dahil)',
-        route: FormScreenEkle(appBarBaslik: 'Perakende Sipariş (KDV Dahil)',personImageBorderMetin: ""),
+      floatingActionButton: CustomFAB(
+        isSpeedDial: true,
+        childrenData: [
+          SpeedDialData(
+            label: 'Toptan Sipariş\n(KDV Hariç)',
+            route: FormScreenEkle(
+                appBarBaslik: 'Toptan Sipariş (KDV Hariç)',
+                personImageBorderMetin: ""),
+          ),
+          SpeedDialData(
+            label: 'Perakende Sipariş\n(KDV Dahil)',
+            route: FormScreenEkle(
+                appBarBaslik: 'Perakende Sipariş (KDV Dahil)',
+                personImageBorderMetin: ""),
+          ),
+        ],
       ),
-    ],
-  ),
-  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

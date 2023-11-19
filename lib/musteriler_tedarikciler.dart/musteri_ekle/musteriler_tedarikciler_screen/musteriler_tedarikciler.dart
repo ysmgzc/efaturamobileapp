@@ -13,7 +13,7 @@ import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/muste
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/virman.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/secenekler/musterivetedarikcidetayliarama.dart';
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
-import 'package:efaturamobileapp/satislar/satis_faturasi/form_screen_ekle.dart';
+import 'package:efaturamobileapp/form_screen_ekle.dart';
 import 'package:efaturamobileapp/services/musteri_kart_services.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';

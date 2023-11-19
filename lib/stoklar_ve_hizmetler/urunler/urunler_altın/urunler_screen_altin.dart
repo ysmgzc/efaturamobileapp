@@ -1,37 +1,41 @@
+import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_save.dart';
+import 'package:efaturamobileapp/alislar/alis_faturasi/alis_iade_faturasi_save.dart';
+import 'package:efaturamobileapp/alislar/alis_faturasi/secenekler/alisfaturasidetayliarama.dart';
+import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
+import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
+import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/form_screen_ekle.dart';
-import 'package:efaturamobileapp/satislar/satis_makbuz/satis_makbuz_faturasi_save.dart';
-import 'package:efaturamobileapp/satislar/satis_makbuz/secenekler/satismakbuzdetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_ekle_altin.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_hizmet_sec_screen_altin.dart';
+import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
-import '../../bottom_show_dialog_widget.dart';
-import '../../container_widget.dart';
-import '../../float_action_buton_widget.dart';
-import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
-class SatisMakbuzScreen extends StatefulWidget {
-  const SatisMakbuzScreen({super.key});
+class UrunlerAltinScreen extends StatefulWidget {
+  const UrunlerAltinScreen({Key? key}) : super(key: key);
 
   @override
-  State<SatisMakbuzScreen> createState() => _SatisMakbuzScreenState();
+  State<UrunlerAltinScreen> createState() => _UrunlerAltinScreenState();
 }
 
-class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
+class _UrunlerAltinScreenState extends State<UrunlerAltinScreen> {
+  int secim = 0;
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: const DrawerBar(),
-      //bottomNavigationBar:const BottomNavBar(selectedMenu: MenuState.home),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         title: const Text(
-          'Verilen Serbest Meslek Makbuzu',
+          'Altın',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -40,28 +44,7 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
               SheetOption(
                 icon: const Icon(Icons.filter_alt, color: Colors.black),
                 text: 'Detaylı Arama',
-                page: const SatisMakbuzDetayliArama(),
-              ),
-              SheetOption(
-                icon: const Icon(Icons.send, color: Colors.black),
-                text: 'Gönder',
-                onTap: () {
-                  eventBus.fire(ShowCheckboxEvent(true));
-                  Navigator.pop(context);
-                },
-              ),
-              SheetOption(
-                icon: const Icon(Icons.print, color: Colors.black),
-                text: 'Yazdır',
-                onTap: () {
-                  eventBus.fire(ShowCheckboxEvent(true));
-                  Navigator.pop(context);
-                },
-              ),
-              SheetOption(
-                icon: const Icon(Icons.download, color: Colors.black),
-                text: 'UBL İndir',
-                page: const YeniRaporEkle(),
+                page: const AlisFaturasiDetayliArama(),
               ),
               SheetOption(
                 icon: const Icon(Icons.swap_vert, color: Colors.black),
@@ -73,10 +56,18 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
                     builder: (BuildContext context) {
                       return SiralamaIslemi(
                         onSort: (sortedItems) {},
-                        optionIds: [1, 2, 3, 4],
+                        optionIds: const [3, 4, 5, 6, 7, 8],
                       );
                     },
                   );
+                },
+              ),
+              SheetOption(
+                icon: const Icon(Icons.find_in_page, color: Colors.black),
+                text: 'Muhasebe Notu',
+                onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
                 },
               ),
               SheetOption(
@@ -87,6 +78,14 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
                 ),
                 text: "Excel'e Aktar",
                 page: const YeniRaporEkle(),
+              ),
+              SheetOption(
+                icon: const Icon(Icons.delete, color: Colors.black),
+                text: 'Sil',
+                onTap: () {
+                  eventBus.fire(ShowCheckboxEvent(true));
+                  Navigator.pop(context);
+                },
               ),
             ],
           )
@@ -127,11 +126,19 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
                 child: const Column(
                   children: [
                     ContainerWidget(
-                      tedarikciAdi: 'Personel Ahmet Usta',
-                      tedarikciNo: '0000000000001',
-                      tarih: '24 Nisan',
+                      tedarikciAdi: 'Deneme Satış Ltd. Şti.',
+                      tedarikciNo: '000000000000001',
+                      durumu: 'Altın Girişi',
+                      altinMetin: "Miktar:",
                       paraBirimi: '₺1000',
-                      page: SatisMakbuzFaturasi(),
+                    ),
+                    Divider(),
+                    ContainerWidget(
+                      tedarikciAdi: 'Deneme Satış Ltd. Şti.',
+                      tedarikciNo: '000000000000001',
+                      durumu: 'Altın Girişi',
+                      altinMetin: "Miktar:",
+                      paraBirimi: '₺1000',
                     ),
                   ],
                 ),
@@ -140,19 +147,18 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
           ),
         ),
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 20),
-        child: CustomFAB(
-          isSpeedDial: false,
-          childrenData: [
-            SpeedDialData(
-              label: '',
-              route: FormScreenEkle(
-                  appBarBaslik: 'Serbest Meslek Makbuzu',
-                  personImageBorderMetin: ''),
-            ),
-          ],
-        ),
+      bottomNavigationBar: const CustomBottomAppBarToplam(
+        firstText: "TOPLAM",
+        secondText: "₺1000",
+      ),
+      floatingActionButton: CustomFAB(
+        isSpeedDial: false,
+        childrenData: [
+          SpeedDialData(
+            label: 'Altın Girişi',
+            route: UrunEkleAltin(),
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

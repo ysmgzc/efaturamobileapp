@@ -71,7 +71,7 @@ class _KasalarOdemeEkleState extends State<KasalarOdemeEkle> {
               const SizedBox(
                 height: 10,
               ),
-              const Text('KASA ADI*',
+              const Text('KASA ADI *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               TextFieldDecoration(
@@ -89,7 +89,7 @@ class _KasalarOdemeEkleState extends State<KasalarOdemeEkle> {
               ),
               const Divider(),
               const SizedBox(height: 8),
-              const Text('TADARİKÇİ*',
+              const Text('TADARİKÇİ *',
                   style: TextStyle(color: yTextColor, fontSize: 14)),
               const SizedBox(height: 8),
               Center(

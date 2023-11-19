@@ -94,7 +94,7 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('MÜŞTERİ/TEDARİKÇİ ADI*',
+                    const Text('MÜŞTERİ/TEDARİKÇİ ADI *',
                         style: TextStyle(color: yTextColor, fontSize: 14)),
                     const SizedBox(height: 8),
                     TextFieldDecoration(

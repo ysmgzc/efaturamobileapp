@@ -70,7 +70,7 @@ class _FirmaBilgileriScreenState extends State<FirmaBilgileriScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Şirket Adı*',
+                      const Text('Şirket Adı *',
                           style: TextStyle(color: Colors.white, fontSize: 14)),
                       const SizedBox(height: 8),
                       SizedBox(
@@ -213,7 +213,7 @@ class _FirmaBilgileriScreenState extends State<FirmaBilgileriScreen> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text('ADRES*',
+                const Text('ADRES *',
                     style: TextStyle(color: yTextColor, fontSize: 14)),
                 const SizedBox(height: 8),
                 TextFieldDecoration(
@@ -307,13 +307,13 @@ class _FirmaBilgileriScreenState extends State<FirmaBilgileriScreen> {
                     ),
                   ),
                 ),
-                const Text('VERGİ NO*',
+                const Text('VERGİ NO *',
                     style: TextStyle(color: yTextColor, fontSize: 14)),
                 const SizedBox(height: 8),
                 TextFieldDecoration(
                     screenWidth: screenWidth, screenHeight: screenHeight),
                 const Divider(),
-                const Text('VERGİ DAİRESİ*',
+                const Text('VERGİ DAİRESİ *',
                     style: TextStyle(color: yTextColor, fontSize: 14)),
                 const SizedBox(height: 8),
                 TextFieldDecoration(

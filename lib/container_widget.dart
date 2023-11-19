@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 EventBus eventBus = EventBus();
 
 class ContainerWidget extends StatefulWidget {
+  final String? altinMetin;
   final String? baslik;
   final String tedarikciAdi;
   final String? tedarikciNo;
@@ -27,6 +28,7 @@ class ContainerWidget extends StatefulWidget {
 
   const ContainerWidget({
     Key? key,
+    this.altinMetin,
     this.baslik,
     required this.tedarikciAdi,
     this.tedarikciNo,
@@ -105,9 +107,14 @@ class _ContainerWidgetState extends State<ContainerWidget> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(widget.tarih ?? "",
-                      style: widget.tarihStyle ??
-                          const TextStyle(color: Colors.grey, fontSize: 14)),
+                  if (widget.altinMetin != null)
+                    Text(widget.altinMetin ?? "",
+                        style: widget.tarihStyle ??
+                            const TextStyle(color: Colors.grey, fontSize: 14)),
+                  if (widget.tarih != null)
+                    Text(widget.tarih ?? "",
+                        style: widget.tarihStyle ??
+                            const TextStyle(color: Colors.grey, fontSize: 14)),
                   Text(widget.paraBirimi,
                       style: widget.paraBirimiStyle ??
                           const TextStyle(

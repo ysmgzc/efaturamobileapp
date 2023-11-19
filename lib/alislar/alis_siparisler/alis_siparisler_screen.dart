@@ -4,7 +4,7 @@ import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/satislar/satis_faturasi/form_screen_ekle.dart';
+import 'package:efaturamobileapp/form_screen_ekle.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
@@ -22,69 +22,71 @@ class AlisSiparislerScreen extends StatefulWidget {
 class _AlisSiparislerScreenState extends State<AlisSiparislerScreen> {
   @override
   Widget build(BuildContext context) {
-     double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer:const DrawerBar(),
+      drawer: const DrawerBar(),
       //bottomNavigationBar:const BottomNavBar(selectedMenu: MenuState.home),
       appBar: AppBar(
-          iconTheme:const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
-         elevation: 0,
+        elevation: 0,
         centerTitle: true,
-        title:const Text(
-          'Alış Siparişleri',style: TextStyle(color: Colors.black),
+        title: const Text(
+          'Alış Siparişleri',
+          style: TextStyle(color: Colors.black),
         ),
-         
-         actions: [ 
+        actions: [
           CustomIconButton(
             options: [
               SheetOption(
-                icon:const Icon(Icons.filter_alt,color: Colors.black),
+                icon: const Icon(Icons.filter_alt, color: Colors.black),
                 text: 'Detaylı Arama',
                 page: const AlisSiparisDetayliArama(),
               ),
-               SheetOption(
+              SheetOption(
                 icon: const Icon(Icons.swap_vert, color: Colors.black),
                 text: 'Sıralama',
-               onTap: () {
-                Navigator.pop(context);
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SiralamaIslemi(
-                      onSort: (sortedItems) {
-                      },
-                      optionIds:const [3, 4, 5, 6, 7, 8],
-                    );
-                  },
-                );
-              },
+                onTap: () {
+                  Navigator.pop(context);
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SiralamaIslemi(
+                        onSort: (sortedItems) {},
+                        optionIds: const [3, 4, 5, 6, 7, 8],
+                      );
+                    },
+                  );
+                },
               ),
-               SheetOption(
-                icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
+              SheetOption(
+                icon: Image.asset(
+                  'assets/icons/excelicon.png',
+                  width: 20,
+                  height: 20,
+                ),
                 text: "Excel'e Aktar",
                 page: const YeniRaporEkle(),
               ),
-               SheetOption(
-                icon:const Icon(Icons.delete,color: Colors.black),
+              SheetOption(
+                icon: const Icon(Icons.delete, color: Colors.black),
                 text: 'Çıkış',
                 page: const HomePageScreen(),
               ),
             ],
           )
         ],
-
       ),
       backgroundColor: Colors.white,
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: screenWidth * 0.05,
             vertical: screenHeight * 0.01,
           ),
           child: Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
@@ -93,52 +95,53 @@ class _AlisSiparislerScreenState extends State<AlisSiparislerScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-            Container(
-    padding: const EdgeInsets.all(8.0),
-    decoration:  BoxDecoration(
-                color: Colors.white,
-                borderRadius:const BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset:const Offset(0, 0),
-                    blurRadius: 20,
-                    color:  Colors.grey.shade300,
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(5.0),
                   ),
-                ],
-              ),
-                child:const Column(
-                  children: [ 
-                     ContainerWidget(
-                        tedarikciAdi:'Personel Ahmet Usta' ,
-                        tedarikciNo: '0000000000001',
-                        tarih: '24 Nisan',
-                        paraBirimi: '₺1000',
-                        page: AlisSiparisFaturasiSave(),
-                        ),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: const Offset(0, 0),
+                      blurRadius: 20,
+                      color: Colors.grey.shade300,
+                    ),
                   ],
-                ),     
-          )],
+                ),
+                child: const Column(
+                  children: [
+                    ContainerWidget(
+                      tedarikciAdi: 'Personel Ahmet Usta',
+                      tedarikciNo: '0000000000001',
+                      tarih: '24 Nisan',
+                      paraBirimi: '₺1000',
+                      page: AlisSiparisFaturasiSave(),
+                    ),
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ),
-         bottomNavigationBar:const CustomBottomAppBarToplam(
-  firstText: "TOPLAM",
-  secondText: "₺1000",
-),
- floatingActionButton: CustomFAB(
-    isSpeedDial: false,
-   childrenData: [
-     SpeedDialData(
-        label: '',
-       route:  FormScreenEkle(appBarBaslik: 'Sipariş (KDV Hariç)',personImageBorderMetin: ""),
+      bottomNavigationBar: const CustomBottomAppBarToplam(
+        firstText: "TOPLAM",
+        secondText: "₺1000",
       ),
-   ],
-  ),
-  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
+      floatingActionButton: CustomFAB(
+        isSpeedDial: false,
+        childrenData: [
+          SpeedDialData(
+            label: '',
+            route: FormScreenEkle(
+                appBarBaslik: 'Sipariş (KDV Hariç)',
+                personImageBorderMetin: ""),
+          ),
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
-

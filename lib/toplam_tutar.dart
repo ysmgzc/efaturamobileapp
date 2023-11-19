@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 
 class ToplamTutar extends StatelessWidget {
@@ -28,7 +28,7 @@ class ToplamTutar extends StatelessWidget {
                     padding: EdgeInsets.only(top: i == 0 ? 15.0 : 10.0),
                     child: Text(
                       textLabels[i],
-                      style:const TextStyle(fontSize: 16, color: yTextColor2),
+                      style: const TextStyle(fontSize: 16, color: yTextColor2),
                     ),
                   ),
               ],
@@ -44,7 +44,7 @@ class ToplamTutar extends StatelessWidget {
                     padding: EdgeInsets.only(top: i == 0 ? 15.0 : 10.0),
                     child: Text(
                       textValues[i],
-                      style:const TextStyle(fontSize: 16, color: yTextColor2),
+                      style: const TextStyle(fontSize: 16, color: yTextColor2),
                     ),
                   ),
               ],
@@ -55,3 +55,4 @@ class ToplamTutar extends StatelessWidget {
     );
   }
 }
+*/

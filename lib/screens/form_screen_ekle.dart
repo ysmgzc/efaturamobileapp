@@ -9,8 +9,8 @@ import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:efaturamobileapp/urunekleborder.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
-import 'person_image_border.dart';
+import '../musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
+import '../person_image_border.dart';
 
 class FormScreenEkle extends StatefulWidget {
   String personImageBorderMetin;

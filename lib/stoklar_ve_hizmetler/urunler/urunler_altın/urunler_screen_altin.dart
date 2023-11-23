@@ -6,10 +6,11 @@ import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/form_screen_ekle.dart';
+import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/urun_ekle_altin_girisi.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_hizmet_sec_screen_altin.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _UrunlerAltinScreenState extends State<UrunlerAltinScreen> {
         elevation: 0,
         centerTitle: true,
         title: const Text(
-          'Altın',
+          'Altın & Para',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -156,7 +157,7 @@ class _UrunlerAltinScreenState extends State<UrunlerAltinScreen> {
         childrenData: [
           SpeedDialData(
             label: 'Altın Girişi',
-            route: UrunEkleAltin(),
+            route: const UrunEkleAltin(),
           ),
         ],
       ),

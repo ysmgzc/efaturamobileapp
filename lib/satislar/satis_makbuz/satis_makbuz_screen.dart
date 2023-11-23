@@ -1,5 +1,5 @@
 import 'package:efaturamobileapp/drawer_bar.dart';
-import 'package:efaturamobileapp/form_screen_ekle.dart';
+import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:efaturamobileapp/satislar/satis_makbuz/satis_makbuz_faturasi_save.dart';
 import 'package:efaturamobileapp/satislar/satis_makbuz/secenekler/satismakbuzdetayliarama.dart';
 import 'package:efaturamobileapp/search_field.dart';

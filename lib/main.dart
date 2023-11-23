@@ -1,5 +1,5 @@
 import 'package:efaturamobileapp/screens/login_screen.dart';
-import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/urun_ekle_altin_girisi.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

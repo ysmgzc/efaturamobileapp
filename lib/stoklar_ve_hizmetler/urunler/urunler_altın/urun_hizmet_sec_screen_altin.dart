@@ -1,6 +1,6 @@
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/urun_ekle_altin_girisi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../search_field.dart';
@@ -107,7 +107,7 @@ class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
           childrenData: [
             SpeedDialData(
               label: '',
-              route: const UrunEkleAltin(),
+              route: const UrunEkleAltinGirisi(),
             ),
           ],
         ),

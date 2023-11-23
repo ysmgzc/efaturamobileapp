@@ -7,6 +7,7 @@ import 'package:efaturamobileapp/entegrasyonlar/entegrasyon_screen.dart';
 import 'package:efaturamobileapp/firma_bilgileri/firma_bilgileri_screen.dart';
 import 'package:efaturamobileapp/interaktif_vergi_dairesi/interaktif_vergi_dairesi_screen.dart';
 import 'package:efaturamobileapp/screens/login_screen.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urunler_screen_altin.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/verileri_disa_aktar_screen.dart';
 import 'package:efaturamobileapp/search_field.dart';
@@ -31,7 +32,7 @@ import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_screen.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'constants.dart';
-import 'satislar/islemler/altin/altin_girisi_screen.dart';
+import 'islemler/altin/altin_girisi_screen.dart';
 
 class DrawerBar extends StatelessWidget {
   const DrawerBar({super.key});
@@ -86,7 +87,7 @@ class DrawerBar extends StatelessWidget {
                   ),
                 ),
 
-                //-------------------------------------------------
+                //--F-----------------------------------------------
                 const SearchField(),
 
                 CustomListTile(
@@ -99,7 +100,7 @@ class DrawerBar extends StatelessWidget {
                   route: const GenelBakisScreen(),
                   enablePadding: false,
                 ),
-                //--------------------------------------------------
+                //--------------------------------------------
                 ExpansionTile(
                   initiallyExpanded: false,
                   leading: SizedBox(
@@ -107,7 +108,7 @@ class DrawerBar extends StatelessWidget {
                     height: 30.0,
                     child: Image.asset('assets/icons/drawericon/satisicon.png'),
                   ),
-                  title: const Text('Satışlar', style: kExpTileSize),
+                  title: const Text('KYM İşlemler', style: kExpTileSize),
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(left: 27),
@@ -119,350 +120,381 @@ class DrawerBar extends StatelessWidget {
                           child: Image.asset(
                               'assets/icons/drawericon/satisicon.png'),
                         ),
-                        title: const Text('İşlemler', style: kExpTileSize),
+                        title: Text('Altın', style: kListTileSize),
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(left: 27),
-                            child: ExpansionTile(
-                              initiallyExpanded: false,
-                              leading: SizedBox(
-                                width: 30.0,
-                                height: 30.0,
-                                child: Image.asset(
-                                    'assets/icons/drawericon/satisicon.png'),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
                               ),
-                              title: Text('Altın', style: kListTileSize),
-                              children: <Widget>[
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Altın Girişi',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                  route: AltinGirisiScreen(),
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Altın Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Altın Alışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Altın Satışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Bedelli Altın Girişi',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Bedelli Altın Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Gelen İade',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Çıkan İade',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'İşçilik Girişi ',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'İşçilik Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                              ],
+                              onPressed: () {
+                                Get.to(UrunEkle());
+                              },
                             ),
+                            title: 'Altın Girişi',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                            route: AltinGirisiScreen(),
                           ),
-                          //-------------------Hurda
-                          Padding(
-                            padding: const EdgeInsets.only(left: 27),
-                            child: ExpansionTile(
-                              initiallyExpanded: false,
-                              leading: SizedBox(
-                                width: 30.0,
-                                height: 30.0,
-                                child: Image.asset(
-                                    'assets/icons/drawericon/satisicon.png'),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
                               ),
-                              title: Text('Hurda', style: kListTileSize),
-                              children: <Widget>[
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Hurda Girişi',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Hurda Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                              ],
+                              onPressed: () {},
                             ),
+                            title: 'Altın Çıkışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
                           ),
-                          //-------------------Nakit
-                          Padding(
-                            padding: const EdgeInsets.only(left: 27),
-                            child: ExpansionTile(
-                              initiallyExpanded: false,
-                              leading: SizedBox(
-                                width: 30.0,
-                                height: 30.0,
-                                child: Image.asset(
-                                    'assets/icons/drawericon/satisicon.png'),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
                               ),
-                              title: Text('Nakit', style: kListTileSize),
-                              children: <Widget>[
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Nakit Girişi',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Nakit Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                              ],
+                              onPressed: () {},
                             ),
+                            title: 'Altın Alışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
                           ),
-                          //-------------------Ziynet
-                          Padding(
-                            padding: const EdgeInsets.only(left: 27),
-                            child: ExpansionTile(
-                              initiallyExpanded: false,
-                              leading: SizedBox(
-                                width: 30.0,
-                                height: 30.0,
-                                child: Image.asset(
-                                    'assets/icons/drawericon/satisicon.png'),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
                               ),
-                              title: Text('Ziynet', style: kListTileSize),
-                              children: <Widget>[
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Ziynet Girişi',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Ziynet Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                              ],
+                              onPressed: () {},
                             ),
+                            title: 'Altın Satışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
                           ),
-                          //-------------------Taş
-                          Padding(
-                            padding: const EdgeInsets.only(left: 27),
-                            child: ExpansionTile(
-                              initiallyExpanded: false,
-                              leading: SizedBox(
-                                width: 30.0,
-                                height: 30.0,
-                                child: Image.asset(
-                                    'assets/icons/drawericon/satisicon.png'),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
                               ),
-                              title: Text('Taş', style: kListTileSize),
-                              children: <Widget>[
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Taş Girişi',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Taş Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                              ],
+                              onPressed: () {},
                             ),
+                            title: 'Bedelli Altın Girişi',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
                           ),
-                          //-------------------Gümüş
-                          Padding(
-                            padding: const EdgeInsets.only(left: 27),
-                            child: ExpansionTile(
-                              initiallyExpanded: false,
-                              leading: SizedBox(
-                                width: 30.0,
-                                height: 30.0,
-                                child: Image.asset(
-                                    'assets/icons/drawericon/satisicon.png'),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
                               ),
-                              title: Text('Gümüş', style: kListTileSize),
-                              children: <Widget>[
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Gümüş Girişi',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Gümüş Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                              ],
+                              onPressed: () {},
                             ),
+                            title: 'Bedelli Altın Çıkışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
                           ),
-                          //-------------------Platin
-                          Padding(
-                            padding: const EdgeInsets.only(left: 27),
-                            child: ExpansionTile(
-                              initiallyExpanded: false,
-                              leading: SizedBox(
-                                width: 30.0,
-                                height: 30.0,
-                                child: Image.asset(
-                                    'assets/icons/drawericon/satisicon.png'),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
                               ),
-                              title: Text('Platin', style: kListTileSize),
-                              children: <Widget>[
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Platin Girişi',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                                CustomListTile(
-                                  icon: SizedBox(
-                                    child: Image.asset(
-                                        'assets/icons/drawericon/faturaicon.png'),
-                                  ),
-                                  title: 'Platin Çıkışı',
-                                  titleStyle: kListTileSize,
-                                  backgroundColor: Colors.grey.shade50,
-                                ),
-                              ],
+                              onPressed: () {},
                             ),
+                            title: 'Gelen İade',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
+                              ),
+                              onPressed: () {},
+                            ),
+                            title: 'Çıkan İade',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
+                              ),
+                              onPressed: () {},
+                            ),
+                            title: 'İşçilik Girişi ',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                          CustomListTile(
+                            icon: IconButton(
+                              icon: Icon(
+                                Icons.history,
+                                size: 30,
+                              ),
+                              onPressed: () {},
+                            ),
+                            title: 'İşçilik Çıkışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                        ],
+                      ),
+                    ),
+                    //-------------------Hurda
+                    Padding(
+                      padding: const EdgeInsets.only(left: 27),
+                      child: ExpansionTile(
+                        initiallyExpanded: false,
+                        leading: SizedBox(
+                          width: 30.0,
+                          height: 30.0,
+                          child: Image.asset(
+                              'assets/icons/drawericon/satisicon.png'),
+                        ),
+                        title: Text('Hurda', style: kListTileSize),
+                        children: <Widget>[
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Hurda Girişi',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
                           ),
                           CustomListTile(
                             icon: SizedBox(
                               child: Image.asset(
                                   'assets/icons/drawericon/faturaicon.png'),
                             ),
-                            title: 'Satış Faturaları',
+                            title: 'Hurda Çıkışı',
                             titleStyle: kListTileSize,
-                            route: const SatisFaturalarScreen(),
-                            backgroundColor: Colors.grey.shade50,
-                          ),
-                          CustomListTile(
-                            icon: SizedBox(
-                              child: Image.asset(
-                                  'assets/icons/drawericon/siparisicon.png'),
-                            ),
-                            title: 'Siparişler',
-                            titleStyle: kListTileSize,
-                            route: const SatisSiparislerScreen(),
                             backgroundColor: Colors.grey.shade50,
                           ),
                         ],
                       ),
                     ),
-                    CustomListTile(
-                      icon: SizedBox(
-                        child: Image.asset(
-                            'assets/icons/drawericon/serbestmeslekmakbuzicon.png'),
+                    //-------------------Nakit
+                    Padding(
+                      padding: const EdgeInsets.only(left: 27),
+                      child: ExpansionTile(
+                        initiallyExpanded: false,
+                        leading: SizedBox(
+                          width: 30.0,
+                          height: 30.0,
+                          child: Image.asset(
+                              'assets/icons/drawericon/satisicon.png'),
+                        ),
+                        title: Text('Nakit', style: kListTileSize),
+                        children: <Widget>[
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Nakit Girişi',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Nakit Çıkışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                        ],
                       ),
-                      title: 'Serbest Meslek Makbuzu',
-                      titleStyle: kListTileSize,
-                      route: const SatisMakbuzScreen(),
-                      backgroundColor: Colors.grey.shade50,
+                    ),
+                    //-------------------Ziynet
+                    Padding(
+                      padding: const EdgeInsets.only(left: 27),
+                      child: ExpansionTile(
+                        initiallyExpanded: false,
+                        leading: SizedBox(
+                          width: 30.0,
+                          height: 30.0,
+                          child: Image.asset(
+                              'assets/icons/drawericon/satisicon.png'),
+                        ),
+                        title: Text('Ziynet', style: kListTileSize),
+                        children: <Widget>[
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Ziynet Girişi',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Ziynet Çıkışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                        ],
+                      ),
+                    ),
+                    //-------------------Taş
+                    Padding(
+                      padding: const EdgeInsets.only(left: 27),
+                      child: ExpansionTile(
+                        initiallyExpanded: false,
+                        leading: SizedBox(
+                          width: 30.0,
+                          height: 30.0,
+                          child: Image.asset(
+                              'assets/icons/drawericon/satisicon.png'),
+                        ),
+                        title: Text('Taş', style: kListTileSize),
+                        children: <Widget>[
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Taş Girişi',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Taş Çıkışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                        ],
+                      ),
+                    ),
+                    //-------------------Gümüş
+                    Padding(
+                      padding: const EdgeInsets.only(left: 27),
+                      child: ExpansionTile(
+                        initiallyExpanded: false,
+                        leading: SizedBox(
+                          width: 30.0,
+                          height: 30.0,
+                          child: Image.asset(
+                              'assets/icons/drawericon/satisicon.png'),
+                        ),
+                        title: Text('Gümüş', style: kListTileSize),
+                        children: <Widget>[
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Gümüş Girişi',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Gümüş Çıkışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                        ],
+                      ),
+                    ),
+                    //-------------------Platin
+                    Padding(
+                      padding: const EdgeInsets.only(left: 27),
+                      child: ExpansionTile(
+                        initiallyExpanded: false,
+                        leading: SizedBox(
+                          width: 30.0,
+                          height: 30.0,
+                          child: Image.asset(
+                              'assets/icons/drawericon/satisicon.png'),
+                        ),
+                        title: Text('Platin', style: kListTileSize),
+                        children: <Widget>[
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Platin Girişi',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                          CustomListTile(
+                            icon: SizedBox(
+                              child: Image.asset(
+                                  'assets/icons/drawericon/faturaicon.png'),
+                            ),
+                            title: 'Platin Çıkışı',
+                            titleStyle: kListTileSize,
+                            backgroundColor: Colors.grey.shade50,
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    //--------------------------------------------------
+                    ExpansionTile(
+                      initiallyExpanded: false,
+                      leading: SizedBox(
+                        width: 30.0,
+                        height: 30.0,
+                        child: Image.asset(
+                            'assets/icons/drawericon/satisicon.png'),
+                      ),
+                      title: const Text('Satışlar', style: kExpTileSize),
+                      children: <Widget>[
+                        CustomListTile(
+                          icon: SizedBox(
+                            child: Image.asset(
+                                'assets/icons/drawericon/faturaicon.png'),
+                          ),
+                          title: 'Satış Faturaları',
+                          titleStyle: kListTileSize,
+                          route: const SatisFaturalarScreen(),
+                          backgroundColor: Colors.grey.shade50,
+                        ),
+                        CustomListTile(
+                          icon: SizedBox(
+                            child: Image.asset(
+                                'assets/icons/drawericon/siparisicon.png'),
+                          ),
+                          title: 'Siparişler',
+                          titleStyle: kListTileSize,
+                          route: const SatisSiparislerScreen(),
+                          backgroundColor: Colors.grey.shade50,
+                        ),
+                        CustomListTile(
+                          icon: SizedBox(
+                            child: Image.asset(
+                                'assets/icons/drawericon/serbestmeslekmakbuzicon.png'),
+                          ),
+                          title: 'Serbest Meslek Makbuzu',
+                          titleStyle: kListTileSize,
+                          route: const SatisMakbuzScreen(),
+                          backgroundColor: Colors.grey.shade50,
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -561,7 +593,7 @@ class DrawerBar extends StatelessWidget {
                         child:
                             Image.asset('assets/icons/drawericon/urunicon.png'),
                       ),
-                      title: 'Ürünler (Altın)',
+                      title: 'Altın & Para',
                       titleStyle: kListTileSize,
                       route: const UrunlerAltinScreen(),
                       backgroundColor: Colors.grey.shade50,
@@ -904,7 +936,7 @@ class CustomListTile extends StatelessWidget {
   final Widget? route;
   final bool enablePadding;
   final Color backgroundColor;
-  final List<Widget>? children; // Yeni özellik: children
+  final List<Widget>? children;
 
   @override
   Widget build(BuildContext context) {
@@ -932,7 +964,7 @@ class CustomListTile extends StatelessWidget {
                 }
               },
             ),
-            if (children != null) ...children!, // Eğer children varsa eklenir
+            if (children != null) ...children!,
           ],
         ),
       ),

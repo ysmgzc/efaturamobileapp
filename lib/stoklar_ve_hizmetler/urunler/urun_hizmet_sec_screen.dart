@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmet_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammadde.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import 'package:flutter/material.dart';
@@ -101,10 +102,14 @@ class _UrunHizmetSecScreenState extends State<UrunHizmetSecScreen> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 20),
         child: CustomFAB(
-          isSpeedDial: false,
+          isSpeedDial: true,
           childrenData: [
             SpeedDialData(
-              label: '',
+              label: 'Hizmet Ekle',
+              route: const HizmetEkle(),
+            ),
+            SpeedDialData(
+              label: 'Ürün Ekle',
               route: const UrunEkle(),
             ),
           ],

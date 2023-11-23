@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 import '../../container_widget.dart';
 import '../../float_action_buton_widget.dart';
-import '../../form_screen_ekle.dart';
+import '../../screens/form_screen_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class AlisMakbuzScreen extends StatefulWidget {

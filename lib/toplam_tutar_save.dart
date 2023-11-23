@@ -4,41 +4,44 @@ import 'package:flutter/material.dart';
 class ToplamTutarSave extends StatelessWidget {
   final List<String> textLabels;
   final List<String> textValues;
+  final bool showHeader; // Yeni eklenen parametre
 
   const ToplamTutarSave({
     Key? key,
     this.textLabels = const [],
     this.textValues = const [],
+    this.showHeader = true, // Varsayılan olarak göster
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(/*left: 30,*/ top: 20, right: 80),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'TOPLAM',
-                style: TextStyle(
-                    fontSize: 16,
-                    color: yTextColor,
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                'TUTAR',
-                style: TextStyle(
-                    fontSize: 16,
-                    color: yTextColor,
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
+        if (showHeader) // Header'ı sadece showHeader true olduğunda göster
+          Padding(
+            padding: EdgeInsets.only(/*left: 30,*/ top: 20, right: 80),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'TOPLAM',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: yTextColor,
+                      decoration: TextDecoration.underline,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'TUTAR',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: yTextColor,
+                      decoration: TextDecoration.underline,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
-        ),
         Container(
           alignment: Alignment.topCenter,
           child: Row(

@@ -1,11 +1,11 @@
-import 'package:efaturamobileapp/indirim_widget.dart';
-import 'package:efaturamobileapp/toplam_tutar_save.dart';
+import 'package:efaturamobileapp/bottom_app_bar_design.dart';
+import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/custom_pop_menu.dart';
+import 'package:efaturamobileapp/scan_widget.dart';
+import 'package:efaturamobileapp/text_field_decoration.dart';
+import 'package:efaturamobileapp/active_switch.dart';
 import 'package:flutter/material.dart';
-import '../../../../active_switch.dart';
-import '../../../../bottom_app_bar_design.dart';
-import '../../../../constants.dart';
-import '../../../../custom_pop_menu.dart';
-import '../../../../text_field_decoration.dart';
+import 'package:get/get.dart';
 
 class UrunEkleAltin extends StatefulWidget {
   const UrunEkleAltin({Key? key}) : super(key: key);
@@ -15,20 +15,24 @@ class UrunEkleAltin extends StatefulWidget {
 }
 
 class _UrunEkleAltinState extends State<UrunEkleAltin> {
-  TextEditingController kurController = TextEditingController();
-  bool showDiscountAndTaxButtons = false;
-
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
     List<String> items = <String>[
-      'Ürün1',
+      'Ürün',
+      'Banknot',
       'Ürün2',
       'Ürün3',
-      'Ürün4',
     ];
     List<String> items1 = <String>[
+      'Adet',
+      'Kilo (kg)',
+      'Santigram (cg)',
+    ];
+
+    List<String> items2 = <String>[
       'TL',
       'EUR',
       'GBP',
@@ -47,245 +51,335 @@ class _UrunEkleAltinState extends State<UrunEkleAltin> {
       'MKD',
       'KGS',
     ];
-    List<String> items2 = <String>[
-      '333',
-      '375',
-      '417',
-      '585',
-      '750',
-      '800',
-      '875',
-      '916',
-      '1000',
-    ];
     List<String> items3 = <String>[
-      'İşçilik Yok',
-      'İşçilik Var',
+      '18',
+      '8',
+      '1',
+      '0',
+      '19',
+      '16',
+      '10',
+      '5',
+      '9',
+      '4',
+      '6',
+      '13',
+      '20',
+      '15',
+    ];
+    List<String> items4 = <String>[
+      'Uyglanmaz',
+      'ÖTV-Petrol ve Doğalgaz Ürülerine İlişkin Özel Tüketim Vergisi',
+      'ÖTV-Kolali Gazoz, Alkollü İçecekler ve Tütün Mamüllerine İlişkin Özel Tüketim Vergisi',
+      'ÖTV-Dayanıklı Tüketim ve Diğer mallara ilişkin Özel Tüketim Vergisi',
+      'ÖTV- Alkollü İçeceklere İlişkin Özel Tüketim Vergisi',
+      'Tütün Mamüllerine İlişkin Özel Tüketim Vergisi',
+      'ÖTV-Kolali Gazozlara İlişkin Özel Tüketim Vergisi',
+      'Özel İetişim Vergisi',
+      'ÖTV-Motorlu Taşıtlar',
+      'Konaklama Vergisi',
+      'Elektrik Tüketim Vergisi',
+      '4961 Banka Sigorta Muameleleri Vergisi',
+    ];
+    List<String> items5 = <String>[
+      '8 Ayar',
+      '9 Ayar',
+      '10 Ayar',
+      '14 Ayar',
+      '18 Ayar',
+      '19 Ayar',
+      '21 Ayar',
+      '22 Ayar',
+      '24 Ayar',
     ];
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
+        elevation: 0.0,
+        backgroundColor: const Color(0xffD9B26D),
+        title: const Text('Ürün Ekle'),
         centerTitle: true,
-        title: const Text(
-          'Ürün Ekle (Altın)',
-          style: TextStyle(color: Colors.black),
-        ),
       ),
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-            vertical: screenHeight * 0.01,
+        child: Column(children: [
+          Container(
+            color: const Color(0xffD9B26D),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100.0),
+                    color: Colors.white,
+                  ),
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: Image.asset('assets/icons/drawericon/urunicon.png'),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.topCenter,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Ürün Adı',
+                          style: TextStyle(color: Colors.white, fontSize: 14)),
+                      const SizedBox(height: 8),
+                      SizedBox(
+                        width: screenWidth * 0.8,
+                        height: screenHeight * 0.07,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            hintText: '',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide.none,
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 12),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 25),
+              ],
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomPopMenuWidget(
-                width: screenWidth * 0.9,
-                title: "ÜRÜN SEÇ",
-                menuWidth: screenWidth * 0.9,
-                selectedValue: "Ürün1",
-                items: items,
-                menuItemsWidth: screenWidth * 0.9,
-              ),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('ÜRÜN AÇIKLAMASI',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          widthFactor: 0.6,
-                          screenHeight: screenHeight,
-                          heightFactor: 0.07,
-                        ),
-                      ],
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.05,
+              vertical: screenHeight * 0.01,
+            ),
+            color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 10),
+                const Text('İŞLEM NUMARASI',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
+                const SizedBox(height: 8),
+                TextFieldDecoration(
+                  screenWidth: screenWidth,
+                  screenHeight: screenHeight,
+                  hintText: 'P00001',
+                ),
+                const Divider(),
+                CustomPopMenuWidget(
+                  width: screenWidth * 0.9,
+                  title: "TÜR*",
+                  menuWidth: screenWidth * 0.9,
+                  selectedValue: "Ürün",
+                  items: items,
+                  menuItemsWidth: screenWidth * 0.9,
+                ),
+                const Divider(),
+                CustomPopMenuWidget(
+                  width: screenWidth * 0.9,
+                  title: "BİRİM",
+                  menuWidth: screenWidth * 0.9,
+                  selectedValue: "Adet",
+                  items: items1,
+                  menuItemsWidth: screenWidth * 0.9,
+                ),
+                const Divider(),
+                CustomPopMenuWidget(
+                  width: screenWidth * 0.9,
+                  title: "PARA BİRİMİ",
+                  menuWidth: screenWidth * 0.9,
+                  selectedValue: "TL",
+                  items: items2,
+                  menuItemsWidth: screenWidth * 0.9,
+                ),
+                const Divider(),
+                const Text('ÜRÜN ADI 2',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
+                const SizedBox(height: 8),
+                TextFieldDecoration(
+                    screenWidth: screenWidth, screenHeight: screenHeight),
+                const Divider(),
+                const Text('ÜRÜN KODU',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
+                const SizedBox(height: 8),
+                TextFieldDecoration(
+                  screenWidth: screenWidth,
+                  screenHeight: screenHeight,
+                  hintText: 'P00001',
+                ),
+                const Divider(),
+                const Text('BARKOD',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    TextFieldDecoration(
+                      screenWidth: screenWidth,
+                      screenHeight: screenHeight,
+                      widthFactor: 0.7,
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(' KUR',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          controller: kurController,
-                          screenWidth: screenWidth,
-                          widthFactor: 0.3,
-                          screenHeight: screenHeight,
-                          heightFactor: 0.07,
-                          onChanged: (value) {
-                            setState(() {
-                              showDiscountAndTaxButtons = value.isNotEmpty;
-                            });
-                          },
-                        ),
-                      ],
+                    const SizedBox(width: 15),
+                    SizedBox(
+                      width: screenWidth * 0.1,
+                      child: IconButton(
+                        icon:
+                            Image.asset('assets/icons/barcodescannericon.png'),
+                        onPressed: () {
+                          Get.to(const BarkodTara());
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('MİKTAR *',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          widthFactor: 0.3,
-                          screenHeight: screenHeight,
-                          heightFactor: 0.07,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 15),
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.25,
-                    title: "BİRİM",
-                    menuWidth: screenWidth * 0.25,
-                    selectedValue: "TL",
-                    items: items1,
-                    menuItemsWidth: screenWidth * 0.25,
-                  ),
-                  const SizedBox(width: 15),
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.25,
-                    title: "MİLYEM",
-                    menuWidth: screenWidth * 0.25,
-                    selectedValue: "333",
-                    items: items2,
-                    menuItemsWidth: screenWidth * 0.25,
-                  ),
-                ],
-              ),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.25,
-                    title: "İŞÇİLİK TİPİ",
-                    menuWidth: screenWidth * 0.25,
-                    selectedValue: "İşçilik Yok",
-                    items: items3,
-                    menuItemsWidth: screenWidth * 0.25,
-                  ),
-                  const SizedBox(width: 15),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('ORAN & TUTAR',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          widthFactor: 0.3,
-                          screenHeight: screenHeight,
-                          heightFactor: 0.07,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 15),
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.25,
-                    title: "TUTAR PARA BİRİM",
-                    menuWidth: screenWidth * 0.25,
-                    selectedValue: "TL",
-                    items: items1,
-                    menuItemsWidth: screenWidth * 0.25,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (showDiscountAndTaxButtons)
-                    IndirimWidget(
-                      buttonText: 'İndirim',
-                      dialogTitle: 'İndirim',
-                      option1Text: 'Tutar (TL)',
-                      option2Text: 'Oran',
-                      icon: Icons.add_circle,
-                    ),
-                  if (showDiscountAndTaxButtons)
-                    IndirimWidget(
-                      buttonText: 'Vergiler',
-                      dialogTitle: 'Vergi',
-                      option1Text: 'Tutar (TL)',
-                      option2Text: 'Oran',
-                      icon: Icons.add_circle,
-                    ),
-                ],
-              ),
-              const Divider(),
-              const SizedBox(height: 15),
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: ToplamTutarSave(
-                  textLabels: [
-                    'Toplam İşçilik Tuatarı:',
-                    'Toplam Miktar:',
-                    'İndirim:',
-                    'Yuvarlama:',
-                    'Hesaplanan Vergiler:',
-                    'Vergiler Dahil Toplam:',
-                    'Etiket / Açıklamalar:',
-                    'Notlar:',
-                  ],
-                  textValues: [
-                    '₺0.00',
-                    '₺0.00',
-                    '₺0.00',
-                    '₺0.00',
-                    '₺0.00',
-                    '₺0.00',
-                    '',
-                    '',
                   ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Row(
+                const Divider(),
+                const Text('MARKA',
+                    style: TextStyle(color: yTextColor, fontSize: 14)),
+                const SizedBox(height: 8),
+                TextFieldDecoration(
+                    screenWidth: screenWidth, screenHeight: screenHeight),
+                const Divider(),
+                CustomPopMenuWidget(
+                  width: screenWidth * 0.9,
+                  title: "KATEGORİ",
+                  menuWidth: screenWidth * 0.9,
+                  selectedValue: "333",
+                  items: items5,
+                  menuItemsWidth: screenWidth * 0.9,
+                ),
+                const Divider(),
+                const SizedBox(height: 8),
+                Container(
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'SATIŞ İŞÇİLİĞİ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('ORAN',
+                            style: TextStyle(color: yTextColor, fontSize: 14)),
+                        const SizedBox(height: 10),
+                        TextFieldDecoration(
+                          screenWidth: screenWidth,
+                          screenHeight: screenHeight,
+                          widthFactor: 0.40,
+                          hintText: '0,00',
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    CustomPopMenuWidget(
+                      width: screenWidth * 0.45,
+                      title: "TUTAR",
+                      menuWidth: screenWidth * 0.45,
+                      selectedValue: "TL",
+                      items: items2,
+                      menuItemsWidth: screenWidth * 0.45,
+                    ),
+                  ],
+                ),
+                const Divider(),
+                const SizedBox(height: 8),
+                Container(
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'ALIŞ İŞÇİLİĞİ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('ORAN',
+                            style: TextStyle(color: yTextColor, fontSize: 14)),
+                        const SizedBox(height: 8),
+                        TextFieldDecoration(
+                          screenWidth: screenWidth,
+                          screenHeight: screenHeight,
+                          widthFactor: 0.40,
+                          hintText: '0,00',
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    CustomPopMenuWidget(
+                      width: screenWidth * 0.45,
+                      title: "TUTAR",
+                      menuWidth: screenWidth * 0.45,
+                      selectedValue: "TL",
+                      items: items2,
+                      menuItemsWidth: screenWidth * 0.45,
+                    ),
+                  ],
+                ),
+                const Divider(),
+                const SizedBox(height: 8),
+                Container(
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'VERGİLER',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const Divider(),
+                CustomPopMenuWidget(
+                  width: screenWidth * 0.9,
+                  title: "KDV ORANI",
+                  menuWidth: screenWidth * 0.9,
+                  selectedValue: "18",
+                  items: items3,
+                  menuItemsWidth: screenWidth * 0.9,
+                ),
+                const Divider(),
+                CustomPopMenuWidget(
+                  width: screenWidth * 0.9,
+                  title: "EK VERGİ",
+                  menuWidth: screenWidth * 0.9,
+                  selectedValue: "Uygulanmaz",
+                  items: items4,
+                  menuItemsWidth: screenWidth * 0.9,
+                ),
+                const Divider(),
+                Row(
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                      child: const Column(
-                        children: [
-                          Text(
-                            'Vergiler Dahil Tutar',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
+                      child: const Text(
+                        'Aktif',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     Expanded(
@@ -298,16 +392,17 @@ class _UrunEkleAltinState extends State<UrunEkleAltin> {
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(height: 18),
-            ],
+                const Divider(),
+                const SizedBox(
+                  height: 15,
+                )
+              ],
+            ),
           ),
-        ),
+        ]),
       ),
       bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        saveButtonBackgroundColor: const Color(0xffD9B26D),
-        saveButtonText: "+EKLE",
       ),
     );
   }

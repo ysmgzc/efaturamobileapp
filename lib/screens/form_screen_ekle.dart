@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
+import 'package:efaturamobileapp/data/urun_hizmet_model.dart';
 import 'package:efaturamobileapp/person_image_border_save.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_hizmet_sec_screen_altin.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import '../person_image_border.dart';
+import 'package:get/get.dart';
 
 class FormScreenEkle extends StatefulWidget {
   String personImageBorderMetin;
@@ -26,13 +28,26 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
   String selectedCurrency = 'TL';
   bool showKur = false;
 
+  RxList<UrunHizmetModel> urunListesi = [
+    UrunHizmetModel(
+        baslik: "Tekstil Hammadde",
+        altbaslikBirim: '100 KG',
+        altbaslikFiyat: "25,00TL",
+        ustText: "KDV(%18)",
+        altText: "EK VERGİ",
+        ustTextFiyat: '₺450,00',
+        altTextFiyat: '₺0,00',
+        sagTextFiyat: '₺0,00',
+        araToplamFiyat: '₺20,00',
+        sagText: "İNDİRİM"),
+  ].obs;
+
   int secim = 0;
   int menu = 0;
   int iadeSagBilgi = 0;
   @override
   void initState() {
     loading();
-    print("veri:${widget.appBarBaslik}");
     super.initState();
   }
 
@@ -526,21 +541,35 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                       SizedBox(
                         height: 8,
                       ),
-                      UrunEkleBorderSaveAnimasyonsuz(
-                        screenHeight: screenHeight,
-                        screenWidth: screenWidth,
-                        route: const UrunHizmetSecScreen(),
-                        text: "Ürün / Hizmet Ekle",
-                        baslik: "Tekstil Hammade",
-                        altbaslikBirim: '100 KG',
-                        altbaslikFiyat: "25,00TL",
-                        ustText: "KDV(%18)",
-                        altText: "EK VERGİ",
-                        ustTextFiyat: '₺450,00',
-                        altTextFiyat: '₺0,00',
-                        sagTextFiyat: '₺0,00',
-                        araToplamFiyat: '₺20,00',
-                        sagText: "İNDİRİM",
+                      Container(
+                        height: 200,
+                        child: Obx(
+                          () => Column(
+                            children: urunListesi.map((UrunHizmetModel urun) {
+                              return Column(
+                                children: [
+                                  UrunEkleBorderSaveAnimasyonsuz(
+                                    screenHeight: screenHeight,
+                                    screenWidth: screenWidth,
+                                    baslik: urun.baslik,
+                                    altbaslikBirim: urun.altbaslikBirim,
+                                    altbaslikFiyat: urun.altbaslikFiyat,
+                                    ustText: urun.ustText,
+                                    altText: urun.altText,
+                                    ustTextFiyat: urun.ustTextFiyat,
+                                    altTextFiyat: urun.altTextFiyat,
+                                    sagTextFiyat: urun.sagTextFiyat,
+                                    araToplamFiyat: urun.araToplamFiyat,
+                                    sagText: urun.sagText,
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  )
+                                ],
+                              );
+                            }).toList(),
+                          ),
+                        ),
                       ),
                       const Divider(),
                       const Column(
@@ -756,21 +785,30 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
             const SizedBox(
               height: 8,
             ),
-            UrunEkleBorderSaveAnimasyonsuz(
-              screenHeight: screenHeight,
-              screenWidth: screenWidth,
-              route: const UrunHizmetSecScreen(),
-              text: "Ürün / Hizmet Ekle",
-              baslik: "Tekstil Hammade",
-              altbaslikBirim: '100 KG',
-              altbaslikFiyat: "25,00TL",
-              ustText: "KDV(%18)",
-              altText: "EK VERGİ",
-              ustTextFiyat: '₺450,00',
-              altTextFiyat: '₺0,00',
-              sagTextFiyat: '₺0,00',
-              araToplamFiyat: '₺20,00',
-              sagText: "İNDİRİM",
+            Container(
+              height: 200,
+              child: Obx(
+                () => ListView.builder(
+                  itemCount: urunListesi.length,
+                  itemBuilder: (context, index) {
+                    UrunHizmetModel urun = urunListesi[index];
+                    return UrunEkleBorderSaveAnimasyonsuz(
+                      screenHeight: screenHeight,
+                      screenWidth: screenWidth,
+                      baslik: urun.baslik,
+                      altbaslikBirim: urun.altbaslikBirim,
+                      altbaslikFiyat: urun.altbaslikFiyat,
+                      ustText: urun.ustText,
+                      altText: urun.altText,
+                      ustTextFiyat: urun.ustTextFiyat,
+                      altTextFiyat: urun.altTextFiyat,
+                      sagTextFiyat: urun.sagTextFiyat,
+                      araToplamFiyat: urun.araToplamFiyat,
+                      sagText: urun.sagText,
+                    );
+                  },
+                ),
+              ),
             ),
             SizedBox(
               height: screenHeight * 0.02,

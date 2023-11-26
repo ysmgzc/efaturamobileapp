@@ -6,8 +6,8 @@ class UrunEkleBorderSaveAnimasyonsuz extends StatelessWidget {
     super.key,
     required this.screenHeight,
     required this.screenWidth,
-    required this.route,
-    required this.text,
+    this.route,
+    this.text,
     this.width = 0.95,
     this.height = 0.25,
     required this.baslik,
@@ -25,8 +25,8 @@ class UrunEkleBorderSaveAnimasyonsuz extends StatelessWidget {
   final double bottomPadding;
   final double screenHeight;
   final double screenWidth;
-  final Widget route;
-  final String text;
+  final Widget? route;
+  final String? text;
   final double width;
   final double height;
   final String baslik;

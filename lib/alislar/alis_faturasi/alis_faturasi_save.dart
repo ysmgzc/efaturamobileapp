@@ -252,7 +252,7 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
               route: const UrunHizmetSecScreen(),
               text: "Ürün / Hizmet Ekle",
               baslik: "Tekstil Hammade",
-              altbaslikKG: '100 KİLOGRAM',
+              altbaslikKG: '100 KG',
               altbaslikTL: "25,00TL",
               kdvFiyat: '₺450,00',
               ekVergiFiyat: '₺0,00',

@@ -32,7 +32,7 @@ import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_screen.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'constants.dart';
-import 'islemler/altin/altin_girisi_screen.dart';
+import 'islemler/altin/altin_form_screen.dart';
 
 class DrawerBar extends StatelessWidget {
   const DrawerBar({super.key});
@@ -87,7 +87,7 @@ class DrawerBar extends StatelessWidget {
                   ),
                 ),
 
-                //--F-----------------------------------------------
+                //-------------------------------------------------
                 const SearchField(),
 
                 CustomListTile(
@@ -100,7 +100,7 @@ class DrawerBar extends StatelessWidget {
                   route: const GenelBakisScreen(),
                   enablePadding: false,
                 ),
-                //--------------------------------------------
+                //--------------------------------------------KYM İşlemler
                 ExpansionTile(
                   initiallyExpanded: false,
                   leading: SizedBox(
@@ -129,13 +129,14 @@ class DrawerBar extends StatelessWidget {
                                 size: 30,
                               ),
                               onPressed: () {
-                                Get.to(UrunEkle());
+                                Get.to(UrunEkle()); //sil sonra
                               },
                             ),
                             title: 'Altın Girişi',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinGirisiScreen(),
+                            route:
+                                AltinFormScreen(appBarBaslik: "Altın Girişi"),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -148,6 +149,8 @@ class DrawerBar extends StatelessWidget {
                             title: 'Altın Çıkışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route:
+                                AltinFormScreen(appBarBaslik: "Altın Çıkışı"),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -160,6 +163,9 @@ class DrawerBar extends StatelessWidget {
                             title: 'Altın Alışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route: AltinFormScreen(
+                              appBarBaslik: 'Altın Alışı',
+                            ),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -172,6 +178,9 @@ class DrawerBar extends StatelessWidget {
                             title: 'Altın Satışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route: AltinFormScreen(
+                              appBarBaslik: 'Altın Satışı',
+                            ),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -184,6 +193,9 @@ class DrawerBar extends StatelessWidget {
                             title: 'Bedelli Altın Girişi',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route: AltinFormScreen(
+                              appBarBaslik: 'Bedelli Altın Girişi',
+                            ),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -196,6 +208,9 @@ class DrawerBar extends StatelessWidget {
                             title: 'Bedelli Altın Çıkışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route: AltinFormScreen(
+                              appBarBaslik: 'Bedelli Altın Çıkışı',
+                            ),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -208,6 +223,9 @@ class DrawerBar extends StatelessWidget {
                             title: 'Gelen İade',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route: AltinFormScreen(
+                              appBarBaslik: 'Gelen İade',
+                            ),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -220,6 +238,9 @@ class DrawerBar extends StatelessWidget {
                             title: 'Çıkan İade',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route: AltinFormScreen(
+                              appBarBaslik: 'Çıkan İade',
+                            ),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -229,9 +250,12 @@ class DrawerBar extends StatelessWidget {
                               ),
                               onPressed: () {},
                             ),
-                            title: 'İşçilik Girişi ',
+                            title: 'İşçilik Girişi',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route: AltinFormScreen(
+                              appBarBaslik: 'İşçilik Girişi',
+                            ),
                           ),
                           CustomListTile(
                             icon: IconButton(
@@ -244,6 +268,9 @@ class DrawerBar extends StatelessWidget {
                             title: 'İşçilik Çıkışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
+                            route: AltinFormScreen(
+                              appBarBaslik: 'İşçilik Çıkışı',
+                            ),
                           ),
                         ],
                       ),
@@ -452,53 +479,50 @@ class DrawerBar extends StatelessWidget {
                         ],
                       ),
                     ),
-
-                    //--------------------------------------------------
-                    ExpansionTile(
-                      initiallyExpanded: false,
-                      leading: SizedBox(
-                        width: 30.0,
-                        height: 30.0,
+                  ],
+                ),
+                //--------------------------------------------------Satışlar
+                ExpansionTile(
+                  initiallyExpanded: false,
+                  leading: SizedBox(
+                    width: 30.0,
+                    height: 30.0,
+                    child: Image.asset('assets/icons/drawericon/satisicon.png'),
+                  ),
+                  title: const Text('Satışlar', style: kExpTileSize),
+                  children: <Widget>[
+                    CustomListTile(
+                      icon: SizedBox(
                         child: Image.asset(
-                            'assets/icons/drawericon/satisicon.png'),
+                            'assets/icons/drawericon/faturaicon.png'),
                       ),
-                      title: const Text('Satışlar', style: kExpTileSize),
-                      children: <Widget>[
-                        CustomListTile(
-                          icon: SizedBox(
-                            child: Image.asset(
-                                'assets/icons/drawericon/faturaicon.png'),
-                          ),
-                          title: 'Satış Faturaları',
-                          titleStyle: kListTileSize,
-                          route: const SatisFaturalarScreen(),
-                          backgroundColor: Colors.grey.shade50,
-                        ),
-                        CustomListTile(
-                          icon: SizedBox(
-                            child: Image.asset(
-                                'assets/icons/drawericon/siparisicon.png'),
-                          ),
-                          title: 'Siparişler',
-                          titleStyle: kListTileSize,
-                          route: const SatisSiparislerScreen(),
-                          backgroundColor: Colors.grey.shade50,
-                        ),
-                        CustomListTile(
-                          icon: SizedBox(
-                            child: Image.asset(
-                                'assets/icons/drawericon/serbestmeslekmakbuzicon.png'),
-                          ),
-                          title: 'Serbest Meslek Makbuzu',
-                          titleStyle: kListTileSize,
-                          route: const SatisMakbuzScreen(),
-                          backgroundColor: Colors.grey.shade50,
-                        ),
-                      ],
+                      title: 'Satış Faturaları',
+                      titleStyle: kListTileSize,
+                      route: const SatisFaturalarScreen(),
+                      backgroundColor: Colors.grey.shade50,
+                    ),
+                    CustomListTile(
+                      icon: SizedBox(
+                        child: Image.asset(
+                            'assets/icons/drawericon/siparisicon.png'),
+                      ),
+                      title: 'Siparişler',
+                      titleStyle: kListTileSize,
+                      route: const SatisSiparislerScreen(),
+                      backgroundColor: Colors.grey.shade50,
+                    ),
+                    CustomListTile(
+                      icon: SizedBox(
+                        child: Image.asset(
+                            'assets/icons/drawericon/serbestmeslekmakbuzicon.png'),
+                      ),
+                      title: 'Serbest Meslek Makbuzu',
+                      titleStyle: kListTileSize,
+                      route: const SatisMakbuzScreen(),
+                      backgroundColor: Colors.grey.shade50,
                     ),
                   ],
                 ),
-
                 //----------------------------------------------------
                 ExpansionTile(
                   initiallyExpanded: false,

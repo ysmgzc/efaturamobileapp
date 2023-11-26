@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
+import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tahsilat_ekle.dart';
 import 'package:efaturamobileapp/person_image_border_save.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/toplam_tutar_save.dart';
@@ -9,15 +10,17 @@ import 'package:intl/intl.dart';
 import '../../bottom_show_dialog_widget.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
-class SatisToptanFaturasiSave extends StatefulWidget {
-  const SatisToptanFaturasiSave({Key? key}) : super(key: key);
+class FormScreenSave extends StatefulWidget {
+  String appBarBaslik;
+  FormScreenSave({
+    required this.appBarBaslik,
+  });
 
   @override
-  State<SatisToptanFaturasiSave> createState() =>
-      _SatisToptanFaturasiSaveState();
+  State<FormScreenSave> createState() => _FormScreenSaveState();
 }
 
-class _SatisToptanFaturasiSaveState extends State<SatisToptanFaturasiSave> {
+class _FormScreenSaveState extends State<FormScreenSave> {
   String? selectedValue;
   List<String> items = <String>[
     'TL',
@@ -40,6 +43,16 @@ class _SatisToptanFaturasiSaveState extends State<SatisToptanFaturasiSave> {
   ];
   TextEditingController dateInput = TextEditingController();
   @override
+  void initState() {
+    loading();
+    super.initState();
+  }
+
+  void loading() {
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
@@ -51,8 +64,8 @@ class _SatisToptanFaturasiSaveState extends State<SatisToptanFaturasiSave> {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: const Text(
-          'Toptan Satış Faturası (KDV Dahil)',
+        title: Text(
+          widget.appBarBaslik,
           style: TextStyle(color: Colors.black),
         ),
         automaticallyImplyLeading: false,
@@ -245,68 +258,6 @@ class _SatisToptanFaturasiSaveState extends State<SatisToptanFaturasiSave> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: yTextColor),
-                          ),
-                        ),
-                        const Divider(
-                          indent: 45,
-                          endIndent: 40,
-                        ),
-                        const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'SEVK NUMARASI',
-                            style: TextStyle(fontSize: 14, color: Colors.black),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            '000000000000001',
-                            style: TextStyle(fontSize: 14, color: yTextColor),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        const Divider(
-                          indent: 45,
-                          endIndent: 40,
-                        ),
-                        const Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            'SEVKİYAT TARİHİ',
-                            style: TextStyle(fontSize: 13, color: Colors.black),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                              Text(
-                                DateFormat('dd MM yyyy').format(DateTime.now()),
-                                style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: yTextColor),
-                              ),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                DateFormat('HH:mm').format(DateTime.now()),
-                                style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: yTextColor),
-                              ),
-                            ],
                           ),
                         ),
                       ],

@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/show_dialog_ekle.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -93,7 +94,7 @@ class _ContainerWidgetState extends State<ContainerWidget> {
         Get.to(() => widget.page!);
       },
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 15, 8, 15),
+        padding: const EdgeInsets.fromLTRB(8, 13, 8, 13),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -105,8 +106,35 @@ class _ContainerWidgetState extends State<ContainerWidget> {
             Align(
               alignment: Alignment.centerRight,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          ShowDialogEkle();
+                        },
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Icon(
+                              Icons.info_outline,
+                              size: 20,
+                              color: Colors.black,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      const Text(
+                        'XAU/1000',
+                        style: TextStyle(fontSize: 13, color: Colors.black),
+                      ),
+                    ],
+                  ),
                   if (widget.altinMetin != null)
                     Text(widget.altinMetin ?? "",
                         style: widget.tarihStyle ??
@@ -135,6 +163,8 @@ class _ContainerWidgetState extends State<ContainerWidget> {
   }
 
   List<Widget> buildChildren() {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     List<Widget> children = [];
 
     if (widget.baslik != null) {
@@ -184,7 +214,28 @@ class _ContainerWidgetState extends State<ContainerWidget> {
           style: widget.odemeVadesiStyle ??
               const TextStyle(color: Colors.grey, fontSize: 14)));
     }
-
+    children.add(
+      Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: Container(
+          width: screenWidth * 0.4,
+          height: screenHeight * 0.04,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            child: Text(
+              "Vadesi geçen 182 gün",
+              style: TextStyle(fontSize: 11),
+            ),
+          ),
+        ),
+      ),
+    );
     return children;
   }
 }

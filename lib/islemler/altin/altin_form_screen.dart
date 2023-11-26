@@ -1,5 +1,3 @@
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_save.dart';
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_iade_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_faturasi/secenekler/alisfaturasidetayliarama.dart';
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
@@ -7,22 +5,33 @@ import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
+import 'package:efaturamobileapp/screens/form_screen_save.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
-import 'package:efaturamobileapp/islemler/altin/urun_ekle_altin_girisi.dart';
-import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_hizmet_sec_screen_altin.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
 
-class AltinGirisiScreen extends StatefulWidget {
-  const AltinGirisiScreen({Key? key}) : super(key: key);
+class AltinFormScreen extends StatefulWidget {
+  String appBarBaslik;
+
+  AltinFormScreen({required this.appBarBaslik});
 
   @override
-  State<AltinGirisiScreen> createState() => _AltinGirisiScreenState();
+  State<AltinFormScreen> createState() => _AltinFormScreenState();
 }
 
-class _AltinGirisiScreenState extends State<AltinGirisiScreen> {
+class _AltinFormScreenState extends State<AltinFormScreen> {
   int secim = 0;
+  @override
+  void initState() {
+    loading();
+    super.initState();
+  }
+
+  void loading() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -34,8 +43,8 @@ class _AltinGirisiScreenState extends State<AltinGirisiScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          'Altın Girişi',
+        title: Text(
+          widget.appBarBaslik,
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -123,7 +132,7 @@ class _AltinGirisiScreenState extends State<AltinGirisiScreen> {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   children: [
                     ContainerWidget(
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
@@ -131,6 +140,9 @@ class _AltinGirisiScreenState extends State<AltinGirisiScreen> {
                       durumu: 'Altın Girişi',
                       altinMetin: "Miktar:",
                       paraBirimi: '₺1000',
+                      page: FormScreenSave(
+                        appBarBaslik: '${widget.appBarBaslik} Faturası',
+                      ),
                     ),
                     Divider(),
                     ContainerWidget(
@@ -139,6 +151,9 @@ class _AltinGirisiScreenState extends State<AltinGirisiScreen> {
                       durumu: 'Altın Girişi',
                       altinMetin: "Miktar:",
                       paraBirimi: '₺1000',
+                      page: FormScreenSave(
+                        appBarBaslik: '${widget.appBarBaslik} Faturası',
+                      ),
                     ),
                   ],
                 ),
@@ -155,9 +170,9 @@ class _AltinGirisiScreenState extends State<AltinGirisiScreen> {
         isSpeedDial: false,
         childrenData: [
           SpeedDialData(
-            label: 'Altın Girişi',
+            label: widget.appBarBaslik,
             route: FormScreenEkle(
-                appBarBaslik: 'Altın Girişi', personImageBorderMetin: ""),
+                appBarBaslik: widget.appBarBaslik, personImageBorderMetin: ""),
           ),
         ],
       ),

@@ -4,8 +4,8 @@ import 'package:efaturamobileapp/person_image_border_save.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_hizmet_sec_screen_altin.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
-import 'package:efaturamobileapp/toplam_tutar.dart';
 import 'package:efaturamobileapp/toplam_tutar_save.dart';
+import 'package:efaturamobileapp/urun_ekle_border_save_animasyonsuz.dart';
 import 'package:efaturamobileapp/urunekleborder.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -42,7 +42,18 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
         secim = 1;
       } else if (widget.appBarBaslik == "İade Faturası") {
         iadeSagBilgi = 1;
-      } else if (widget.appBarBaslik == "Altın Girişi") {
+      } else if ([
+        'Altın Girişi',
+        'Altın Çıkışı',
+        'Altın Alışı',
+        'Altın Satışı',
+        'Bedelli Altın Girişi',
+        'Bedelli Altın Çıkışı',
+        'Gelen İade',
+        'Çıkan İade',
+        'İşçilik Girişi',
+        'İşçilik Çıkışı',
+      ].contains(widget.appBarBaslik)) {
         menu = 1;
       }
     });
@@ -183,7 +194,28 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                               ],
                             ),
                           )
-                        : Container(),
+                        : Padding(
+                            padding: const EdgeInsets.only(top: 15),
+                            child: Container(),
+                          ),
+                    Container(
+                      width: screenWidth * 0.4,
+                      height: screenHeight * 0.04,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                        child: Text(
+                          "Vadesi geçen 182 gün",
+                          style: TextStyle(fontSize: 11),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    )
                   ],
                 ),
                 Expanded(
@@ -242,7 +274,7 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                                   children: [
                                     Text(
                                       // DateFormat('dd MMMM yyyy', 'tr_TR')
-                                      DateFormat('dd MMMM yyyy')
+                                      DateFormat('dd MM yyyy')
                                           .format(DateTime.now()),
                                       style: const TextStyle(
                                           fontSize: 14,
@@ -281,7 +313,7 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                               Align(
                                 alignment: Alignment.center,
                                 child: Text(
-                                  DateFormat('dd MMMM yyyy')
+                                  DateFormat('dd MM yyyy')
                                       .format(DateTime.now()),
                                   style: const TextStyle(
                                       fontSize: 14,
@@ -345,7 +377,7 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                                 child: Column(
                                   children: [
                                     Text(
-                                      DateFormat('dd MMMM yyyy')
+                                      DateFormat('dd MM yyyy')
                                           .format(DateTime.now()),
                                       style: const TextStyle(
                                           fontSize: 14,
@@ -417,7 +449,7 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                                 child: Column(
                                   children: [
                                     Text(
-                                      DateFormat('dd MMMM yyyy')
+                                      DateFormat('dd MM yyyy')
                                           .format(DateTime.now()),
                                       style: const TextStyle(
                                           fontSize: 14,
@@ -458,7 +490,7 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                               Align(
                                 alignment: Alignment.center,
                                 child: Text(
-                                  DateFormat('dd MMMM yyyy')
+                                  DateFormat('dd MM yyyy')
                                       .format(DateTime.now()),
                                   style: const TextStyle(
                                       fontSize: 14,
@@ -491,6 +523,25 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                               route: const UrunHizmetSecAltinScreen(),
                               text: "Ürün / Hizmet Ekle",
                             ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      UrunEkleBorderSaveAnimasyonsuz(
+                        screenHeight: screenHeight,
+                        screenWidth: screenWidth,
+                        route: const UrunHizmetSecScreen(),
+                        text: "Ürün / Hizmet Ekle",
+                        baslik: "Tekstil Hammade",
+                        altbaslikBirim: '100 KG',
+                        altbaslikFiyat: "25,00TL",
+                        ustText: "KDV(%18)",
+                        altText: "EK VERGİ",
+                        ustTextFiyat: '₺450,00',
+                        altTextFiyat: '₺0,00',
+                        sagTextFiyat: '₺0,00',
+                        araToplamFiyat: '₺20,00',
+                        sagText: "İNDİRİM",
+                      ),
                       const Divider(),
                       const Column(
                         children: [
@@ -702,6 +753,25 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                       ],
                     ),
                   ),
+            const SizedBox(
+              height: 8,
+            ),
+            UrunEkleBorderSaveAnimasyonsuz(
+              screenHeight: screenHeight,
+              screenWidth: screenWidth,
+              route: const UrunHizmetSecScreen(),
+              text: "Ürün / Hizmet Ekle",
+              baslik: "Tekstil Hammade",
+              altbaslikBirim: '100 KG',
+              altbaslikFiyat: "25,00TL",
+              ustText: "KDV(%18)",
+              altText: "EK VERGİ",
+              ustTextFiyat: '₺450,00',
+              altTextFiyat: '₺0,00',
+              sagTextFiyat: '₺0,00',
+              araToplamFiyat: '₺20,00',
+              sagText: "İNDİRİM",
+            ),
             SizedBox(
               height: screenHeight * 0.02,
             ),

@@ -32,7 +32,7 @@ import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_screen.dar
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'constants.dart';
-import 'islemler/altin/altin_form_screen.dart';
+import 'islemler/altin/altin_screen.dart';
 
 class DrawerBar extends StatelessWidget {
   const DrawerBar({super.key});

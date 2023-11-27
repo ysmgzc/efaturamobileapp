@@ -1,19 +1,20 @@
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/islemler/altin/urun_ekle_altin_girisi.dart';
+import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
+import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tahsilat_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammadde.dart';
 import 'package:flutter/material.dart';
 import '../../../search_field.dart';
 
-class UrunHizmetSecAltinScreen extends StatefulWidget {
-  const UrunHizmetSecAltinScreen({super.key});
+class TahsilatScreen extends StatefulWidget {
+  const TahsilatScreen({super.key});
 
   @override
-  State<UrunHizmetSecAltinScreen> createState() =>
-      _UrunHizmetSecAltinScreenState();
+  State<TahsilatScreen> createState() => _TahsilatScreenState();
 }
 
-class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
+class _TahsilatScreenState extends State<TahsilatScreen> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -25,7 +26,7 @@ class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
         elevation: 0,
         centerTitle: true,
         title: const Text(
-          'Ürün/Hizmet seç (Altın)',
+          'Tahsilat Screen',
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -66,35 +67,27 @@ class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
                   child: Column(
                     children: [
                       ContainerWidget(
-                        tedarikciAdi: 'S-00000001',
-                        tedarikciAdiStyle:
-                            TextStyle(color: Colors.grey, fontSize: 14),
-                        showInfo: true,
-                        tedarikciNo: 'Bilezik',
-                        tedarikciNoStyle: TextStyle(
+                        ustTarih: "26 KASIM",
+                        tedarikciAdi: 'XAU',
+                        tedarikciAdiStyle: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold),
-                        durumu: '22K',
-                        altinMetin: "Miktar:",
-                        paraBirimi: '91,600 GR',
+                        durumu: '000001 nolu...',
+                        paraBirimi: '50,00 XAU',
                         paraBirimiStyle: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.bold),
-                        page: TekstilHammaddeEkle(),
+                        page: TahsilatEkle(),
                       ),
                       Divider(),
                       ContainerWidget(
-                        tedarikciAdi: 'S-00000001',
-                        tedarikciAdiStyle:
-                            TextStyle(color: Colors.grey, fontSize: 14),
-                        showInfo: true,
-                        tedarikciNo: 'Bilezik',
-                        tedarikciNoStyle: TextStyle(
+                        ustTarih: "26 KASIM",
+                        tedarikciAdi: 'XAU',
+                        tedarikciAdiStyle: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold),
-                        durumu: '22K',
-                        altinMetin: "Miktar:",
-                        paraBirimi: '91,600 GR',
+                        durumu: '000001 nolu...',
+                        paraBirimi: '50,00 XAU',
                         paraBirimiStyle: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.bold),
-                        page: TekstilHammaddeEkle(),
+                        page: TahsilatEkle(),
                       ),
                     ],
                   ),
@@ -107,11 +100,15 @@ class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 20),
         child: CustomFAB(
-          isSpeedDial: false,
+          isSpeedDial: true,
           childrenData: [
             SpeedDialData(
-              label: '',
-              route: const UrunEkleAltinGirisi(),
+              label: 'Çek Girişi',
+              route: const CekGirisiEkle(),
+            ),
+            SpeedDialData(
+              label: 'Yeni Tahsilat',
+              route: const TahsilatEkle(),
             ),
           ],
         ),

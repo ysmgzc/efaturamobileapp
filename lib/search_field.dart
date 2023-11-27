@@ -5,10 +5,16 @@ import '../../../constants.dart';
 
 class SearchField extends StatelessWidget {
   final String? suffixIcon;
+  final String? text;
+  final Widget icon;
+  final bool hasBorder;
 
   const SearchField({
     Key? key,
     this.suffixIcon,
+    this.icon = const Icon(Icons.clear),
+    this.text = "Ara",
+    this.hasBorder = false,
   }) : super(key: key);
 
   @override
@@ -17,10 +23,19 @@ class SearchField extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      decoration: BoxDecoration(
-        color: kSearchColor.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(15),
-      ),
+      decoration: hasBorder
+          ? BoxDecoration(
+              color: kSearchColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(
+                color: Colors.grey,
+                width: 1.0,
+              ),
+            )
+          : BoxDecoration(
+              color: kSearchColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(15),
+            ),
       child: TextField(
         controller: controller,
         maxLines: 1,
@@ -35,7 +50,7 @@ class SearchField extends StatelessWidget {
           border: InputBorder.none,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
-          hintText: "Ara",
+          hintText: text,
           prefixIcon: const Icon(Icons.search),
           suffixIcon: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -46,9 +61,7 @@ class SearchField extends StatelessWidget {
                   controller.clear();
                   Get.to(const BarkodTara());
                 },
-                icon: suffixIcon != null
-                    ? Image.asset(suffixIcon!)
-                    : const Icon(Icons.clear),
+                icon: suffixIcon != null ? Image.asset(suffixIcon!) : icon,
               ),
             ],
           ),

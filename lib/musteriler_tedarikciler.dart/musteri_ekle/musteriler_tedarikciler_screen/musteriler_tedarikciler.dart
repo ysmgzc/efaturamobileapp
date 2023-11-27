@@ -1,7 +1,6 @@
 import 'dart:core';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/satislar/satis_faturasi/satis_fatura_screen.dart';
 import 'package:efaturamobileapp/screens/loading_screen.dart';
 import 'package:efaturamobileapp/models/musteri_kart_model.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteri_ekle.dart';

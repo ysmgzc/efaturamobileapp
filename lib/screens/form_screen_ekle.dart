@@ -785,34 +785,53 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
             const SizedBox(
               height: 8,
             ),
-            Container(
-              height: 200,
-              child: Obx(
-                () => ListView.builder(
-                  itemCount: urunListesi.length,
-                  itemBuilder: (context, index) {
-                    UrunHizmetModel urun = urunListesi[index];
-                    return UrunEkleBorderSaveAnimasyonsuz(
-                      screenHeight: screenHeight,
-                      screenWidth: screenWidth,
-                      baslik: urun.baslik,
-                      altbaslikBirim: urun.altbaslikBirim,
-                      altbaslikFiyat: urun.altbaslikFiyat,
-                      ustText: urun.ustText,
-                      altText: urun.altText,
-                      ustTextFiyat: urun.ustTextFiyat,
-                      altTextFiyat: urun.altTextFiyat,
-                      sagTextFiyat: urun.sagTextFiyat,
-                      araToplamFiyat: urun.araToplamFiyat,
-                      sagText: urun.sagText,
-                    );
-                  },
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 5, 10, 0),
+              child: Container(
+                height: 200,
+                child: Obx(
+                  () => ListView.builder(
+                    itemCount: urunListesi.length,
+                    itemBuilder: (context, index) {
+                      UrunHizmetModel urun = urunListesi[index];
+                      return UrunEkleBorderSaveAnimasyonsuz(
+                        screenHeight: screenHeight,
+                        screenWidth: screenWidth,
+                        baslik: urun.baslik,
+                        altbaslikBirim: urun.altbaslikBirim,
+                        altbaslikFiyat: urun.altbaslikFiyat,
+                        ustText: urun.ustText,
+                        altText: urun.altText,
+                        ustTextFiyat: urun.ustTextFiyat,
+                        altTextFiyat: urun.altTextFiyat,
+                        sagTextFiyat: urun.sagTextFiyat,
+                        araToplamFiyat: urun.araToplamFiyat,
+                        sagText: urun.sagText,
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
+            /*  UrunEkleBorderSaveAnimasyonsuz(
+              screenHeight: screenHeight,
+              screenWidth: screenWidth,
+              //route: const UrunHizmetSecScreen(),
+             // text: "Ürün / Hizmet Ekle",
+              baslik: "Tekstil Hammade",
+              altbaslikBirim: '100 KG',
+              altbaslikFiyat: "25,00TL",
+              ustText: "KDV(%18)",
+              altText: "EK VERGİ",
+              ustTextFiyat: '₺450,00',
+              altTextFiyat: '₺0,00',
+              sagTextFiyat: '₺0,00',
+              araToplamFiyat: '₺20,00',
+              sagText: "İNDİRİM",
+            ),
             SizedBox(
               height: screenHeight * 0.02,
-            ),
+            ),*/
           ],
         ),
       ),

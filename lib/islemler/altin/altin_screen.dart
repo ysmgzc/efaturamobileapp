@@ -4,7 +4,8 @@ import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/screens/form_screen_save.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
@@ -140,7 +141,8 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
                       durumu: 'Altın Girişi',
                       altinMetin: "Miktar:",
                       paraBirimi: '₺1000',
-                      page: FormScreenSave(
+                      showInfo: true,
+                      page: FormScreenSaveAltin(
                         appBarBaslik: '${widget.appBarBaslik} Faturası',
                       ),
                     ),
@@ -151,7 +153,8 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
                       durumu: 'Altın Girişi',
                       altinMetin: "Miktar:",
                       paraBirimi: '₺1000',
-                      page: FormScreenSave(
+                      showInfo: true,
+                      page: FormScreenSaveAltin(
                         appBarBaslik: '${widget.appBarBaslik} Faturası',
                       ),
                     ),
@@ -171,7 +174,7 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
         childrenData: [
           SpeedDialData(
             label: widget.appBarBaslik,
-            route: FormScreenEkle(
+            route: FormScreenEkleAltin(
                 appBarBaslik: widget.appBarBaslik, personImageBorderMetin: ""),
           ),
         ],

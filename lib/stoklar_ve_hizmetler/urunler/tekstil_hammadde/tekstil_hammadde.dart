@@ -1,8 +1,6 @@
-import 'package:efaturamobileapp/data/urun_hizmet_model.dart';
 import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import '../../../active_switch.dart';
 import '../../../bottom_app_bar_design.dart';
 import '../../../constants.dart';

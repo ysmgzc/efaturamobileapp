@@ -1,12 +1,15 @@
 import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/show_dialog_ekle.dart';
 import 'package:flutter/material.dart';
 
 class ToplamTutarSave extends StatelessWidget {
   final List<String> textLabels;
   final List<String> textValues;
-  final bool showHeader; // Yeni eklenen parametre
+  final bool showHeader;
+  final bool showInfo;
 
   const ToplamTutarSave({
+    this.showInfo = false,
     Key? key,
     this.textLabels = const [],
     this.textValues = const [],
@@ -52,6 +55,37 @@ class ToplamTutarSave extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if (showInfo)
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          if (showInfo)
+                            const Text(
+                              'Ara Toplam:',
+                              style:
+                                  TextStyle(fontSize: 16, color: yTextColor2),
+                            ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          if (showInfo)
+                            InkWell(
+                              onTap: () {
+                                ShowDialogEkle();
+                              },
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(
+                                    Icons.info_outline,
+                                    size: 20,
+                                    color: Colors.black,
+                                  ),
+                                ],
+                              ),
+                            ),
+                        ],
+                      ),
                     for (int i = 0; i < textLabels.length; i++)
                       Padding(
                         padding: EdgeInsets.only(top: i == 0 ? 15.0 : 10.0),
@@ -69,6 +103,15 @@ class ToplamTutarSave extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if (showInfo)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Text(
+                          "₺0.00",
+                          style:
+                              const TextStyle(fontSize: 16, color: yTextColor2),
+                        ),
+                      ),
                     for (int i = 0; i < textValues.length; i++)
                       Padding(
                         padding: EdgeInsets.only(top: i == 0 ? 15.0 : 10.0),

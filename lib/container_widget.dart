@@ -26,8 +26,10 @@ class ContainerWidget extends StatefulWidget {
   final TextStyle? durumuStyle;
   final TextStyle? durumuSagStyle;
   final TextStyle? odemeVadesiStyle;
+  final bool showInfo;
 
   const ContainerWidget({
+    this.showInfo = false,
     Key? key,
     this.altinMetin,
     this.baslik,
@@ -111,28 +113,30 @@ class _ContainerWidgetState extends State<ContainerWidget> {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      InkWell(
-                        onTap: () {
-                          ShowDialogEkle();
-                        },
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Icon(
-                              Icons.info_outline,
-                              size: 20,
-                              color: Colors.black,
-                            ),
-                          ],
+                      if (widget.showInfo)
+                        InkWell(
+                          onTap: () {
+                            ShowDialogEkle();
+                          },
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(
+                                Icons.info_outline,
+                                size: 20,
+                                color: Colors.black,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
                       const SizedBox(
                         width: 5,
                       ),
-                      const Text(
-                        'XAU/1000',
-                        style: TextStyle(fontSize: 13, color: Colors.black),
-                      ),
+                      if (widget.showInfo)
+                        const Text(
+                          'XAU/1000',
+                          style: TextStyle(fontSize: 13, color: Colors.black),
+                        ),
                     ],
                   ),
                   if (widget.altinMetin != null)

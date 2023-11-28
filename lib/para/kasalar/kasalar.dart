@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/eur_kasa.dart';
@@ -139,7 +140,7 @@ class KasalarWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(kasaTuru,
-                    style: const TextStyle(color: Colors.red, fontSize: 14)),
+                    style: const TextStyle(color: color2, fontSize: 14)),
                 Text(kasaAdi,
                     style: const TextStyle(color: Colors.black, fontSize: 14)),
                 if (guncelKur != null)

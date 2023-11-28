@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/show_dialog_ekle.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
@@ -227,7 +228,7 @@ class _ContainerWidgetState extends State<ContainerWidget> {
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: color2,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),

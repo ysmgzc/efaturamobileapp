@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomAppBarToplam extends StatelessWidget {
@@ -8,7 +9,7 @@ class CustomBottomAppBarToplam extends StatelessWidget {
     Key? key,
     required this.firstText,
     required this.secondText,
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +26,8 @@ class CustomBottomAppBarToplam extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     firstText,
-                    style:const TextStyle(
-                      color: Colors.red,
+                    style: const TextStyle(
+                      color: color2,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -47,8 +48,8 @@ class CustomBottomAppBarToplam extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     secondText,
-                    style:const TextStyle(
-                      color: Colors.red,
+                    style: const TextStyle(
+                      color: color2,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),

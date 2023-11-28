@@ -759,5 +759,5 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
     // Sil düğmesine basıldığında yapılacak işlemler
   },
   saveButtonBackgroundColor: Colors.green,  // Kaydetme kısmının arka plan rengi
-  deleteButtonBackgroundColor: Colors.red,  // Silme kısmının arka plan rengi
+  deleteButtonBackgroundColor: color2,  // Silme kısmının arka plan rengi
 )*/

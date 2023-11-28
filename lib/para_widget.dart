@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -58,7 +59,7 @@ class ParaWidget extends StatelessWidget {
                     Text(
                       baslik ?? "",
                       style: const TextStyle(
-                        color: Colors.red,
+                        color: color2,
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),
@@ -66,7 +67,7 @@ class ParaWidget extends StatelessWidget {
                     Text(
                       baslikText ?? "",
                       style: const TextStyle(
-                        color: Colors.red,
+                        color: color2,
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),

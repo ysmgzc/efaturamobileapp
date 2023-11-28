@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
 
+//newcolor
+const color1 = Color(0xffFEE9EB);
+const color2 = Color(0xffD84750);
+const color3 = Color(0xff303030);
+const color4 = Color(0xffEBEBEB);
+const color5 = Color(0xff018786);
+const color6 = Color(0xff6ECDDD);
+const color7 = Color(0xff707070);
+
+//---------
+
 const kDrawerIconColor = Color(0xff055E98);
 const kDrawerIconColor1 = Color(0xff74A2C3);
 const kDrawerTextColor = Color(0xff055E98);

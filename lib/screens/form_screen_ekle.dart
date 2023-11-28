@@ -219,7 +219,7 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
+                            backgroundColor: color2,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20))),
                         child: Text(

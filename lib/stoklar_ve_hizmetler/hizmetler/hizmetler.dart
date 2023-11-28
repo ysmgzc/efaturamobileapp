@@ -419,7 +419,7 @@ class UrunlerHizmetlerWidget extends StatelessWidget {
             children: [
               _buildColumn(
                   "STOK / KDV", Colors.blue, [kdvsizText, kdvsizTextYuzde]),
-              _buildColumn("ALIŞ", Colors.red, [kdvsizAlisText]),
+              _buildColumn("ALIŞ", color2, [kdvsizAlisText]),
               _buildColumn("SATIŞ", Colors.green, [kdvsizSatisText]),
             ],
           ),

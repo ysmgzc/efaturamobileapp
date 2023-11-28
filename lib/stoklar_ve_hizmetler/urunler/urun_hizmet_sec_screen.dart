@@ -157,8 +157,7 @@ class UrunlerHizmetlerWidget extends StatelessWidget {
           stokKdvTextTitle, Colors.blue, kdvsizText, kdvsizTextYuzde,
           addSlash: true),
       if (showAlisContainer)
-        _buildContainer(
-            alisTextTitle, Colors.red, kdvsizAlisText ?? '', alisText),
+        _buildContainer(alisTextTitle, color2, kdvsizAlisText ?? '', alisText),
       _buildContainer(satisTextTitle, Colors.green, kdvsizSatisText, satisText),
     ];
 

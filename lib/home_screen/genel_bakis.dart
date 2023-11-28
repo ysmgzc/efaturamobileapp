@@ -93,7 +93,7 @@ class GenelBakisScreen extends StatelessWidget {
                             alignment: Alignment.centerLeft,
                             child: Text("SATIŞLAR & TAHSİLATLAR",
                                 style: TextStyle(
-                                    color: Colors.red,
+                                    color: color2,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16)),
                           ),
@@ -344,7 +344,7 @@ class GenelBakisScreen extends StatelessWidget {
                               left: 10,
                               child: Text('BORÇ & ALACAK',
                                   style: TextStyle(
-                                      color: Colors.red,
+                                      color: color2,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16)),
                             ),

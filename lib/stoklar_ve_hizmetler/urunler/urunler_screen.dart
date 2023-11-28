@@ -297,7 +297,7 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
                   ),
                   Container(
                     height: 2.0,
-                    color: Colors.red,
+                    color: color2,
                     width: 20.0,
                   ),
                  const SizedBox(

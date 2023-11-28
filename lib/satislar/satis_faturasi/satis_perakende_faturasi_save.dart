@@ -91,7 +91,7 @@ class _SatisPerakendeFaturasiSaveState
                 page: const YeniRaporEkle(),
               ),
               SheetOption(
-                icon: const Icon(Icons.cancel_outlined, color: Colors.red),
+                icon: const Icon(Icons.cancel_outlined, color: color2),
                 text: 'Faturayı iptal et',
                 page: const YeniRaporEkle(),
               ),

@@ -1,6 +1,7 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/data/urun_hizmet_model.dart';
+import 'package:efaturamobileapp/islemler/urun_ekle_border_save_animasyonsuz_altin.dart';
 import 'package:efaturamobileapp/person_image_border_save.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_hizmet_sec_screen_altin.dart';
@@ -548,19 +549,19 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                             children: urunListesi.map((UrunHizmetModel urun) {
                               return Column(
                                 children: [
-                                  UrunEkleBorderSaveAnimasyonsuz(
+                                  UrunEkleBorderSaveAnimasyonsuzAltin(
                                     screenHeight: screenHeight,
                                     screenWidth: screenWidth,
-                                    baslik: urun.baslik,
-                                    altbaslikBirim: urun.altbaslikBirim,
-                                    altbaslikFiyat: urun.altbaslikFiyat,
-                                    ustText: urun.ustText,
-                                    altText: urun.altText,
-                                    ustTextFiyat: urun.ustTextFiyat,
-                                    altTextFiyat: urun.altTextFiyat,
-                                    sagTextFiyat: urun.sagTextFiyat,
-                                    araToplamFiyat: urun.araToplamFiyat,
-                                    sagText: urun.sagText,
+                                    baslik: "Tekstil Hammadde",
+                                    birim: '100 KG',
+                                    fiyat: "25,00TL",
+                                    iscilik: "KDV(%18)",
+                                    iscilikDegeri: "25,00TL",
+                                    kur: "EK VERGİ",
+                                    kurDegeri: "₺0,00",
+                                    araToplamFiyat: '₺20,00',
+                                    iscilikHesabi: "₺20,00",
+                                    miktar: "₺20,00",
                                   ),
                                   SizedBox(
                                     height: 5,

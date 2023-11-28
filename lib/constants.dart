@@ -8,6 +8,7 @@ const color4 = Color(0xffEBEBEB);
 const color5 = Color(0xff018786);
 const color6 = Color(0xff6ECDDD);
 const color7 = Color(0xff707070);
+const color8 = Color(0xffFFFFFF);
 
 //---------
 

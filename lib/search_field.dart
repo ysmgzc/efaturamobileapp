@@ -12,7 +12,10 @@ class SearchField extends StatelessWidget {
   const SearchField({
     Key? key,
     this.suffixIcon,
-    this.icon = const Icon(Icons.clear),
+    this.icon = const Icon(
+      Icons.clear,
+      color: color6,
+    ),
     this.text = "Ara",
     this.hasBorder = false,
   }) : super(key: key);
@@ -25,15 +28,15 @@ class SearchField extends StatelessWidget {
     return Container(
       decoration: hasBorder
           ? BoxDecoration(
-              color: kSearchColor.withOpacity(0.1),
+              color: color8,
               borderRadius: BorderRadius.circular(15),
               border: Border.all(
-                color: Colors.grey,
+                color: color6,
                 width: 1.0,
               ),
             )
           : BoxDecoration(
-              color: kSearchColor.withOpacity(0.1),
+              color: color8,
               borderRadius: BorderRadius.circular(15),
             ),
       child: TextField(
@@ -51,7 +54,13 @@ class SearchField extends StatelessWidget {
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           hintText: text,
-          prefixIcon: const Icon(Icons.search),
+          hintStyle: TextStyle(color: color6, fontWeight: FontWeight.normal),
+          suffixIconColor: color6,
+          prefixIcon: const Icon(
+            Icons.search,
+            color: color6,
+          ),
+          iconColor: color6,
           suffixIcon: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.min,

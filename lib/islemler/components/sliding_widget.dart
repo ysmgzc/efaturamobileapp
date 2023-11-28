@@ -1,6 +1,8 @@
 // sliding_panel.dart
 
 import 'package:efaturamobileapp/active_switch.dart';
+import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/show_dialog_ekle.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -77,10 +79,32 @@ class _SlidingPanelState extends State<SlidingPanel> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Toplam Miktar',
-                        style: TextStyle(
-                            fontSize: 14.0, fontWeight: FontWeight.bold),
+                      Row(
+                        children: [
+                          Text(
+                            'Toplam Miktar',
+                            style: TextStyle(
+                                fontSize: 14.0, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              ShowDialogEkle();
+                            },
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Icon(
+                                  Icons.info_outline,
+                                  size: 20,
+                                  color: color6,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                       Text(
                         '140,400 GR',

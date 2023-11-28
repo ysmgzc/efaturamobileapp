@@ -2,10 +2,8 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/islemler/altin/tahsilat_screen.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
 import 'package:efaturamobileapp/islemler/urun_ekle_border_save_animasyonsuz_altin.dart';
-import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class FormScreenSaveAltin extends StatefulWidget {
   String appBarBaslik;
@@ -92,9 +90,6 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: screenHeight * 0.02,
-                      ),
                       const Text(
                         "Cari Bilgisi",
                         textAlign: TextAlign.start,
@@ -362,8 +357,7 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                       UrunEkleBorderSaveAnimasyonsuzAltin(
                         screenHeight: screenHeight,
                         screenWidth: screenWidth,
-                        //route: const UrunHizmetSecScreen(),
-                        // text: "Ürün / Hizmet Ekle",
+                        showInfo: true,
                         baslik: "Bilezik ",
                         baslik2: "22K",
                         birim: '100 GR',
@@ -382,8 +376,6 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                       UrunEkleBorderSaveAnimasyonsuzAltin(
                         screenHeight: screenHeight,
                         screenWidth: screenWidth,
-                        //route: const UrunHizmetSecScreen(),
-                        // text: "Ürün / Hizmet Ekle",
                         baslik: "Bilezik ",
                         baslik2: "22K",
                         birim: '100 GR',
@@ -413,10 +405,22 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
 }
 
 class CustomIconAltin extends StatelessWidget {
-  final IconData iconData;
+  final dynamic
+      iconData; // İkonun IconData veya resmin asset yolunun alınacağı değişken
   final Function onPressed;
+  final Color? color;
+  final Color? iconColor;
+  final double? containerwidth;
+  final double? containerheight;
 
-  CustomIconAltin({required this.iconData, required this.onPressed});
+  CustomIconAltin({
+    required this.iconData,
+    required this.onPressed,
+    this.color = color8,
+    this.iconColor = color6,
+    this.containerwidth = 30,
+    this.containerheight = 30,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -426,16 +430,27 @@ class CustomIconAltin extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.only(right: 15.0),
-        width: 30,
-        height: 30,
+        width: containerwidth,
+        height: containerheight,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: color,
           shape: BoxShape.circle,
         ),
-        child: Icon(
-          iconData,
-          color: color6,
-        ),
+        child: iconData is IconData
+            ? Padding(
+                padding: const EdgeInsets.all(3),
+                child: Icon(
+                  iconData,
+                  color: iconColor,
+                ),
+              )
+            : Padding(
+                padding: const EdgeInsets.all(3),
+                child: Image.asset(
+                  iconData,
+                  color: iconColor,
+                ),
+              ),
       ),
     );
   }

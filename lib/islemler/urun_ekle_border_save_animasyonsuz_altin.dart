@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class UrunEkleBorderSaveAnimasyonsuzAltin extends StatelessWidget {
   const UrunEkleBorderSaveAnimasyonsuzAltin({
-    required this.baslik2,
+    this.baslik2,
     super.key,
     required this.screenHeight,
     required this.screenWidth,
@@ -33,7 +33,7 @@ class UrunEkleBorderSaveAnimasyonsuzAltin extends StatelessWidget {
   final double width;
   final double height;
   final String baslik;
-  final String baslik2;
+  final String? baslik2;
   final String birim;
   final String fiyat;
   final String iscilik;
@@ -66,22 +66,26 @@ class UrunEkleBorderSaveAnimasyonsuzAltin extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(
-                          baslik,
-                          style: const TextStyle(
-                            fontSize: 13,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 2,
-                        ),
-                        Text(
-                          baslik2,
-                          style: const TextStyle(
-                            fontSize: 10,
-                          ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              baslik,
+                              style: const TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2,
+                            ),
+                            Text(
+                              baslik2 ?? '',
+                              style: const TextStyle(
+                                fontSize: 10,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -140,8 +144,7 @@ class UrunEkleBorderSaveAnimasyonsuzAltin extends StatelessWidget {
                         Text(
                           kur,
                           style: const TextStyle(
-                            fontSize: 13,
-                          ),
+                              fontSize: 13, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           width: 5,
@@ -149,8 +152,7 @@ class UrunEkleBorderSaveAnimasyonsuzAltin extends StatelessWidget {
                         Text(
                           kurDegeri,
                           style: const TextStyle(
-                            fontSize: 13,
-                          ),
+                              fontSize: 13, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -162,32 +164,35 @@ class UrunEkleBorderSaveAnimasyonsuzAltin extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        ShowDialogEkle();
-                      },
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.info_outline,
-                            size: 15,
-                            color: Colors.black,
-                          ),
-                        ],
+                Visibility(
+                  visible: showInfo,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          ShowDialogEkle();
+                        },
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Icon(
+                              Icons.info_outline,
+                              size: 15,
+                              color: Colors.black,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    const Text(
-                      'XAU/1000',
-                      style: TextStyle(fontSize: 13, color: Colors.black),
-                    ),
-                  ],
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      const Text(
+                        'XAU/1000',
+                        style: TextStyle(fontSize: 13, color: Colors.black),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 5,
@@ -212,17 +217,17 @@ class UrunEkleBorderSaveAnimasyonsuzAltin extends StatelessWidget {
                   children: [
                     Text("Miktar:",
                         style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                        )),
+                            color: Colors.black,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold)),
                     SizedBox(
                       width: 10,
                     ),
                     Text(miktar,
                         style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                        )),
+                            color: Colors.black,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold)),
                   ],
                 ),
               ],

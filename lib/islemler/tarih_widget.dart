@@ -12,12 +12,11 @@ class CustomDatePickerAltin extends StatefulWidget {
 }
 
 class _CustomDatePickerAltinState extends State<CustomDatePickerAltin> {
-  DateTime? selectedDate; // DateTime değeri nullable olarak tanımlandı
+  DateTime? selectedDate;
 
   @override
   void initState() {
     super.initState();
-    // selectedDate başlangıç değeri olarak null atanmıştır
   }
 
   Future<void> _showDatePicker() async {
@@ -42,24 +41,17 @@ class _CustomDatePickerAltinState extends State<CustomDatePickerAltin> {
       height: MediaQuery.of(context).size.height * 0.07,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey),
-        gradient: LinearGradient(
-          colors: [
-            Colors.grey.shade200,
-            Colors.grey.shade100,
-            Colors.grey.shade50,
-            Colors.white70,
-          ],
-        ),
+        border: Border.all(color: color6),
       ),
       child: Row(
         children: [
-          const Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.calendar_month,
-              color: yTextColor,
-              size: 18,
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Image.asset(
+              'assets/icons/newicon/aramatakvimicon.png',
+              color: color6,
+              width: 18,
+              height: 18,
             ),
           ),
           GestureDetector(
@@ -73,7 +65,7 @@ class _CustomDatePickerAltinState extends State<CustomDatePickerAltin> {
                     widget.labelText!,
                     style: const TextStyle(
                         fontSize: 13,
-                        color: yTextColor,
+                        color: color6,
                         fontWeight: FontWeight.bold),
                   ),
                 Text(
@@ -83,7 +75,7 @@ class _CustomDatePickerAltinState extends State<CustomDatePickerAltin> {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
-                    color: yTextColor,
+                    color: color6,
                   ),
                 ),
               ],

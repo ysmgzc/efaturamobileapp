@@ -1,17 +1,15 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
-
 
 class ActiveSwitch extends StatefulWidget {
   final bool showDialog;
   final Function(bool)? onChanged;
 
-    const ActiveSwitch({
-      Key? key, 
-    this.showDialog = false, this.onChanged
-    }): super(key: key);
+  const ActiveSwitch({Key? key, this.showDialog = false, this.onChanged})
+      : super(key: key);
 
   @override
-    _ActiveSwitchState  createState() => _ActiveSwitchState();
+  _ActiveSwitchState createState() => _ActiveSwitchState();
 }
 
 class _ActiveSwitchState extends State<ActiveSwitch> {
@@ -22,11 +20,11 @@ class _ActiveSwitchState extends State<ActiveSwitch> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title:const Text('Seçenekler'),
-          content:const Text('seçenekler screen'),
+          title: const Text('Seçenekler'),
+          content: const Text('seçenekler screen'),
           actions: <Widget>[
             TextButton(
-              child:const Text('Tamam'),
+              child: const Text('Tamam'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -55,6 +53,7 @@ class _ActiveSwitchState extends State<ActiveSwitch> {
     return SwitchListTile(
       value: _isActive,
       onChanged: _handleChanged,
+      activeColor: color6,
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/toplam_tutar_save.dart';
@@ -338,3 +338,4 @@ class _AlisIadeFaturasiSaveState extends State<AlisIadeFaturasiSave> {
     );
   }
 }
+*/

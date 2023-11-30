@@ -1,4 +1,3 @@
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_faturasi/model/alis_fatura_record.dart';
 import 'package:get/get.dart';
 

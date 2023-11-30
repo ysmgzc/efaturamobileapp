@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
 import 'package:efaturamobileapp/screens/loading_screen.dart';
 import 'package:efaturamobileapp/models/musteri_kart_model.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteri_ekle.dart';
@@ -260,6 +261,7 @@ class _MusterilerTedarikcilerScreenState
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -427,7 +429,7 @@ class CustomWidget2 extends StatelessWidget {
     return InkWell(
       onTap: () {
         Get.to(
-          FormScreenEkle(
+          FormScreenEkleAltin(
               appBarBaslik: 'Sipariş (KDV Hariç)',
               personImageBorderMetin: tedarikciAdi),
         );

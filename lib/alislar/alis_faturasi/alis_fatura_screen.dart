@@ -1,10 +1,9 @@
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_save.dart';
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_iade_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_faturasi/secenekler/alisfaturasidetayliarama.dart';
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
@@ -120,7 +119,7 @@ class _AlisFaturalarScreenState extends State<AlisFaturalarScreen> {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   children: [
                     ContainerWidget(
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
@@ -128,7 +127,7 @@ class _AlisFaturalarScreenState extends State<AlisFaturalarScreen> {
                       durumu: 'Satınalma Faturası',
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
-                      page: AlisFaturasiSave(),
+                      page: FormScreenSaveAltin(appBarBaslik: 'Alış Faturası'),
                     ),
                     Divider(),
                     ContainerWidget(
@@ -137,7 +136,7 @@ class _AlisFaturalarScreenState extends State<AlisFaturalarScreen> {
                       durumu: 'Satınalma İade Faturası',
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
-                      page: AlisIadeFaturasiSave(),
+                      page: FormScreenSaveAltin(appBarBaslik: 'İade Faturası'),
                     ),
                   ],
                 ),
@@ -155,16 +154,17 @@ class _AlisFaturalarScreenState extends State<AlisFaturalarScreen> {
         childrenData: [
           SpeedDialData(
             label: 'İade Faturası',
-            route: FormScreenEkle(
+            route: FormScreenEkleAltin(
                 appBarBaslik: 'İade Faturası', personImageBorderMetin: ""),
           ),
           SpeedDialData(
             label: 'Alış Faturası',
-            route: FormScreenEkle(
+            route: FormScreenEkleAltin(
                 appBarBaslik: 'Alış Faturası', personImageBorderMetin: ""),
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../bottom_show_dialog_widget.dart';
@@ -41,7 +41,7 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: const Text(
-          'Alış Faturası',
+          'Alış Faturası', 
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -307,3 +307,4 @@ class _AlisFaturasiSaveState extends State<AlisFaturasiSave> {
     );
   }
 }
+*/

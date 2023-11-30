@@ -20,7 +20,8 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
   String? selectedValue;
   List<String> items = <String>[
     'Nakit',
-    'Çek',
+    'Stok Grişi',
+    'Banka',
   ];
   String? selectedValue1;
   List<String> items1 = <String>[

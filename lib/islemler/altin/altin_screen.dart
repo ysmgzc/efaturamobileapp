@@ -142,6 +142,7 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
                       altinMetin: "Miktar:",
                       paraBirimi: '₺1000',
                       showInfo: true,
+                      vade: true,
                       page: FormScreenSaveAltin(
                         appBarBaslik: '${widget.appBarBaslik} Faturası',
                       ),
@@ -154,6 +155,7 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
                       altinMetin: "Miktar:",
                       paraBirimi: '₺1000',
                       showInfo: true,
+                      vade: true,
                       page: FormScreenSaveAltin(
                         appBarBaslik: '${widget.appBarBaslik} Faturası',
                       ),
@@ -179,6 +181,7 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

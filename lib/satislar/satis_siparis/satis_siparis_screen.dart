@@ -1,6 +1,8 @@
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_faturasi_save.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/secenekler/satissiparisdetayliarama.dart';
@@ -110,14 +112,15 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   children: [
                     ContainerWidget(
                       tedarikciAdi: 'Personel Ahmet Usta',
                       tedarikciNo: '0000000000001',
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
-                      page: SatisSiparisFaturasiSave(),
+                      page: FormScreenSaveAltin(
+                          appBarBaslik: 'Sipariş (KDV Hariç)'),
                     ),
                   ],
                 ),
@@ -135,18 +138,19 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
         childrenData: [
           SpeedDialData(
             label: 'Toptan Sipariş\n(KDV Hariç)',
-            route: FormScreenEkle(
+            route: FormScreenEkleAltin(
                 appBarBaslik: 'Toptan Sipariş (KDV Hariç)',
                 personImageBorderMetin: ""),
           ),
           SpeedDialData(
             label: 'Perakende Sipariş\n(KDV Dahil)',
-            route: FormScreenEkle(
+            route: FormScreenEkleAltin(
                 appBarBaslik: 'Perakende Sipariş (KDV Dahil)',
                 personImageBorderMetin: ""),
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -1,9 +1,8 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
-import 'package:efaturamobileapp/islemler/tarih_widget.dart';
+import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
 import 'package:efaturamobileapp/islemler/urun_ekle_border_save_animasyonsuz_altin.dart';
 import 'package:efaturamobileapp/search_field.dart';
-import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_hizmet_sec_screen_altin.dart';
 import 'package:efaturamobileapp/urunekleborder.dart';
 import 'package:flutter/material.dart';
@@ -113,9 +112,9 @@ class _FormScreenEkleAltinState extends State<FormScreenEkleAltin> {
                     height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   const SearchField(
-                      text: "Müşteri Seçiniz...",
-                      icon: Icon(Icons.expand_more),
-                      hasBorder: true),
+                    text: "Müşteri Seçiniz...",
+                    icon: Icon(Icons.expand_more),
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
@@ -133,40 +132,57 @@ class _FormScreenEkleAltinState extends State<FormScreenEkleAltin> {
                   ),
                   Column(
                     children: [
-                      menu == 0
-                          ? UrunEkleBorder(
+                      //  menu == 1?
+                      UrunEkleBorder(
+                        screenHeight: screenHeight,
+                        screenWidth: screenWidth,
+                        route: UrunHizmetSecAltinScreen(
+                            appBarBaslik: widget.appBarBaslik),
+                        text: "Ürün / Hizmet Ekle",
+                      ),
+                      /* : UrunEkleBorder(
                               screenHeight: screenHeight,
                               screenWidth: screenWidth,
-                              route: const UrunHizmetSecAltinScreen(),
+                              route: UrunHizmetSecScreen(
+                                  appBarBaslik: "Ürün / Hizmet şeçç"),
                               text: "Ürün / Hizmet Ekle",
-                            )
-                          : UrunEkleBorder(
-                              screenHeight: screenHeight,
-                              screenWidth: screenWidth,
-                              route: const UrunHizmetSecScreen(),
-                              text: "Ürün / Hizmet Ekle",
-                            ),
+                            ),*/
                       SizedBox(
                         height: 8,
                       ),
                       Column(
                         children: [
-                          UrunEkleBorderSaveAnimasyonsuzAltin(
-                            showInfo: true,
-                            screenHeight: screenHeight,
-                            screenWidth: screenWidth,
-                            baslik: "Bilezik ",
-                            baslik2: "22K",
-                            birim: '100 GR',
-                            fiyat: "916",
-                            iscilik: "İşçilik :",
-                            iscilikDegeri: "0,020",
-                            kur: "Kur :",
-                            kurDegeri: "₺0,00",
-                            araToplamFiyat: '91,960 GR',
-                            iscilikHesabi: "2,00 GR",
-                            miktar: "92,600 GR",
-                          ),
+                          menu == 1
+                              ? UrunEkleBorderSaveAnimasyonsuzAltin(
+                                  showInfo: true,
+                                  screenHeight: screenHeight,
+                                  screenWidth: screenWidth,
+                                  baslik: "Bilezik ",
+                                  baslik2: "22K",
+                                  birim: '100 GR',
+                                  fiyat: "916",
+                                  iscilik: "İşçilik :",
+                                  iscilikDegeri: "0,020",
+                                  kur: "Kur :",
+                                  kurDegeri: "₺0,00",
+                                  araToplamFiyat: '91,960 GR',
+                                  iscilikHesabi: "2,00 GR",
+                                  miktar: "92,600 GR",
+                                )
+                              : UrunEkleBorderSaveAnimasyonsuzAltin(
+                                  screenHeight: screenHeight,
+                                  screenWidth: screenWidth,
+                                  baslik: "Tekstil Hammadde",
+                                  birim: '100 KG',
+                                  fiyat: "25,00TL",
+                                  iscilik: "KDV(%18)",
+                                  iscilikDegeri: "25,00TL",
+                                  kur: "EK VERGİ",
+                                  kurDegeri: "₺0,00",
+                                  araToplamFiyat: '₺20,00',
+                                  iscilikHesabi: "₺20,00",
+                                  miktar: "₺20,00",
+                                ),
                           SizedBox(
                             height: 5,
                           )
@@ -187,6 +203,7 @@ class _FormScreenEkleAltinState extends State<FormScreenEkleAltin> {
           SlidingPanel(),
         ],
       ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }

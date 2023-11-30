@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
@@ -18,9 +19,9 @@ class CustomFAB extends StatelessWidget {
             child: SpeedDial(
               icon: Icons.add,
               activeIcon: Icons.close,
-              backgroundColor: Colors.green,
+              backgroundColor: color6,
               foregroundColor: Colors.white,
-              overlayColor: Colors.grey,
+              overlayColor: color4,
               overlayOpacity: 0.4,
               spaceBetweenChildren: 5,
               spacing: 5,
@@ -30,7 +31,7 @@ class CustomFAB extends StatelessWidget {
                     Icons.add,
                     color: Colors.white,
                   ),
-                  backgroundColor: Colors.green,
+                  backgroundColor: color6,
                   label: data.label,
                   onTap: () {
                     Get.to(data.route);
@@ -40,12 +41,12 @@ class CustomFAB extends StatelessWidget {
             ),
           )
         : FloatingActionButton(
-            backgroundColor: Colors.green,
+            backgroundColor: color6,
             onPressed: () {
               Get.to(childrenData[0].route);
             },
             shape: const StadiumBorder(
-              side: BorderSide(color: Colors.green, width: 3),
+              side: BorderSide(color: color6, width: 3),
             ),
             child: const Icon(Icons.add),
           );

@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
 import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -266,7 +267,8 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
       ),
       bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {
-          Get.to(FormScreenEkle(appBarBaslik: "", personImageBorderMetin: ""));
+          Get.to(FormScreenEkleAltin(
+              appBarBaslik: "", personImageBorderMetin: ""));
           Navigator.of(context).pop();
         },
         saveButtonBackgroundColor: const Color(0xffD9B26D),

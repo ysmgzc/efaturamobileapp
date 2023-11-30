@@ -191,6 +191,7 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -337,7 +338,7 @@ class _UrunlerScreenState extends State<UrunlerScreen> {
                   ),
                   Container(
                     height: 2.0,
-                    color: Colors.green,
+                    color: color6,
                     width: 20.0,
                   ),
                  const SizedBox(

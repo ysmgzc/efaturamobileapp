@@ -187,6 +187,7 @@ class _CeklerScreenState extends State<CeklerScreen> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

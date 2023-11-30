@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -25,7 +25,7 @@ class _AlisMakbuzFaturasiState extends State<AlisMakbuzFaturasi> {
     'AZM',
     'BGN',
     'CNY',
-    'USD',
+    'USD', 
     'PLN',
     'RUB',
     'SGD',
@@ -397,3 +397,4 @@ class _AlisMakbuzFaturasiState extends State<AlisMakbuzFaturasi> {
     );
   }
 }
+*/

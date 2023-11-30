@@ -82,6 +82,7 @@ class VerileriDisaAktarScreen extends StatelessWidget {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -104,6 +104,7 @@ class _KasalarScreenState extends State<KasalarScreen> {
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

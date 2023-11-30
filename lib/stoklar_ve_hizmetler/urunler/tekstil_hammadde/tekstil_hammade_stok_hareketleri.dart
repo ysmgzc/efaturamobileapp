@@ -93,7 +93,7 @@ class _TekstilHammaddeScreenState extends State<TekstilHammaddeScreen> {
                       odemeVadesi: "1 Kilogram x ₺25",
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
-                      page: AlisFaturasiSave(),
+                      //page: AlisFaturasiSave(),
                     ),
                     Divider(),
                     ContainerWidget(
@@ -103,7 +103,7 @@ class _TekstilHammaddeScreenState extends State<TekstilHammaddeScreen> {
                       odemeVadesi: "1 Kilogram x ₺25",
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
-                      page: AlisFaturasiSave(),
+                      //page: AlisFaturasiSave(),
                     ),
                   ],
                 ),

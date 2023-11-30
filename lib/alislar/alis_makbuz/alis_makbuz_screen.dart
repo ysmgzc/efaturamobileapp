@@ -1,14 +1,14 @@
-import 'package:efaturamobileapp/alislar/alis_makbuz/alis_makbuz_faturasi_save.dart';
 import 'package:efaturamobileapp/alislar/alis_makbuz/secenekler/alismakbuzdetayliarama.dart';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../container_widget.dart';
 import '../../float_action_buton_widget.dart';
-import '../../screens/form_screen_ekle.dart';
 import '../../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 
 class AlisMakbuzScreen extends StatefulWidget {
@@ -129,7 +129,7 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   children: [
                     ContainerWidget(
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
@@ -137,7 +137,8 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
                       durumu: 'Perakende Satış Faturası',
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
-                      page: AlisMakbuzFaturasi(),
+                      page: FormScreenSaveAltin(
+                          appBarBaslik: 'Serbest Meslek Makbuzu'),
                     ),
                   ],
                 ),
@@ -153,13 +154,14 @@ class _AlisMakbuzScreenState extends State<AlisMakbuzScreen> {
           childrenData: [
             SpeedDialData(
               label: '',
-              route: FormScreenEkle(
+              route: FormScreenEkleAltin(
                   appBarBaslik: 'Serbest Meslek Makbuzu',
                   personImageBorderMetin: ""),
             ),
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -115,6 +115,7 @@ class _UrunHizmetSecScreenState extends State<UrunHizmetSecScreen> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

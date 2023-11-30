@@ -1,4 +1,7 @@
 import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
+import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
 import 'package:efaturamobileapp/show_dialog_ekle.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +21,6 @@ class ContainerWidget extends StatefulWidget {
   final String? durumuSag;
   final String? odemeVadesi;
   final Widget? page;
-  final IconData? icon;
   final TextStyle? tedarikciAdiStyle;
   final TextStyle? tedarikciNoStyle;
   final TextStyle? tarihStyle;
@@ -28,9 +30,13 @@ class ContainerWidget extends StatefulWidget {
   final TextStyle? durumuSagStyle;
   final TextStyle? odemeVadesiStyle;
   final bool showInfo;
+  final bool vade;
+  final bool iconKareBox;
 
   const ContainerWidget({
     this.showInfo = false,
+    this.vade = false,
+    this.iconKareBox = false,
     Key? key,
     this.altinMetin,
     this.baslik,
@@ -42,7 +48,6 @@ class ContainerWidget extends StatefulWidget {
     this.durumu,
     this.durumuSag,
     this.odemeVadesi,
-    this.icon,
     this.page,
     this.tedarikciAdiStyle,
     this.tedarikciNoStyle,
@@ -102,9 +107,29 @@ class _ContainerWidgetState extends State<ContainerWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             if (showCheckbox) checkBox,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: buildChildren(),
+            Row(
+              children: [
+                Column(
+                  children: [
+                    if (widget.iconKareBox)
+                      CustomRectangleIconAltin(
+                        iconData: 'assets/icons/newicon/box.png',
+                        color: color8,
+                        iconpadding: 8,
+                        containerwidth: 45,
+                        containerheight: 45,
+                        onPressed: () {},
+                      ),
+                  ],
+                ),
+                SizedBox(
+                  width: 18,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: buildChildren(),
+                ),
+              ],
             ),
             Align(
               alignment: Alignment.centerRight,
@@ -192,14 +217,9 @@ class _ContainerWidgetState extends State<ContainerWidget> {
     }
 
     children.add(
-      Row(
-        children: [
-          if (widget.icon != null) Icon(widget.icon),
-          Text(widget.tedarikciAdi,
-              style: widget.tedarikciAdiStyle ??
-                  const TextStyle(color: Colors.black, fontSize: 16)),
-        ],
-      ),
+      Text(widget.tedarikciAdi,
+          style: widget.tedarikciAdiStyle ??
+              const TextStyle(color: Colors.black, fontSize: 16)),
     );
 
     if (widget.tedarikciNo != null) {
@@ -219,28 +239,14 @@ class _ContainerWidgetState extends State<ContainerWidget> {
           style: widget.odemeVadesiStyle ??
               const TextStyle(color: Colors.grey, fontSize: 14)));
     }
-    children.add(
-      Padding(
-        padding: const EdgeInsets.only(top: 8.0),
-        child: Container(
-          width: screenWidth * 0.4,
-          height: screenHeight * 0.04,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: color2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            child: Text(
-              "Vadesi geçen 182 gün",
-              style: TextStyle(fontSize: 11),
-            ),
-          ),
+    if (widget.vade)
+      children.add(
+        Padding(
+          padding: EdgeInsets.only(top: 8.0),
+          child: RedButtonWidget(
+              screenWidth: screenWidth, screenHeight: screenHeight),
         ),
-      ),
-    );
+      );
     return children;
   }
 }

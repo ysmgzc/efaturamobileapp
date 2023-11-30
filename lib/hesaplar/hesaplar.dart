@@ -2,7 +2,6 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/hesaplar/banka_eur_hesabi.dart';
 import 'package:efaturamobileapp/hesaplar/banka_tl_hesabi.dart';
 import 'package:efaturamobileapp/hesaplar/banka_usd_hesabi.dart';
-import 'package:efaturamobileapp/hesaplar/hesap_bilgileri.dart';
 import 'package:efaturamobileapp/hesaplar/tl_kasa_hesaplari.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:flutter/material.dart';
@@ -157,7 +156,7 @@ class _HesaplarScreenState extends State<HesaplarScreen> {
         backgroundColor: kButtonColor,
         child: const Icon(Icons.add),
         onPressed: () {
-          Get.to(const HesapBilgileri());
+          // Get.to(const HesapBilgileri());
         },
         //  label: Text('Ekle'),
       ),

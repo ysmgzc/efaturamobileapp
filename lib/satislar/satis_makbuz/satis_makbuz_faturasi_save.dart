@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -389,3 +389,4 @@ class _SatisMakbuzFaturasiState extends State<SatisMakbuzFaturasi> {
     );
   }
 }
+*/

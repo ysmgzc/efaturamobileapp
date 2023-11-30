@@ -156,6 +156,7 @@ class _UrunlerAltinScreenState extends State<UrunlerAltinScreen> {
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

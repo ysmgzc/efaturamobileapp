@@ -16,12 +16,13 @@ class _BankaHesaplariScreenState extends State<BankaHesaplariScreen> {
     return Scaffold(
       drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme:const IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
-         elevation: 0,
+        elevation: 0,
         centerTitle: true,
         title: const Text(
-          'Bankalar',style: TextStyle(color: Colors.black),
+          'Bankalar',
+          style: TextStyle(color: Colors.black),
         ),
       ),
       body: Column(
@@ -31,19 +32,20 @@ class _BankaHesaplariScreenState extends State<BankaHesaplariScreen> {
           ),
         ],
       ),
-       floatingActionButton: Padding(
-         padding: const EdgeInsets.only(bottom: 20),
-         child: CustomFAB(
-           isSpeedDial: false,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: CustomFAB(
+          isSpeedDial: false,
           childrenData: [
             SpeedDialData(
-          label: '',
-          route:const BankaHesabiEkle(),
-             ),
+              label: '',
+              route: const BankaHesabiEkle(),
+            ),
           ],
-         ),
-       ),
-  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        ),
+      ),
+      resizeToAvoidBottomInset: false,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

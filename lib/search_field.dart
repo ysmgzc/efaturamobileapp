@@ -1,13 +1,13 @@
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/scan_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants.dart';
 
 class SearchField extends StatelessWidget {
-  final String? suffixIcon;
+  final dynamic suffixIcon;
   final String? text;
   final Widget icon;
-  final bool hasBorder;
 
   const SearchField({
     Key? key,
@@ -17,7 +17,6 @@ class SearchField extends StatelessWidget {
       color: color6,
     ),
     this.text = "Ara",
-    this.hasBorder = false,
   }) : super(key: key);
 
   @override
@@ -25,20 +24,26 @@ class SearchField extends StatelessWidget {
     var controller = TextEditingController();
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
+    Widget buildSuffixIcon() {
+      if (suffixIcon is Widget) {
+        return suffixIcon;
+      } else if (suffixIcon is String) {
+        return Image.asset(suffixIcon!);
+      } else {
+        return icon;
+      }
+    }
+
     return Container(
-      decoration: hasBorder
-          ? BoxDecoration(
-              color: color8,
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(
-                color: color6,
-                width: 1.0,
-              ),
-            )
-          : BoxDecoration(
-              color: color8,
-              borderRadius: BorderRadius.circular(15),
-            ),
+      decoration: BoxDecoration(
+        color: color8,
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(
+          color: color6,
+          width: 1.0,
+        ),
+      ),
       child: TextField(
         controller: controller,
         maxLines: 1,
@@ -68,9 +73,8 @@ class SearchField extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   controller.clear();
-                  Get.to(const BarkodTara());
                 },
-                icon: suffixIcon != null ? Image.asset(suffixIcon!) : icon,
+                icon: buildSuffixIcon(),
               ),
             ],
           ),

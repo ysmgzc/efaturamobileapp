@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -37,7 +38,8 @@ class _BarkodTaraState extends State<BarkodTara> {
         _showSuccessDialog(barcode);
       }
     } catch (ex) {
-      _showRetryDialog('Barkod tarama işleminiz başarısızdır, lütfen tekrar deneyiniz');
+      _showRetryDialog(
+          'Barkod tarama işleminiz başarısızdır, lütfen tekrar deneyiniz');
     }
   }
 
@@ -50,14 +52,16 @@ class _BarkodTaraState extends State<BarkodTara> {
           content: Text(message),
           actions: <Widget>[
             TextButton(
-              child: const Text('Tekrar Tara', style: TextStyle(color: Colors.green, fontSize: 16)),
+              child: const Text('Tekrar Tara',
+                  style: TextStyle(color: color6, fontSize: 16)),
               onPressed: () {
                 Navigator.of(context).pop();
                 startScanning();
               },
             ),
             TextButton(
-              child: const Text('Kapat', style: TextStyle(color: Colors.green, fontSize: 16)),
+              child: const Text('Kapat',
+                  style: TextStyle(color: color6, fontSize: 16)),
               onPressed: () {
                 SystemNavigator.pop();
               },
@@ -78,14 +82,16 @@ class _BarkodTaraState extends State<BarkodTara> {
           content: Text(barcode),
           actions: <Widget>[
             TextButton(
-              child: const Text('Tekrar Tara', style: TextStyle(color: Colors.green, fontSize: 16)),
+              child: const Text('Tekrar Tara',
+                  style: TextStyle(color: color6, fontSize: 16)),
               onPressed: () {
                 Navigator.of(context).pop();
                 startScanning();
               },
             ),
             TextButton(
-              child: const Text('Kapat', style: TextStyle(color: Colors.green, fontSize: 16)),
+              child: const Text('Kapat',
+                  style: TextStyle(color: color6, fontSize: 16)),
               onPressed: () {
                 SystemNavigator.pop();
               },

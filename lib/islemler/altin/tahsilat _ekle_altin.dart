@@ -1,25 +1,33 @@
 import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/islemler/altin/tahsilat_screen.dart';
+import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
-import 'package:efaturamobileapp/islemler/urun_ekle_border_save_animasyonsuz_altin.dart';
+import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class FormScreenSaveAltin extends StatefulWidget {
-  String appBarBaslik;
-  FormScreenSaveAltin({
-    required this.appBarBaslik,
-  });
+class TahsilatEkleAltin extends StatefulWidget {
+  //String appBarBaslik;
+  TahsilatEkleAltin({super.key
+      // required this.appBarBaslik,
+      });
 
   @override
-  State<FormScreenSaveAltin> createState() => _FormScreenSaveAltinState();
+  State<TahsilatEkleAltin> createState() => _TahsilatEkleAltinState();
 }
 
-class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
+class _TahsilatEkleAltinState extends State<TahsilatEkleAltin> {
+  TextEditingController dateInput = TextEditingController();
   String? selectedValue;
-  List<String> items = <String>[
+  List<String> tahsilatTuru = <String>[
+    'Nakit',
+    'Stok Grişi',
+    'Banka',
+  ];
+  List<String> Nakit = <String>[
     'TL',
     'EUR',
     'GBP',
@@ -38,16 +46,30 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
     'MKD',
     'KGS',
   ];
-  TextEditingController dateInput = TextEditingController();
+  List<String> stokGirisi = <String>[
+    'Külçe/Has',
+    'Hurda',
+    'Gram Altın',
+    'Ziynet/Lira',
+  ];
+  List<String> kulceHas = <String>[
+    '24K 999.9',
+    '24K 999',
+    '24K 995',
+  ];
+  List<String> kulceHasBrim = <String>[
+    'GR',
+    'KG',
+  ];
 
-  int menu = 0;
+  /*  int menu = 0;
   @override
   void initState() {
     loading();
     super.initState();
   }
 
-  void loading() {
+ void loading() {
     setState(() {
       if ([
         'Altın Girişi',
@@ -64,8 +86,8 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
         menu = 1;
       }
     });
-  }
-
+  }*/
+  bool showDoneIcon = true;
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -79,23 +101,37 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
         backgroundColor: color4,
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          widget.appBarBaslik,
+          "Atasay Ltd. Şti",
+          //  widget.appBarBaslik,
           style: TextStyle(color: Colors.black),
         ),
         actions: [
-          CircleIconAltin(
-            iconData: 'assets/icons/newicon/delete.png',
-            iconpadding: 8,
-            iconColor: color8,
-            color: color6,
-            onPressed: () {},
-          ),
-          CircleIconAltin(
-            iconData: Icons.edit,
-            iconColor: color8,
-            color: color6,
-            onPressed: () {},
-          ),
+          if (showDoneIcon)
+            CircleIconAltin(
+              iconData: Icons.done,
+              iconColor: color8,
+              color: color6,
+              onPressed: () {
+                setState(() {
+                  showDoneIcon = false;
+                });
+              },
+            ),
+          if (!showDoneIcon)
+            CircleIconAltin(
+              iconData: 'assets/icons/newicon/delete.png',
+              iconpadding: 8,
+              iconColor: color8,
+              color: color6,
+              onPressed: () {},
+            ),
+          if (!showDoneIcon)
+            CircleIconAltin(
+              iconData: Icons.edit,
+              iconColor: color8,
+              color: color6,
+              onPressed: () {},
+            ),
         ],
       ),
       backgroundColor: Colors.white,
@@ -156,14 +192,14 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                                   Column(
                                     children: [
                                       Text(
-                                        "Fatura Tarihi",
+                                        "Belge Numarası",
                                         style: TextStyle(
                                           fontSize: 12,
                                           color: color7,
                                         ),
                                       ),
                                       Text(
-                                        "27/11/2023",
+                                        "#T-20230001",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 14,
@@ -187,7 +223,7 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                                   Column(
                                     children: [
                                       Text(
-                                        "Vade Tarihi",
+                                        "Tahsilat Tarihi",
                                         style: TextStyle(
                                           fontSize: 12,
                                           color: color7,
@@ -214,14 +250,14 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                                   Column(
                                     children: [
                                       Text(
-                                        "Toplam Miktar",
+                                        "Toplam Tahsilat Miktar",
                                         style: TextStyle(
                                           fontSize: 12,
                                           color: color7,
                                         ),
                                       ),
                                       Text(
-                                        "140,400 GR",
+                                        "140,400",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 14,
@@ -247,7 +283,7 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                                         ),
                                       ),
                                       Text(
-                                        "94,900 GR",
+                                        "94,900",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 14,
@@ -265,38 +301,12 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                       SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          CircleIconAltin(
-                            iconData: Icons.local_shipping,
-                            onPressed: () {},
-                          ),
-                          CircleIconAltin(
-                            iconData: Icons.print,
-                            onPressed: () {},
-                          ),
-                          CircleIconAltin(
-                            iconData: Icons.share,
-                            onPressed: () {},
-                          ),
-                          CircleIconAltin(
-                            iconData: Icons.copy_sharp,
-                            onPressed: () {},
-                          ),
-                          CircleIconAltin(
-                            iconData: Icons.more_vert,
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
                     ],
                   ),
                 ),
                 Container(
+                  width: screenWidth,
+                  height: screenHeight,
                   padding: EdgeInsets.symmetric(
                     horizontal: screenWidth * 0.05,
                     vertical: screenHeight * 0.01,
@@ -307,47 +317,50 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                   ),
                   child: Column(
                     children: [
-                      RectangleButtonWidget(
-                        icon: true,
-                        text: 'Ödeme Tahsil Et',
-                        route: TahsilatScreen(),
+                      Row(
+                        children: [
+                          CustomDropdownButton(
+                            items: tahsilatTuru,
+                            text: "Tahsilat Türü",
+                            findText: "Türü seçiniz",
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          CustomDropdownButton(
+                            items: stokGirisi,
+                            text: "Tahsilat Tipi",
+                            findText: "Tipi seçiniz",
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          CustomDropdownButton(
+                            items: kulceHas,
+                            text: "Tahsilat Seçimi",
+                            findText: "Birim Seçiniz",
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 15,
+                      const SizedBox(
+                        height: 10,
                       ),
-                      menu == 1
-                          ? UrunEkleBorderSaveAnimasyonsuzAltin(
-                              screenHeight: screenHeight,
-                              screenWidth: screenWidth,
-                              showInfo: true,
-                              baslik: "Bilezik ",
-                              baslik2: "22K",
-                              birim: '100 GR',
-                              fiyat: "916",
-                              iscilik: "İşçilik :",
-                              iscilikDegeri: "0,020",
-                              kur: "Kur :",
-                              kurDegeri: "₺0,00",
-                              araToplamFiyat: '91,960 GR',
-                              iscilikHesabi: "2,00 GR",
-                              miktar: "92,600 GR",
-                            )
-                          : UrunEkleBorderSaveAnimasyonsuzAltin(
-                              screenHeight: screenHeight,
-                              screenWidth: screenWidth,
-                              baslik: "Tekstil Hammadde",
-                              birim: '100 KG',
-                              fiyat: "25,00TL",
-                              iscilik: "KDV(%18)",
-                              iscilikDegeri: "25,00TL",
-                              kur: "EK VERGİ",
-                              kurDegeri: "₺0,00",
-                              araToplamFiyat: '₺20,00',
-                              iscilikHesabi: "₺20,00",
-                              miktar: "₺20,00",
-                            ),
-                      SizedBox(
-                        height: screenHeight * 0.15,
+                      Row(
+                        children: [
+                          TextFieldWidget(text: "Miktar*"),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          CustomDropdownButton(
+                            items: kulceHasBrim,
+                            text: "Birim*",
+                            findText: "Tipi seçiniz",
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          TextFieldWidget(text: "Milyem*"),
+                        ],
                       ),
                     ],
                   ),
@@ -355,7 +368,10 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
               ],
             ),
           ),
-          SlidingPanel(),
+          SlidingPanel(
+            text1: false,
+            button: true,
+          ),
         ],
       ),
       resizeToAvoidBottomInset: false,

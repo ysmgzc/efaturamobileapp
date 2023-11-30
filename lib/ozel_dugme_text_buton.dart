@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 
 class OzelDugme extends StatelessWidget {
@@ -16,7 +17,7 @@ class OzelDugme extends StatelessWidget {
     required this.keyboardType,
     required this.onEkle,
     required this.hintText,
-  }): super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class OzelDugme extends StatelessWidget {
               return AlertDialog(
                 title: Text(
                   baslik,
-                  style:const TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -47,26 +48,26 @@ class OzelDugme extends StatelessWidget {
                   children: [
                     Text(
                       aciklama,
-                      style:const TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 16,
                       ),
                     ),
-                  const  SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     TextField(
                       controller: controller,
                       keyboardType: keyboardType,
                       decoration: InputDecoration(
                         hintText: hintText,
-                        hintStyle:const TextStyle(
+                        hintStyle: const TextStyle(
                           color: Colors.grey,
                           fontSize: 14,
                           fontWeight: FontWeight.w300,
                         ),
-                        focusedBorder:const UnderlineInputBorder(
+                        focusedBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
                         ),
-                        enabledBorder:const UnderlineInputBorder(
+                        enabledBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue),
                         ),
                       ),
@@ -79,7 +80,7 @@ class OzelDugme extends StatelessWidget {
                       onEkle(controller.text);
                       Navigator.of(context).pop();
                     },
-                    child:const Text(
+                    child: const Text(
                       'EKLE',
                       style: TextStyle(
                         color: Colors.blue,
@@ -96,7 +97,7 @@ class OzelDugme extends StatelessWidget {
           elevation: MaterialStateProperty.all(0),
           backgroundColor: MaterialStateProperty.all(Colors.transparent),
           padding: MaterialStateProperty.all(EdgeInsets.zero),
-          textStyle: MaterialStateProperty.all( const  TextStyle(
+          textStyle: MaterialStateProperty.all(const TextStyle(
             color: Colors.black,
             fontSize: 16.0,
             decoration: TextDecoration.none,
@@ -105,8 +106,8 @@ class OzelDugme extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-           const CircleAvatar(
-              backgroundColor: Colors.green,
+            const CircleAvatar(
+              backgroundColor: color6,
               radius: 10.0,
               child: Icon(
                 Icons.add,
@@ -114,10 +115,10 @@ class OzelDugme extends StatelessWidget {
                 size: 15.0,
               ),
             ),
-          const  SizedBox(width: 10.0),
+            const SizedBox(width: 10.0),
             Text(
               metin,
-              style:const TextStyle(color: Colors.blue),
+              style: const TextStyle(color: Colors.blue),
             ),
           ],
         ),

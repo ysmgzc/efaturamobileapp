@@ -1,4 +1,6 @@
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:efaturamobileapp/satislar/satis_makbuz/satis_makbuz_faturasi_save.dart';
 import 'package:efaturamobileapp/satislar/satis_makbuz/secenekler/satismakbuzdetayliarama.dart';
@@ -124,14 +126,15 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   children: [
                     ContainerWidget(
                       tedarikciAdi: 'Personel Ahmet Usta',
                       tedarikciNo: '0000000000001',
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
-                      page: SatisMakbuzFaturasi(),
+                      page: FormScreenSaveAltin(
+                          appBarBaslik: 'Serbest Meslek Makbuzu'),
                     ),
                   ],
                 ),
@@ -147,13 +150,14 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
           childrenData: [
             SpeedDialData(
               label: '',
-              route: FormScreenEkle(
+              route: FormScreenEkleAltin(
                   appBarBaslik: 'Serbest Meslek Makbuzu',
                   personImageBorderMetin: ''),
             ),
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

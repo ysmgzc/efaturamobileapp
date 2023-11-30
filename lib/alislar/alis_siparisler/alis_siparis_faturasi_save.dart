@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/secenek_buton.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:flutter/material.dart';
@@ -297,3 +297,4 @@ class _AlisSiparisFaturasiSaveState extends State<AlisSiparisFaturasiSave> {
     );
   }
 }
+*/

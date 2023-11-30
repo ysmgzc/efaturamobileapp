@@ -1,6 +1,7 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/data/urun_hizmet_model.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/islemler/urun_ekle_border_save_animasyonsuz_altin.dart';
 import 'package:efaturamobileapp/person_image_border_save.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
@@ -154,11 +155,8 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                               text: "Müşteri Ekle",
                               assetPath: 'assets/icons/personicon.png',
                             )
-                          : PersonImageBorderSave(
-                              screenHeight: screenHeight,
-                              screenWidth: screenWidth,
-                              text: widget.personImageBorderMetin,
-                              assetPath: 'assets/icons/personicon.png',
+                          : FormScreenSaveAltin(
+                              appBarBaslik: '${widget.appBarBaslik} Faturası',
                             ),
                     ),
                     secim == 0
@@ -225,7 +223,7 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
                                 borderRadius: BorderRadius.circular(20))),
                         child: Text(
                           "Vadesi geçen 182 gün",
-                          style: TextStyle(fontSize: 11),
+                          style: TextStyle(fontSize: 9),
                         ),
                       ),
                     ),
@@ -839,3 +837,4 @@ class _FormScreenEkleState extends State<FormScreenEkle> {
     );
   }
 }
+*/

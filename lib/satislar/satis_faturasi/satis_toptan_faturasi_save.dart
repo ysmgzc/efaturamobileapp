@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/person_image_border_save.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
@@ -377,3 +377,4 @@ class _SatisToptanFaturasiSaveState extends State<SatisToptanFaturasiSave> {
     );
   }
 }
+*/

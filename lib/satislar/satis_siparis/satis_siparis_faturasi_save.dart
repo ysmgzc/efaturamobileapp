@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/constants.dart';
+/*import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/person_image_border_save.dart';
 import 'package:efaturamobileapp/secenek_buton.dart';
@@ -314,3 +314,4 @@ class _SatisSiparisFaturasiSaveState extends State<SatisSiparisFaturasiSave> {
     );
   }
 }
+*/

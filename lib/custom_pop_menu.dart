@@ -81,7 +81,7 @@ class _CustomPopMenuWidgetState extends State<CustomPopMenuWidget> {
                           child: Text(
                             selectedValue ?? "18",
                             style: const TextStyle(
-                                fontSize: 16, color: Colors.black),
+                                fontSize: 12, color: Colors.black),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),

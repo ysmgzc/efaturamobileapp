@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
+import 'package:efaturamobileapp/islemler/altin/tahsilat%20_ekle_altin.dart';
 import 'package:efaturamobileapp/islemler/altin/urun_ekle_altin_girisi.dart';
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tahsilat_ekle.dart';
@@ -108,11 +109,12 @@ class _TahsilatScreenState extends State<TahsilatScreen> {
             ),
             SpeedDialData(
               label: 'Yeni Tahsilat',
-              route: const TahsilatEkle(),
+              route: TahsilatEkleAltin(),
             ),
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -88,7 +88,10 @@ class DrawerBar extends StatelessWidget {
                 ),
 
                 //-------------------------------------------------
-                const SearchField(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: const SearchField(),
+                ),
 
                 CustomListTile(
                   icon: SizedBox(

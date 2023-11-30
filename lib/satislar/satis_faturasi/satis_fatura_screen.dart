@@ -1,5 +1,7 @@
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/satislar/satis_faturasi/satis_perakende_faturasi_save.dart';
 import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:efaturamobileapp/satislar/satis_faturasi/satis_toptan_faturasi_save.dart';
@@ -134,7 +136,7 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   children: [
                     ContainerWidget(
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
@@ -142,16 +144,8 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
                       durumu: 'Perakende Satış Faturası',
                       tarih: '24 Nisan',
                       paraBirimi: '₺1000',
-                      page: SatisPerakendeFaturasiSave(),
-                    ),
-                    Divider(),
-                    ContainerWidget(
-                      tedarikciAdi: 'Deneme Satış Ltd. Şti.',
-                      tedarikciNo: '000000000000001',
-                      durumu: 'Toptan Satış Faturası',
-                      tarih: '24 Nisan',
-                      paraBirimi: '₺1000',
-                      page: SatisToptanFaturasiSave(),
+                      page: FormScreenSaveAltin(
+                          appBarBaslik: 'Perakende Satış Faturası (KDV Dahil)'),
                     ),
                   ],
                 ),
@@ -169,18 +163,19 @@ class _SatisFaturalarScreenState extends State<SatisFaturalarScreen> {
         childrenData: [
           SpeedDialData(
             label: 'Toptan Satış\n(KDV Hariç)',
-            route: FormScreenEkle(
+            route: FormScreenEkleAltin(
                 appBarBaslik: 'Toptan Satış (KDV Hariç)',
                 personImageBorderMetin: ""),
           ),
           SpeedDialData(
             label: 'Perakende Satış\n(KDV Dahil)',
-            route: FormScreenEkle(
+            route: FormScreenEkleAltin(
                 appBarBaslik: 'Perakende Satış (KDV Dahil)',
                 personImageBorderMetin: ""),
           ),
         ],
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

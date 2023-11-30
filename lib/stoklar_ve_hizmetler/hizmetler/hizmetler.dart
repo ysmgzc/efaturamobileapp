@@ -357,6 +357,7 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -420,7 +421,7 @@ class UrunlerHizmetlerWidget extends StatelessWidget {
               _buildColumn(
                   "STOK / KDV", Colors.blue, [kdvsizText, kdvsizTextYuzde]),
               _buildColumn("ALIŞ", color2, [kdvsizAlisText]),
-              _buildColumn("SATIŞ", Colors.green, [kdvsizSatisText]),
+              _buildColumn("SATIŞ", color6, [kdvsizSatisText]),
             ],
           ),
           const SizedBox(height: 20),

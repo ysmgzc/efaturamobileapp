@@ -3,7 +3,6 @@ import 'package:efaturamobileapp/indirim_widget.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmet_ekle.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
-import 'package:efaturamobileapp/toplam_tutar.dart';
 import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

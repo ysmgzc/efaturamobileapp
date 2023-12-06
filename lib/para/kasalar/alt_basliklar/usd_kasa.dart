@@ -18,17 +18,10 @@ class _USDKasaScreenState extends State<USDKasaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        //elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        centerTitle: true,
         title: const Text(
           ' USD KASASI',
-          style: TextStyle(color: Colors.black),
         ),
-        iconTheme: const IconThemeData(color: Colors.black),
       ),
       backgroundColor: Colors.white,
       body: const SingleChildScrollView(

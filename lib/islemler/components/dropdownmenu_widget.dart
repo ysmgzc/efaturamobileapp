@@ -14,7 +14,7 @@ class CustomDropdownButton extends StatefulWidget {
     required this.text,
     required this.findText,
     this.width = 0.29,
-    this.height = 0.07,
+    this.height = 0.073,
   });
 
   @override
@@ -47,7 +47,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 widget.text,
                 style: TextStyle(
                   fontSize: 10,
-                  color: Theme.of(context).hintColor,
+                  color: color6,
                 ),
               ),
               items: widget.items
@@ -55,9 +55,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                         value: item,
                         child: Text(
                           item,
-                          style: const TextStyle(
-                            fontSize: 14,
-                          ),
+                          style: const TextStyle(fontSize: 14, color: color6),
                         ),
                       ))
                   .toList(),
@@ -68,9 +66,6 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 });
               },
               buttonStyleData: ButtonStyleData(
-                padding: EdgeInsets.symmetric(horizontal: 5),
-                height: 40,
-                width: 200,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
@@ -78,6 +73,10 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                   ),
                   color: color8,
                 ),
+              ),
+              iconStyleData: const IconStyleData(
+                iconEnabledColor: color6,
+                iconDisabledColor: color6,
               ),
               dropdownStyleData: const DropdownStyleData(
                 maxHeight: 200,
@@ -101,15 +100,22 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                     maxLines: null,
                     controller: textEditingController,
                     decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(
+                          color: color6,
+                        ),
+                      ),
                       isDense: true,
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 10,
                         vertical: 8,
                       ),
                       hintText: widget.findText,
-                      hintStyle: const TextStyle(fontSize: 12),
+                      hintStyle: const TextStyle(fontSize: 12, color: color6),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: color6),
                       ),
                     ),
                   ),

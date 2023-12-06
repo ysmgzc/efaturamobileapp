@@ -20,15 +20,9 @@ class _RaporlarScreenState extends State<RaporlarScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Raporlar',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       body: SingleChildScrollView(

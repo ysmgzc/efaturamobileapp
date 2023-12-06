@@ -18,11 +18,8 @@ class _YetkiliKisiEkleScreenState extends State<YetkiliKisiEkleScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor:const Color(0xff8FAD4B),
+        backgroundColor: const Color(0xff8FAD4B),
         title: const Text('Yetkili Kişi Ekle'),
-        automaticallyImplyLeading: false, 
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -41,7 +38,8 @@ class _YetkiliKisiEkleScreenState extends State<YetkiliKisiEkleScreen> {
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
-                    child: Image.asset('assets/icons/drawericon/musteritedarikciicon.png'),
+                    child: Image.asset(
+                        'assets/icons/drawericon/musteritedarikciicon.png'),
                   ),
                 ),
                 Container(
@@ -49,7 +47,8 @@ class _YetkiliKisiEkleScreenState extends State<YetkiliKisiEkleScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Ad Soyad', style: TextStyle(color: Colors.white, fontSize: 14)),
+                      const Text('Ad Soyad',
+                          style: TextStyle(color: Colors.white, fontSize: 14)),
                       const SizedBox(height: 8),
                       SizedBox(
                         width: screenWidth * 0.8,
@@ -63,7 +62,8 @@ class _YetkiliKisiEkleScreenState extends State<YetkiliKisiEkleScreen> {
                               borderRadius: BorderRadius.circular(15),
                               borderSide: BorderSide.none,
                             ),
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 12),
                           ),
                         ),
                       ),
@@ -89,13 +89,17 @@ class _YetkiliKisiEkleScreenState extends State<YetkiliKisiEkleScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Divider(),
-                    const Text('TELEFON', style: TextStyle(color: yTextColor, fontSize: 14)),
+                    const Text('TELEFON',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
                     const SizedBox(height: 8),
-                    TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
+                    TextFieldDecoration(
+                        screenWidth: screenWidth, screenHeight: screenHeight),
                     const Divider(),
-                    const Text('E-POSTA', style: TextStyle(color: yTextColor, fontSize: 14)),
+                    const Text('E-POSTA',
+                        style: TextStyle(color: yTextColor, fontSize: 14)),
                     const SizedBox(height: 8),
-                    TextFieldDecoration(screenWidth: screenWidth, screenHeight: screenHeight),
+                    TextFieldDecoration(
+                        screenWidth: screenWidth, screenHeight: screenHeight),
                   ],
                 ),
               ],
@@ -103,13 +107,12 @@ class _YetkiliKisiEkleScreenState extends State<YetkiliKisiEkleScreen> {
           ),
         ]),
       ),
-      
-     bottomNavigationBar: BottomAppBarDesign(
+      bottomNavigationBar: BottomAppBarDesign(
         onSaveButtonPressed: () {},
-        saveButtonBackgroundColor:const Color(0xff8FAD4B),
+        saveButtonBackgroundColor: const Color(0xff8FAD4B),
         onDeleteButtonPressed: () {},
-        // saveButtonFlex: 3, 
-          ),
+        // saveButtonFlex: 3,
+      ),
     );
   }
 }

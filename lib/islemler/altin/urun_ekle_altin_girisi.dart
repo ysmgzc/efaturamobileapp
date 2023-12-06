@@ -1,4 +1,8 @@
 import 'package:efaturamobileapp/indirim_widget.dart';
+import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
+import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
+import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
 import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:flutter/material.dart';
 import '../../../active_switch.dart';
@@ -69,247 +73,169 @@ class _UrunEkleAltinGirisiState extends State<UrunEkleAltinGirisi> {
     ];
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        centerTitle: true,
         title: const Text(
           'Ürün Ekle (Altın) Girişi',
-          style: TextStyle(color: Colors.black),
         ),
+        actions: [
+          CircleIconAltin(
+            iconData: 'assets/icons/newicon/delete.png',
+            iconpadding: 8,
+            iconColor: color8,
+            color: color6,
+            onPressed: () {},
+          ),
+          CircleIconAltin(
+            iconData: Icons.edit,
+            iconColor: color8,
+            color: color6,
+            onPressed: () {},
+          ),
+        ],
       ),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-            vertical: screenHeight * 0.01,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomPopMenuWidget(
-                width: screenWidth * 0.9,
-                title: "ÜRÜN SEÇ",
-                menuWidth: screenWidth * 0.9,
-                selectedValue: "Ürün1",
-                items: items,
-                menuItemsWidth: screenWidth * 0.9,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.05,
+                vertical: screenHeight * 0.01,
               ),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('ÜRÜN AÇIKLAMASI',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          widthFactor: 0.6,
-                          screenHeight: screenHeight,
-                          heightFactor: 0.07,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(' KUR',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          controller: kurController,
-                          screenWidth: screenWidth,
-                          widthFactor: 0.3,
-                          screenHeight: screenHeight,
-                          heightFactor: 0.07,
-                          onChanged: (value) {
-                            setState(() {
-                              showDiscountAndTaxButtons = value.isNotEmpty;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('MİKTAR *',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          widthFactor: 0.3,
-                          screenHeight: screenHeight,
-                          heightFactor: 0.07,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 15),
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.25,
-                    title: "BİRİM",
-                    menuWidth: screenWidth * 0.25,
-                    selectedValue: "Gram (gr)",
-                    items: items4,
-                    menuItemsWidth: screenWidth * 0.25,
-                  ),
-                  const SizedBox(width: 15),
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.25,
-                    title: "MİLYEM",
-                    menuWidth: screenWidth * 0.25,
-                    selectedValue: "333",
-                    items: items2,
-                    menuItemsWidth: screenWidth * 0.25,
-                  ),
-                ],
-              ),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.25,
-                    title: "İŞÇİLİK TİPİ",
-                    menuWidth: screenWidth * 0.25,
-                    selectedValue: "Oransal",
-                    items: items3,
-                    menuItemsWidth: screenWidth * 0.25,
-                  ),
-                  const SizedBox(width: 15),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('ORAN & TUTAR',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          widthFactor: 0.3,
-                          screenHeight: screenHeight,
-                          heightFactor: 0.07,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 15),
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.25,
-                    title: "TUTAR PARA BİRİM",
-                    menuWidth: screenWidth * 0.25,
-                    selectedValue: "TL",
-                    items: items1,
-                    menuItemsWidth: screenWidth * 0.25,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (showDiscountAndTaxButtons)
-                    IndirimWidget(
-                      buttonText: 'İndirim',
-                      dialogTitle: 'İndirim',
-                      option1Text: 'Tutar (TL)',
-                      option2Text: 'Oran',
-                      icon: Icons.add_circle,
-                    ),
-                  if (showDiscountAndTaxButtons)
-                    IndirimWidget(
-                      buttonText: 'Vergiler',
-                      dialogTitle: 'Vergi',
-                      option1Text: 'Tutar (TL)',
-                      option2Text: 'Oran',
-                      icon: Icons.add_circle,
-                    ),
-                ],
-              ),
-              const Divider(),
-              const SizedBox(height: 15),
-              const Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: ToplamTutarSave(
-                  textLabels: [
-                    'Toplam İşçilik Tutarı:',
-                    'Toplam Miktar:',
-                    'Hesaplanan Vergiler:',
-                    'Vergiler Dahil Toplam:',
-                    'Etiket / Açıklamalar:',
-                    'Notlar:',
-                  ],
-                  textValues: [
-                    '₺0.00',
-                    '₺0.00',
-                    '₺0.00',
-                    '₺0.00',
-                    '',
-                    '',
-                  ],
-                  showHeader: false,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Row(
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: const Column(
-                        children: [
-                          Text(
-                            'Vergiler Dahil Tutar',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
+                  CustomDropdownButton(
+                    width: screenWidth * 0.9,
+                    items: items,
+                    text: "Ürün Seç",
+                    findText: "Ürün Ara",
+                  ),
+                  const Divider(),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextFieldWidget(
+                              text: "Ürün Açıklaması",
+                              widthFactor: 0.5,
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        alignment: Alignment.centerRight,
-                        child: ActiveSwitch(
-                          onChanged: (bool value) {},
+                          ],
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextFieldWidget(
+                              text: "Kur",
+                              widthFactor: 0.3,
+                              onChanged: (value) {
+                                setState(() {
+                                  showDiscountAndTaxButtons = value.isNotEmpty;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Divider(),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextFieldWidget(
+                              text: "Kur",
+                              widthFactor: 0.25,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      CustomDropdownButton(
+                        items: items4,
+                        text: "Birim",
+                        findText: "Birim Ara",
+                      ),
+                      const SizedBox(width: 12),
+                      CustomDropdownButton(
+                        items: items2,
+                        text: "Milyem",
+                        findText: "Milyem Ara",
+                      ),
+                    ],
+                  ),
+                  const Divider(),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      CustomDropdownButton(
+                        items: items3,
+                        text: "İşçilik Tipi",
+                        findText: "Milyem Ara",
+                      ),
+                      const SizedBox(width: 12),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextFieldWidget(
+                              text: "Oran & Tutar",
+                              widthFactor: 0.25,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      CustomDropdownButton(
+                        items: items1,
+                        text: "Tutar Para Birimi",
+                        findText: "Ara",
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (showDiscountAndTaxButtons)
+                        IndirimWidget(
+                          buttonText: 'İndirim',
+                          dialogTitle: 'İndirim',
+                          option1Text: 'Tutar (TL)',
+                          option2Text: 'Oran',
+                          icon: Icons.add_circle,
+                        ),
+                      if (showDiscountAndTaxButtons)
+                        IndirimWidget(
+                          buttonText: 'Vergiler',
+                          dialogTitle: 'Vergi',
+                          option1Text: 'Tutar (TL)',
+                          option2Text: 'Oran',
+                          icon: Icons.add_circle,
+                        ),
+                    ],
+                  ),
+                  SizedBox(height: screenHeight * 0.2),
+                ],
               ),
-              const SizedBox(height: 18),
-            ],
+            ),
           ),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBarDesign(
-        onSaveButtonPressed: () {},
-        saveButtonBackgroundColor: const Color(0xffD9B26D),
-        saveButtonText: "+EKLE",
+          SlidingPanel(),
+        ],
       ),
     );
   }

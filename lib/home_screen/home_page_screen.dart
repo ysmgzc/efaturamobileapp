@@ -19,13 +19,8 @@ class HomePageScreen extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           "E-Fatura",
-          style: TextStyle(color: Colors.black),
         ),
       ),
       body: SingleChildScrollView(

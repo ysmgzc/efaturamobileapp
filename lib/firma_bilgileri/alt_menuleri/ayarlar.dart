@@ -28,14 +28,8 @@ class _AyarlarScreenState extends State<AyarlarScreen> {
     ];
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Ayarlar',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       body: Container(

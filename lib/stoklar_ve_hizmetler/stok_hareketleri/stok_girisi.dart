@@ -1,4 +1,9 @@
 import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
+import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
+import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
+import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_screen.dart';
 import 'package:efaturamobileapp/toplam_tutar_save.dart';
@@ -50,197 +55,103 @@ class _StokGirisiEkleState extends State<StokGirisiEkle> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: const Text(
-          'Stok Girişi',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
+          title: const Text(
+            'Stok Girişi',
+          ),
+          actions: [
+            CircleIconAltin(
+              iconData: 'assets/icons/newicon/delete.png',
+              iconpadding: 8,
+              iconColor: color8,
+              color: color6,
+              onPressed: () {},
+            ),
+            CircleIconAltin(
+              iconData: Icons.edit,
+              iconColor: color8,
+              color: color6,
+              onPressed: () {},
+            ),
+          ]),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-            vertical: screenHeight * 0.01,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomPopMenuWidget(
-                width: screenWidth * 0.9,
-                title: "HAREKET TİPİ",
-                menuWidth: screenWidth * 0.9,
-                selectedValue: "Giriş Fişi",
-                items: items,
-                menuItemsWidth: screenWidth * 0.9,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.05,
+                vertical: screenHeight * 0.01,
               ),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('BELGE NO',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          widthFactor: 0.42,
-                        ),
-                      ],
-                    ),
+                  CustomDropdownButton(
+                    items: items,
+                    text: "Hareket Tipi",
+                    findText: "Ara",
+                    width: 0.9,
                   ),
-                  const SizedBox(height: 2),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('TARİH',
-                              style:
-                                  TextStyle(color: yTextColor, fontSize: 14)),
-                          const SizedBox(height: 8),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.grey.shade200,
-                                    Colors.grey.shade100,
-                                    Colors.grey.shade50,
-                                    Colors.white70,
-                                  ],
-                                ),
-                              ),
-                              child: GestureDetector(
-                                onTap: () async {
-                                  final DateTime? pickedDate =
-                                      await showDatePicker(
-                                    context: context,
-                                    initialDate: DateTime.now(),
-                                    firstDate: DateTime(2000),
-                                    lastDate: DateTime.now(),
-                                  );
-
-                                  if (pickedDate != null) {
-                                    setState(() {
-                                      dateInput.text = DateFormat('dd/MM/yyyy')
-                                          .format(pickedDate);
-                                    });
-                                  }
-                                },
-                                child: SizedBox(
-                                  width: screenWidth * 0.40,
-                                  height: screenHeight * 0.07,
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      dateInput.text.isNotEmpty
-                                          ? dateInput.text
-                                          : DateFormat('  dd/MM/yyyy')
-                                              .format(DateTime.now()),
-                                      style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                  const Divider(),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextFieldWidget(
+                              text: "Belge No",
+                              widthFactor: 0.42,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
+                      const SizedBox(height: 2),
+                      CustomDatePickerAltin(
+                        labelText: "Tarih ",
+                        width: 0.4,
+                      ),
+                    ],
                   ),
+                  const Divider(),
+                  CustomDropdownButton(
+                    items: items1,
+                    text: "Para Birimi",
+                    findText: "Birimi Ara",
+                    width: 0.9,
+                  ),
+                  const Divider(),
+                  TextFieldWidget(
+                    text: "Kategori",
+                    widthFactor: 0.9,
+                  ),
+                  const SizedBox(height: 8),
+                  const Divider(),
+                  const SizedBox(height: 8),
+                  TextFieldWidget(
+                    text: "Açıklama",
+                    widthFactor: 0.9,
+                  ),
+                  const SizedBox(height: 8),
+                  const Divider(),
+                  UrunEkleBorder(
+                    screenHeight: screenHeight,
+                    screenWidth: screenWidth,
+                    route: const UrunlerScreen(),
+                    text: "Ürünler",
+                  ),
+                  const SizedBox(height: 8),
+                  const SizedBox(height: 8),
+                  const Divider(),
+                  SizedBox(height: screenHeight * 0.2),
                 ],
               ),
-              const Divider(),
-              CustomPopMenuWidget(
-                width: screenWidth * 0.9,
-                title: "PARA BİRİMİ",
-                menuWidth: screenWidth * 0.9,
-                selectedValue: "TL",
-                items: items1,
-                menuItemsWidth: screenWidth * 0.9,
-              ),
-              const Divider(),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('KATEGORİ',
-                        style: TextStyle(color: yTextColor, fontSize: 14)),
-                    const SizedBox(height: 8),
-                    TextFieldDecoration(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 8),
-              const Divider(),
-              const SizedBox(height: 8),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('AÇIKLAMA',
-                        style: TextStyle(color: yTextColor, fontSize: 14)),
-                    const SizedBox(height: 8),
-                    TextFieldDecoration(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
-                      heightFactor: 0.14,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 8),
-              const Divider(),
-              UrunEkleBorder(
-                screenHeight: screenHeight,
-                screenWidth: screenWidth,
-                route: const UrunlerScreen(),
-                text: "Ürünler",
-              ),
-              const SizedBox(height: 8),
-              const SizedBox(height: 8),
-              const Divider(),
-              const SizedBox(height: 8),
-              const Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 30),
-                    child: ToplamTutarSave(
-                      textLabels: [
-                        'Toplam:',
-                      ],
-                      textValues: [
-                        '₺0.00',
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 18),
-            ],
+            ),
           ),
-        ),
+          SlidingPanel(),
+        ],
       ),
     );
   }

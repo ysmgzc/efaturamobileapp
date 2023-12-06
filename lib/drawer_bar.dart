@@ -1,13 +1,13 @@
 import 'package:efaturamobileapp/alislar/alis_faturasi/alis_fatura_screen.dart';
 import 'package:efaturamobileapp/alislar/alis_makbuz/alis_makbuz_screen.dart';
 import 'package:efaturamobileapp/alislar/alis_siparisler/alis_siparisler_screen.dart';
+import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
 import 'package:efaturamobileapp/raporlar/rapor_ozeti_screen.dart';
 import 'package:efaturamobileapp/screens/destek_screen.dart';
 import 'package:efaturamobileapp/entegrasyonlar/entegrasyon_screen.dart';
 import 'package:efaturamobileapp/firma_bilgileri/firma_bilgileri_screen.dart';
 import 'package:efaturamobileapp/interaktif_vergi_dairesi/interaktif_vergi_dairesi_screen.dart';
 import 'package:efaturamobileapp/screens/login_screen.dart';
-import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urunler_screen_altin.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/verileri_disa_aktar_screen.dart';
 import 'package:efaturamobileapp/search_field.dart';
@@ -126,154 +126,196 @@ class DrawerBar extends StatelessWidget {
                         title: Text('Altın', style: kListTileSize),
                         children: <Widget>[
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {
-                                Get.to(UrunEkle()); //sil sonra
-                              },
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(appBarBaslik: "Altın Girişi"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'Altın Girişi',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route:
-                                AltinFormScreen(appBarBaslik: "Altın Girişi"),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'Altın Girişi',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(appBarBaslik: "Altın Çıkışı"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'Altın Çıkışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route:
-                                AltinFormScreen(appBarBaslik: "Altın Çıkışı"),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'Altın Çıkışı',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(appBarBaslik: "Altın Alışı"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'Altın Alışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinFormScreen(
-                              appBarBaslik: 'Altın Alışı',
-                            ),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'Altın Alışı',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(appBarBaslik: "Altın Satışı"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'Altın Satışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinFormScreen(
-                              appBarBaslik: 'Altın Satışı',
-                            ),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'Altın Satışı',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(
+                                    appBarBaslik: "Bedelli Altın Girişi"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'Bedelli Altın Girişi',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinFormScreen(
-                              appBarBaslik: 'Bedelli Altın Girişi',
-                            ),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'Bedelli Altın Girişi',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(
+                                    appBarBaslik: "Bedelli Altın Çıkışı"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'Bedelli Altın Çıkışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinFormScreen(
-                              appBarBaslik: 'Bedelli Altın Çıkışı',
-                            ),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'Bedelli Altın Çıkışı',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(appBarBaslik: "Gelen İade"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'Gelen İade',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinFormScreen(
-                              appBarBaslik: 'Gelen İade',
-                            ),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'Gelen İade',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(appBarBaslik: "Çıkan İade"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'Çıkan İade',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinFormScreen(
-                              appBarBaslik: 'Çıkan İade',
-                            ),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'Çıkan İade',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(appBarBaslik: "İşçilik Girişi"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'İşçilik Girişi',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinFormScreen(
-                              appBarBaslik: 'İşçilik Girişi',
-                            ),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'İşçilik Girişi',
+                                personImageBorderMetin: ""),
                           ),
                           CustomListTile(
-                            icon: IconButton(
-                              icon: Icon(
-                                Icons.history,
-                                size: 30,
-                              ),
-                              onPressed: () {},
+                            icon: Image.asset(
+                              'assets/icons/drawericon/historyicon.png',
+                              width: 30.0,
+                              height: 30.0,
                             ),
+                            onIconTap: () {
+                              Get.to(
+                                AltinFormScreen(appBarBaslik: "İşçilik Çıkışı"),
+                              );
+                            },
+                            iconButton: true,
                             title: 'İşçilik Çıkışı',
                             titleStyle: kListTileSize,
                             backgroundColor: Colors.grey.shade50,
-                            route: AltinFormScreen(
-                              appBarBaslik: 'İşçilik Çıkışı',
-                            ),
+                            route: FormScreenEkleAltin(
+                                appBarBaslik: 'İşçilik Çıkışı',
+                                personImageBorderMetin: ""),
                           ),
                         ],
                       ),
@@ -955,6 +997,77 @@ class CustomListTile extends StatelessWidget {
     this.enablePadding = true,
     this.backgroundColor = Colors.white,
     this.children,
+    this.iconButton = false, // Yeni eklenen özellik: iconButton parametresi
+    this.onIconTap, // Yeni eklenen özellik: IconButton'a tıklama işlevi
+  }) : super(key: key);
+
+  final Widget icon;
+  final String title;
+  final TextStyle titleStyle;
+  final Widget? route;
+  final bool enablePadding;
+  final Color backgroundColor;
+  final List<Widget>? children;
+  final bool iconButton; // Yeni eklenen özellik: iconButton parametresi
+  final VoidCallback?
+      onIconTap; // Yeni eklenen özellik: IconButton'a tıklama işlevi
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: backgroundColor,
+      child: Padding(
+        padding:
+            enablePadding ? const EdgeInsets.only(left: 25) : EdgeInsets.zero,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ListTile(
+              title: Row(
+                children: [
+                  if (iconButton)
+                    IconButton(
+                      icon: icon,
+                      onPressed: onIconTap,
+                    ),
+                  if (!iconButton)
+                    SizedBox(
+                      width: 30.0,
+                      height: 30.0,
+                      child: icon,
+                    ),
+                  SizedBox(width: 16),
+                  Text(
+                    title,
+                    style: titleStyle,
+                  ),
+                ],
+              ),
+              onTap: () {
+                if (route != null) {
+                  Get.to(route!);
+                }
+              },
+            ),
+            if (children != null) ...children!,
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+/*class CustomListTile extends StatelessWidget {
+  const CustomListTile({
+    Key? key,
+    required this.icon,
+    required this.title,
+    required this.titleStyle,
+    this.route,
+    this.enablePadding = true,
+    this.backgroundColor = Colors.white,
+    this.children,
   }) : super(key: key);
 
   final Widget icon;
@@ -998,3 +1111,4 @@ class CustomListTile extends StatelessWidget {
     );
   }
 }
+*/

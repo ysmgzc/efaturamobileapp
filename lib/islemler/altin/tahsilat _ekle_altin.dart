@@ -1,6 +1,6 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
-import 'package:efaturamobileapp/islemler/altin/tahsilat_screen.dart';
+import 'package:efaturamobileapp/islemler/altin/tahsilat_sec_screen.dart';
 import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
@@ -95,15 +95,9 @@ class _TahsilatEkleAltinState extends State<TahsilatEkleAltin> {
 
     return Scaffold(
       appBar: AppBar(
-        actionsIconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        //shadowColor: Colors.transparent,
-        backgroundColor: color4,
-        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           "Atasay Ltd. Şti",
           //  widget.appBarBaslik,
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           if (showDoneIcon)
@@ -362,6 +356,7 @@ class _TahsilatEkleAltinState extends State<TahsilatEkleAltin> {
                           TextFieldWidget(text: "Milyem*"),
                         ],
                       ),
+                      SizedBox(height: screenHeight * 0.2),
                     ],
                   ),
                 ),

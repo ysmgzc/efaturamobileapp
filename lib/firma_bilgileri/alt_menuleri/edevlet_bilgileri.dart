@@ -1,4 +1,3 @@
-
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +13,8 @@ class _EDevletBilgileriScreenState extends State<EDevletBilgileriScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme:const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-         elevation: 0,
-        centerTitle: true,
-        automaticallyImplyLeading: false, 
         title: const Text(
-          'E-Devlet Bilgileri', style: TextStyle(color: Colors.black),
+          'E-Devlet Bilgileri',
         ),
       ),
       body: Column(
@@ -31,7 +25,6 @@ class _EDevletBilgileriScreenState extends State<EDevletBilgileriScreen> {
           const SearchField(),
         ],
       ),
-     
     );
   }
 }

@@ -18,17 +18,10 @@ class _EURKasaScreenState extends State<EURKasaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        //elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        centerTitle: true,
         title: const Text(
           ' EUR KASASI',
-          style: TextStyle(color: Colors.black),
         ),
-        iconTheme: const IconThemeData(color: Colors.black),
       ),
       backgroundColor: Colors.white,
       body: const SingleChildScrollView(

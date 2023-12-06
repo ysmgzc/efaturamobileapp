@@ -44,13 +44,8 @@ class _DetayliAramaScreenState extends State<DetayliAramaScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Detaylı Arama',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       body: SingleChildScrollView(

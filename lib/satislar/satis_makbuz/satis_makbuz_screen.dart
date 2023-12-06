@@ -25,16 +25,10 @@ class _SatisMakbuzScreenState extends State<SatisMakbuzScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: const DrawerBar(),
       //bottomNavigationBar:const BottomNavBar(selectedMenu: MenuState.home),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Verilen Serbest Meslek Makbuzu',
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CustomIconButton(

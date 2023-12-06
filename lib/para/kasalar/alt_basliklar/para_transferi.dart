@@ -47,14 +47,8 @@ class _ParaTransferiEkleState extends State<ParaTransferiEkle> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         title: const Text(
           'Para Transferi',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       backgroundColor: Colors.white,

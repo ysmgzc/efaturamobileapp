@@ -4,8 +4,15 @@ import 'package:intl/intl.dart';
 
 class CustomDatePickerAltin extends StatefulWidget {
   final String? labelText;
+  final double width;
+  final double height;
 
-  const CustomDatePickerAltin({Key? key, this.labelText}) : super(key: key);
+  const CustomDatePickerAltin({
+    Key? key,
+    this.labelText,
+    this.width = 0.42,
+    this.height = 0.07,
+  }) : super(key: key);
 
   @override
   _CustomDatePickerAltinState createState() => _CustomDatePickerAltinState();
@@ -37,8 +44,8 @@ class _CustomDatePickerAltinState extends State<CustomDatePickerAltin> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.42,
-      height: MediaQuery.of(context).size.height * 0.07,
+      width: MediaQuery.of(context).size.width * widget.width,
+      height: MediaQuery.of(context).size.height * widget.height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: color6),

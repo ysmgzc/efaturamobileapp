@@ -82,10 +82,8 @@ class _UrunEkleState extends State<UrunEkle> {
     ];
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         backgroundColor: const Color(0xffD9B26D),
         title: const Text('Ürün Ekle'),
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(children: [

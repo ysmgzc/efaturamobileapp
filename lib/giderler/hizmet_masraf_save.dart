@@ -30,15 +30,8 @@ class _HizmetMasrafSaveState extends State<HizmetMasrafSave> {
 
     return Scaffold(
       appBar: AppBar(
-        actionsIconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         title: const Text(
           'Hizmet & Masraf',
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CustomIconButton(
@@ -219,8 +212,10 @@ class _HizmetMasrafSaveState extends State<HizmetMasrafSave> {
                       children: [
                         Expanded(
                           child: RadioListTile<OdemeDurumu>(
+                            contentPadding: EdgeInsets.zero,
                             title: const Text("Ödendi"),
                             value: OdemeDurumu.odendi,
+                            activeColor: color6,
                             groupValue: _seciliOdemeDurumu,
                             onChanged: (OdemeDurumu? value) {
                               if (value != null) {
@@ -233,8 +228,10 @@ class _HizmetMasrafSaveState extends State<HizmetMasrafSave> {
                         ),
                         Expanded(
                           child: RadioListTile<OdemeDurumu>(
+                            contentPadding: EdgeInsets.zero,
                             title: const Text("Ödenecek"),
                             value: OdemeDurumu.odenecek,
+                            activeColor: color6,
                             groupValue: _seciliOdemeDurumu,
                             onChanged: (OdemeDurumu? value) {
                               if (value != null) {

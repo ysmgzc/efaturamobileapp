@@ -51,15 +51,9 @@ class GenelBakisScreen extends StatelessWidget {
       colorFn: (_, __) => charts.MaterialPalette.purple.shadeDefault,
     );
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        centerTitle: true,
         title: const Text(
           'Genel Bakış',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       backgroundColor: Colors.white,

@@ -16,15 +16,9 @@ class _BankaMutabakatiScreenState extends State<BankaMutabakatiScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Banka Mutabakatı',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       body: Column(

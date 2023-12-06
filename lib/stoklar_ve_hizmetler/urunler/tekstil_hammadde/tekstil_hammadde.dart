@@ -1,4 +1,7 @@
 import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
+import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
 import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -68,15 +71,24 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
     ];
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        centerTitle: true,
         title: const Text(
           'Tekstil Hammadde',
-          style: TextStyle(color: Colors.black),
         ),
+        actions: [
+          CircleIconAltin(
+            iconData: 'assets/icons/newicon/delete.png',
+            iconpadding: 8,
+            iconColor: color8,
+            color: color6,
+            onPressed: () {},
+          ),
+          CircleIconAltin(
+            iconData: Icons.edit,
+            iconColor: color8,
+            color: color6,
+            onPressed: () {},
+          ),
+        ],
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -88,13 +100,11 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomPopMenuWidget(
-                width: screenWidth * 0.9,
-                title: "BİRİM*",
-                menuWidth: screenWidth * 0.9,
-                selectedValue: "Kilogram",
+              CustomDropdownButton(
                 items: items,
-                menuItemsWidth: screenWidth * 0.9,
+                text: "Birim *",
+                findText: "Birim Ara",
+                width: 0.9,
               ),
               const Divider(),
               const SizedBox(height: 8),
@@ -111,40 +121,32 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
               ),
               const SizedBox(height: 15),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('BİRİM FİYATI(KDV DAHİL)',
-                          style: TextStyle(color: yTextColor, fontSize: 14)),
-                      const SizedBox(height: 8),
-                      TextFieldDecoration(
-                        screenWidth: screenWidth,
-                        screenHeight: screenHeight,
-                        widthFactor: 0.6,
-                        hintText: '0,00',
+                      TextFieldWidget(
+                        text: "Birim Fiyatı (KDV Dahil)",
+                        widthFactor: 0.5,
                       ),
                     ],
                   ),
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.3,
-                    title: "PARA BİRİMİ",
-                    menuWidth: screenWidth * 0.3,
-                    selectedValue: "TL",
+                  CustomDropdownButton(
                     items: items1,
-                    menuItemsWidth: screenWidth * 0.2,
+                    text: "Para Birimi",
+                    findText: "Birim Ara",
+                    width: 0.35,
                   ),
                 ],
               ),
               const Divider(),
               const SizedBox(height: 8),
-              CustomPopMenuWidget(
-                width: screenWidth * 0.9,
-                title: "KDV ORANI",
-                menuWidth: screenWidth * 0.9,
-                selectedValue: "18",
+              CustomDropdownButton(
                 items: items2,
-                menuItemsWidth: screenWidth * 0.9,
+                text: "KDV Oranı",
+                findText: "Ara",
+                width: 0.9,
               ),
               const Divider(),
               const SizedBox(height: 8),
@@ -153,13 +155,9 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('MİKTAR',
-                        style: TextStyle(color: yTextColor, fontSize: 14)),
-                    const SizedBox(height: 8),
-                    TextFieldDecoration(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
-                      widthFactor: 0.42,
+                    TextFieldWidget(
+                      text: "Miktar",
+                      widthFactor: 0.4,
                     ),
                   ],
                 ),
@@ -178,13 +176,11 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
                 ),
               ),
               const SizedBox(height: 15),
-              CustomPopMenuWidget(
-                width: screenWidth * 0.45,
-                title: "İNDİRİM TİPİ",
-                menuWidth: screenWidth * 0.45,
-                selectedValue: "YOK",
+              CustomDropdownButton(
                 items: items3,
-                menuItemsWidth: screenWidth * 0.9,
+                text: "İndirim Tipi",
+                findText: "Ara",
+                width: 0.4,
               ),
               SizedBox(
                 width: screenWidth * 0.45,
@@ -208,13 +204,9 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('AÇIKLAMA',
-                        style: TextStyle(color: yTextColor, fontSize: 14)),
-                    const SizedBox(height: 8),
-                    TextFieldDecoration(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
-                      heightFactor: 0.14,
+                    TextFieldWidget(
+                      text: "Açıklama",
+                      widthFactor: 0.9,
                     ),
                   ],
                 ),
@@ -264,15 +256,6 @@ class _TekstilHammaddeEkleState extends State<TekstilHammaddeEkle> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomAppBarDesign(
-        onSaveButtonPressed: () {
-          Get.to(FormScreenEkleAltin(
-              appBarBaslik: "", personImageBorderMetin: ""));
-          Navigator.of(context).pop();
-        },
-        saveButtonBackgroundColor: const Color(0xffD9B26D),
-        saveButtonText: "+EKLE",
       ),
     );
   }

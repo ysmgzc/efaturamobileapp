@@ -132,11 +132,8 @@ class _HizmetDuzenleState extends State<HizmetDuzenle> {
     ];
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         backgroundColor: const Color(0xffD9B26D),
         title: const Text('Hizmet Düzenle'),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.copy_sharp),

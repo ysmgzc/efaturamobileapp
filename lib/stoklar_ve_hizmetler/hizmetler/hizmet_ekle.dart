@@ -131,11 +131,8 @@ class _HizmetEkleState extends State<HizmetEkle> {
     ];
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         backgroundColor: const Color(0xffD9B26D),
         title: const Text('Hizmet Ekle'),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(children: [

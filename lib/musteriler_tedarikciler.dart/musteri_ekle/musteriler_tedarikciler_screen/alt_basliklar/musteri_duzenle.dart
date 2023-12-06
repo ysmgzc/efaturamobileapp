@@ -75,11 +75,8 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         backgroundColor: const Color(0xff8FAD4B),
         title: const Text('Müşteri / Teadikçi Düzenle'),
-        automaticallyImplyLeading: false,
-        centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.copy_sharp),
@@ -164,8 +161,10 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
                           children: [
                             Expanded(
                               child: RadioListTile<MusteriTipi>(
+                                contentPadding: EdgeInsets.zero,
                                 title: const Text("Kurumsal"),
                                 value: MusteriTipi.kurumsal,
+                                activeColor: color6,
                                 groupValue: _seciliMusteriTipi,
                                 onChanged: (MusteriTipi? value) {
                                   if (value != null) {
@@ -178,8 +177,10 @@ class _MusteriDuzenleScreenState extends State<MusteriDuzenleScreen> {
                             ),
                             Expanded(
                               child: RadioListTile<MusteriTipi>(
+                                contentPadding: EdgeInsets.zero,
                                 title: const Text("Bireysel"),
                                 value: MusteriTipi.bireysel,
+                                activeColor: color6,
                                 groupValue: _seciliMusteriTipi,
                                 onChanged: (MusteriTipi? value) {
                                   if (value != null) {

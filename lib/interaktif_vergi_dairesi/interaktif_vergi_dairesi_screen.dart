@@ -1,4 +1,3 @@
-
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/interaktif_vergi_dairesi/interaktifvergidairesidetayliarama.dart';
@@ -17,58 +16,55 @@ class InteraktifVergiDairesiScreen extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-        drawer: const DrawerBar(),
         appBar: AppBar(
-          iconTheme: const IconThemeData(color: Colors.black),
-          backgroundColor: Colors.white,
-          elevation: 0,
-          centerTitle: true,
           title: const Text(
             'İnteraktif Vergi Dairesi',
-            style: TextStyle(color: Colors.black),
           ),
-        actions: [ 
-          CustomIconButton(
-            options: [
-              SheetOption(
-                icon:const Icon(Icons.filter_alt,color: Colors.black),
-                text: 'Detaylı Arama',
-                page: const InteraktifVergiDairesiDetayliArama(),
-              ),
-               SheetOption(
-                icon: const Icon(Icons.swap_vert, color: Colors.black),
-                text: 'Sıralama',
-               onTap: () {
-                Navigator.pop(context);
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return SiralamaIslemi(
-                      onSort: (sortedItems) {
+          actions: [
+            CustomIconButton(
+              options: [
+                SheetOption(
+                  icon: const Icon(Icons.filter_alt, color: Colors.black),
+                  text: 'Detaylı Arama',
+                  page: const InteraktifVergiDairesiDetayliArama(),
+                ),
+                SheetOption(
+                  icon: const Icon(Icons.swap_vert, color: Colors.black),
+                  text: 'Sıralama',
+                  onTap: () {
+                    Navigator.pop(context);
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SiralamaIslemi(
+                          onSort: (sortedItems) {},
+                          optionIds: const [3, 4, 5, 6, 7, 8],
+                        );
                       },
-                      optionIds:const [3, 4, 5, 6, 7, 8],
                     );
                   },
-                );
-              },
-              ),
-               SheetOption(
-                icon: Image.asset('assets/icons/excelicon.png',width: 20,height: 20,),
-                text: "Excel'e Aktar",
-                page: const YeniRaporEkle(),
-              ),
-               SheetOption(
-                icon:const Icon(Icons.delete,color: Colors.black),
-                text: 'Sil',
-                 onTap: () {
-                  eventBus.fire(ShowCheckboxEvent(true));
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          )
-        ],
-      ),
+                ),
+                SheetOption(
+                  icon: Image.asset(
+                    'assets/icons/excelicon.png',
+                    width: 20,
+                    height: 20,
+                  ),
+                  text: "Excel'e Aktar",
+                  page: const YeniRaporEkle(),
+                ),
+                SheetOption(
+                  icon: const Icon(Icons.delete, color: Colors.black),
+                  text: 'Sil',
+                  onTap: () {
+                    eventBus.fire(ShowCheckboxEvent(true));
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            )
+          ],
+        ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(

@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/screens/login_screen.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_hizmet_sec_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         primarySwatch: Colors.blue,
-        // appBarTheme: AppBarTheme(color: Colors.blue),
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+            color: color3,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+          elevation: 0,
+          backgroundColor: color8,
+          iconTheme: IconThemeData(color: color6),
+          actionsIconTheme: IconThemeData(color: color6),
+          centerTitle: false,
+        ),
       ),
       home: const HomePageScreen(),
       debugShowCheckedModeBanner: false,

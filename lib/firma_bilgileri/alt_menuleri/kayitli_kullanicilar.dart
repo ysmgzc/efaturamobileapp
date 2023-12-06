@@ -16,14 +16,8 @@ class _KayitliKullanicilarScreenState extends State<KayitliKullanicilarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         title: const Text(
           'Kayıtlı Kullanıcılar',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       backgroundColor: Colors.white,

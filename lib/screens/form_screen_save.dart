@@ -59,16 +59,9 @@ class _FormScreenSaveState extends State<FormScreenSave> {
 
     return Scaffold(
       appBar: AppBar(
-        actionsIconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
         title: Text(
           widget.appBarBaslik,
-          style: TextStyle(color: Colors.black),
         ),
-        automaticallyImplyLeading: false,
         actions: [
           CustomIconButton(
             options: [

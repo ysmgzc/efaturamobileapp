@@ -1,10 +1,10 @@
-import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
+import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
+import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
+import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:efaturamobileapp/text_field_decoration.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-import '../../../custom_pop_menu.dart';
 import '../../../person_image_border.dart';
 import '../../nakit_durumu.dart';
 
@@ -49,15 +49,24 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         title: const Text(
           'Çek Girişi',
-          style: TextStyle(color: Colors.black),
         ),
+        actions: [
+          CircleIconAltin(
+            iconData: 'assets/icons/newicon/delete.png',
+            iconpadding: 8,
+            iconColor: color8,
+            color: color6,
+            onPressed: () {},
+          ),
+          CircleIconAltin(
+            iconData: Icons.edit,
+            iconColor: color8,
+            color: color6,
+            onPressed: () {},
+          ),
+        ],
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -94,12 +103,9 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('MÜŞTERİ/TEDARİKÇİ ADI *',
-                        style: TextStyle(color: yTextColor, fontSize: 14)),
-                    const SizedBox(height: 8),
-                    TextFieldDecoration(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
+                    TextFieldWidget(
+                      text: "Müşteri & Tedarikçi Adı *",
+                      widthFactor: screenWidth * 0.9,
                     ),
                   ],
                 ),
@@ -107,28 +113,22 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
               const Divider(),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('TUTAR',
-                          style: TextStyle(color: yTextColor, fontSize: 14)),
-                      const SizedBox(height: 8),
-                      TextFieldDecoration(
-                        screenWidth: screenWidth,
-                        screenHeight: screenHeight,
-                        widthFactor: 0.6,
-                        hintText: '0,00',
+                      TextFieldWidget(
+                        text: "Tutar",
+                        widthFactor: 0.5,
                       ),
                     ],
                   ),
-                  CustomPopMenuWidget(
-                    width: screenWidth * 0.3,
-                    title: "PARA BİRİMİ",
-                    menuWidth: screenWidth * 0.3,
-                    selectedValue: "TL",
+                  CustomDropdownButton(
                     items: items1,
-                    menuItemsWidth: screenWidth * 0.2,
+                    text: "Para Birimi",
+                    findText: "Birim Ara",
+                    width: 0.35,
                   ),
                 ],
               ),
@@ -138,12 +138,9 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('ÇEK NUMARASI',
-                        style: TextStyle(color: yTextColor, fontSize: 14)),
-                    const SizedBox(height: 8),
-                    TextFieldDecoration(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
+                    TextFieldWidget(
+                      text: "Çek Numarası",
+                      widthFactor: 0.9,
                     ),
                   ],
                 ),
@@ -151,201 +148,45 @@ class _CekGirisiEkleState extends State<CekGirisiEkle> {
               const Divider(),
               const SizedBox(height: 8),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     alignment: Alignment.topLeft,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('TARİHİ',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.grey.shade200,
-                                  Colors.grey.shade100,
-                                  Colors.grey.shade50,
-                                  Colors.white70,
-                                ],
-                              ),
-                            ),
-                            child: GestureDetector(
-                              onTap: () async {
-                                final DateTime? pickedDate =
-                                    await showDatePicker(
-                                  context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime(2000),
-                                  lastDate: DateTime.now(),
-                                );
-
-                                if (pickedDate != null) {
-                                  setState(() {
-                                    dateInput.text = DateFormat('dd/MM/yyyy')
-                                        .format(pickedDate);
-                                  });
-                                }
-                              },
-                              child: SizedBox(
-                                width: screenWidth * 0.4,
-                                height: screenHeight * 0.07,
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    dateInput.text.isNotEmpty
-                                        ? dateInput.text
-                                        : DateFormat('  dd/MM/yyyy')
-                                            .format(DateTime.now()),
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                        CustomDatePickerAltin(
+                          labelText: "Tarihi ",
                         ),
                       ],
                     ),
                   ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('VADE TARİHİ',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.grey.shade200,
-                                  Colors.grey.shade100,
-                                  Colors.grey.shade50,
-                                  Colors.white70,
-                                ],
-                              ),
-                            ),
-                            child: GestureDetector(
-                              onTap: () async {
-                                final DateTime? pickedDate =
-                                    await showDatePicker(
-                                  context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime(2000),
-                                  lastDate: DateTime.now(),
-                                );
-
-                                if (pickedDate != null) {
-                                  setState(() {
-                                    dateInput.text = DateFormat('dd/MM/yyyy')
-                                        .format(pickedDate);
-                                  });
-                                }
-                              },
-                              child: SizedBox(
-                                width: screenWidth * 0.4,
-                                height: screenHeight * 0.07,
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    dateInput.text.isNotEmpty
-                                        ? dateInput.text
-                                        : DateFormat('  dd/MM/yyyy')
-                                            .format(DateTime.now()),
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  CustomDatePickerAltin(
+                    labelText: "Vadesi ",
                   ),
                 ],
               ),
               const Divider(),
               const SizedBox(height: 8),
-              const Text('İLİŞKİLİ  FATURALAR / SİPARİŞLER',
-                  style: TextStyle(color: yTextColor, fontSize: 14)),
-              const SizedBox(height: 8),
-              Center(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.grey.shade200,
-                        Colors.grey.shade100,
-                        Colors.grey.shade50,
-                        Colors.white70,
-                      ],
-                    ),
-                  ),
-                  child: SizedBox(
-                    width: screenWidth * 0.9,
-                    height: screenHeight * 0.07,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.to(const NakitDurumuScreen());
-                      },
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        shadowColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            side: BorderSide.none,
-                          ),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(),
-                          const Icon(
-                            Icons.arrow_right,
-                            color: Colors.grey,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 10),
+                child: RectangleButtonWidget(
+                  text: "İlişkili Faturalar & Siparişler",
+                  textColor: color6,
+                  bgColor: color8,
+                  iconColor: color6,
+                  route: NakitDurumuScreen(),
                 ),
               ),
               const Divider(),
-              const Text('AÇIKLAMA',
-                  style: TextStyle(color: yTextColor, fontSize: 14)),
-              const SizedBox(height: 8),
-              TextFieldDecoration(
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
+              TextFieldWidget(
+                text: "Açıklama",
+                widthFactor: screenWidth * 0.9,
                 heightFactor: 0.14,
               ),
-              const Divider(),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomAppBarDesign(
-        onSaveButtonPressed: () {},
-        saveButtonBackgroundColor: const Color(0xffA1CFC2),
       ),
     );
   }

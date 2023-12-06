@@ -1,13 +1,14 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/indirim_widget.dart';
+import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
+import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
+import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
+import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
+import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmet_ekle.dart';
-import 'package:efaturamobileapp/text_field_decoration.dart';
-import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-import '../custom_pop_menu.dart';
 import '../kamera_showdialog_widget.dart';
 import '../urunekleborder.dart';
 
@@ -55,384 +56,219 @@ class _HizmetMasrafEkleState extends State<HizmetMasrafEkle> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.camera_alt,
-            color: Colors.black,
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.camera_alt,
+              color: color6,
+            ),
+            onPressed: () {
+              kameraShowDialogWidget(context);
+            },
           ),
-          onPressed: () {
-            kameraShowDialogWidget(context);
-          },
-        ),
-        title: const Text(
-          'Hizmet & Masraf',
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
+          title: const Text(
+            'Hizmet & Masraf',
+          ),
+          actions: [
+            CircleIconAltin(
+              iconData: 'assets/icons/newicon/delete.png',
+              iconpadding: 8,
+              iconColor: color8,
+              color: color6,
+              onPressed: () {},
+            ),
+            CircleIconAltin(
+              iconData: Icons.edit,
+              iconColor: color8,
+              color: color6,
+              onPressed: () {},
+            ),
+          ]),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-            vertical: screenHeight * 0.01,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('MAL/HİZMET VEREN',
-                  style: TextStyle(color: yTextColor, fontSize: 14)),
-              const SizedBox(height: 8),
-              Center(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.grey.shade200,
-                        Colors.grey.shade100,
-                        Colors.grey.shade50,
-                        Colors.white70,
-                      ],
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.05,
+                vertical: screenHeight * 0.01,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: RectangleButtonWidget(
+                      text: "Mal & Hizmet Veren",
+                      textColor: color6,
+                      bgColor: color8,
+                      iconColor: color6,
+                      route: MusterilerTedarikcilerScreen(
+                        secim: 1,
+                        appBarBaslik: "",
+                      ),
                     ),
                   ),
-                  child: SizedBox(
-                    width: screenWidth * 0.9,
-                    height: screenHeight * 0.07,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.to(MusterilerTedarikcilerScreen(
-                          secim: 1,
-                          appBarBaslik: "",
-                        ));
-                      },
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        shadowColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            side: BorderSide.none,
-                          ),
+                  const Divider(),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextFieldWidget(
+                              text: "Fiş & Fatura No",
+                              widthFactor: 0.42,
+                            ),
+                          ],
                         ),
                       ),
-                      child: Container(),
-                    ),
+                      const SizedBox(height: 2),
+                      CustomDatePickerAltin(
+                        labelText: "Tarih ",
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                children: [
+                  const Divider(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 8),
+                      const Text("Ödeme Durumu",
+                          style: TextStyle(color: color6)),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: RadioListTile<OdemeDurumu>(
+                              contentPadding: EdgeInsets.zero,
+                              title: const Text(
+                                "Ödendi",
+                                style: TextStyle(fontSize: 13),
+                              ),
+                              value: OdemeDurumu.odendi,
+                              activeColor: color6,
+                              groupValue: _seciliOdemeDurumu,
+                              onChanged: (OdemeDurumu? value) {
+                                if (value != null) {
+                                  setState(() {
+                                    _seciliOdemeDurumu = value;
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                          Expanded(
+                            child: RadioListTile<OdemeDurumu>(
+                              contentPadding: EdgeInsets.zero,
+                              title: const Text(
+                                "Ödenecek",
+                                style: TextStyle(fontSize: 13),
+                              ),
+                              value: OdemeDurumu.odenecek,
+                              activeColor: color6,
+                              groupValue: _seciliOdemeDurumu,
+                              onChanged: (OdemeDurumu? value) {
+                                if (value != null) {
+                                  setState(() {
+                                    _seciliOdemeDurumu = value;
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const Divider(),
                   Container(
                     alignment: Alignment.topLeft,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('FİŞ & FATURA NO',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          widthFactor: 0.42,
+                        CustomDatePickerAltin(
+                          labelText: "Ödeme Vadesi ",
+                          width: 0.6,
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 2),
+                  const Divider(),
+                  CustomDropdownButton(
+                    items: items,
+                    text: "Para Birimi",
+                    findText: "Birim Ara",
+                    width: 0.35,
+                  ),
+                  const Divider(),
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('FİŞ & FATURA TARİHİ',
-                              style:
-                                  TextStyle(color: yTextColor, fontSize: 14)),
-                          const SizedBox(height: 8),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.grey.shade200,
-                                    Colors.grey.shade100,
-                                    Colors.grey.shade50,
-                                    Colors.white70,
-                                  ],
-                                ),
-                              ),
-                              child: GestureDetector(
-                                onTap: () async {
-                                  final DateTime? pickedDate =
-                                      await showDatePicker(
-                                    context: context,
-                                    initialDate: DateTime.now(),
-                                    firstDate: DateTime(2000),
-                                    lastDate: DateTime.now(),
-                                  );
-
-                                  if (pickedDate != null) {
-                                    setState(() {
-                                      dateInput.text = DateFormat('dd/MM/yyyy')
-                                          .format(pickedDate);
-                                    });
-                                  }
-                                },
-                                child: SizedBox(
-                                  width: screenWidth * 0.40,
-                                  height: screenHeight * 0.07,
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      dateInput.text.isNotEmpty
-                                          ? dateInput.text
-                                          : DateFormat('  dd/MM/yyyy')
-                                              .format(DateTime.now()),
-                                      style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextFieldWidget(
+                          text: "Açıklama",
+                          widthFactor: 0.9,
+                          heightFactor: 0.07,
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-              const Divider(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
                   const SizedBox(height: 8),
-                  const Text("Ödeme Durumu",
-                      style: TextStyle(color: yTextColor)),
+                  const Divider(),
                   const SizedBox(height: 8),
                   Row(
+                    mainAxisSize: MainAxisSize.max,
                     children: [
-                      Expanded(
-                        child: RadioListTile<OdemeDurumu>(
-                          title: const Text("Ödendi"),
-                          value: OdemeDurumu.odendi,
-                          groupValue: _seciliOdemeDurumu,
-                          onChanged: (OdemeDurumu? value) {
-                            if (value != null) {
-                              setState(() {
-                                _seciliOdemeDurumu = value;
-                              });
-                            }
-                          },
-                        ),
+                      UrunEkleBorder(
+                        screenHeight: screenHeight,
+                        screenWidth: screenWidth,
+                        scanicon: false,
+                        route: const HizmetEkle(),
+                        text: "Hizmet Ekle",
+                        width: 0.7,
                       ),
-                      Expanded(
-                        child: RadioListTile<OdemeDurumu>(
-                          title: const Text("Ödenecek"),
-                          value: OdemeDurumu.odenecek,
-                          groupValue: _seciliOdemeDurumu,
-                          onChanged: (OdemeDurumu? value) {
-                            if (value != null) {
-                              setState(() {
-                                _seciliOdemeDurumu = value;
-                              });
-                            }
+                      const SizedBox(width: 15),
+                      SizedBox(
+                        width: screenWidth * 0.1,
+                        child: IconButton(
+                          icon: const Icon(Icons.camera_alt, color: color6),
+                          onPressed: () {
+                            kameraShowDialogWidget(context);
                           },
                         ),
                       ),
                     ],
                   ),
-                ],
-              ),
-              const Divider(),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('ÖDEME VADESİ',
-                        style: TextStyle(color: yTextColor, fontSize: 14)),
-                    const SizedBox(height: 8),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          gradient: LinearGradient(
-                            colors: [
-                              Colors.grey.shade200,
-                              Colors.grey.shade100,
-                              Colors.grey.shade50,
-                              Colors.white70,
-                            ],
-                          ),
-                        ),
-                        child: GestureDetector(
-                          onTap: () async {
-                            final DateTime? pickedDate = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(2000),
-                              lastDate: DateTime.now(),
-                            );
-
-                            if (pickedDate != null) {
-                              setState(() {
-                                dateInput.text =
-                                    DateFormat('dd/MM/yyyy').format(pickedDate);
-                              });
-                            }
-                          },
-                          child: SizedBox(
-                            width: screenWidth * 0.9,
-                            height: screenHeight * 0.07,
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                dateInput.text.isNotEmpty
-                                    ? dateInput.text
-                                    : DateFormat('  dd/MM/yyyy')
-                                        .format(DateTime.now()),
-                                style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ),
+                  const SizedBox(height: 8),
+                  const Divider(),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      TextFieldWidget(
+                        text: "Kategori",
+                        widthFactor: 0.6,
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              const Divider(),
-              CustomPopMenuWidget(
-                width: screenWidth * 0.9,
-                title: "PARA BİRİMİ",
-                menuWidth: screenWidth * 0.9,
-                selectedValue: "TL",
-                items: items,
-                menuItemsWidth: screenWidth * 0.9,
-              ),
-              const Divider(),
-              Container(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('AÇIKLAMA',
-                        style: TextStyle(color: yTextColor, fontSize: 14)),
-                    const SizedBox(height: 8),
-                    TextFieldDecoration(
-                      screenWidth: screenWidth,
-                      screenHeight: screenHeight,
-                      heightFactor: 0.14,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 8),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  UrunEkleBorder(
-                    screenHeight: screenHeight,
-                    screenWidth: screenWidth,
-                    route: const HizmetEkle(),
-                    text: "Hizmet Ekle",
-                    width: 0.7,
+                      //Expanded(child: Container()),
+                      IndirimWidget(
+                        buttonText: 'İndirim Uygula',
+                        dialogTitle: 'İndirim',
+                        option1Text: 'Tutar (TL)',
+                        option2Text: 'Oran',
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 15),
-                  SizedBox(
-                    width: screenWidth * 0.1,
-                    child: IconButton(
-                      icon: const Icon(Icons.camera_alt),
-                      onPressed: () {
-                        kameraShowDialogWidget(context);
-                      },
-                    ),
-                  ),
+                  SizedBox(height: screenHeight * 0.2),
                 ],
               ),
-              const SizedBox(height: 8),
-              const Divider(),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('KATEGORİ',
-                            style: TextStyle(color: yTextColor, fontSize: 14)),
-                        const SizedBox(height: 8),
-                        TextFieldDecoration(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          widthFactor: 0.6,
-                        ),
-                      ],
-                    ),
-                  ),
-                  //Expanded(child: Container()),
-                  IndirimWidget(
-                    buttonText: 'İndirim Uygula',
-                    dialogTitle: 'İndirim',
-                    option1Text: 'Tutar (TL)',
-                    option2Text: 'Oran',
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              const Divider(),
-              const SizedBox(height: 8),
-              const Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 30),
-                    child: ToplamTutarSave(
-                      textLabels: [
-                        'Ara Toplam:',
-                        'İndirim:',
-                        'Toplam İndirim:',
-                        'Ek Vergi:',
-                        'Toplam KDV:',
-                        'Genel Toplam:',
-                      ],
-                      textValues: [
-                        '₺0.00',
-                        '₺0.00',
-                        '₺0.00',
-                        '₺0.00',
-                        '₺0.00',
-                        '₺0.00',
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 18),
-            ],
+            ),
           ),
-        ),
+          SlidingPanel(),
+        ],
       ),
     );
   }

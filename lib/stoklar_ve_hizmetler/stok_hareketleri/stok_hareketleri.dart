@@ -26,15 +26,9 @@ class _StokHareketleriScreenState extends State<StokHareketleriScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Stok Hareketleri',
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CustomIconButton(

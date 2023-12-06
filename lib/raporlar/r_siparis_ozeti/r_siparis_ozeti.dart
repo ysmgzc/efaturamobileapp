@@ -14,16 +14,9 @@ class _RSiparisOzetiScreenState extends State<RSiparisOzetiScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
         title: const Text(
           'Sipariş Özeti',
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           IconButton(

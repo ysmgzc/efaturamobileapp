@@ -51,14 +51,8 @@ class _TahsilatEkleState extends State<TahsilatEkle> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         title: const Text(
           'Tahsilat Makbuzu',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       backgroundColor: Colors.white,

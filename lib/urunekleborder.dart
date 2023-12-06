@@ -15,6 +15,7 @@ class UrunEkleBorder extends StatelessWidget {
     required this.text,
     this.width = 0.95,
     this.height = 0.14,
+    this.scanicon = true,
   }) : super(key: key);
 
   final double screenHeight;
@@ -23,6 +24,7 @@ class UrunEkleBorder extends StatelessWidget {
   final String text;
   final double width;
   final double height;
+  final bool scanicon;
 
   @override
   Widget build(BuildContext context) {
@@ -69,16 +71,17 @@ class UrunEkleBorder extends StatelessWidget {
                   ],
                 ),
               ),
-              CircleIconAltin(
-                iconData: 'assets/icons/newicon/scan.png',
-                iconColor: color8,
-                color: color6,
-                containerheight: 30,
-                containerwidth: 30,
-                onPressed: () {
-                  Get.to(const BarkodTara());
-                },
-              ),
+              if (scanicon)
+                CircleIconAltin(
+                  iconData: 'assets/icons/newicon/scan.png',
+                  iconColor: color8,
+                  color: color6,
+                  containerheight: 30,
+                  containerwidth: 30,
+                  onPressed: () {
+                    Get.to(const BarkodTara());
+                  },
+                ),
             ],
           ),
         ),

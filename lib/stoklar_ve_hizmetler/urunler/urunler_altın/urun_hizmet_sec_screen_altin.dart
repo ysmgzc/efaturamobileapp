@@ -1,16 +1,13 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
-import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/islemler/altin/urun_ekle_altin_girisi.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
-import 'package:efaturamobileapp/scan_widget.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmet_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammadde.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import 'package:flutter/material.dart';
 import '../../../search_field.dart';
-import 'package:get/get.dart';
 
 class UrunHizmetSecAltinScreen extends StatefulWidget {
   String appBarBaslik;
@@ -56,13 +53,9 @@ class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: color4,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Ürün/Hizmet seç',
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CircleIconAltin(
@@ -147,7 +140,7 @@ class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
                                 paraBirimi: '91,600 GR',
                                 paraBirimiStyle: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold),
-                                page: TekstilHammaddeEkle(),
+                                page: UrunEkleAltinGirisi(),
                               )
                             : const ContainerWidget(
                                 iconKareBox: true,
@@ -185,7 +178,7 @@ class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
                 childrenData: [
                   SpeedDialData(
                     label: '',
-                    route: const UrunEkleAltinGirisi(),
+                    route: TekstilHammaddeEkle(),
                   ),
                 ],
               )

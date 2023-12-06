@@ -1,4 +1,3 @@
-
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +5,8 @@ class KullaniciSozlesmesiScreen extends StatefulWidget {
   const KullaniciSozlesmesiScreen({Key? key}) : super(key: key);
 
   @override
-  State<KullaniciSozlesmesiScreen> createState() => _KullaniciSozlesmesiScreenState();
+  State<KullaniciSozlesmesiScreen> createState() =>
+      _KullaniciSozlesmesiScreenState();
 }
 
 class _KullaniciSozlesmesiScreenState extends State<KullaniciSozlesmesiScreen> {
@@ -14,13 +14,8 @@ class _KullaniciSozlesmesiScreenState extends State<KullaniciSozlesmesiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme:const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false, 
-         elevation: 0,
-        centerTitle: true,
         title: const Text(
-          'Kullanıcı Sözleşmesi', style: TextStyle(color: Colors.black),
+          'Kullanıcı Sözleşmesi',
         ),
       ),
       body: Column(
@@ -31,7 +26,6 @@ class _KullaniciSozlesmesiScreenState extends State<KullaniciSozlesmesiScreen> {
           const SearchField(),
         ],
       ),
-   
     );
   }
 }

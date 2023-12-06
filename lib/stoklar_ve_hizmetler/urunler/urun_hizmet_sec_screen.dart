@@ -21,13 +21,8 @@ class _UrunHizmetSecScreenState extends State<UrunHizmetSecScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Ürün/Hizmet seç',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       backgroundColor: Colors.white,

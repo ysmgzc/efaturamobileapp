@@ -47,14 +47,8 @@ class _CekCikisiEkleState extends State<CekCikisiEkle> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         title: const Text(
           'Çek Çıkışı',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       backgroundColor: Colors.white,

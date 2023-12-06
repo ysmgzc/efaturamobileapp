@@ -13,14 +13,11 @@ class _BankaMutabakatiEkleState extends State<BankaMutabakatiEkle> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
         backgroundColor: kAppBarColor,
-        centerTitle: true,
         title: const Text(
           'Banka Mutabakatı Ekle',
         ),
-        automaticallyImplyLeading: false, 
       ),
       body: Column(
         children: [
@@ -29,7 +26,6 @@ class _BankaMutabakatiEkleState extends State<BankaMutabakatiEkle> {
           ),
         ],
       ),
-     
     );
   }
 }

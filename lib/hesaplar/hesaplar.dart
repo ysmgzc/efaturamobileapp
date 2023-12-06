@@ -21,10 +21,8 @@ class _HesaplarScreenState extends State<HesaplarScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
         backgroundColor: kAppBarColor,
-        centerTitle: true,
         title: const Text(
           'Hesaplar',
         ),

@@ -1,7 +1,7 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
 import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
-import 'package:efaturamobileapp/islemler/urun_ekle_border_save_animasyonsuz_altin.dart';
+import 'package:efaturamobileapp/islemler/components/urun_ekle_border_save_animasyonsuz_altin.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_hizmet_sec_screen_altin.dart';
 import 'package:efaturamobileapp/urunekleborder.dart';
@@ -87,15 +87,9 @@ class _FormScreenEkleAltinState extends State<FormScreenEkleAltin> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: color4,
-        centerTitle: true,
         title: Text(
           widget.appBarBaslik,
-          style: TextStyle(color: Colors.black),
         ),
-        iconTheme: IconThemeData(color: Colors.black),
       ),
       backgroundColor: Colors.white,
       body: Stack(
@@ -193,14 +187,12 @@ class _FormScreenEkleAltinState extends State<FormScreenEkleAltin> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 8,
-                  ),
+                  SizedBox(height: screenHeight * 0.2),
                 ],
               ),
             ),
           ),
-          SlidingPanel(),
+          const SlidingPanel(),
         ],
       ),
       resizeToAvoidBottomInset: false,

@@ -1,9 +1,9 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/islemler/altin/tahsilat_screen.dart';
+import 'package:efaturamobileapp/islemler/altin/tahsilat_sec_screen.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
-import 'package:efaturamobileapp/islemler/urun_ekle_border_save_animasyonsuz_altin.dart';
+import 'package:efaturamobileapp/islemler/components/urun_ekle_border_save_animasyonsuz_altin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -73,14 +73,8 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
 
     return Scaffold(
       appBar: AppBar(
-        actionsIconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        //shadowColor: Colors.transparent,
-        backgroundColor: color4,
-        iconTheme: IconThemeData(color: Colors.black),
         title: Text(
           widget.appBarBaslik,
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CircleIconAltin(
@@ -315,7 +309,7 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                       SizedBox(
                         height: 15,
                       ),
-                      menu == 1
+                      menu == 0
                           ? UrunEkleBorderSaveAnimasyonsuzAltin(
                               screenHeight: screenHeight,
                               screenWidth: screenWidth,
@@ -346,9 +340,7 @@ class _FormScreenSaveAltinState extends State<FormScreenSaveAltin> {
                               iscilikHesabi: "₺20,00",
                               miktar: "₺20,00",
                             ),
-                      SizedBox(
-                        height: screenHeight * 0.15,
-                      ),
+                      SizedBox(height: screenHeight * 0.2),
                     ],
                   ),
                 ),

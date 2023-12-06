@@ -1,4 +1,3 @@
-
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +13,8 @@ class _GibEArsivScreenState extends State<GibEArsivScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme:const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false, 
-         elevation: 0,
-        centerTitle: true,
         title: const Text(
-          'Gib E-Arşiv Portal Bilgileri', style: TextStyle(color: Colors.black),
+          'Gib E-Arşiv Portal Bilgileri',
         ),
       ),
       body: Column(
@@ -31,7 +25,6 @@ class _GibEArsivScreenState extends State<GibEArsivScreen> {
           const SearchField(),
         ],
       ),
-     
     );
   }
 }

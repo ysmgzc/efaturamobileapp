@@ -39,16 +39,9 @@ class _ZamanBirimiFormScreenState extends State<ZamanBirimiFormScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
         title: Text(
           widget.appBarZamanBirimiBaslik,
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           IconButton(

@@ -39,11 +39,8 @@ class _BankaHesabiEkleScreenState extends State<BankaHesabiEkleScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         backgroundColor: const Color(0xff8FAD4B),
         title: const Text('Banka Hesabı Ekle'),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(children: [

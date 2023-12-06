@@ -137,11 +137,11 @@ class _IndirimWidgetState extends State<IndirimWidget> {
       child: Row(
         children: [
           if (widget.icon != null) // Eğer ikon tanımlı ise göster
-            Icon(widget.icon, color: yTextColor),
+            Icon(widget.icon, color: color6),
           Text(
             widget.buttonText,
             style: TextStyle(
-                color: yTextColor, fontSize: 14, fontWeight: FontWeight.bold),
+                color: color6, fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ],
       ),

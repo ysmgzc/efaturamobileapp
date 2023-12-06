@@ -44,15 +44,9 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Hizmetler',
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CustomIconButton(

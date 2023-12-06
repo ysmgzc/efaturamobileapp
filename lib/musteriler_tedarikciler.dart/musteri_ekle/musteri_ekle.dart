@@ -76,11 +76,8 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         backgroundColor: const Color(0xff8FAD4B),
         title: const Text('Müşteri Ekle'),
-        automaticallyImplyLeading: false,
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -159,8 +156,10 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
                           children: [
                             Expanded(
                               child: RadioListTile<MusteriTipi>(
+                                contentPadding: EdgeInsets.zero,
                                 title: const Text("Kurumsal"),
                                 value: MusteriTipi.kurumsal,
+                                activeColor: color6,
                                 groupValue: _seciliMusteriTipi,
                                 onChanged: (MusteriTipi? value) {
                                   if (value != null) {
@@ -173,8 +172,10 @@ class _MusteriEkleScreenState extends State<MusteriEkleScreen> {
                             ),
                             Expanded(
                               child: RadioListTile<MusteriTipi>(
+                                contentPadding: EdgeInsets.zero,
                                 title: const Text("Bireysel"),
                                 value: MusteriTipi.bireysel,
+                                activeColor: color6,
                                 groupValue: _seciliMusteriTipi,
                                 onChanged: (MusteriTipi? value) {
                                   if (value != null) {

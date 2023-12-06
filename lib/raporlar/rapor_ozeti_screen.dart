@@ -41,16 +41,9 @@ class _RaporOzetiScreenState extends State<RaporOzetiScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-          iconTheme: const IconThemeData(color: Colors.black),
-          elevation: 0,
-          shadowColor: Colors.transparent,
-          backgroundColor: Colors.white,
-          centerTitle: true,
           title: Text(
             widget.raporOzetiScreenAppBar,
-            style: TextStyle(color: Colors.black),
           ),
           actions: raporOzetDetayliArama == 0
               ? [

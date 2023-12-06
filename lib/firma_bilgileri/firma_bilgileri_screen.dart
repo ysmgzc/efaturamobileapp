@@ -38,11 +38,8 @@ class _FirmaBilgileriScreenState extends State<FirmaBilgileriScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         backgroundColor: const Color(0xffAC8BB6),
         title: const Text('Firma Bilgileri'),
-        automaticallyImplyLeading: false,
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(children: [
@@ -120,7 +117,9 @@ class _FirmaBilgileriScreenState extends State<FirmaBilgileriScreen> {
                           children: [
                             Expanded(
                               child: RadioListTile<MusteriTipi>(
+                                contentPadding: EdgeInsets.zero,
                                 title: const Text("Kurumsal"),
+                                activeColor: color6,
                                 value: MusteriTipi.kurumsal,
                                 groupValue: _seciliMusteriTipi,
                                 onChanged: (MusteriTipi? value) {
@@ -134,8 +133,10 @@ class _FirmaBilgileriScreenState extends State<FirmaBilgileriScreen> {
                             ),
                             Expanded(
                               child: RadioListTile<MusteriTipi>(
+                                contentPadding: EdgeInsets.zero,
                                 title: const Text("Bireysel"),
                                 value: MusteriTipi.bireysel,
+                                activeColor: color6,
                                 groupValue: _seciliMusteriTipi,
                                 onChanged: (MusteriTipi? value) {
                                   if (value != null) {

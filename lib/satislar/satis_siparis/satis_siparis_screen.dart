@@ -27,16 +27,10 @@ class _SatisSiparislerScreenState extends State<SatisSiparislerScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: const DrawerBar(),
       //bottomNavigationBar:const BottomNavBar(selectedMenu: MenuState.home),
       appBar: AppBar(
-        centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
         title: const Text(
           'Siparişler',
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CustomIconButton(

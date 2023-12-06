@@ -2,10 +2,13 @@
 
 import 'package:efaturamobileapp/active_switch.dart';
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/islemler/altin/tahsilat_screen.dart';
+import 'package:efaturamobileapp/islemler/altin/altin_screen.dart';
+import 'package:efaturamobileapp/islemler/altin/tahsilat%20_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/altin/tahsilat_sec_screen.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
 import 'package:efaturamobileapp/show_dialog_ekle.dart';
+import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_ekle_altin.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:get/get.dart';
@@ -92,7 +95,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                             textColor: color6,
                             bgColor: color8,
                             iconColor: color6,
-                            route: TahsilatScreen(),
+                            route: UrunEkleAltin(),
                           ),
                         ),
                         Row(
@@ -107,7 +110,9 @@ class _SlidingPanelState extends State<SlidingPanel> {
                                   color: color8,
                                   rightpadding: 8,
                                   onPressed: () {
-                                    Get.to(const TahsilatScreen());
+                                    Get.to(
+                                      UrunEkleAltin(),
+                                    );
                                   },
                                 ),
                                 Text(
@@ -148,9 +153,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                                   iconColor: color6,
                                   color: color8,
                                   rightpadding: 8,
-                                  onPressed: () {
-                                    Get.to(const TahsilatScreen());
-                                  },
+                                  onPressed: () {},
                                 ),
                                 Text(
                                   "FT-20230001",

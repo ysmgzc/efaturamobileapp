@@ -45,15 +45,8 @@ class _VirmanEkleState extends State<VirmanEkle> {
 
     return Scaffold(
       appBar: AppBar(
-        actionsIconTheme: const IconThemeData(color: Colors.black),
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
         title: const Text(
           'Virman',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       backgroundColor: Colors.white,

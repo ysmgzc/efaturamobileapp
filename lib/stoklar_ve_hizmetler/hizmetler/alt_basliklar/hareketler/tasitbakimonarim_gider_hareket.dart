@@ -1,4 +1,3 @@
-
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/satislar/satis_faturasi/secenekler/satisfaturasidetayliarama.dart';
@@ -12,24 +11,20 @@ class TasitBakimOnarimGiderHareket extends StatefulWidget {
   const TasitBakimOnarimGiderHareket({super.key});
 
   @override
-  State<TasitBakimOnarimGiderHareket> createState() => _TasitBakimOnarimGiderHareketState();
+  State<TasitBakimOnarimGiderHareket> createState() =>
+      _TasitBakimOnarimGiderHareketState();
 }
 
-class _TasitBakimOnarimGiderHareketState extends State<TasitBakimOnarimGiderHareket> {
+class _TasitBakimOnarimGiderHareketState
+    extends State<TasitBakimOnarimGiderHareket> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: const DrawerBar(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
         title: const Text(
           'Taşıt Bakım Onarım Giderleri',
-          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CustomIconButton(
@@ -46,8 +41,7 @@ class _TasitBakimOnarimGiderHareketState extends State<TasitBakimOnarimGiderHare
                     height: 20,
                   ),
                   text: "Excel'e Aktar",
-                  onTap: () {}
-                  ),
+                  onTap: () {}),
             ],
           )
         ],
@@ -80,8 +74,8 @@ class _TasitBakimOnarimGiderHareketState extends State<TasitBakimOnarimGiderHare
                     ),
                   ],
                 ),
-                child:const Column(
-                  children:  [
+                child: const Column(
+                  children: [
                     ContainerWidget(
                       baslik: "Satış Siparişi",
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
@@ -94,7 +88,7 @@ class _TasitBakimOnarimGiderHareketState extends State<TasitBakimOnarimGiderHare
                     ),
                     Divider(),
                     ContainerWidget(
-                       baslik: "Toptan Satış Faturası",
+                      baslik: "Toptan Satış Faturası",
                       tedarikciAdi: 'Test Satış Ltd. Şti.',
                       tedarikciAdiStyle: TextStyle(fontSize: 14),
                       tedarikciNo: '000000000000001',

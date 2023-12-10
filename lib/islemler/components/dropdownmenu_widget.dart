@@ -8,6 +8,8 @@ class CustomDropdownButton extends StatefulWidget {
   String findText;
   final double width;
   final double height;
+  final void Function(String?)? onChanged;
+  final String? selectedValue;
 
   CustomDropdownButton({
     required this.items,
@@ -15,6 +17,8 @@ class CustomDropdownButton extends StatefulWidget {
     required this.findText,
     this.width = 0.29,
     this.height = 0.073,
+    this.onChanged,
+    this.selectedValue,
   });
 
   @override
@@ -55,16 +59,20 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                         value: item,
                         child: Text(
                           item,
-                          style: const TextStyle(fontSize: 14, color: color6),
+                          style: const TextStyle(fontSize: 12, color: color6),
                         ),
                       ))
                   .toList(),
-              value: selectedValue,
-              onChanged: (value) {
-                setState(() {
-                  selectedValue = value;
-                });
-              },
+              value: widget.onChanged != null
+                  ? widget.selectedValue
+                  : selectedValue,
+              onChanged: widget.onChanged != null
+                  ? widget.onChanged
+                  : (value) {
+                      setState(() {
+                        selectedValue = value;
+                      });
+                    },
               buttonStyleData: ButtonStyleData(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),

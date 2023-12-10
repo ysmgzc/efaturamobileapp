@@ -19,11 +19,36 @@ class TahsilatEkleAltin extends StatefulWidget {
 class _TahsilatEkleAltinState extends State<TahsilatEkleAltin> {
   TextEditingController dateInput = TextEditingController();
   String? selectedValue;
+  String? selectedTahsilatTuru;
+  String? selectedTahsilatTipi;
   List<String> tahsilatTuru = <String>[
     'Nakit',
-    'Stok Grişi',
+    'Stok Girişi',
     'Banka',
   ];
+  Map<String, List<String>> tahsilatTipiOptions = {
+    'Nakit': [
+      'TL',
+      'EUR',
+      'GBP',
+      'CHF',
+      'JPY',
+      'AZM',
+      'BGN',
+      'CNY',
+      'USD',
+      'PLN',
+      'RUB',
+      'SGD',
+      'DZD',
+      'XAU',
+      'UZS',
+      'MKD',
+      'KGS'
+    ],
+    'Stok Girişi': ['Külçe/Has', 'Hurda', 'Gram Altın', 'Ziynet/Lira'],
+    'Banka': ['Banka 1', 'Banka 2'],
+  };
   List<String> Nakit = <String>[
     'TL',
     'EUR',
@@ -43,13 +68,7 @@ class _TahsilatEkleAltinState extends State<TahsilatEkleAltin> {
     'MKD',
     'KGS',
   ];
-  List<String> stokGirisi = <String>[
-    'Külçe/Has',
-    'Hurda',
-    'Gram Altın',
-    'Ziynet/Lira',
-  ];
-  List<String> kulceHas = <String>[
+  List<String> kulceHas = [
     '24K 999.9',
     '24K 999',
     '24K 995',
@@ -58,32 +77,6 @@ class _TahsilatEkleAltinState extends State<TahsilatEkleAltin> {
     'GR',
     'KG',
   ];
-
-  /*  int menu = 0;
-  @override
-  void initState() {
-    loading();
-    super.initState();
-  }
-
- void loading() {
-    setState(() {
-      if ([
-        'Altın Girişi',
-        'Altın Çıkışı',
-        'Altın Alışı',
-        'Altın Satışı',
-        'Bedelli Altın Girişi',
-        'Bedelli Altın Çıkışı',
-        'Gelen İade',
-        'Çıkan İade',
-        'İşçilik Girişi',
-        'İşçilik Çıkışı',
-      ].contains(widget.appBarBaslik)) {
-        menu = 1;
-      }
-    });
-  }*/
   bool showDoneIcon = true;
   @override
   Widget build(BuildContext context) {
@@ -314,45 +307,67 @@ class _TahsilatEkleAltinState extends State<TahsilatEkleAltin> {
                             items: tahsilatTuru,
                             text: "Tahsilat Türü",
                             findText: "Türü seçiniz",
+                            onChanged: (value) {
+                              setState(() {
+                                selectedTahsilatTuru = value;
+                                selectedTahsilatTipi = null;
+                              });
+                            },
+                            selectedValue: selectedTahsilatTuru,
                           ),
                           const SizedBox(
                             width: 4,
                           ),
                           CustomDropdownButton(
-                            items: stokGirisi,
+                            items:
+                                tahsilatTipiOptions[selectedTahsilatTuru] ?? [],
                             text: "Tahsilat Tipi",
                             findText: "Tipi seçiniz",
+                            onChanged: (value) {
+                              setState(() {
+                                selectedTahsilatTipi = value;
+                              });
+                            },
+                            selectedValue: selectedTahsilatTipi,
                           ),
                           const SizedBox(
                             width: 4,
                           ),
-                          CustomDropdownButton(
-                            items: kulceHas,
-                            text: "Tahsilat Seçimi",
-                            findText: "Birim Seçiniz",
-                          ),
+                          if (selectedTahsilatTuru != "Nakit")
+                            CustomDropdownButton(
+                              items: kulceHas,
+                              text: "Tahsilat Seçimi",
+                              findText: "Birim Seçiniz",
+                            ),
+                          if (selectedTahsilatTuru == "Nakit")
+                            Expanded(
+                              child: TextFieldWidget(
+                                text: "Miktar*",
+                              ),
+                            ),
                         ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        children: [
-                          TextFieldWidget(text: "Miktar*"),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          CustomDropdownButton(
-                            items: kulceHasBrim,
-                            text: "Birim*",
-                            findText: "Tipi seçiniz",
-                          ),
-                          const SizedBox(
-                            width: 4,
-                          ),
-                          TextFieldWidget(text: "Milyem*"),
-                        ],
-                      ),
+                      if (selectedTahsilatTuru != "Nakit")
+                        Row(
+                          children: [
+                            TextFieldWidget(text: "Miktar*"),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            CustomDropdownButton(
+                              items: kulceHasBrim,
+                              text: "Birim*",
+                              findText: "Tipi seçiniz",
+                            ),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            TextFieldWidget(text: "Milyem*"),
+                          ],
+                        ),
                       SizedBox(height: screenHeight * 0.2),
                     ],
                   ),

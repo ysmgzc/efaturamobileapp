@@ -1,16 +1,17 @@
 import 'package:efaturamobileapp/alislar/alis_faturasi/secenekler/alisfaturasidetayliarama.dart';
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
-import 'package:efaturamobileapp/container_widget.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/constants.dart';
+import 'package:efaturamobileapp/container_widget_new.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
 import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
-import 'package:efaturamobileapp/screens/form_screen_save.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AltinFormScreen extends StatefulWidget {
   String appBarBaslik;
@@ -97,58 +98,101 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-            vertical: screenHeight * 0.01,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-              ),
-              const SearchField(),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              ),
-              Container(
-                padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.05,
+                ),
+                child: const SearchField(text: "Buraya yazın...")),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CircleIconAltin(
+                  leftText: "Sırala",
+                  iconData: 'assets/icons/newicon/expandicon.png',
+                  iconColor: color6,
+                  rightpadding: 0,
+                  color: color8,
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SiralamaIslemi(
+                          onSort: (sortedItems) {},
+                          optionIds: const [3, 4, 5, 6, 7, 8],
+                        );
+                      },
+                    );
+                  },
+                ),
+                CircleIconAltin(
+                  leftText: "Filtre",
+                  iconData: 'assets/icons/newicon/filtreicon.png',
+                  iconColor: color6,
+                  rightpadding: 0,
+                  color: color8,
+                  onPressed: () {
+                    Get.to(
+                      const AlisFaturasiDetayliArama(),
+                    );
+                  },
+                ),
+                CircleIconAltin(
+                  rightText: "Tarih Aralığı",
+                  iconData: 'assets/icons/newicon/aramatakvimicon.png',
+                  iconColor: color6,
+                  rightpadding: 0,
+                  iconpadding: 0,
+                  color: color8,
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8),
+              child: Container(
+                width: screenWidth,
+                height: screenHeight,
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.03,
+                  vertical: screenHeight * 0.01,
+                ),
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(5.0),
+                  color: color8,
+                  border: Border.all(
+                    color: color6,
+                    width: 1.0,
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 0),
-                      blurRadius: 20,
-                      color: Colors.grey.shade300,
-                    ),
-                  ],
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
                 ),
                 child: Column(
                   children: [
-                    ContainerWidget(
+                    ContainerWidgetNew(
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
-                      tedarikciNo: '000000000000001',
-                      durumu: 'Altın Girişi',
-                      altinMetin: "Miktar:",
-                      paraBirimi: '₺1000',
-                      showInfo: true,
+                      tedarikciNo: 'AG-202300001',
+                      paraBirimi: '140,400 GR',
+                      tarih: "16-06-2022",
+                      toplam: "94,900 GR",
                       vade: true,
                       page: FormScreenSaveAltin(
                         appBarBaslik: '${widget.appBarBaslik} Faturası',
                       ),
                     ),
                     Divider(),
-                    ContainerWidget(
+                    ContainerWidgetNew(
                       tedarikciAdi: 'Deneme Satış Ltd. Şti.',
-                      tedarikciNo: '000000000000001',
-                      durumu: 'Altın Girişi',
-                      altinMetin: "Miktar:",
-                      paraBirimi: '₺1000',
-                      showInfo: true,
+                      tedarikciNo: 'AG-202300001',
+                      paraBirimi: '140,400 GR',
+                      tarih: "16-06-2022",
+                      toplam: "94,900 GR",
                       vade: true,
                       page: FormScreenSaveAltin(
                         appBarBaslik: '${widget.appBarBaslik} Faturası',
@@ -156,24 +200,24 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
                     ),
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
-      bottomNavigationBar: const CustomBottomAppBarToplam(
-        firstText: "TOPLAM",
-        secondText: "₺1000",
-      ),
-      floatingActionButton: CustomFAB(
-        isSpeedDial: false,
-        childrenData: [
-          SpeedDialData(
-            label: widget.appBarBaslik,
-            route: FormScreenEkleAltin(
-                appBarBaslik: widget.appBarBaslik, personImageBorderMetin: ""),
-          ),
-        ],
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: CustomFAB(
+          isSpeedDial: false,
+          childrenData: [
+            SpeedDialData(
+              label: widget.appBarBaslik,
+              route: FormScreenEkleAltin(
+                  appBarBaslik: widget.appBarBaslik,
+                  personImageBorderMetin: ""),
+            ),
+          ],
+        ),
       ),
       resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

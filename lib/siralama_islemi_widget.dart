@@ -1,3 +1,4 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 
 class Item {
@@ -6,7 +7,11 @@ class Item {
   final double tutar;
   final String unvan;
 
-  Item({required this.name, required this.date, required this.tutar, required this.unvan});
+  Item(
+      {required this.name,
+      required this.date,
+      required this.tutar,
+      required this.unvan});
 }
 
 class DialogOption {
@@ -21,37 +26,36 @@ class DialogOption {
   });
 }
 
-
 List<DialogOption> allOptions = [
   DialogOption(
     id: 1,
     title: 'Ada göre (A-Z)',
-    onPressed: () { },
+    onPressed: () {},
   ),
   DialogOption(
     id: 2,
     title: 'Ada göre (Z-A)',
-    onPressed: () { },
+    onPressed: () {},
   ),
   DialogOption(
     id: 3,
     title: 'Tarihe göre (En yeni)',
-    onPressed: () { },
+    onPressed: () {},
   ),
   DialogOption(
     id: 4,
     title: 'Tarihe göre (En eski)',
-    onPressed: () { },
+    onPressed: () {},
   ),
   DialogOption(
     id: 5,
     title: 'Tutara göre (En yüksek)',
-    onPressed: () {  },
+    onPressed: () {},
   ),
   DialogOption(
     id: 6,
     title: 'Tutara göre (En düşük)',
-    onPressed: () { },
+    onPressed: () {},
   ),
   DialogOption(
     id: 7,
@@ -61,7 +65,7 @@ List<DialogOption> allOptions = [
   DialogOption(
     id: 8,
     title: 'Gönderen unvanı (Z-A)',
-    onPressed: () {  },
+    onPressed: () {},
   ),
 ];
 
@@ -70,7 +74,7 @@ class SiralamaIslemi extends StatelessWidget {
   final Function(List<Item> sortedItems) onSort;
   final List<int> optionIds;
 
- const SiralamaIslemi({
+  const SiralamaIslemi({
     //required this.items,
     required this.onSort,
     required this.optionIds,
@@ -78,34 +82,50 @@ class SiralamaIslemi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<DialogOption> filteredOptions = allOptions.where((option) => optionIds.contains(option.id)).toList();
+    List<DialogOption> filteredOptions =
+        allOptions.where((option) => optionIds.contains(option.id)).toList();
 
     return SimpleDialog(
-      title:const Text('Sıralama'),
-      contentPadding:const EdgeInsets.all(10), 
+      title: const Text(
+        'Sıralama',
+        style: TextStyle(fontSize: 14),
+      ),
+      contentPadding: const EdgeInsets.all(20),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+        side: BorderSide(
+          color: color6,
+          width: 1.0,
+        ),
+      ),
       children: [
         Container(
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(8.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.shade300,
-                blurRadius: 5.0,
-                spreadRadius: 1.0,
-              ),
-            ],
-            border: Border.all(color: Colors.grey.shade200, width: 1.0),
+            color: color8,
+            border: Border.all(
+              color: color6,
+              width: 1.0,
+            ),
+            borderRadius: BorderRadius.circular(15),
           ),
           child: Column(
             children: filteredOptions.map((option) {
               return Column(
                 children: [
                   ListTile(
-                    title: Text(option.title),
+                    title: Text(
+                      option.title,
+                      style: TextStyle(fontSize: 12),
+                    ),
                     onTap: option.onPressed,
                   ),
-                  if (option != filteredOptions.last)const Divider(height: 1, thickness: 1, indent: 15.0, endIndent: 15.0) // Sonuncu eleman hariç diğerlerine Divider ekliyoruz.
+                  if (option != filteredOptions.last)
+                    const Divider(
+                        height: 1,
+                        thickness: 1,
+                        indent: 15.0,
+                        endIndent:
+                            15.0) // Sonuncu eleman hariç diğerlerine Divider ekliyoruz.
                 ],
               );
             }).toList(),

@@ -1,13 +1,10 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/custom_pop_menu.dart';
-import 'package:efaturamobileapp/islemler/altin/tahsilat_sec_screen.dart';
 import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
 import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class TahsilatEkleAltin extends StatefulWidget {
   //String appBarBaslik;
@@ -96,7 +93,7 @@ class _TahsilatEkleAltinState extends State<TahsilatEkleAltin> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Atasay Ltd. Şti",
+          "Ürün & Stok Ekle",
           //  widget.appBarBaslik,
         ),
         actions: [

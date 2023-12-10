@@ -19,6 +19,7 @@ class FormScreenEkleAltin extends StatefulWidget {
 
 class _FormScreenEkleAltinState extends State<FormScreenEkleAltin> {
   int menu = 0;
+  int panel = 0;
   @override
   void initState() {
     loading();
@@ -40,6 +41,30 @@ class _FormScreenEkleAltinState extends State<FormScreenEkleAltin> {
         'İşçilik Çıkışı',
       ].contains(widget.appBarBaslik)) {
         menu = 1;
+      }
+      if ([
+        'Altın Girişi',
+        'Altın Çıkışı',
+        'Altın Alışı',
+        'Altın Satışı',
+        'Bedelli Altın Girişi',
+        'Bedelli Altın Çıkışı',
+        'Gelen İade',
+        'Çıkan İade',
+        'İşçilik Girişi',
+        'İşçilik Çıkışı',
+        'Altın Girişi Faturası',
+        'Altın Çıkışı Faturası',
+        'Altın Alışı Faturası',
+        'Altın Satışı Faturası',
+        'Bedelli Altın Girişi Faturası',
+        'Bedelli Altın Çıkışı Faturası',
+        'Gelen İade Faturası',
+        'Çıkan İade Faturası',
+        'İşçilik Girişi Faturası',
+        'İşçilik Çıkışı Faturası',
+      ].contains(widget.appBarBaslik)) {
+        panel = 1;
       }
     });
   }
@@ -192,7 +217,20 @@ class _FormScreenEkleAltinState extends State<FormScreenEkleAltin> {
               ),
             ),
           ),
-          const SlidingPanel(),
+          panel == 1
+              ? SlidingPanel(
+                  activemetin: true,
+                )
+              : SlidingPanel(
+                  metin1: "GENEL TOPLAM",
+                  metin2: "Ara Toplam",
+                  metin3: "Dip İndirim(%)",
+                  metin4: "Toplam İndirim",
+                  metin5: "Toplam",
+                  metin6: "Ek Vergi",
+                  metin8: "Toplam KDV",
+                  metin9: "Açıklama",
+                )
         ],
       ),
       resizeToAvoidBottomInset: false,

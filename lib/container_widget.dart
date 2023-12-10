@@ -213,20 +213,18 @@ class _ContainerWidgetState extends State<ContainerWidget> {
     if (widget.ustTarih != null) {
       children.add(Text(widget.ustTarih!,
           style: widget.ustTarihStyle ??
-              const TextStyle(color: Colors.grey, fontSize: 14)));
+              const TextStyle(color: Colors.grey, fontSize: 12)));
     }
-
-    children.add(
-      Text(widget.tedarikciAdi,
-          style: widget.tedarikciAdiStyle ??
-              const TextStyle(color: Colors.black, fontSize: 16)),
-    );
 
     if (widget.tedarikciNo != null) {
       children.add(Text(widget.tedarikciNo!,
-          style: widget.tedarikciNoStyle ??
-              const TextStyle(color: Colors.grey, fontSize: 14)));
+          style: widget.tedarikciNoStyle ?? const TextStyle(fontSize: 12)));
     }
+    children.add(
+      Text(widget.tedarikciAdi,
+          style: widget.tedarikciAdiStyle ??
+              const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+    );
 
     if (widget.durumu != null) {
       children.add(Text(widget.durumu!,

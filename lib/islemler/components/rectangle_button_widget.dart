@@ -85,11 +85,14 @@ class RectangleButtonWidget extends StatelessWidget {
 
 class RedButtonWidget extends StatelessWidget {
   const RedButtonWidget({
+    this.buttonColor = color2,
+    this.textColor,
     super.key,
     required this.screenWidth,
     required this.screenHeight,
   });
-
+  final Color? buttonColor;
+  final Color? textColor;
   final double screenWidth;
   final double screenHeight;
 
@@ -101,12 +104,13 @@ class RedButtonWidget extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-            backgroundColor: color2,
+            elevation: 0,
+            backgroundColor: buttonColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20))),
         child: Text(
           "Vadesi geçen 182 gün",
-          style: TextStyle(fontSize: 9),
+          style: TextStyle(fontSize: 9, color: textColor),
         ),
       ),
     );

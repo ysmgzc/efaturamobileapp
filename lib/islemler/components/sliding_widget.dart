@@ -7,6 +7,7 @@ import 'package:efaturamobileapp/islemler/altin/tahsilat%20_ekle_altin.dart';
 import 'package:efaturamobileapp/islemler/altin/tahsilat_sec_screen.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
+import 'package:efaturamobileapp/islemler/components/urun_ekle_border_save_animasyonsuz_altin.dart';
 import 'package:efaturamobileapp/show_dialog_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_alt%C4%B1n/urun_ekle_altin.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +17,32 @@ import 'package:get/get.dart';
 class SlidingPanel extends StatefulWidget {
   final bool button;
   final bool text1;
+  final String metin1;
+  final String metin2;
+  final String metin3;
+  final String metin4;
+  final String metin5;
+  final String metin6;
+  final String metin7;
+  final String metin8;
+  final String metin9;
+  final bool activemetin;
+  final bool UrunEkleBorderSaveAnimasyonsuzAltin;
 
   const SlidingPanel({
+    this.UrunEkleBorderSaveAnimasyonsuzAltin = false,
     this.button = false,
     this.text1 = true,
+    this.activemetin = false,
+    this.metin1 = 'Toplam İşçilik Miktarı',
+    this.metin2 = 'Toplam Miktar',
+    this.metin3 = 'İndirim',
+    this.metin4 = 'Yuvarlama',
+    this.metin5 = 'Hesaplanan Vergiler',
+    this.metin6 = 'Vergiler Dahil TOPLAM',
+    this.metin7 = 'Vergiler Dahil Tutar',
+    this.metin8 = 'Etiket / Açıklamalar',
+    this.metin9 = 'Notlar',
   });
 
   @override
@@ -194,7 +217,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Toplam İşçilik Miktarı',
+                            widget.metin1,
                             style: TextStyle(fontSize: 12.0),
                           ),
                           Text(
@@ -212,7 +235,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                           Row(
                             children: [
                               Text(
-                                'Toplam Miktar',
+                                widget.metin2,
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold),
@@ -255,7 +278,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'İndirim',
+                            widget.metin3,
                             style: TextStyle(fontSize: 12.0),
                           ),
                           Text(
@@ -271,7 +294,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Yuvarlama',
+                            widget.metin4,
                             style: TextStyle(fontSize: 12.0),
                           ),
                           Text(
@@ -293,7 +316,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Hesaplanan Vergiler',
+                            widget.metin5,
                             style: TextStyle(fontSize: 12.0),
                           ),
                           Text(
@@ -309,7 +332,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Vergiler Dahil TOPLAM',
+                            widget.metin6,
                             style: TextStyle(
                                 fontSize: 14.0, fontWeight: FontWeight.bold),
                           ),
@@ -326,33 +349,30 @@ class _SlidingPanelState extends State<SlidingPanel> {
                       Divider(
                         thickness: 1,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: const Column(
-                              children: [
-                                Text(
-                                  'Vergiler Dahil Tutar',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                  ),
+                      if (widget.activemetin)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                widget.metin7,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
                                 ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.centerRight,
-                              child: ActiveSwitch(
-                                onChanged: (bool value) {},
                               ),
                             ),
-                          ),
-                        ],
-                      ),
+                            Expanded(
+                              child: Container(
+                                alignment: Alignment.centerRight,
+                                child: ActiveSwitch(
+                                  onChanged: (bool value) {},
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                     ]),
                   Divider(
                     thickness: 2,
@@ -363,7 +383,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                   Row(
                     children: [
                       Text(
-                        'Etiket / Açıklamalar',
+                        widget.metin8,
                         style: TextStyle(
                             fontSize: 14.0, fontWeight: FontWeight.bold),
                       ),
@@ -386,7 +406,7 @@ class _SlidingPanelState extends State<SlidingPanel> {
                   Row(
                     children: [
                       Text(
-                        'Notlar',
+                        widget.metin9,
                         style: TextStyle(
                             fontSize: 14.0, fontWeight: FontWeight.bold),
                       ),
@@ -403,6 +423,52 @@ class _SlidingPanelState extends State<SlidingPanel> {
                   Divider(
                     thickness: 2,
                   ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  //-----------
+                  if (widget.UrunEkleBorderSaveAnimasyonsuzAltin)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Toplam Tahsil Edilen",
+                              style: TextStyle(
+                                  fontSize: 14.0, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '45,500 GR',
+                              style: TextStyle(
+                                  fontSize: 14.0, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        UrunEkleBorderSaveAnimasyonsuzAltin(
+                          showInfo: true,
+                          screenHeight: MediaQuery.of(context).size.height,
+                          screenWidth: MediaQuery.of(context).size.width,
+                          baslik: "Bilezik ",
+                          baslik2: "22K",
+                          birim: '100 GR',
+                          fiyat: "916",
+                          iscilik: "İşçilik :",
+                          iscilikDegeri: "0,020",
+                          kur: "Kur :",
+                          kurDegeri: "₺0,00",
+                          araToplamFiyat: '91,960 GR',
+                          iscilikHesabi: "2,00 GR",
+                          miktar: "92,600 GR",
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                    )
                 ],
               ),
             ),

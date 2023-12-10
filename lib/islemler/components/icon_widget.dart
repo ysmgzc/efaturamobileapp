@@ -2,9 +2,10 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:flutter/material.dart';
 
 class CircleIconAltin extends StatelessWidget {
-  final dynamic
-      iconData; // İkonun IconData veya resmin asset yolunun alınacağı değişken
+  final dynamic iconData;
   final Function onPressed;
+  final String? leftText;
+  final String? rightText;
   final Color? color;
   final Color? iconColor;
   final double? containerwidth;
@@ -15,6 +16,8 @@ class CircleIconAltin extends StatelessWidget {
   CircleIconAltin({
     required this.iconData,
     required this.onPressed,
+    this.rightText,
+    this.leftText,
     this.color = color8,
     this.iconColor = color6,
     this.containerwidth = 30,
@@ -31,6 +34,11 @@ class CircleIconAltin extends StatelessWidget {
       },
       child: Row(
         children: [
+          if (leftText != null) ...[
+            Text(
+              leftText!,
+            ),
+          ],
           Container(
             margin: EdgeInsets.only(right: rightpadding!),
             width: containerwidth,
@@ -55,6 +63,11 @@ class CircleIconAltin extends StatelessWidget {
                     ),
                   ),
           ),
+          if (rightText != null) ...[
+            Text(
+              rightText!,
+            ),
+          ],
         ],
       ),
     );

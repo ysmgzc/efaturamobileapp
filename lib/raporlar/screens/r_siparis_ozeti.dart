@@ -1,4 +1,4 @@
-import 'package:efaturamobileapp/raporlar/r_siparis_ozeti/siparisozetidetayliarama.dart';
+import 'package:efaturamobileapp/raporlar/components/siparisozetidetayliarama.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../drawer_bar.dart';

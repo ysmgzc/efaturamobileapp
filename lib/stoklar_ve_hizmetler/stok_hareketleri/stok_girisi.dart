@@ -4,12 +4,8 @@ import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
 import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
 import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
-import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_screen.dart';
-import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import '../../custom_pop_menu.dart';
 import '../../urunekleborder.dart';
 
 class StokGirisiEkle extends StatefulWidget {

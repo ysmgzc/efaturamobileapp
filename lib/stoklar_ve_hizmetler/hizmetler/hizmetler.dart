@@ -1,6 +1,7 @@
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/islemler/components/custom_container_widget.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/brut_ucretler_hareket.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/alt_basliklar/hareketler/danismalik_gider_hareket.dart';
@@ -97,36 +98,22 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-            vertical: screenHeight * 0.01,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-              ),
-              const SearchField(),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              ),
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(5.0),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 0),
-                      blurRadius: 20,
-                      color: Colors.grey.shade300,
-                    ),
-                  ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.05,
                 ),
+                child: const SearchField()),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8),
+              child: CustomContainerWidget(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
                 child: const Padding(
                   padding: EdgeInsets.only(left: 25, right: 25),
                   child: Column(
@@ -335,8 +322,8 @@ class _HizmetlerScreenState extends State<HizmetlerScreen> {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: Padding(

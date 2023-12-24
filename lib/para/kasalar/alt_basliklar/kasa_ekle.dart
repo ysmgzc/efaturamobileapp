@@ -5,7 +5,7 @@ import 'package:efaturamobileapp/active_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../custom_pop_menu.dart';
+import '../../../custom_pop_menu.dart';
 
 class KasaEkle extends StatefulWidget {
   const KasaEkle({Key? key}) : super(key: key);

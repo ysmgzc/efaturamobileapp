@@ -2,6 +2,7 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/islemler/altin/urun_ekle_altin_girisi.dart';
+import 'package:efaturamobileapp/islemler/components/custom_container_widget.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/hizmetler/hizmet_ekle.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/tekstil_hammadde/tekstil_hammadde.dart';
@@ -90,24 +91,9 @@ class _UrunHizmetSecAltinScreenState extends State<UrunHizmetSecAltinScreen> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8, right: 8),
-              child: Container(
-                width: screenWidth,
-                height: screenHeight,
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.03,
-                  vertical: screenHeight * 0.01,
-                ),
-                decoration: BoxDecoration(
-                  color: color8,
-                  border: Border.all(
-                    color: color6,
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                ),
+              child: CustomContainerWidget(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -36,11 +36,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           labelText: widget.text,
           labelStyle: TextStyle(fontSize: 10, color: color6),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(color: color6),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(color: color6),
           ),
         ),

@@ -1,4 +1,3 @@
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_save.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';

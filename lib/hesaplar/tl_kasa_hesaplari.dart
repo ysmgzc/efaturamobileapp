@@ -1,5 +1,4 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:flutter/material.dart';
 
 class TLKasaScreen extends StatefulWidget {

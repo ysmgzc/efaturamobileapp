@@ -137,10 +137,6 @@ class _UrunlerAltinScreenState extends State<UrunlerAltinScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomAppBarToplam(
-        firstText: "TOPLAM",
-        secondText: "₺1000",
-      ),
       floatingActionButton: CustomFAB(
         isSpeedDial: false,
         childrenData: [

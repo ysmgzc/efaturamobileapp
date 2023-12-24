@@ -1,8 +1,6 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
-import 'package:efaturamobileapp/show_dialog_ekle.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

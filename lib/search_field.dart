@@ -1,7 +1,4 @@
-import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
-import 'package:efaturamobileapp/scan_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../constants.dart';
 
 class SearchField extends StatelessWidget {

@@ -1,14 +1,11 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
 import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
 import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
-import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urunler_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../../urunekleborder.dart';
 
 class StokCikisiEkle extends StatefulWidget {

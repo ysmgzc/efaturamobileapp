@@ -2,6 +2,7 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/islemler/altin/tahsilat%20_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/components/custom_container_widget.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
 import 'package:flutter/material.dart';
@@ -67,24 +68,9 @@ class _UrunHizmetSecAltinScreenState extends State<TahsilatScreen> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8, right: 8),
-              child: Container(
-                width: screenWidth,
-                height: screenHeight,
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.03,
-                  vertical: screenHeight * 0.01,
-                ),
-                decoration: BoxDecoration(
-                  color: color8,
-                  border: Border.all(
-                    color: color6,
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                ),
+              child: CustomContainerWidget(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

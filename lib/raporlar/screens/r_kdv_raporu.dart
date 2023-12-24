@@ -2,7 +2,7 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:flutter/material.dart';
 
-import '../drawer_bar.dart';
+import '../../drawer_bar.dart';
 
 class RKdvRaporuScreen extends StatefulWidget {
   const RKdvRaporuScreen({Key? key}) : super(key: key);

@@ -1,7 +1,6 @@
 //detaylı aramanın tum seçeneklerinin bulunduğuu sayfa
 import 'package:efaturamobileapp/active_switch.dart';
 import 'package:efaturamobileapp/bottom_app_bar_design.dart';
-import 'package:efaturamobileapp/check_box_widget.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
@@ -777,3 +776,46 @@ class _CustomDatePickerDialogState extends State<CustomDatePickerDialog> {
 }
 
 //---------------------------------------------------------------
+
+//---------------------------CheckBoxwidget
+
+class CheckBoxWidget extends StatefulWidget {
+  final bool value;
+  final ValueChanged<bool?> onChanged;
+
+  const CheckBoxWidget({
+    Key? key,
+    required this.value,
+    required this.onChanged,
+  }) : super(key: key);
+
+  @override
+  _CheckBoxWidgetState createState() => _CheckBoxWidgetState();
+}
+
+class _CheckBoxWidgetState extends State<CheckBoxWidget> {
+  bool _value = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _value = widget.value;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Checkbox(
+      checkColor: Colors.white,
+      side: MaterialStateBorderSide.resolveWith(
+        (states) => const BorderSide(width: 1.0, color: Colors.grey),
+      ),
+      value: _value,
+      onChanged: (bool? newValue) {
+        setState(() {
+          _value = newValue ?? false;
+          widget.onChanged(_value);
+        });
+      },
+    );
+  }
+}

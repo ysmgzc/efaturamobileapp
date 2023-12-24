@@ -1,7 +1,9 @@
 import 'dart:core';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
+import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/screens/loading_screen.dart';
 import 'package:efaturamobileapp/models/musteri_kart_model.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteri_ekle.dart';
@@ -13,11 +15,9 @@ import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/muste
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/alt_basliklar/virman.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/secenekler/musterivetedarikcidetayliarama.dart';
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
-import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:efaturamobileapp/services/musteri_kart_services.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:get/get.dart';
 import '../../../bottom_app_bar_widget_toplam.dart';
@@ -115,35 +115,62 @@ class _MusterilerTedarikcilerScreenState
       backgroundColor: Colors.white,
       body: yukle == 1
           ? SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.05,
-                  vertical: screenHeight * 0.01,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.015,
-                    ),
-                    const SearchField(),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.05,
+                      ),
+                      child: const SearchField(text: "Buraya yazın...")),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      CircleIconAltin(
+                        leftText: "Filtre",
+                        iconData: 'assets/icons/newicon/filtreicon.png',
+                        iconColor: color6,
+                        rightpadding: 0,
+                        color: color8,
+                        onPressed: () {
+                          Get.to(
+                            const MusteriVeTedarikciDetayliArama(),
+                          );
+                        },
+                      ),
+                      CircleIconAltin(
+                        rightText: "Tarih Aralığı",
+                        iconData: 'assets/icons/newicon/aramatakvimicon.png',
+                        iconColor: color6,
+                        rightpadding: 0,
+                        iconpadding: 0,
+                        color: color8,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    child: Container(
+                      width: screenWidth,
+                      height: screenHeight,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth * 0.03,
+                        vertical: screenHeight * 0.01,
+                      ),
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(5.0),
+                        color: color8,
+                        border: Border.all(
+                          color: color6,
+                          width: 1.0,
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            offset: const Offset(0, 0),
-                            blurRadius: 20,
-                            color: Colors.grey.shade300,
-                          ),
-                        ],
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15),
+                        ),
                       ),
                       child: widget.secim == 0
                           ? Column(
@@ -236,16 +263,12 @@ class _MusterilerTedarikcilerScreenState
                                 ),
                               ],
                             ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             )
           : LoadingScreen(),
-      bottomNavigationBar: const CustomBottomAppBarToplam(
-        firstText: "BAKİYE",
-        secondText: "₺1000",
-      ),
       floatingActionButton: CustomFAB(
         isSpeedDial: false,
         childrenData: [

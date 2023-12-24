@@ -1,5 +1,4 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
 import 'package:efaturamobileapp/show_dialog_ekle.dart';
@@ -102,7 +101,7 @@ class _ContainerWidgetState extends State<ContainerWidget> {
         Get.to(() => widget.page!);
       },
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 13, 8, 13),
+        padding: const EdgeInsets.only(top: 13, right: 8, bottom: 13),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

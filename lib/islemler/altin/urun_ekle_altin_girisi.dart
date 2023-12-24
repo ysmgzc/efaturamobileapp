@@ -3,13 +3,8 @@ import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
 import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
-import 'package:efaturamobileapp/toplam_tutar_save.dart';
 import 'package:flutter/material.dart';
-import '../../../active_switch.dart';
-import '../../../bottom_app_bar_design.dart';
 import '../../../constants.dart';
-import '../../../custom_pop_menu.dart';
-import '../../../text_field_decoration.dart';
 
 class UrunEkleAltinGirisi extends StatefulWidget {
   const UrunEkleAltinGirisi({Key? key}) : super(key: key);
@@ -122,7 +117,7 @@ class _UrunEkleAltinGirisiState extends State<UrunEkleAltinGirisi> {
                           children: [
                             TextFieldWidget(
                               text: "Ürün Açıklaması",
-                              widthFactor: 0.5,
+                              widthFactor: 0.57,
                             ),
                           ],
                         ),
@@ -156,7 +151,7 @@ class _UrunEkleAltinGirisiState extends State<UrunEkleAltinGirisi> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextFieldWidget(
-                              text: "Kur",
+                              text: "Miktar",
                               widthFactor: 0.25,
                             ),
                           ],

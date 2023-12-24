@@ -3,7 +3,7 @@ import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/home_screen/genel_bakis.dart';
 import 'package:efaturamobileapp/giderler/giderler_screen.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
-import 'package:efaturamobileapp/raporlar/raporlar.dart';
+import 'package:efaturamobileapp/raporlar/screens/raporlar.dart';
 import 'package:efaturamobileapp/satislar/satis_siparis/satis_siparis_screen.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_hareketleri.dart';
 import 'package:flutter/material.dart';

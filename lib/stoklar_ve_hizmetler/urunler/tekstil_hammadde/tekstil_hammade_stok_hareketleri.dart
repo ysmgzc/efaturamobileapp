@@ -1,7 +1,5 @@
-import 'package:efaturamobileapp/alislar/alis_faturasi/alis_faturasi_save.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/container_widget.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/satislar/satis_faturasi/secenekler/satisfaturasidetayliarama.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_cikisi.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/stok_hareketleri/stok_girisi.dart';

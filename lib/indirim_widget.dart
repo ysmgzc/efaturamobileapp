@@ -148,3 +148,4 @@ class _IndirimWidgetState extends State<IndirimWidget> {
     );
   }
 }
+enum TarihAraligi { bugun, dun, son1hafta, son1ay, son1yil }

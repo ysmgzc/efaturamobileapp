@@ -1,12 +1,9 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/home_screen/borc_alacak_grafik.dart';
 import 'package:efaturamobileapp/home_screen/pasta_grafik.dart';
 import 'package:efaturamobileapp/musteriler_tedarikciler.dart/musteri_ekle/musteriler_tedarikciler_screen/musteriler_tedarikciler.dart';
 import 'package:efaturamobileapp/para/cekler/cekler.dart';
-import 'package:efaturamobileapp/para/kasalar/alt_basliklar/eur_kasa.dart';
-import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tl_kasa.dart';
-import 'package:efaturamobileapp/para/kasalar/alt_basliklar/usd_kasa.dart';
+import 'package:efaturamobileapp/para/kasalar/screens/secilen_kasa_screen.dart';
 import 'package:efaturamobileapp/para_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -493,17 +490,17 @@ class GenelBakisScreen extends StatelessWidget {
                 Kasa(
                   birim: "TL Kasası",
                   text: "₺ 0,00",
-                  route: const TLKasaScreen(),
+                  route: KasaScreen(appBarBaslik: "TL Kasası"),
                 ),
                 Kasa(
                   birim: "EUR Kasası",
                   text: "€ 0,00",
-                  route: const EURKasaScreen(),
+                  route: KasaScreen(appBarBaslik: "EUR Kasası"),
                 ),
                 Kasa(
                   birim: "USD Kasası",
                   text: "\$ 0,00",
-                  route: const USDKasaScreen(),
+                  route: KasaScreen(appBarBaslik: "USD Kasası"),
                 ),
               ],
             ),

@@ -1,4 +1,3 @@
-import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
 import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
 import 'package:efaturamobileapp/islemler/components/urun_ekle_border_save_animasyonsuz_altin.dart';

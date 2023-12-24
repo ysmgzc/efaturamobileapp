@@ -1,7 +1,7 @@
 import 'package:efaturamobileapp/bottom_app_bar_design.dart';
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/custom_pop_menu.dart';
-import 'package:efaturamobileapp/para/nakit_durumu.dart';
+import 'package:efaturamobileapp/para/nakit_durumu_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:efaturamobileapp/text_field_decoration.dart';
 import 'package:get/get.dart';

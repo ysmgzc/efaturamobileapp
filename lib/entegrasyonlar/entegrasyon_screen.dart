@@ -1,4 +1,3 @@
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/entegrasyonlar/yengec.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

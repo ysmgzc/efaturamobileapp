@@ -5,7 +5,6 @@ import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dar
 import 'package:efaturamobileapp/islemler/components/sliding_widget.dart';
 import 'package:efaturamobileapp/islemler/components/urun_ekle_border_save_animasyonsuz_altin.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class FormScreenSaveAltin extends StatefulWidget {
   String appBarBaslik;

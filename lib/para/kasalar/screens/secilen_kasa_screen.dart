@@ -1,5 +1,4 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/odeme_ekle.dart';
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/para_transferi.dart';
 import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tahsilat_ekle.dart';
@@ -7,20 +6,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
 
-class USDKasaScreen extends StatefulWidget {
-  const USDKasaScreen({super.key});
+class KasaScreen extends StatefulWidget {
+  String appBarBaslik;
+  KasaScreen({super.key, required this.appBarBaslik});
 
   @override
-  State<USDKasaScreen> createState() => _USDKasaScreenState();
+  State<KasaScreen> createState() => _KasaScreenState();
 }
 
-class _USDKasaScreenState extends State<USDKasaScreen> {
+class _KasaScreenState extends State<KasaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          ' USD KASASI',
+        title: Text(
+          widget.appBarBaslik,
         ),
       ),
       backgroundColor: Colors.white,

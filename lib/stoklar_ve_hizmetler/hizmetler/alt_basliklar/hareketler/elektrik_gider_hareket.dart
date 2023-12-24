@@ -1,5 +1,4 @@
 import 'package:efaturamobileapp/container_widget.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/satislar/satis_faturasi/secenekler/satisfaturasidetayliarama.dart';
 import 'package:flutter/material.dart';
 

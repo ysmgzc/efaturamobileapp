@@ -1,15 +1,9 @@
-import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
 import 'package:efaturamobileapp/islemler/components/dropdownmenu_widget.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
-import 'package:efaturamobileapp/screens/form_screen_ekle.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../active_switch.dart';
-import '../../../bottom_app_bar_design.dart';
 import '../../../constants.dart';
-import '../../../custom_pop_menu.dart';
-import '../../../text_field_decoration.dart';
 
 class TekstilHammaddeEkle extends StatefulWidget {
   const TekstilHammaddeEkle({Key? key}) : super(key: key);

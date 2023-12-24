@@ -9,7 +9,6 @@ import 'package:efaturamobileapp/para/kasalar/alt_basliklar/tahsilat_ekle.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
 import '../../../../../siralama_islemi_widget.dart';

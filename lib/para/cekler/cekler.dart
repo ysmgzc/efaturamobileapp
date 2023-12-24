@@ -1,4 +1,8 @@
+import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
+import 'package:efaturamobileapp/islemler/components/custom_container_widget.dart';
+import 'package:efaturamobileapp/islemler/components/custom_row_widget.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/para/cekler/cek_cikisi/cek_cikisi_ekle.dart';
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_cirolama.dart';
 import 'package:efaturamobileapp/para/cekler/cek_girisi/cek_girisi_ekle.dart';
@@ -53,36 +57,26 @@ class _CeklerScreenState extends State<CeklerScreen> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-            vertical: screenHeight * 0.01,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.015,
-              ),
-              const SearchField(),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              ),
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(5.0),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 0),
-                      blurRadius: 20,
-                      color: Colors.grey.shade300,
-                    ),
-                  ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.05,
                 ),
+                child: const SearchField()),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            CustomRowWidget(
+              optionIds: [3, 4, 5, 6, 7, 8],
+              destinationWidget: CeklerDetayliArama(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8),
+              child: CustomContainerWidget(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
                 child: Column(
                   children: [
                     CustomInkWell(
@@ -161,8 +155,8 @@ class _CeklerScreenState extends State<CeklerScreen> {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: Padding(
@@ -222,15 +216,15 @@ class CustomInkWell extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(companyName,
-                    style: const TextStyle(color: Colors.black, fontSize: 16)),
+                    style: const TextStyle(color: Colors.black, fontSize: 14)),
                 Text(status,
-                    style: const TextStyle(color: Colors.black, fontSize: 16)),
+                    style: const TextStyle(color: Colors.black, fontSize: 14)),
                 Text(number,
-                    style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                    style: const TextStyle(color: Colors.grey, fontSize: 12)),
                 Text(date,
-                    style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                    style: const TextStyle(color: Colors.grey, fontSize: 12)),
                 Text(chequeType,
-                    style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                    style: const TextStyle(color: Colors.grey, fontSize: 12)),
               ],
             ),
             Align(
@@ -239,12 +233,12 @@ class CustomInkWell extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(dueDate,
-                      style: const TextStyle(color: Colors.grey, fontSize: 14)),
+                      style: const TextStyle(color: Colors.grey, fontSize: 12)),
                   Text(amount,
                       style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16)),
+                          fontSize: 14)),
                 ],
               ),
             ),

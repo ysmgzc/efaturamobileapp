@@ -2,9 +2,6 @@
 
 import 'package:efaturamobileapp/active_switch.dart';
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/islemler/altin/altin_screen.dart';
-import 'package:efaturamobileapp/islemler/altin/tahsilat%20_ekle_altin.dart';
-import 'package:efaturamobileapp/islemler/altin/tahsilat_sec_screen.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/islemler/components/rectangle_button_widget.dart';
 import 'package:efaturamobileapp/islemler/components/urun_ekle_border_save_animasyonsuz_altin.dart';

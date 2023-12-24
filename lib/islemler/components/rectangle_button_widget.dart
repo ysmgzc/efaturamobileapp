@@ -1,5 +1,4 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/islemler/altin/tahsilat_sec_screen.dart';
 import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

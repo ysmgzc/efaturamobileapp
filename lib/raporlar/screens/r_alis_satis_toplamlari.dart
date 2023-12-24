@@ -1,5 +1,6 @@
 import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/raporlar/r_alis_satis_toplamlari/alissatistoplamlaridetayliarama.dart';
+import 'package:efaturamobileapp/islemler/components/custom_container_widget.dart';
+import 'package:efaturamobileapp/raporlar/components/alissatistoplamlaridetayliarama.dart';
 import 'package:flutter/material.dart';
 import '../../bottom_show_dialog_widget.dart';
 import '../../drawer_bar.dart';
@@ -64,22 +65,11 @@ class _RAlisSatisToplamlariScreenState
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(5.0),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 0),
-                      blurRadius: 20,
-                      color: Colors.grey.shade300,
-                    ),
-                  ],
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 25, right: 25),
+              Padding(
+                padding: const EdgeInsets.only(top: 15, left: 8, right: 8),
+                child: CustomContainerWidget(
+                  screenWidth: screenWidth,
+                  screenHeight: screenHeight,
                   child: Column(
                     children: [
                       SizedBox(

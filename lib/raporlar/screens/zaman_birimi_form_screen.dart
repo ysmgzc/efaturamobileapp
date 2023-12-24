@@ -1,10 +1,10 @@
 import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
-import 'package:efaturamobileapp/raporlar/alis_ozeti_rapor_icerigi_widget.dart';
+import 'package:efaturamobileapp/raporlar/components/alis_ozeti_rapor_icerigi_widget.dart';
 import 'package:efaturamobileapp/stoklar_ve_hizmetler/urunler/urun_ekle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../satis_ozeti_rapor_icerigi_widget.dart';
+import '../components/satis_ozeti_rapor_icerigi_widget.dart';
 
 class ZamanBirimiFormScreen extends StatefulWidget {
   String appBarZamanBirimiBaslik;

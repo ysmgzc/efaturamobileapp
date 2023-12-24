@@ -1,11 +1,17 @@
 import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
+import 'package:efaturamobileapp/constants.dart';
 import 'package:efaturamobileapp/container_widget.dart';
 import 'package:efaturamobileapp/giderler/hizmet_masraf_ekle.dart';
 import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/giderler/hizmet_masraf_save.dart';
 import 'package:efaturamobileapp/giderler/secenekler/giderlerdetayliarama.dart';
+import 'package:efaturamobileapp/islemler/components/custom_container_widget.dart';
+import 'package:efaturamobileapp/islemler/components/custom_row_widget.dart';
+import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
 import 'package:efaturamobileapp/search_field.dart';
+import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../bottom_show_dialog_widget.dart';
 import '../float_action_buton_widget.dart';
 import '../verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
@@ -74,36 +80,26 @@ class _GiderlerScreenState extends State<GiderlerScreen> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.05,
-            vertical: screenHeight * 0.01,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
-              ),
-              const SearchField(),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              ),
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(5.0),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: const Offset(0, 0),
-                      blurRadius: 20,
-                      color: Colors.grey.shade300,
-                    ),
-                  ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.05,
                 ),
+                child: const SearchField(text: "Buraya yazın...")),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            CustomRowWidget(
+              optionIds: [3, 4, 5, 6, 7, 8],
+              destinationWidget: GiderlerDetayliArama(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8),
+              child: CustomContainerWidget(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
                 child: const Column(
                   children: [
                     ContainerWidget(
@@ -117,14 +113,10 @@ class _GiderlerScreenState extends State<GiderlerScreen> {
                     ),
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
-      ),
-      bottomNavigationBar: const CustomBottomAppBarToplam(
-        firstText: "TOPLAM",
-        secondText: "₺1000",
       ),
       floatingActionButton: CustomFAB(
         isSpeedDial: false,

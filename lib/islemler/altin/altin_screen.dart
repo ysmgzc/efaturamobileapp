@@ -1,17 +1,15 @@
 import 'package:efaturamobileapp/alislar/alis_faturasi/secenekler/alisfaturasidetayliarama.dart';
-import 'package:efaturamobileapp/bottom_app_bar_widget_toplam.dart';
 import 'package:efaturamobileapp/bottom_show_dialog_widget.dart';
-import 'package:efaturamobileapp/constants.dart';
-import 'package:efaturamobileapp/container_widget_new.dart';
+import 'package:efaturamobileapp/islemler/components/container_widget_new.dart';
 import 'package:efaturamobileapp/float_action_buton_widget.dart';
 import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_altin.dart';
 import 'package:efaturamobileapp/islemler/altin/form_screen_ekle_save_altin.dart';
-import 'package:efaturamobileapp/islemler/components/icon_widget.dart';
+import 'package:efaturamobileapp/islemler/components/custom_container_widget.dart';
+import 'package:efaturamobileapp/islemler/components/custom_row_widget.dart';
 import 'package:efaturamobileapp/search_field.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:efaturamobileapp/verileri_disa_aktar/alt_basliklar/yeni_rapor.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class AltinFormScreen extends StatefulWidget {
   String appBarBaslik;
@@ -109,70 +107,15 @@ class _AltinFormScreenState extends State<AltinFormScreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CircleIconAltin(
-                  leftText: "Sırala",
-                  iconData: 'assets/icons/newicon/expandicon.png',
-                  iconColor: color6,
-                  rightpadding: 0,
-                  color: color8,
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return SiralamaIslemi(
-                          onSort: (sortedItems) {},
-                          optionIds: const [3, 4, 5, 6, 7, 8],
-                        );
-                      },
-                    );
-                  },
-                ),
-                CircleIconAltin(
-                  leftText: "Filtre",
-                  iconData: 'assets/icons/newicon/filtreicon.png',
-                  iconColor: color6,
-                  rightpadding: 0,
-                  color: color8,
-                  onPressed: () {
-                    Get.to(
-                      const AlisFaturasiDetayliArama(),
-                    );
-                  },
-                ),
-                CircleIconAltin(
-                  rightText: "Tarih Aralığı",
-                  iconData: 'assets/icons/newicon/aramatakvimicon.png',
-                  iconColor: color6,
-                  rightpadding: 0,
-                  iconpadding: 0,
-                  color: color8,
-                  onPressed: () {},
-                ),
-              ],
+            CustomRowWidget(
+              optionIds: [3, 4, 5, 6, 7, 8],
+              destinationWidget: AlisFaturasiDetayliArama(),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8, right: 8),
-              child: Container(
-                width: screenWidth,
-                height: screenHeight,
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth * 0.03,
-                  vertical: screenHeight * 0.01,
-                ),
-                decoration: BoxDecoration(
-                  color: color8,
-                  border: Border.all(
-                    color: color6,
-                    width: 1.0,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                ),
+              child: CustomContainerWidget(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
                 child: Column(
                   children: [
                     ContainerWidgetNew(

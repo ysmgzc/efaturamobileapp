@@ -1,5 +1,4 @@
 import 'package:efaturamobileapp/container_widget.dart';
-import 'package:efaturamobileapp/drawer_bar.dart';
 import 'package:efaturamobileapp/interaktif_vergi_dairesi/interaktifvergidairesidetayliarama.dart';
 import 'package:efaturamobileapp/siralama_islemi_widget.dart';
 import 'package:flutter/material.dart';

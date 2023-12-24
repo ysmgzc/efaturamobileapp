@@ -6,7 +6,7 @@ import 'package:efaturamobileapp/islemler/components/tarih_widget.dart';
 import 'package:efaturamobileapp/islemler/components/texfield_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../person_image_border.dart';
-import '../../nakit_durumu.dart';
+import '../../nakit_durumu_screen.dart';
 
 class CekGirisiEkle extends StatefulWidget {
   const CekGirisiEkle({Key? key}) : super(key: key);

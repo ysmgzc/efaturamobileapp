@@ -16,7 +16,7 @@ class CustomDropdownButton extends StatefulWidget {
     required this.text,
     required this.findText,
     this.width = 0.29,
-    this.height = 0.073,
+    this.height = 0.08,
     this.onChanged,
     this.selectedValue,
   });
@@ -75,7 +75,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                     },
               buttonStyleData: ButtonStyleData(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(10),
                   border: Border.all(
                     color: color6,
                   ),
@@ -86,8 +86,15 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 iconEnabledColor: color6,
                 iconDisabledColor: color6,
               ),
-              dropdownStyleData: const DropdownStyleData(
-                maxHeight: 200,
+              dropdownStyleData: DropdownStyleData(
+                maxHeight: screenHeight * widget.height,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: color6,
+                  ),
+                  color: color8,
+                ),
               ),
               menuItemStyleData: const MenuItemStyleData(
                 height: 40,
